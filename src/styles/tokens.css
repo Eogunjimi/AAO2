@@ -47,6 +47,8 @@
 
   /* ----- layout ----- */
   --container-max: 1180px;
+  /* Height of a full-bleed card in the mobile rails (services, work). */
+  --mobile-card-height: clamp(440px, 74vh, 620px);
   --container-gutter: 24px;
   --header-height: 74px;
 

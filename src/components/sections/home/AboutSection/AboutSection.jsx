@@ -1,9 +1,9 @@
 import { Container, Eyebrow, Reveal, Section } from '@/components/ui';
-import { company, promises } from '@/data/company';
+import { company } from '@/data/company';
 
 import styles from './AboutSection.module.css';
 
-/** Company story plus the three AAO promises. */
+/** Company story, paired with a portrait of the team at work. */
 export function AboutSection() {
   return (
     <Section id="about" tone="dark" aria-labelledby="about-title">
@@ -37,15 +37,20 @@ export function AboutSection() {
               almost right isn’t good enough.
             </p>
             <p>That’s why every AAO project is built around three promises:</p>
+            <p className={styles.motto}>{company.tagline}</p>
           </Reveal>
 
-          <Reveal as="ul" className={styles.promises} delay={100}>
-            {promises.map((promise) => (
-              <li key={promise.id} className={styles.promise}>
-                <b>{promise.title}</b>
-                <span>{promise.description}</span>
-              </li>
-            ))}
+          <Reveal className={styles.media} delay={100}>
+            <figure className={styles.figure}>
+              <img
+                src="/images/about-engineer.jpg"
+                alt={`An ${company.shortName} engineer testing a household inverter and distribution board with a multimeter`}
+                loading="lazy"
+                decoding="async"
+                width="922"
+                height="1152"
+              />
+            </figure>
           </Reveal>
         </div>
       </Container>

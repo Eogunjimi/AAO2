@@ -37,8 +37,9 @@
   display: none;
 }
 
+/* Three cards fill the container exactly; the rail bleeds past both edges. */
 .card {
-  flex: 0 0 300px;
+  flex: 0 0 calc((100% - 2 * 1.4rem) / 3);
   background: var(--color-surface);
   color: var(--color-ink);
   border-radius: 14px;
@@ -107,4 +108,32 @@
   color: var(--color-ember);
   font-size: 0.84rem;
   letter-spacing: var(--tracking-wide);
+}
+
+@media (max-width: 900px) {
+  .row {
+    margin-top: 2.6rem;
+    gap: 1rem;
+  }
+
+  /* Two per view on tablets… */
+  .card {
+    flex-basis: calc((100% - 1rem) / 2);
+  }
+}
+
+@media (max-width: 620px) {
+  .head {
+    gap: 0.8rem;
+  }
+
+  /* …and exactly one per view on phones, with a firm snap. */
+  .row {
+    scroll-snap-type: x mandatory;
+  }
+
+  .card {
+    flex-basis: 100%;
+    scroll-snap-align: center;
+  }
 }

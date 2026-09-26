@@ -1,5 +1,12 @@
 .slider {
   position: relative;
+  /*
+   * Shape comes from `--slider-ratio` (set by the component). A consumer can
+   * set `--slider-height` — at a breakpoint, say — to drive the height
+   * directly instead, which then wins over the ratio.
+   */
+  aspect-ratio: var(--slider-ratio, 4 / 3);
+  height: var(--slider-height, auto);
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);

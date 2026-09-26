@@ -36,7 +36,7 @@ export function ImageSlider({
     <div
       ref={viewportRef}
       className={cn(styles.slider, className)}
-      style={{ aspectRatio: ratio }}
+      style={{ '--slider-ratio': ratio }}
       role="group"
       aria-roledescription="carousel"
       aria-label={label}
