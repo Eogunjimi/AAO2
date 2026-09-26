@@ -8,11 +8,12 @@
 }
 
 /*
- * The 16/7.5 letterbox collapses to a sliver on a phone, so the slider takes
- * the same height as a service card instead of a ratio.
+ * The 16/7.5 letterbox collapses to a sliver on a phone, so the slider swaps
+ * to a fixed height instead of a ratio. Kept under ~42vh so the heading, the
+ * slide and the CTA still land on one screen.
  */
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .slider {
-    --slider-height: var(--mobile-card-height);
+    --slider-height: clamp(240px, 42vh, 360px);
   }
 }
