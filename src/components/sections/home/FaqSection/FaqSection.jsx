@@ -7,17 +7,17 @@ import styles from './FaqSection.module.css';
 /** Home page FAQ list. */
 export function FaqSection() {
   return (
-    <Section id="faq" aria-labelledby="faq-title">
+    <Section id="faq" tone="wash" aria-labelledby="faq-title">
       <Container>
         <SectionHeading
           id="faq-title"
           align="center"
           eyebrow="FAQ"
-          title="Got questions? We’ve got answers."
+          title="Got Questions? We’ve Got Answers."
         />
 
         <Reveal>
-          <Accordion items={generalFaqs} />
+          <Accordion items={generalFaqs} defaultOpenId={generalFaqs[0].id} />
         </Reveal>
 
         <Reveal className={styles.footer}>

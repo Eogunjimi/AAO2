@@ -58,30 +58,15 @@ export const generalFaqs = [
   },
 ];
 
-/** Appended after the service-specific question on every service page. */
-export const serviceFaqs = [
-  {
-    id: 'svc-original-products',
-    question: 'Do you use original products?',
-    answer:
-      'Yes. We prioritize original, quality products backed by warranty to give you greater reliability and peace of mind.',
+/**
+ * Appended after the service-specific question on every service page.
+ *
+ * Derived from the list above so the answers can never drift apart; the `svc-`
+ * prefix keeps the generated element ids unique when both lists are rendered.
+ */
+export const serviceFaqs = ['original-products', 'inspection', 'payment-plans', 'after-sales'].map(
+  (id) => {
+    const faq = generalFaqs.find((entry) => entry.id === id);
+    return { ...faq, id: `svc-${faq.id}` };
   },
-  {
-    id: 'svc-inspection',
-    question: 'Do you offer free site inspections?',
-    answer:
-      'Yes. AAO Engineering Services offers free site inspections to assess your property and determine the right solution for your needs.',
-  },
-  {
-    id: 'svc-payment-plans',
-    question: 'Do you offer flexible payment plans?',
-    answer:
-      'Yes. Flexible payment options are available. Contact us to discuss the options available for your project.',
-  },
-  {
-    id: 'svc-after-sales',
-    question: 'Do you offer after-sales support?',
-    answer:
-      'Yes. Our service continues after installation with responsive after-sales support, troubleshooting, and maintenance when needed.',
-  },
-];
+);

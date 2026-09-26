@@ -49,7 +49,8 @@ export function Accordion({ items, allowMultiple = false, defaultOpenId, classNa
               >
                 <span>{item.question}</span>
                 <span className={styles.indicator} aria-hidden="true">
-                  +
+                  <span className={styles.indicatorBar} />
+                  <span className={cn(styles.indicatorBar, styles.indicatorBarVertical)} />
                 </span>
               </button>
             </h3>
