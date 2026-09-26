@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solara — Residential Solar Installation Across Nigeria</title>
+<meta name="description" content="Solar that's easy, efficient and stress-free. Premium panels, batteries and white-glove installation — designed, installed and supported by one trusted team.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='%230b0b0c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b0b0c;
+  --gray:#5c6066;
+  --soft:#8a8f96;
+  --line:#e9e9e6;
+  --paper:#ffffff;
+  --wash:#f6f6f4;
+  --dark:#101012;
+  --card-dark:#1b1b1e;
+  --star:#f5b301;
+  --r:18px;
+  --disp:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --body:'Inter', system-ui, -apple-system, sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ink);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.08}
+
+/* buttons */
+.pill{display:inline-flex;align-items:center;gap:.6rem;border-radius:999px;background:var(--ink);color:#fff;border:none;font-family:var(--body);font-weight:600;font-size:.82rem;letter-spacing:.04em;padding:1rem 1.8rem;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,background .3s}
+.pill:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(11,11,12,.22)}
+.pill.light{background:#fff;color:var(--ink)}
+.pill.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.75);color:#fff}
+.pill.ghost:hover{background:rgba(255,255,255,.12);box-shadow:none}
+.pill.ghost.dark{border-color:var(--line);color:var(--ink)}
+.play-ic{width:30px;height:30px;border-radius:50%;background:#fff;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:.6rem}
+.pill.light .play-ic{background:var(--ink);color:#fff}
+
+/* header */
+header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+header.scrolled{border-color:var(--line);box-shadow:0 6px 24px rgba(11,11,12,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:.5rem;font-family:var(--disp);font-weight:800;font-size:1.35rem;letter-spacing:-.02em}
+.logo i{width:11px;height:11px;border-radius:50%;background:var(--star);display:inline-block}
+.nav-links{display:flex;gap:2rem;font-size:.86rem;font-weight:500;color:#3c3f44}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav .pill{padding:.72rem 1.4rem}
+#menuBtn{display:none;background:none;border:none;width:40px;height:40px;position:relative}
+#menuBtn i,#menuBtn i::before,#menuBtn i::after{content:"";position:absolute;left:50%;width:20px;height:2px;background:var(--ink);transform:translateX(-50%)}
+#menuBtn i{top:50%}#menuBtn i::before{top:-6px}#menuBtn i::after{top:6px}
+.mnav{display:none;background:#fff;border-bottom:1px solid var(--line);padding:1rem 24px 1.6rem;flex-direction:column;gap:.4rem}
+.mnav a{padding:.6rem 0;font-weight:600;border-bottom:1px solid var(--wash)}
+body.menu-open .mnav{display:flex}
+@media (max-width:940px){.nav-links,.nav .pill{display:none}#menuBtn{display:block}}
+
+/* hero */
+.hero{position:relative;min-height:min(88vh,780px);display:flex;align-items:center;overflow:hidden;color:#fff}
+.hero-media{position:absolute;inset:0}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,8,10,.78) 8%,rgba(8,8,10,.35) 55%,rgba(8,8,10,.15) 100%)}
+.hero-inner{position:relative;z-index:2;padding:6rem 0}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.4rem);font-weight:800;max-width:15ch}
+.hero p{margin:1.4rem 0 2.2rem;max-width:52ch;color:rgba(255,255,255,.85);font-size:1.02rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* trust */
+.trust{padding:6.5rem 0 5rem;text-align:center}
+.trust h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:800;max-width:24ch;margin:0 auto}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:4rem;text-align:left}
+.stat b{display:flex;align-items:baseline;gap:.4rem;font-family:var(--disp);font-weight:800;font-size:clamp(1.7rem,3vw,2.4rem);letter-spacing:-.02em}
+.stat b .st{color:var(--star);font-size:.7em}
+.stat span{display:block;margin-top:.5rem;color:var(--gray);font-size:.85rem}
+@media (max-width:940px){.stats{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.stats{grid-template-columns:1fr}}
+
+/* reviews masonry */
+.reviews{padding:0 0 6rem}
+.masonry{columns:3 300px;column-gap:1.4rem}
+.rcard{break-inside:avoid;margin-bottom:1.4rem;border:1px solid var(--line);border-radius:var(--r);background:#fff;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.rcard:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(11,11,12,.1)}
+.rcard .body{padding:1.6rem 1.5rem}
+.stars{color:var(--star);letter-spacing:.14em;font-size:.85rem;margin-bottom:.9rem}
+.rcard q{display:block;quotes:none;font-weight:600;font-size:.98rem;line-height:1.5;letter-spacing:-.01em}
+.rcard .who{margin-top:1.1rem;display:flex;align-items:center;gap:.7rem;font-size:.8rem;color:var(--gray)}
+.rcard .who i{width:30px;height:30px;border-radius:50%;background:var(--wash);display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-weight:700;color:var(--ink);font-size:.7rem}
+.vcard{position:relative;aspect-ratio:4/4.6;overflow:hidden}
+.vcard img{transition:transform 1.2s var(--ease)}
+.rcard:hover .vcard img{transform:scale(1.05)}
+.vplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;transition:transform .3s}
+.rcard:hover .vplay{transform:translate(-50%,-50%) scale(1.1)}
+.vplay::after{content:"";border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent var(--ink);margin-left:3px}
+.vcap{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1.3rem 1.1rem;color:#fff;font-size:.82rem;font-weight:600;background:linear-gradient(to top,rgba(8,8,10,.8),transparent)}
+
+/* photo band */
+.band{height:min(56vh,520px)}
+.band img{filter:saturate(.96)}
+
+/* carousel */
+.homes{padding:6.5rem 0}
+.split{display:flex;justify-content:space-between;align-items:flex-end;gap:2.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.split h2{font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:800;max-width:20ch}
+.split p{max-width:38ch;color:var(--gray);font-size:.95rem}
+.carousel{position:relative;border-radius:24px;overflow:hidden}
+.car-track{display:flex;transition:transform .8s var(--ease)}
+.slide{min-width:100%;position:relative;aspect-ratio:16/8.2}
+.slide figcaption{position:absolute;left:22px;bottom:22px;background:rgba(11,11,12,.82);color:#fff;border-radius:12px;padding:.7rem 1.2rem;font-size:.82rem;font-weight:600;backdrop-filter:blur(4px)}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:none;background:rgba(255,255,255,.94);cursor:pointer;font-size:1.05rem;display:flex;align-items:center;justify-content:center;transition:transform .3s;z-index:3}
+.car-btn:hover{transform:translateY(-50%) scale(1.08)}
+.car-btn.prev{left:18px}.car-btn.next{right:18px}
+.dots{display:flex;gap:.5rem;justify-content:center;margin-top:1.4rem}
+.dots button{width:8px;height:8px;border-radius:50%;border:none;background:#d6d6d2;cursor:pointer;transition:all .3s}
+.dots button.on{background:var(--ink);width:22px;border-radius:99px}
+
+/* why dark */
+.why{background:var(--dark);color:#fff;padding:7rem 0}
+.why-head{display:flex;justify-content:space-between;gap:3rem;align-items:flex-end;flex-wrap:wrap}
+.why-head h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800;max-width:18ch}
+.why-head p{max-width:40ch;color:rgba(255,255,255,.6);font-size:.95rem}
+.why-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;margin-top:4.5rem;padding-top:3.5rem;border-top:1px solid rgba(255,255,255,.14)}
+.why-item .ic{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
+.why-item .ic svg{width:22px;height:22px;stroke:#fff}
+.why-item h3{font-size:1.2rem;font-weight:700;margin-bottom:.7rem}
+.why-item p{color:rgba(255,255,255,.6);font-size:.9rem}
+.why-item ul{list-style:none;margin-top:.2rem;columns:2;gap:1.5rem}
+.why-item li{color:rgba(255,255,255,.7);font-size:.88rem;padding:.28rem 0;border-bottom:1px dashed rgba(255,255,255,.12)}
+@media (max-width:940px){.why-grid{grid-template-columns:1fr}}
+
+/* difference */
+.diff{padding:7rem 0 3rem}
+.diff .split h2{max-width:22ch}
+
+/* dark feature rows */
+.features{padding:2rem 0 7rem}
+.frow{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center;background:var(--card-dark);color:#fff;border-radius:24px;padding:3rem;margin-bottom:1.6rem}
+.frow .num{font-size:.72rem;letter-spacing:.22em;color:rgba(255,255,255,.45);font-weight:600}
+.frow h3{font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:800;margin:.9rem 0 1rem;max-width:20ch}
+.frow p{color:rgba(255,255,255,.6);font-size:.94rem;max-width:52ch}
+.frow .ph{border-radius:16px;overflow:hidden;aspect-ratio:4/3}
+@media (max-width:940px){.frow{grid-template-columns:1fr;padding:2rem}}
+
+/* guides */
+.guides{background:var(--wash);padding:6.5rem 0}
+.guides h2{text-align:center;font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:800}
+.guides .sub{text-align:center;color:var(--gray);max-width:52ch;margin:1rem auto 3.5rem;font-size:.95rem}
+.g-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.gcard{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.gcard:hover{transform:translateY(-6px);box-shadow:0 20px 46px rgba(11,11,12,.1)}
+.gcard .ph{aspect-ratio:16/9;overflow:hidden}
+.gcard .ph img{transition:transform 1.2s var(--ease)}
+.gcard:hover .ph img{transform:scale(1.06)}
+.gcard .body{padding:1.6rem 1.5rem 1.8rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.gcat{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.gcard h3{font-size:1.25rem;font-weight:700;flex:1}
+.glink{font-size:.8rem;font-weight:700;display:inline-flex;gap:.4rem;align-items:center}
+.glink::after{content:"→";transition:transform .3s}
+.gcard:hover .glink::after{transform:translateX(5px)}
+@media (max-width:940px){.g-grid{grid-template-columns:1fr}}
+
+/* quote */
+.quote{padding:7rem 0}
+.quote-box{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.quote-box h2{font-size:clamp(2rem,4vw,3rem);font-weight:800}
+.quote-box .lead{color:var(--gray);margin-top:1rem;max-width:44ch}
+form.qform{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.qform input,.qform select{border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;font-family:var(--body);font-size:.92rem;background:#fff;color:var(--ink);outline:none;transition:border-color .2s}
+.qform input:focus,.qform select:focus{border-color:var(--ink)}
+.qform .full{grid-column:1/-1}
+.qform .pill{justify-content:center}
+.qok{display:none;background:var(--wash);border:1px solid var(--line);border-radius:var(--r);padding:2.5rem;text-align:center}
+.qok.show{display:block}
+.qok b{font-family:var(--disp);font-size:1.4rem;font-weight:800;display:block;margin-bottom:.6rem}
+.qok p{color:var(--gray);font-size:.92rem}
+@media (max-width:940px){.quote-box{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--dark);color:#fff;padding:5rem 0 2rem}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+.f-brand p{color:rgba(255,255,255,.55);max-width:30ch;margin-top:1rem;font-size:.9rem}
+.f-col h4{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.2rem}
+.f-col a{display:block;color:rgba(255,255,255,.75);font-size:.88rem;padding:.3rem 0;transition:color .2s,transform .2s}
+.f-col a:hover{color:#fff;transform:translateX(4px)}
+.f-legal{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:4rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.12);font-size:.72rem;color:rgba(255,255,255,.4)}
+@media (max-width:940px){.f-grid{grid-template-columns:1fr 1fr}}
+
+/* reveal */
+[data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a class="logo" href="#top"><i></i>solara</a>
+    <nav class="nav-links">
+      <a href="#why">Why Solar</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#homes">Our Work</a>
+      <a href="#guides">Guides</a>
+      <a href="#difference">Company</a>
+    </nav>
+    <a class="pill" href="#quote">Get My Quote</a>
+    <button id="menuBtn" aria-label="Menu"><i></i></button>
+  </div>
+  <div class="mnav">
+    <a href="#why">Why Solar</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#homes">Our Work</a>
+    <a href="#guides">Guides</a>
+    <a href="#difference">Company</a>
+    <a href="#quote" class="pill" style="justify-content:center;margin-top:.8rem">Get My Quote</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-media"><img src="images/ion-hero.jpg" alt="Installers carrying a solar panel across a rooftop"></div>
+  <div class="wrap hero-inner">
+    <h1>Residential Solar Installation Across Nigeria.</h1>
+    <p>Join 1,200+ households already producing their own clean power. Premium panels, silent batteries and a white-glove install — handled by one trusted team from first call to final switch.</p>
+    <div class="hero-cta">
+      <a class="pill light" href="#quote">Get My Quote</a>
+      <a class="pill ghost" href="#difference"><span class="play-ic">▶</span> See what we're really about</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <h2 data-reveal>Solar that's easy, efficient, and stress-free</h2>
+    <div class="stats" data-reveal>
+      <div class="stat"><b>4.9 <span class="st">★</span></b><span>Average rating from 850+ verified customer reviews</span></div>
+      <div class="stat"><b>A+</b><span>Accredited installer — NEMSA &amp; COREN certified engineers</span></div>
+      <div class="stat"><b>Top 3</b><span>Ranked among the nation's leading solar companies</span></div>
+      <div class="stat"><b>1,200+</b><span>Homes powered across ten states and counting</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="masonry">
+      <div class="rcard" data-reveal><div class="vcard"><img src="images/warm-living.jpg" alt="Customer video thumbnail"><span class="vplay"></span><div class="vcap">“Our generator hasn't started since March.” — The Okonkwo family, Lekki</div></div></div>
+      <div class="rcard" data-reveal><div class="body"><div class="stars">★★★★★</div><q>Transparent from the first call. They sized the system from our actual bills, not a sales script — and the final number matched the quote to the naira.</q><div class="who"><i>AB</i> Mrs. A. Bakare — Banana Island</div></div></div>
+      <div class="rcard" data-reveal><div class="body"><div class="stars">★★★★★</div><q>Honestly never seen this level of professionalism from a Nigerian vendor. Crews arrived on time, wore soft soles indoors, and left the roof cleaner than they met it.</q><div class="who"><i>TO</i> T. Okonkwo — Ikoyi</div></div></div>
+      <div class="rcard" data-reveal><div class="vcard"><img src="images/project-villa.jpg" alt="Customer video thumbnail"><span class="vplay"></span><div class="vcap">“It feels less like hardware, more like jewellery.” — L. Fernandez, Lekki Phase 1</div></div></div>
+      <div class="rcard" data-reveal><div class="body"><div class="stars">★★★★★</div><q>Three outages last week, we noticed none of them. The battery just… works. Best decision we've made on this house.</q><div class="who"><i>LF</i> L. Fernandez — Lekki</div></div></div>
+      <div class="rcard" data-reveal><div class="body"><div class="stars">★★★★★</div><q>The design team sat with our architect so the panels wouldn't spoil the roofline. That conversation won us over before the price even came up.</q><div class="who"><i>EA</i> Engr. E. Adeyemi — Epe</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<div class="band"><img src="images/project-commercial.jpg" alt="Solar array from above"></div>
+
+<!-- HOMES CAROUSEL -->
+<section class="homes" id="homes">
+  <div class="wrap">
+    <div class="split" data-reveal>
+      <h2>Beautiful, modern, sleek &amp; powerful</h2>
+      <p>This is not your cousin's generator setup. Every system is drawn to disappear into the architecture — and built to outlast it.</p>
+    </div>
+    <div class="carousel" data-reveal>
+      <div class="car-track" id="carTrack">
+        <figure class="slide"><img src="images/ion-home1.jpg" alt="Family home with solar roof"><figcaption>The Adeyemi's — Lekki · 18 kWp + 30 kWh</figcaption></figure>
+        <figure class="slide"><img src="images/ion-home2.jpg" alt="Modern bungalow with solar and battery"><figcaption>The Okonkwo's — Ikoyi · 12 kWp + 20 kWh</figcaption></figure>
+        <figure class="slide"><img src="images/warm-hero.jpg" alt="Hillside villa with solar roof at sunset"><figcaption>The Bello's — Epe · 24 kWp + 40 kWh</figcaption></figure>
+      </div>
+      <button class="car-btn prev" id="carPrev" aria-label="Previous">←</button>
+      <button class="car-btn next" id="carNext" aria-label="Next">→</button>
+    </div>
+    <div class="dots" id="carDots"></div>
+  </div>
+</section>
+
+<!-- WHY DARK -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="why-head" data-reveal>
+      <h2>Why thousands of Nigerian homes are switching to solar</h2>
+      <p>In 2025, solar + storage finally became the cheapest, calmest way to power a home. Here's the simple math we build on.</p>
+    </div>
+    <div class="why-grid" data-reveal>
+      <div class="why-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 21h12M12 3v4M12 17v4M9 7h6l1 10H8L9 7z"/></svg></div>
+        <h3>Pay the same amount every month</h3>
+        <p>On our fixed energy plans your rate never changes — no fuel-price surprises, no tariff hikes. Just a calm, predictable number while the sun does the work.</p>
+      </div>
+      <div class="why-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3M8 3.5h8"/></svg></div>
+        <h3>No upfront or out-of-pocket cost to switch</h3>
+        <p>Our 0% finance partners let you start saving from day one. Most customers pay less per month than their old fuel and tariff bills combined.</p>
+      </div>
+      <div class="why-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+        <h3>States we serve</h3>
+        <ul>
+          <li>Lagos</li><li>Ogun</li><li>Oyo</li><li>FCT Abuja</li><li>Rivers</li><li>Kaduna</li><li>Enugu</li><li>Anambra</li><li>Edo</li><li>Osun</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENCE -->
+<section class="diff" id="difference">
+  <div class="wrap split" data-reveal>
+    <h2>The Solara difference — premium products, design &amp; support</h2>
+    <p>We pair Tier-1 panels and batteries with in-house engineering and a control room that watches every system, every day. One team owns your roof from first sketch to year twenty-five.</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="wrap">
+    <div class="frow" data-reveal>
+      <div><span class="num">01</span><h3>Worry-free, done-for-you service</h3><p>From permits to paperwork to post-install care, one dedicated project manager handles everything. You approve the design; we handle the other 214 steps.</p></div>
+      <div class="ph"><img src="images/warm-craft.jpg" alt="Installer fitting a panel"></div>
+    </div>
+    <div class="frow" data-reveal>
+      <div><span class="num">02</span><h3>Thoughtful, modern design that's customized to your home</h3><p>No cookie-cutter layouts. Every array is modelled in 3D against your roofline, your shade and your taste — flush mounts, hidden conduit, clean sightlines.</p></div>
+      <div class="ph"><img src="images/warm-detail.jpg" alt="Flush solar tiles detail"></div>
+    </div>
+    <div class="frow" data-reveal>
+      <div><span class="num">03</span><h3>Full-service support before, during &amp; after installation</h3><p>Live monitoring, proactive maintenance visits and a 25-year performance warranty in writing. When you call, a human who knows your system answers.</p></div>
+      <div class="ph"><img src="images/project-villa.jpg" alt="Completed home installation at dusk"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDES -->
+<section class="guides" id="guides">
+  <div class="wrap">
+    <h2 data-reveal>Your guide to all things solar</h2>
+    <p class="sub" data-reveal>Plain-language guides written by our engineers — so you can decide with confidence, whatever you choose.</p>
+    <div class="g-grid">
+      <a class="gcard" href="#quote" data-reveal><div class="ph"><img src="images/warm-detail.jpg" alt="Solar tiles"></div><div class="body"><span class="gcat">Basics</span><h3>Solar + battery: how it actually works</h3><span class="glink">Get the guide</span></div></a>
+      <a class="gcard" href="#quote" data-reveal><div class="ph"><img src="images/ion-home1.jpg" alt="Home with solar"></div><div class="body"><span class="gcat">Planning</span><h3>Sizing your system right the first time</h3><span class="glink">Get the guide</span></div></a>
+      <a class="gcard" href="#quote" data-reveal><div class="ph"><img src="images/hero-solar.jpg" alt="Solar farm at dusk"></div><div class="body"><span class="gcat">Comparison</span><h3>Solar vs generator: the real 5-year math</h3><span class="glink">Get the guide</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote" id="quote">
+  <div class="wrap quote-box">
+    <div data-reveal>
+      <h2>Get my quote</h2>
+      <p class="lead">Two minutes now, one phone call later, and you'll know exactly what your roof can earn. No pressure, no spam — just numbers.</p>
+    </div>
+    <div data-reveal>
+      <form class="qform" id="qform">
+        <input class="full" type="text" placeholder="Full name" required>
+        <input type="tel" placeholder="Phone number" required>
+        <select required><option value="">State</option><option>Lagos</option><option>Ogun</option><option>Oyo</option><option>FCT Abuja</option><option>Rivers</option><option>Kaduna</option><option>Enugu</option><option>Anambra</option><option>Edo</option><option>Osun</option></select>
+        <select class="full" required><option value="">Average monthly energy spend</option><option>Under ₦80,000</option><option>₦80,000 – ₦200,000</option><option>₦200,000 – ₦500,000</option><option>₦500,000+</option></select>
+        <button class="pill full" type="submit">Get My Free Quote →</button>
+      </form>
+      <div class="qok" id="qok"><b>Thank you — you're in good hands.</b><p>A Solara designer will call you within 24 hours with your personalised system and quote.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="logo" href="#top" style="color:#fff"><i></i>solara</a>
+        <p>Residential solar, done beautifully. Designed, installed and supported by one trusted team.</p>
+      </div>
+      <div class="f-col"><h4>Company</h4><a href="#difference">About</a><a href="#reviews">Reviews</a><a href="#homes">Our Work</a><a href="#quote">Contact</a></div>
+      <div class="f-col"><h4>Resources</h4><a href="#guides">Guides</a><a href="#why">Why Solar</a><a href="#quote">Financing</a><a href="#quote">Warranty</a></div>
+      <div class="f-col"><h4>Contact</h4><a href="mailto:hello@solarahomes.com">hello@solarahomes.com</a><a href="tel:+234700765272">+234 (0) 700 SOLARA</a><a href="#">14B Admiralty Way, Lekki, Lagos</a><a href="concepts.html">Design studies ↗</a></div>
+    </div>
+    <div class="f-legal"><span>© 2026 Solara Homes Ltd. All rights reserved.</span><span>Privacy · Terms · NEMSA Certified</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+/* header */
+var header=document.getElementById("header");
+addEventListener("scroll",function(){header.classList.toggle("scrolled",scrollY>10);},{passive:true});
+document.getElementById("menuBtn").addEventListener("click",function(){document.body.classList.toggle("menu-open");});
+document.querySelectorAll(".mnav a").forEach(function(a){a.addEventListener("click",function(){document.body.classList.remove("menu-open");});});
+
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll("[data-reveal]").forEach(function(el){io.observe(el);});
+
+/* carousel */
+var track=document.getElementById("carTrack"),
+    slides=track.children.length,
+    dots=document.getElementById("carDots"),
+    idx=0,timer;
+for(var i=0;i<slides;i++){
+  var b=document.createElement("button");
+  b.setAttribute("aria-label","Slide "+(i+1));
+  (function(n){b.addEventListener("click",function(){go(n);reset();});})(i);
+  dots.appendChild(b);
+}
+function go(n){idx=(n+slides)%slides;track.style.transform="translateX(-"+idx*100+"%)";
+  var ds=dots.children;for(var j=0;j<slides;j++)ds[j].classList.toggle("on",j===idx);}
+function reset(){clearInterval(timer);timer=setInterval(function(){go(idx+1);},6000);}
+document.getElementById("carPrev").addEventListener("click",function(){go(idx-1);reset();});
+document.getElementById("carNext").addEventListener("click",function(){go(idx+1);reset();});
+go(0);reset();
+
+/* quote form */
+var form=document.getElementById("qform");
+form.addEventListener("submit",function(e){e.preventDefault();form.style.display="none";document.getElementById("qok").classList.add("show");});
+})();
+</script>
+</body>
+</html>
