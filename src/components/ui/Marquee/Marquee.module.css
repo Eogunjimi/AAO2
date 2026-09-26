@@ -1,0 +1,27 @@
+.viewport {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.pausable:hover .track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

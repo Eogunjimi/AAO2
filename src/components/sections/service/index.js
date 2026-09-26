@@ -1,0 +1,9 @@
+export { RelatedServices } from './RelatedServices';
+export { ServiceBenefits } from './ServiceBenefits';
+export { ServiceFaq } from './ServiceFaq';
+export { ServiceHero } from './ServiceHero';
+export { ServiceIntro } from './ServiceIntro';
+export { ServiceProcess } from './ServiceProcess';
+export { ServiceReviews } from './ServiceReviews';
+export { ServiceSigns } from './ServiceSigns';
+export { ServiceSwitcher } from './ServiceSwitcher';

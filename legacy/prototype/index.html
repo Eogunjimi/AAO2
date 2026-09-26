@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAO Engineering Services — Power & Security Solutions in Lagos</title>
+<meta name="description" content="Professionally designed solar, electrical, CCTV and security systems for homes and businesses that demand reliability. 200+ installations across Lagos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0b0c'/%3E%3Cpath d='M50 22L74 72H26z' fill='%23f5b301'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b0b0c; --gray:#5c6066; --soft:#8a8f96; --line:#e9e9e6; --wash:#f6f6f4;
+  --dark:#101012; --card-dark:#1b1b1e; --star:#f5b301; --volt:#ffd23f; --r:18px;
+  --font-display:'Manrope',system-ui,-apple-system,sans-serif;
+  --font-sans:'Inter',"Helvetica Neue",Arial,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  --disp:var(--font-display); --body:var(--font-sans);
+  --font-weight-light:300; --font-weight-normal:400; --font-weight-medium:500; --font-weight-semibold:600; --font-weight-bold:700; --font-weight-extrabold:800;
+  --tracking-tight:-0.025em; --tracking-normal:0em; --tracking-wide:0.025em; --tracking-eyebrow:0.16em;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ink);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:var(--tracking-tight);line-height:1.08;font-weight:var(--font-weight-extrabold)}
+.k{font-size:.7rem;font-weight:var(--font-weight-semibold);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--soft)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border-radius:14px;background:var(--ink);color:#fff;border:none;font-family:var(--font-sans);font-weight:var(--font-weight-bold);letter-spacing:var(--tracking-wide);font-size:.95rem;min-height:52px;padding:.9rem 1.9rem;cursor:pointer;transition:transform .22s var(--ease),box-shadow .22s var(--ease),background .22s}
+.pill:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(11,11,12,.22)}
+.pill:active{transform:translateY(0) scale(.97);box-shadow:0 6px 16px rgba(11,11,12,.18)}
+.pill:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.pill.volt{background:var(--volt);color:var(--ink)}
+.pill.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.pill.ghost:hover{border-color:var(--ink);box-shadow:none}
+
+/* header */
+header{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar{background:var(--ink);color:#fff;font-size:.75rem;padding:.45rem 0}
+.topbar .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.topbar a{color:rgba(255,255,255,.85)} .topbar a:hover{color:var(--volt)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:var(--disp);font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.logo .mark{width:38px;height:38px;border-radius:10px;background:var(--ink);color:var(--volt);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800}
+.logo small{display:block;font-family:var(--body);font-weight:600;font-size:.58rem;letter-spacing:.3em;color:var(--soft);text-transform:uppercase}
+.nav-links{display:flex;gap:1.6rem;font-size:.88rem;font-weight:var(--font-weight-medium);align-items:center}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--gray)}
+.has-drop{position:relative}
+.drop{position:absolute;top:100%;left:50%;transform:translate(-50%,10px);opacity:0;pointer-events:none;transition:all .25s var(--ease);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px rgba(11,11,12,.12);padding:1.4rem}
+.has-drop:hover .drop,.has-drop:focus-within .drop{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+.drop.simple{min-width:190px;display:flex;flex-direction:column;gap:.2rem;padding:1rem}
+.drop.simple a{padding:.45rem .6rem;border-radius:8px;font-weight:500;font-size:.86rem}
+.drop.simple a:hover{background:var(--wash)}
+.mega{width:min(920px,92vw);display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;left:50%}
+.mega h5{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-bottom:.8rem;font-family:var(--body);font-weight:700}
+.mega a{display:block;padding:.32rem 0;font-size:.86rem;font-weight:500;color:#3c3f44}
+.mega a:hover{color:var(--ink);text-decoration:underline}
+.nav-cta{display:flex;align-items:center;gap:1rem}
+.nav-phone{font-weight:700;font-size:.88rem;white-space:nowrap}
+.nav .pill{min-height:44px;padding:.55rem 1.25rem;font-size:.8rem;border-radius:12px}
+#menuBtn{display:none;background:none;border:none;width:42px;height:42px;position:relative}
+#menuBtn i,#menuBtn i::before,#menuBtn i::after{content:"";position:absolute;left:50%;width:20px;height:2px;background:var(--ink);transform:translateX(-50%)}
+#menuBtn i{top:50%}#menuBtn i::before{top:-6px}#menuBtn i::after{top:6px}
+.mnav{display:none;border-top:1px solid var(--line);background:#fff;max-height:70vh;overflow:auto;padding:1rem 24px 1.6rem}
+body.menu-open .mnav{display:block}
+.mnav a{display:block;padding:.65rem 0;font-weight:600;border-bottom:1px solid var(--wash)}
+.mnav h5{margin:.9rem 0 .2rem;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+@media (max-width:1080px){.nav-links,.nav-phone{display:none}#menuBtn{display:block}}
+
+/* hero */
+.hero{padding:4.5rem 0 5rem;background:linear-gradient(180deg,var(--wash),#fff)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.7rem);font-weight:800;margin:1.1rem 0 1.2rem}
+.hero h1 em{font-style:normal;background:var(--volt);padding:0 .3em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero .sub{color:var(--gray);max-width:54ch;font-size:1.02rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin:1.8rem 0 2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.5rem 1rem;font-size:.75rem;font-weight:600;box-shadow:0 6px 18px rgba(11,11,12,.06)}
+.chip b{color:var(--ink)} .chip .st{color:var(--star)}
+/* slider */
+.slider{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 30px 70px rgba(11,11,12,.18);touch-action:pan-y}
+.sl-track{display:flex;height:100%;transition:transform .6s var(--ease)}
+.sl-track figure{min-width:100%;position:relative}
+.sl-track figcaption{position:absolute;left:16px;bottom:16px;background:rgba(11,11,12,.82);color:#fff;border-radius:10px;padding:.55rem 1rem;font-size:.78rem;font-weight:600}
+.sl-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.94);cursor:pointer;font-size:1rem}
+.sl-btn.prev{left:12px}.sl-btn.next{right:12px}
+.sl-dots{position:absolute;bottom:14px;right:16px;display:flex;gap:.4rem;z-index:3}
+.sl-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.5);cursor:pointer}
+.sl-dots button.on{background:var(--volt);width:20px;border-radius:99px}
+/* quote mini form */
+.qmini{margin-top:1.2rem;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.6rem;box-shadow:0 20px 50px rgba(11,11,12,.1)}
+.qmini h3{font-size:1.15rem;font-weight:800;margin-bottom:.9rem}
+.qmini .row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.qmini input,.qmini select{border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem;font-family:var(--body);font-size:.88rem;outline:none;width:100%}
+.qmini input:focus,.qmini select:focus{border-color:var(--ink)}
+.qmini .pill{width:100%;justify-content:center;margin-top:.7rem}
+.qmini .note{font-size:.7rem;color:var(--soft);text-align:center;margin-top:.6rem}
+@media (max-width:960px){.hero-grid{grid-template-columns:1fr}}
+
+/* marquee badges */
+.badges{padding:2.6rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.badges .k{text-align:center;display:block;margin-bottom:1.4rem}
+.mq{overflow:hidden}
+.mq-track{display:flex;width:max-content;animation:mq 32s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+.badge{display:flex;align-items:center;gap:.6rem;margin:0 .7rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.7rem 1.4rem;font-weight:700;font-size:.85rem;box-shadow:0 10px 26px rgba(11,11,12,.08);white-space:nowrap}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--volt);font-style:normal}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:6rem 0}
+.sec-head{max-width:760px;margin-bottom:3.2rem}
+.sec-head h2{font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:800;margin-top:.9rem}
+.sec-head p{color:var(--gray);margin-top:1rem}
+.center{text-align:center}.center .sec-head{margin-left:auto;margin-right:auto}
+
+/* reviews */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.rev{border:1px solid var(--line);border-radius:var(--r);padding:1.7rem 1.5rem;background:#fff;transition:transform .4s var(--ease),box-shadow .4s}
+.rev:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(11,11,12,.1)}
+.rev .stars{color:var(--star);letter-spacing:.12em;margin-bottom:.8rem;font-size:.85rem}
+.rev q{quotes:none;font-weight:600;font-size:.95rem;display:block}
+.rev .who{margin-top:1.1rem;font-size:.78rem;color:var(--gray);display:flex;justify-content:space-between;gap:.5rem}
+.rev .who b{color:var(--ink)}
+.rev .src{background:var(--wash);border-radius:999px;padding:.15rem .7rem;font-weight:700}
+.rev-nav{display:flex;gap:.6rem;justify-content:center;margin-top:2rem}
+.rev-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;transition:all .3s}
+.rev-nav button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+@media (max-width:960px){.rev-grid{grid-template-columns:1fr}}
+
+/* about */
+.about{background:var(--dark);color:#fff}
+.about .k{color:var(--volt)}
+.about h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800;max-width:22ch}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:2.5rem}
+.about p{color:rgba(255,255,255,.72);margin-bottom:1.2rem;font-size:.98rem}
+.promise{display:flex;flex-direction:column;gap:1rem}
+.promise div{border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:1.4rem 1.5rem;background:var(--card-dark)}
+.promise b{font-family:var(--disp);font-size:1.15rem;color:var(--volt);display:block;margin-bottom:.3rem}
+.promise span{color:rgba(255,255,255,.65);font-size:.88rem}
+@media (max-width:960px){.about-grid{grid-template-columns:1fr}}
+
+/* services */
+.svc-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.svc-card{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/10;display:block}
+.svc-card img{transition:transform 1.2s var(--ease)}
+.svc-card:hover img{transform:scale(1.06)}
+.svc-card .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,10,.88),rgba(8,8,10,.05) 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem}
+.svc-card h3{color:#fff;font-size:1.5rem;font-weight:800}
+.svc-card p{color:rgba(255,255,255,.75);font-size:.88rem;max-width:44ch;margin-top:.4rem}
+.svc-card .go{margin-top:1rem;color:var(--volt);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.svc-other{grid-column:1/-1;background:var(--wash);border-radius:24px;padding:2.2rem}
+.svc-other h3{font-size:1.3rem;font-weight:800;margin-bottom:1.2rem}
+.svc-tags{display:flex;flex-wrap:wrap;gap:.6rem}
+.svc-tags a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.55rem 1.1rem;font-size:.8rem;font-weight:600;transition:all .25s}
+.svc-tags a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+@media (max-width:960px){.svc-cards{grid-template-columns:1fr}}
+
+/* why */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.why-card{border:1px solid var(--line);border-radius:var(--r);padding:2rem 1.7rem;transition:transform .4s var(--ease),box-shadow .4s}
+.why-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(11,11,12,.09)}
+.why-card .ic{width:52px;height:52px;border-radius:14px;background:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
+.why-card .ic svg{width:26px;height:26px;stroke:var(--volt)}
+.why-card h3{font-size:1.08rem;font-weight:800;margin-bottom:.6rem}
+.why-card p{color:var(--gray);font-size:.9rem}
+.why-grid .span2{grid-column:span 1}
+@media (max-width:960px){.why-grid{grid-template-columns:1fr}}
+
+/* work */
+.work{background:var(--wash)}
+.work-slider{position:relative;border-radius:24px;overflow:hidden}
+.ws-track{display:flex;transition:transform .7s var(--ease)}
+.ws-track figure{min-width:100%;position:relative;aspect-ratio:16/7.5}
+.ws-track figcaption{position:absolute;left:20px;bottom:20px;background:rgba(255,255,255,.95);border-radius:12px;padding:.7rem 1.2rem;font-size:.82rem;font-weight:700}
+
+/* process timeline */
+#process .sec-head h2{font-size:clamp(2.4rem,5.2vw,3.8rem)}
+.pr-row{display:grid;grid-template-columns:repeat(5,1fr);gap:2rem;margin-top:3.5rem}
+.pr-step{position:relative;cursor:pointer}
+.pr-top{display:flex;align-items:center;gap:1rem}
+.pr-num{font-family:var(--disp);font-weight:800;font-size:3.6rem;line-height:1;color:#E7A83E;transition:color .45s ease,transform .45s var(--ease)}
+.pr-step.on .pr-num{color:#B4530F;transform:scale(1.12);transform-origin:left center}
+.pr-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(224,122,36,.45),rgba(224,122,36,.12))}
+.pr-step h3{font-size:1.06rem;font-weight:800;margin:1.1rem 0 .45rem}
+.pr-dur{font-size:.78rem;color:var(--gray);font-weight:600}
+.pr-tag{display:inline-block;margin-top:.85rem;background:var(--wash);border:1px solid var(--line);border-radius:999px;padding:.38rem .95rem;font-size:.7rem;font-weight:600;color:var(--gray)}
+.pr-tag.hot{background:#FFF3C9;border-color:#F0D488;color:#7c5600}
+.pr-bar{height:3px;width:46px;border-radius:2px;background:#C05A33;margin-top:1.05rem;transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
+.pr-step.on .pr-bar{transform:scaleX(1)}
+.pr-desc{max-width:660px;margin:3.2rem auto 0;text-align:center;color:var(--gray);font-size:.95rem;min-height:3.4em}
+.pr-desc b{color:var(--ink)}
+.pr-desc.swap{animation:prIn .55s var(--ease)}
+@keyframes prIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.pr-chip{display:table;margin:2.1rem auto 0;background:var(--wash);border:1px solid var(--line);border-radius:999px;padding:.72rem 1.6rem;font-size:.8rem;font-weight:600;color:var(--gray)}
+.pr-link{display:table;margin:1.5rem auto 0;font-weight:700;font-size:.92rem;color:#B4530F}
+.pr-link:hover{text-decoration:underline}
+@media (max-width:900px){
+  .pr-row{display:flex;flex-direction:column;gap:2.4rem;margin-top:2.6rem}
+  .pr-step{display:grid;grid-template-columns:58px 1fr;column-gap:1.1rem}
+  .pr-top{display:contents}
+  .pr-line{display:none}
+  .pr-num{grid-column:1;grid-row:1;font-size:2.2rem}
+  .pr-step h3{grid-column:2;grid-row:1;margin:.35rem 0 .45rem}
+  .pr-dur{grid-column:2;grid-row:2}
+  .pr-step .pr-tagwrap{grid-column:2;grid-row:3}
+  .pr-bar{grid-column:2;grid-row:4}
+  .pr-desc{min-height:0;margin-top:2.4rem}
+}
+
+/* offer */
+.offer{background:var(--ink);color:#fff;overflow:hidden}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.offer .k{color:var(--volt)}
+.offer h2{font-size:clamp(2.2rem,4.8vw,3.6rem);font-weight:800;margin:.9rem 0 1.2rem}
+.offer p{color:rgba(255,255,255,.72);max-width:50ch}
+.offer-perks{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.6rem 0}
+.offer-perks span{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:.5rem 1.1rem;font-size:.76rem;font-weight:600}
+.offer-note{display:inline-block;background:var(--volt);color:var(--ink);font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;border-radius:999px;padding:.55rem 1.2rem;margin-bottom:1.6rem}
+.offer-svc{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.offer-svc a{background:var(--card-dark);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:1.2rem 1.3rem;font-weight:700;font-size:.9rem;transition:all .3s}
+.offer-svc a:hover{border-color:var(--volt);transform:translateY(-3px)}
+.offer-svc a small{display:block;color:rgba(255,255,255,.55);font-weight:500;margin-top:.3rem;font-size:.75rem}
+.offer-img{border-radius:28px;overflow:hidden;aspect-ratio:4/4.4;box-shadow:0 40px 90px rgba(0,0,0,.5)}
+@media (max-width:960px){.offer-grid{grid-template-columns:1fr}}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
+.contact-info .pill{margin-top:1.6rem}
+.cform{background:var(--wash);border:1px solid var(--line);border-radius:24px;padding:2.4rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.cform .full{grid-column:1/-1}
+.cform input,.cform select,.cform textarea{border:1px solid var(--line);border-radius:12px;padding:.95rem 1.1rem;font-family:var(--body);font-size:.9rem;background:#fff;outline:none;width:100%}
+.cform input:focus,.cform select:focus,.cform textarea:focus{border-color:var(--ink)}
+.cform .pill{grid-column:1/-1;justify-content:center}
+@media (max-width:960px){.contact-grid{grid-template-columns:1fr}.cform{grid-template-columns:1fr}}
+
+/* blog — dark insights band */
+.blogx{background:var(--dark);color:#fff;padding:6rem 0;overflow:hidden}
+.blogx-head{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.blogx-head h2{text-align:center;flex:1;font-size:clamp(1.7rem,4vw,2.9rem);font-weight:var(--font-weight-extrabold);text-transform:uppercase;letter-spacing:var(--tracking-tight);line-height:1.12}
+.blogx-head h2 em{font-style:italic;color:var(--volt)}
+.bx-btn{flex-shrink:0;width:46px;height:46px;border-radius:50%;border:none;background:var(--volt);color:var(--ink);font-size:1.05rem;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s}
+.bx-btn:hover{transform:scale(1.12);box-shadow:0 10px 26px rgba(255,210,63,.35)}
+.blogx-row{display:flex;gap:1.4rem;margin:3.4rem calc(50% - 50vw) 0;padding:0 calc(50vw - 50%);overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}
+.blogx-row::-webkit-scrollbar{display:none}
+.bx-card{flex:0 0 300px;background:#fff;color:var(--ink);border-radius:14px;overflow:hidden;scroll-snap-align:start;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.bx-card:hover{transform:translateY(-6px);box-shadow:0 24px 54px rgba(0,0,0,.45)}
+.bx-ph{aspect-ratio:4/4.2;background:#000;overflow:hidden}
+.bx-ph img{transition:transform 1s var(--ease)}
+.bx-card:hover .bx-ph img{transform:scale(1.06)}
+.bx-body{padding:1.3rem 1.2rem 1.5rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.bx-by{font-family:var(--font-mono);font-size:.66rem;color:var(--soft);font-weight:var(--font-weight-medium);letter-spacing:.02em}
+.bx-body h3{font-family:var(--font-display);font-size:1.02rem;font-weight:var(--font-weight-extrabold);text-transform:uppercase;letter-spacing:var(--tracking-tight);line-height:1.3}
+.bx-body p{font-size:.82rem;color:var(--gray);flex:1;font-weight:var(--font-weight-normal)}
+.bx-link{font-family:var(--font-sans);font-style:italic;font-weight:var(--font-weight-bold);color:#B4530F;font-size:.84rem;letter-spacing:var(--tracking-wide)}
+
+/* faq */
+.faq-list{max-width:820px;margin:0 auto}
+.faq{border:1px solid var(--line);border-radius:16px;margin-bottom:.8rem;background:#fff;overflow:hidden}
+.faq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;padding:1.3rem 1.5rem;font-family:var(--body);font-weight:700;font-size:.98rem;text-align:left;cursor:pointer}
+.faq button i{font-style:normal;font-size:1.2rem;transition:transform .3s;flex-shrink:0}
+.faq.open button i{transform:rotate(45deg)}
+.faq .a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq .a p{padding:0 1.5rem 1.4rem;color:var(--gray);font-size:.92rem}
+
+/* areas — radial band (light, site system) */
+.areas{position:relative;overflow:hidden;background:var(--wash);color:var(--ink);text-align:center;padding:7.5rem 0;
+ background-image:repeating-linear-gradient(90deg,rgba(11,11,12,.02) 0 1px,transparent 1px 88px)}
+.areas .ring{position:absolute;left:50%;top:50%;margin:-26vmax 0 0 -26vmax;width:52vmax;height:52vmax;border:1px solid rgba(233,161,59,.28);border-radius:50%;animation:ringPulse 9s ease-in-out infinite alternate}
+.areas .r2{margin:-39vmax 0 0 -39vmax;width:78vmax;height:78vmax;animation-delay:1.2s}
+.areas .r3{margin:-52vmax 0 0 -52vmax;width:104vmax;height:104vmax;animation-delay:2.4s}
+@keyframes ringPulse{from{transform:scale(1);opacity:.9}to{transform:scale(1.07);opacity:.45}}
+.areas .glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(760px,96vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,210,63,.28) 0%,rgba(255,210,63,.1) 52%,transparent 72%)}
+.areas .wrap{position:relative;z-index:2}
+.areas .k{color:#B4530F}
+.areas h2{color:var(--ink);font-size:clamp(2.1rem,5vw,3.6rem);font-weight:800;max-width:24ch;margin:1rem auto 1.2rem}
+.areas h2 .u{border-bottom:4px solid var(--star);padding-bottom:3px}
+.areas .sub{color:var(--gray);max-width:54ch;margin:0 auto;font-size:.95rem}
+.areas .area-chips{display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center;margin:2.2rem auto 0;max-width:860px}
+.areas .area-chips span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.55rem 1.25rem;font-weight:600;font-size:.82rem;color:var(--ink);box-shadow:0 6px 16px rgba(11,11,12,.05);transition:all .3s}
+.areas .area-chips span:hover{border-color:var(--star);box-shadow:0 10px 24px rgba(11,11,12,.1);transform:translateY(-2px)}
+.areas .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem}
+.areas .refer{margin-top:1.8rem;font-size:.78rem;color:var(--gray)}
+.areas .refer a{text-decoration:underline;font-weight:700;color:var(--ink)}
+.areas .refer a:hover{color:#B4530F}
+.areas .legal{margin-top:.9rem;font-size:.7rem;color:var(--soft);letter-spacing:.06em}
+.contactx .cform{max-width:780px;margin:2.8rem auto 0;background:#fff;box-shadow:0 30px 70px rgba(11,11,12,.08);text-align:left}
+
+/* footer */
+footer{background:radial-gradient(56rem 32rem at 90% 112%,rgba(180,71,15,.5),transparent 62%),radial-gradient(38rem 22rem at 4% 118%,rgba(245,179,1,.12),transparent 60%),var(--dark);color:#fff;padding:0 0 2.6rem;overflow:hidden}
+.f-marq{background:#08080a;border-bottom:1px solid rgba(255,255,255,.08);overflow:hidden;padding:1.2rem 0 1.1rem}
+.f-marq-track{display:flex;width:max-content;animation:fmarq 46s linear infinite}
+.f-marq-g{display:flex;align-items:center;gap:2.6rem;padding-right:2.6rem}
+.f-marq span{font-family:var(--disp);font-weight:var(--font-weight-extrabold);text-transform:uppercase;letter-spacing:var(--tracking-tight);font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.05;color:#fff;white-space:nowrap}
+.f-marq i{font-style:normal;color:var(--volt);font-size:clamp(1.3rem,3vw,2.6rem);line-height:1}
+@keyframes fmarq{to{transform:translateX(-50%)}}
+.f-main{padding-top:5rem}
+.f-grid{display:grid;grid-template-columns:1.5fr .8fr .9fr 1.1fr;gap:3rem}
+.f-grid h4{font-size:.68rem;letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.2rem;font-family:var(--body);font-weight:var(--font-weight-semibold)}
+.f-grid a{display:block;color:rgba(255,255,255,.75);font-size:.88rem;padding:.28rem 0}
+.f-grid a:hover{color:var(--volt)}
+.f-tag{color:rgba(255,255,255,.6);max-width:34ch;margin:1rem 0 1.3rem;font-size:.9rem}
+.f-line{display:block;color:rgba(255,255,255,.72);font-size:.86rem;padding:.26rem 0}
+a.f-line:hover{color:var(--volt)}
+.socials{display:flex;gap:.7rem;margin-top:1.3rem}
+.socials a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center}
+.socials a:hover{background:var(--volt);border-color:var(--volt)}
+.socials svg{width:16px;height:16px;fill:#fff}
+.socials a:hover svg{fill:var(--ink)}
+.f-note{color:rgba(255,255,255,.55);font-size:.82rem;line-height:1.7;margin-bottom:1.3rem;max-width:28ch}
+.f-connect .pill{display:inline-flex}
+.f-areas{margin-top:3.6rem;padding-top:2.4rem;border-top:1px solid rgba(255,255,255,.12)}
+.f-areas h4{font-size:.68rem;letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.2rem;font-family:var(--body);font-weight:var(--font-weight-semibold)}
+.f-chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.f-chips span{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.5rem 1.15rem;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.78);transition:all .3s}
+.f-chips span:hover{border-color:var(--volt);color:var(--volt);transform:translateY(-2px)}
+.f-bottom{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+.f-copy{display:flex;align-items:center;gap:1.4rem}
+.f-c{width:54px;height:54px;flex:none}
+.f-legal2{font-family:var(--font-mono);font-size:.72rem;line-height:1.9;color:rgba(255,255,255,.45)}
+.f-year{margin-left:auto;font-family:var(--disp);font-weight:var(--font-weight-extrabold);letter-spacing:var(--tracking-tight);font-size:clamp(3.6rem,9vw,7.6rem);line-height:.85;color:#fff}
+@media (max-width:960px){.f-grid{grid-template-columns:1fr 1fr}.f-year{margin-left:0}}
+@media (max-width:560px){.f-grid{grid-template-columns:1fr}}
+
+/* expanding services carousel */
+.xp{display:flex;gap:1rem;height:540px}
+.xp-card{position:relative;flex:1;min-width:0;border-radius:24px;overflow:hidden;transition:flex 1s var(--ease);cursor:pointer;box-shadow:0 20px 50px rgba(11,11,12,.12)}
+.xp-card.on{flex:2.7;cursor:default}
+.xp-card img{position:absolute;inset:0;transition:transform 1.4s var(--ease)}
+.xp-card.on img{transform:scale(1.05)}
+.xp-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,10,.88) 0%,rgba(8,8,10,.28) 46%,rgba(8,8,10,.05) 72%)}
+.xp-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.6rem 1.5rem;color:#fff}
+.xp-body h3{color:#fff;font-size:1.45rem;font-weight:800;letter-spacing:-.01em}
+.xp-desc{color:rgba(255,255,255,.88);font-size:.92rem;max-width:46ch;max-height:0;opacity:0;overflow:hidden;transition:max-height .6s var(--ease),opacity .5s ease,margin .5s ease}
+.xp-card.on .xp-desc{max-height:150px;opacity:1;margin:.7rem 0 1.1rem}
+.xp-cta{display:none;padding:.85rem 1.5rem;font-size:.8rem}
+.xp-card.on .xp-cta{display:inline-flex;animation:ctaIn .6s var(--ease)}
+@keyframes ctaIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.xp-mini{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.85rem;margin-top:.8rem;transition:gap .3s}
+.xp-card:hover .xp-mini{gap:.8rem}
+.xp-card.on .xp-mini{display:none}
+.xp-nav{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-top:1.8rem}
+.xp-nav>button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;transition:all .3s;font-size:1rem}
+.xp-nav>button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.xp-dots{display:flex;gap:.45rem}
+.xp-dots button{width:8px;height:8px;border-radius:50%;border:none;background:#d6d6d2;cursor:pointer;transition:all .35s var(--ease);padding:0}
+.xp-dots button.on{background:var(--ink);width:22px;border-radius:99px}
+@media (max-width:900px){
+  #services .sec-head{margin-bottom:1.6rem}
+  #services .sec-head h2{font-size:1.3rem;line-height:1.3}
+  #services .sec-head p{font-size:.88rem;margin-top:.6rem}
+  .xp{height:clamp(440px,74vh,620px);gap:.6rem;overflow-x:auto;scroll-snap-type:none;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-left:-24px;margin-right:-24px;padding:0 24px}
+  .xp::-webkit-scrollbar{display:none}
+  .xp-card{flex:0 0 auto;width:calc(100vw - 48px);scroll-snap-align:center}
+  .xp-card.on{width:calc(100vw - 48px)}
+  .xp-body{padding:1.3rem 1.2rem}
+  .xp-body h3{font-size:1.28rem}
+  .xp-desc{font-size:.85rem}
+  .xp-cta{padding:.75rem 1.3rem}
+  .xp-nav{margin-top:1.2rem;gap:.9rem}
+  .xp-nav>button{width:38px;height:38px;font-size:.9rem}
+}
+
+.pr-dur,.f-legal,.areas .legal{font-family:var(--font-mono)}
+
+[data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="wrap">
+      <span>⚡ Free site inspections across Lagos — book while seasonal slots last</span>
+      <span><a href="tel:8105743694">(810) 574-3694</a> &nbsp;·&nbsp; <a href="mailto:aaoengineeringservices@gmail.com">aaoengineeringservices@gmail.com</a></span>
+    </div>
+  </div>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><span class="mark">AAO</span><span>AAO<small>Engineering Services</small></span></a>
+    <nav class="nav-links">
+      <a href="#top">Home</a>
+      <div class="has-drop">
+        <a href="services.html">Services ▾</a>
+        <div class="drop mega">
+          <div><h5>Solar &amp; Power</h5>
+            <a href="services.html?s=solar-inverter">Solar &amp; Inverter Installation</a>
+            <a href="services.html?s=load-audit">Electrical Load Audit</a>
+            <a href="services.html?s=electrical">Electrical Installation</a>
+            <a href="services.html?s=power-gen">Power Generation</a>
+          </div>
+          <div><h5>Security &amp; Surveillance</h5>
+            <a href="services.html?s=cctv">CCTV Systems</a>
+            <a href="services.html?s=security-install">Security System Installation</a>
+            <a href="services.html?s=cctv-maintenance">CCTV Maintenance</a>
+          </div>
+          <div><h5>Access Control &amp; Automation</h5>
+            <a href="services.html?s=smart-locks">Smart Door Locks</a>
+            <a href="services.html?s=access-control">Access Control</a>
+            <a href="services.html?s=auto-gates">Automatic Gates</a>
+            <a href="services.html?s=intercom">Intercom Systems</a>
+            <a href="services.html?s=home-automation">Home Automation</a>
+          </div>
+          <div><h5>ICT &amp; Networking</h5>
+            <a href="services.html?s=network">Network Installation</a>
+            <a href="services.html?s=ict">ICT Solutions</a>
+          </div>
+        </div>
+      </div>
+      <a href="#work">Past Work</a>
+      <div class="has-drop">
+        <a href="#about">Company ▾</a>
+        <div class="drop simple">
+          <a href="#about">About</a><a href="#blog">Blog</a><a href="#contact">Career</a><a href="#contact">Academy</a><a href="#contact">Shop</a><a href="#about">Engineers</a>
+        </div>
+      </div>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:8105743694">(810) 574-3694</a>
+      <a class="pill" href="#contact">Get a Free Site Inspection →</a>
+      <button id="menuBtn" aria-label="Menu"><i></i></button>
+    </div>
+  </div>
+  <div class="mnav">
+    <a href="#top">Home</a>
+    <h5>Solar &amp; Power</h5>
+    <a href="services.html?s=solar-inverter">Solar &amp; Inverter Installation</a>
+    <a href="services.html?s=load-audit">Electrical Load Audit</a>
+    <a href="services.html?s=electrical">Electrical Installation</a>
+    <a href="services.html?s=power-gen">Power Generation</a>
+    <h5>Security &amp; Surveillance</h5>
+    <a href="services.html?s=cctv">CCTV Systems</a>
+    <a href="services.html?s=security-install">Security System Installation</a>
+    <a href="services.html?s=cctv-maintenance">CCTV Maintenance</a>
+    <h5>Access Control &amp; Automation</h5>
+    <a href="services.html?s=smart-locks">Smart Door Locks</a>
+    <a href="services.html?s=access-control">Access Control</a>
+    <a href="services.html?s=auto-gates">Automatic Gates</a>
+    <a href="services.html?s=intercom">Intercom Systems</a>
+    <a href="services.html?s=home-automation">Home Automation</a>
+    <h5>ICT &amp; Networking</h5>
+    <a href="services.html?s=network">Network Installation</a>
+    <a href="services.html?s=ict">ICT Solutions</a>
+    <h5>Company</h5>
+    <a href="#work">Past Work</a><a href="#about">About</a><a href="#blog">Blog</a><a href="#contact">Career</a><a href="#contact">Academy</a><a href="#contact">Shop</a><a href="#about">Engineers</a><a href="#contact">Contact</a>
+    <a class="pill" style="justify-content:center;margin-top:1rem" href="#contact">Get a Free Site Inspection →</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding-top:4rem">
+  <div class="wrap hero-grid">
+    <div data-reveal>
+      <span class="k">AAO Engineering Services — Lagos, Nigeria</span>
+      <h1>Power &amp; Security Solutions for Homes and Businesses That Demand <em>Reliability</em></h1>
+      <p class="sub">Professionally designed solar, electrical, CCTV, and security systems built to give you dependable power, better protection, and lasting peace of mind.</p>
+      <div class="hero-cta">
+        <a class="pill volt" href="#contact">Get Your Free Site Inspection</a>
+        <a class="pill ghost" href="services.html?s=solar-inverter">Explore Services</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>200+</b> Installations</span>
+        <span class="chip">Certified Technicians</span>
+        <span class="chip">Original Products + Warranty</span>
+        <span class="chip">CAC Certified</span>
+        <span class="chip">Years of Experience</span>
+        <span class="chip"><span class="st">★</span> Google Reviews</span>
+        <span class="chip"><span class="st">★</span> Facebook Reviews</span>
+      </div>
+    </div>
+    <div data-reveal>
+      <div class="slider" id="heroSlider">
+        <div class="sl-track" id="slTrack">
+          <figure><img src="../../public/images/ion-hero.jpg" alt="Solar installation in progress"><figcaption>Solar &amp; Inverter Installation</figcaption></figure>
+          <figure><img src="../../public/images/aao-cctv.jpg" alt="CCTV camera installation"><figcaption>CCTV &amp; Surveillance Systems</figcaption></figure>
+          <figure><img src="../../public/images/aao-electrical.jpg" alt="Electrical installation"><figcaption>Electrical Installation &amp; Audits</figcaption></figure>
+        </div>
+        <button class="sl-btn prev" id="slPrev" aria-label="Previous">←</button>
+        <button class="sl-btn next" id="slNext" aria-label="Next">→</button>
+        <div class="sl-dots" id="slDots"></div>
+      </div>
+      <form class="qmini" id="qmini">
+        <h3>Get Your Free Quote</h3>
+        <div class="row">
+          <input type="text" placeholder="Your name" required>
+          <input type="tel" placeholder="Phone / WhatsApp" required>
+        </div>
+        <select style="margin-top:.7rem" required>
+          <option value="">Service you're interested in</option>
+          <option>Solar &amp; Inverter Installation</option><option>Electrical Load Audit</option><option>Electrical Installation</option><option>Power Generation</option><option>CCTV Systems</option><option>Security System Installation</option><option>Smart Door Locks / Access Control</option><option>Automatic Gates / Intercom</option><option>Home Automation</option><option>Network / ICT Solutions</option>
+        </select>
+        <button class="pill" type="submit">Get My Free Quote →</button>
+        <div class="note">No spam. An AAO expert responds within 24 hours.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<div class="badges">
+  <span class="k">Certified, accredited &amp; partnered with the best</span>
+  <div class="mq"><div class="mq-track" id="badgeTrack">
+    <span class="badge"><i></i>CAC</span><span class="badge"><i></i>COREN</span><span class="badge"><i></i>NEMSA</span><span class="badge"><i></i>NSE</span><span class="badge"><i></i>REAN</span><span class="badge"><i></i>Felicity Solar</span><span class="badge"><i></i>Luminous</span><span class="badge"><i></i>Growatt</span><span class="badge"><i></i>Deye</span><span class="badge"><i></i>Hikvision</span>
+  </div></div>
+</div>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal><span class="k">Reviews</span><h2>What our customers say</h2><p>Real reviews from Google and Facebook — from homes and businesses across Lagos.</p></div>
+    <div class="rev-grid" id="revGrid"></div>
+    <div class="rev-nav"><button id="revPrev" aria-label="Previous reviews">←</button><button id="revNext" aria-label="Next reviews">→</button></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div data-reveal><span class="k">About Us</span><h2>BUILT ON TRUST. ENGINEERED TO LAST.</h2></div>
+    <div class="about-grid">
+      <div data-reveal>
+        <p>AAO Engineering Services was built to solve two problems homes and businesses face every day: unreliable power and security systems they can't depend on.</p>
+        <p>Led by Adebayo Aina, our team takes a different approach. We don't simply sell you an inverter, install a few cameras, and move on. We assess your property, understand your actual needs, and recommend a solution that makes sense for your home, business, and budget.</p>
+        <p>That approach has helped us complete 200+ solar and inverter installations while building our reputation around original products, neat workmanship, warranty-backed solutions, and dependable after-sales support.</p>
+        <p>Because when it comes to powering your property or protecting what matters, getting it almost right isn't good enough.</p>
+        <p>That's why every AAO project is built around three promises:</p>
+      </div>
+      <div class="promise" data-reveal>
+        <div><b>Accountability.</b><span>We own every project from assessment to after-sales — one team, one point of contact, no excuses.</span></div>
+        <div><b>Authenticity.</b><span>Original products, honest recommendations, and upfront pricing. You get what actually works for you.</span></div>
+        <div><b>Outstanding Service.</b><span>Neat workmanship, certified technicians, and support that continues long after installation day.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal><span class="k">Our Services</span><h2>Power &amp; Security Solutions Built for Homes &amp; Businesses</h2><p>We help homes and businesses stay powered, protected, and connected. Hover, tap, or use the arrows to explore each solution.</p></div>
+    <div class="xp" id="xp" data-reveal>
+      <article class="xp-card">
+        <img src="../../public/images/ion-home1.jpg" alt="Residential solar and inverter installation">
+        <div class="xp-body">
+          <h3>Solar &amp; Inverter Installation</h3>
+          <p class="xp-desc">Dependable power for homes and businesses — sized from a professional load audit, installed neatly, and backed by warranty.</p>
+          <a class="xp-cta pill volt" href="services.html?s=solar-inverter">Get started →</a>
+          <a class="xp-mini" href="services.html?s=solar-inverter">Get started →</a>
+        </div>
+      </article>
+      <article class="xp-card">
+        <img src="../../public/images/aao-cctv.jpg" alt="CCTV camera installation">
+        <div class="xp-body">
+          <h3>CCTV &amp; Surveillance</h3>
+          <p class="xp-desc">Evidence-grade cameras with night vision and remote phone viewing — positioned around your property's real blind spots.</p>
+          <a class="xp-cta pill volt" href="services.html?s=cctv">Get started →</a>
+          <a class="xp-mini" href="services.html?s=cctv">Get started →</a>
+        </div>
+      </article>
+      <article class="xp-card">
+        <img src="../../public/images/aao-electrical.jpg" alt="Neat electrical installation">
+        <div class="xp-body">
+          <h3>Electrical Installation &amp; Audits</h3>
+          <p class="xp-desc">Safe, neat, code-compliant wiring, distribution boards and load audits — installed like it's our own property.</p>
+          <a class="xp-cta pill volt" href="services.html?s=electrical">Get started →</a>
+          <a class="xp-mini" href="services.html?s=electrical">Get started →</a>
+        </div>
+      </article>
+      <article class="xp-card">
+        <img src="../../public/images/aao-gate.jpg" alt="Automatic gate and intercom">
+        <div class="xp-body">
+          <h3>Access Control &amp; Automation</h3>
+          <p class="xp-desc">Automatic gates, smart locks and intercoms that open for the right people — and no one else.</p>
+          <a class="xp-cta pill volt" href="services.html?s=auto-gates">Get started →</a>
+          <a class="xp-mini" href="services.html?s=auto-gates">Get started →</a>
+        </div>
+      </article>
+      <article class="xp-card">
+        <img src="../../public/images/aao-network.jpg" alt="Network rack installation">
+        <div class="xp-body">
+          <h3>ICT &amp; Networking</h3>
+          <p class="xp-desc">Structured cabling, full-coverage Wi-Fi and ICT solutions that simply work — in every room and on every desk.</p>
+          <a class="xp-cta pill volt" href="services.html?s=network">Get started →</a>
+          <a class="xp-mini" href="services.html?s=network">Get started →</a>
+        </div>
+      </article>
+    </div>
+    <div class="xp-nav">
+      <button id="xpPrev" aria-label="Previous service">←</button>
+      <div class="xp-dots" id="xpDots"></div>
+      <button id="xpNext" aria-label="Next service">→</button>
+    </div>
+    <div class="svc-other" data-reveal style="margin-top:2.8rem">
+      <h3>Other services — Power. Security. Solutions You Can Trust.</h3>
+      <div class="svc-tags">
+        <a href="services.html?s=load-audit">Electrical Load Audit</a><a href="services.html?s=electrical">Electrical Installation</a><a href="services.html?s=power-gen">Power Generation</a><a href="services.html?s=cctv">CCTV Systems</a><a href="services.html?s=security-install">Security System Installation</a><a href="services.html?s=cctv-maintenance">CCTV Maintenance</a><a href="services.html?s=smart-locks">Smart Door Locks</a><a href="services.html?s=access-control">Access Control</a><a href="services.html?s=auto-gates">Automatic Gates</a><a href="services.html?s=intercom">Intercom Systems</a><a href="services.html?s=home-automation">Home Automation</a><a href="services.html?s=network">Network Installation</a><a href="services.html?s=ict">ICT Solutions</a>
+      </div>
+    </div>
+    <div class="center" style="margin-top:2.6rem" data-reveal><a class="pill" href="#contact">Get Your Quote Now</a></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section style="background:var(--wash)">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><span class="k">Why Choose Us</span><h2><strong>WHY HOMES &amp; BUSINESSES CHOOSE AAO</strong></h2><p>Our customers choose us because we take the time to understand their needs, recommend what actually works, and stand behind the quality of our work. Here's what sets AAO apart:</p></div>
+    <div class="why-grid">
+      <div class="why-card" data-reveal><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h6M9 5a3 3 0 0 1 6 0M7 5h10v16H7zM10 10h4M10 13.5h4M10 17h2.5"/></svg></div><h3><strong>We Assess Before We Recommend.</strong></h3><p>No guesswork. We inspect your property and understand your actual needs before recommending a system—so you're not paying for too much or settling for too little.</p></div>
+      <div class="why-card" data-reveal><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4.5"/></svg></div><h3><strong>We Don't Cut Corners on Quality.</strong></h3><p>We prioritize original, reliable products backed by warranty because your investment should be built to perform and last.</p></div>
+      <div class="why-card" data-reveal><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 17c1.8-1.6 3-2.8 3-4a1.7 1.7 0 0 0-3-1 1.7 1.7 0 0 0-3 1c0 1.2 1.2 2.4 3 4z"/></svg></div><h3><strong>We Install Like It's Our Own Property.</strong></h3><p>Our trained technicians work with care—from safe installation and clean wiring to the smallest finishing details.</p></div>
+      <div class="why-card" data-reveal><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L7.5 21l4.5-2.5L16.5 21 15 13.5"/><path d="M12 6.5l.9 1.8 2 .3-1.4 1.4.3 2-1.8-1-1.8 1 .3-2-1.4-1.4 2-.3z"/></svg></div><h3><strong>Proven Across 200+ Installations.</strong></h3><p>We bring real-world experience from more than 200 solar and inverter installations for homes and businesses.</p></div>
+      <div class="why-card" data-reveal><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="2" y="13" width="4" height="7" rx="1.5"/><rect x="18" y="13" width="4" height="7" rx="1.5"/><path d="M20 20a3 3 0 0 1-3 2h-3"/></svg></div><h3><strong>We Stand Behind Our Work.</strong></h3><p>Installation isn't where our service ends. You get responsive after-sales support from a team committed to keeping your system performing.</p></div>
+    </div>
+    <div class="center" style="margin-top:2.6rem" data-reveal><a class="pill" href="#contact">Book Your Free Site Inspection</a></div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal><span class="k">Our Work</span><h2><strong>OUR WORK SPEAKS FOR ITSELF</strong></h2><p>200+ Installations • Neat Workmanship • Reliable Results</p></div>
+    <div class="work-slider" data-reveal>
+      <div class="ws-track" id="wsTrack">
+        <figure><img src="../../public/images/ion-home1.jpg" alt="Completed residential solar"><figcaption>Residential Solar + Battery — Lekki Phase 1</figcaption></figure>
+        <figure><img src="../../public/images/aao-cctv.jpg" alt="CCTV installation"><figcaption>8-Camera CCTV + NVR — Magodo GRA</figcaption></figure>
+        <figure><img src="../../public/images/aao-electrical.jpg" alt="Neat electrical board"><figcaption>Full Rewire + Load Audit — Ikeja GRA</figcaption></figure>
+        <figure><img src="../../public/images/aao-gate.jpg" alt="Automatic gate"><figcaption>Automatic Gate + Intercom — VGC</figcaption></figure>
+        <figure><img src="../../public/images/project-commercial.jpg" alt="Commercial solar array"><figcaption>Commercial Hybrid System — Ajah</figcaption></figure>
+      </div>
+      <button class="sl-btn prev" id="wsPrev" aria-label="Previous">←</button>
+      <button class="sl-btn next" id="wsNext" aria-label="Next">→</button>
+    </div>
+    <div class="center" style="margin-top:2.4rem" data-reveal><a class="pill ghost" href="#contact">Explore Our Projects</a></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-left:auto;margin-right:auto;text-align:center" data-reveal><span class="k">Our Process</span><h2>From site visit to switch-on — with no surprises</h2></div>
+    <div class="pr-row" id="prRow" data-reveal>
+      <div class="pr-step">
+        <div class="pr-top"><span class="pr-num">01</span><span class="pr-line"></span></div>
+        <h3>Book Your Free Site Visit</h3>
+        <div class="pr-dur">Same week</div>
+        <div class="pr-tagwrap"><span class="pr-tag hot">100% Free</span></div>
+        <div class="pr-bar"></div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-top"><span class="pr-num">02</span><span class="pr-line"></span></div>
+        <h3>We Assess Your Needs</h3>
+        <div class="pr-dur">30–60 min visit</div>
+        <div class="pr-tagwrap"><span class="pr-tag">AAO engineers</span></div>
+        <div class="pr-bar"></div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-top"><span class="pr-num">03</span><span class="pr-line"></span></div>
+        <h3>Get the Right Solution</h3>
+        <div class="pr-dur">24–48 hrs</div>
+        <div class="pr-tagwrap"><span class="pr-tag hot">Clear pricing</span></div>
+        <div class="pr-bar"></div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-top"><span class="pr-num">04</span><span class="pr-line"></span></div>
+        <h3>We Handle the Installation</h3>
+        <div class="pr-dur">2–5 days avg</div>
+        <div class="pr-tagwrap"><span class="pr-tag">Certified crew</span></div>
+        <div class="pr-bar"></div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-top"><span class="pr-num">05</span><span class="pr-line"></span></div>
+        <h3>Enjoy With Confidence</h3>
+        <div class="pr-dur">Lifetime</div>
+        <div class="pr-tagwrap"><span class="pr-tag hot">After-sales support</span></div>
+        <div class="pr-bar"></div>
+      </div>
+    </div>
+    <p class="pr-desc" id="prDesc"></p>
+    <div class="pr-chip">Median: same-week site visit · 3-day installation · 200+ homes powered</div>
+    <a class="pr-link" href="services.html">See the full process →</a>
+    <div class="center" style="margin-top:2.4rem" data-reveal><a class="pill" href="#contact">Book Your Free Site Visit</a></div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer">
+  <div class="wrap offer-grid">
+    <div data-reveal>
+      <span class="offer-note">Limited-Time Offer — Book While Slots Are Available</span>
+      <span class="k">Seasonal Offer</span>
+      <h2>Save More When You Switch to Solar This Season</h2>
+      <p>Power your home or business with a solar system properly sized for your energy needs—and take advantage of our limited-time seasonal installation offer.</p>
+      <div class="offer-perks"><span>Free Site Inspection</span><span>Professional Load Audit</span><span>Warranty-Backed Products</span><span>Expert Installation</span></div>
+      <a class="pill volt" href="#contact">Claim Your Solar Offer</a>
+      <div class="offer-svc">
+        <a href="services.html?s=solar-inverter">Solar Panel Installation<small>Tier-1 panels, flush &amp; neat</small></a>
+        <a href="services.html?s=solar-inverter">Inverter &amp; Battery Systems<small>Hybrid inverters + lithium storage</small></a>
+        <a href="services.html?s=load-audit">Solar System Design<small>Load audit &amp; 3D system sizing</small></a>
+        <a href="services.html?s=cctv-maintenance">Solar Maintenance &amp; Upgrade<small>Health checks &amp; capacity upgrades</small></a>
+      </div>
+    </div>
+    <div class="offer-img" data-reveal><img src="../../public/images/ion-home2.jpg" alt="Home with solar and battery"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="areas contactx">
+  <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+  <span class="glow"></span>
+  <div class="wrap">
+    <span class="k" data-reveal>Contact Us</span>
+    <h2 data-reveal>Talk to an <span class="u">AAO expert</span> today</h2>
+    <p class="sub" data-reveal>Your better power &amp; security solution starts here. Have questions about solar, inverters, CCTV, electrical work, or automation? Send a few details and our team will guide you toward the right solution.</p>
+    <form class="cform" id="cform" data-reveal>
+      <input type="text" placeholder="Your Name *" required>
+      <input type="tel" placeholder="Phone / WhatsApp *" required>
+      <input class="full" type="email" placeholder="Email">
+      <select required><option value="">Service You're Interested In *</option><option>Solar &amp; Inverter Installation</option><option>Electrical Load Audit</option><option>Electrical Installation</option><option>Power Generation</option><option>CCTV Systems</option><option>Security System Installation</option><option>CCTV Maintenance</option><option>Smart Door Locks</option><option>Access Control</option><option>Automatic Gates</option><option>Intercom Systems</option><option>Home Automation</option><option>Network Installation</option><option>ICT Solutions</option></select>
+      <input type="text" placeholder="Location *" required>
+      <textarea class="full" rows="4" placeholder="How Can We Help?"></textarea>
+      <button class="pill" type="submit">Talk to Our Team →</button>
+    </form>
+    <div class="cta-row" data-reveal>
+      <a class="pill" href="#contact">Get Your Free Site Inspection →</a>
+      <a class="pill ghost" href="tel:8105743694"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>(810) 574-3694</a>
+    </div>
+    <p class="refer" data-reveal>Prefer WhatsApp? <a href="tel:8105743694">Message us anytime</a> · We reply within 24 hours</p>
+    <p class="legal" data-reveal>Free site inspections · Clear upfront pricing · Warranty-backed installations</p>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blogx" id="blog">
+  <div class="wrap">
+    <div class="blogx-head" data-reveal>
+      <button class="bx-btn" id="bxPrev" aria-label="Previous articles">←</button>
+      <h2>Insights that help<br><em>homeowners</em> win power</h2>
+      <button class="bx-btn" id="bxNext" aria-label="Next articles">→</button>
+    </div>
+  </div>
+  <div class="blogx-row" id="bxRow" data-reveal>
+    <a class="bx-card" href="#blog"><div class="bx-ph"><img src="../../public/images/warm-detail.jpg" alt="Solar tiles close-up"></div><div class="bx-body"><div class="bx-by">By: AAO Engineering · Solar Basics</div><h3>How to size your inverter &amp; battery bank correctly</h3><p>The exact framework we use on every site visit — so you never pay for too much or settle for too little.</p><span class="bx-link">Read now…</span></div></a>
+    <a class="bx-card" href="#blog"><div class="bx-ph"><img src="../../public/images/aao-cctv.jpg" alt="CCTV camera on a wall"></div><div class="bx-body"><div class="bx-by">By: AAO Engineering · Security</div><h3>How many CCTV cameras does your home really need?</h3><p>The #1 mistake homeowners make is covering corners, not entry points. Here's the proper way to plan coverage.</p><span class="bx-link">Read now…</span></div></a>
+    <a class="bx-card" href="#blog"><div class="bx-ph"><img src="../../public/images/hero-solar.jpg" alt="Solar farm at dusk"></div><div class="bx-body"><div class="bx-by">By: AAO Engineering · Comparison</div><h3>Solar vs generator in Lagos: the 5-year math</h3><p>We ran the real numbers on fuel, servicing and downtime. The results will stop you from buying another generator.</p><span class="bx-link">Read now…</span></div></a>
+    <a class="bx-card" href="#blog"><div class="bx-ph"><img src="../../public/images/aao-electrical.jpg" alt="Electrical board"></div><div class="bx-body"><div class="bx-by">By: AAO Engineering · Electrical</div><h3>5 signs your property needs a professional load audit</h3><p>Tripping breakers, hot switches, rising bills — the warning signs we look for, and what they really mean.</p><span class="bx-link">Read now…</span></div></a>
+    <a class="bx-card" href="#blog"><div class="bx-ph"><img src="../../public/images/aao-gate.jpg" alt="Automatic gate"></div><div class="bx-body"><div class="bx-by">By: AAO Engineering · Automation</div><h3>Automatic gates &amp; smart locks: a buyer's checklist</h3><p>What to demand before you pay: motor sizing, safety sensors, battery backup and warranty terms.</p><span class="bx-link">Read now…</span></div></a>
+    <a class="bx-card" href="#blog"><div class="bx-ph"><img src="../../public/images/aao-network.jpg" alt="Network rack"></div><div class="bx-body"><div class="bx-by">By: AAO Engineering · ICT</div><h3>Wi-Fi that dies in half the house? Here's the real fix</h3><p>Why boosting your router rarely works — and how structured cabling solves it once and for all.</p><span class="bx-link">Read now…</span></div></a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal><span class="k">FAQ</span><h2>Got Questions? We've Got Answers.</h2></div>
+    <div class="faq-list" id="faqList" data-reveal></div>
+    <div class="center" style="margin-top:2.4rem" data-reveal>
+      <p style="font-weight:800;font-family:var(--disp);font-size:1.2rem">Still Have Questions?</p>
+      <p style="color:var(--gray);margin:.5rem 0 1.4rem">Talk to our team and get the answers you need before making a decision.</p>
+      <a class="pill" href="#contact">Talk to an AAO Expert</a>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="areas" id="areas">
+  <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+  <span class="glow"></span>
+  <div class="wrap">
+    <span class="k" data-reveal>Service Areas</span>
+    <h2 data-reveal>Ready to take control of your power in <span class="u">Lagos?</span></h2>
+    <p class="sub" data-reveal>Proudly serving homes and businesses across Lagos &amp; surrounding areas — with free site inspections, original products, and fast, neat installations.</p>
+    <div class="area-chips" data-reveal>
+      <span>Ikoyi</span><span>Victoria Island</span><span>Lekki Phase 1</span><span>Banana Island</span><span>Oniru</span><span>Victoria Garden City (VGC)</span><span>Chevron / Lekki Conservation Area</span><span>Ajah</span><span>Magodo GRA</span><span>Ikeja GRA</span><span>Yaba</span>
+    </div>
+    <div class="cta-row" data-reveal>
+      <a class="pill" href="#contact">Get Your Free Site Inspection →</a>
+      <a class="pill ghost" href="tel:8105743694"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>(810) 574-3694</a>
+    </div>
+    <p class="refer" data-reveal>Already a customer? <a href="#contact">Refer a friend &amp; earn rewards</a> · <a href="#reviews">See our customer reviews</a></p>
+    <p class="legal" data-reveal>CAC Certified · COREN · NEMSA — Licensed &amp; Insured</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-marq" aria-hidden="true">
+    <div class="f-marq-track">
+      <div class="f-marq-g"><span>Solar &amp; Inverter Installation</span><i>★</i><span>CCTV &amp; Surveillance</span><i>★</i><span>Electrical Installation &amp; Audits</span><i>★</i><span>Access Control &amp; Automation</span><i>★</i><span>ICT &amp; Networking</span><i>★</i></div>
+      <div class="f-marq-g"><span>Solar &amp; Inverter Installation</span><i>★</i><span>CCTV &amp; Surveillance</span><i>★</i><span>Electrical Installation &amp; Audits</span><i>★</i><span>Access Control &amp; Automation</span><i>★</i><span>ICT &amp; Networking</span><i>★</i></div>
+    </div>
+  </div>
+  <div class="wrap f-main">
+    <div class="f-grid">
+      <div>
+        <a class="logo" href="#top" style="color:#fff"><span class="mark">AAO</span><span>AAO<small style="color:rgba(255,255,255,.5)">Engineering Services</small></span></a>
+        <p class="f-tag">Accountability. Authenticity. Outstanding Service. Power &amp; security solutions built to last.</p>
+        <a class="f-line" href="mailto:aaoengineeringservices@gmail.com">aaoengineeringservices@gmail.com</a>
+        <a class="f-line" href="tel:8105743694">(810) 574-3694</a>
+        <span class="f-line">Lagos, Nigeria</span>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.3-1.5 1.6-1.5h1.6V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.3H7.6V14h2.7v8h3.2z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.4a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></a>
+          <a href="#" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4z"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"/><path d="M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9z"/><path d="M12 6c1.5 0 2.8.5 3.8 1.5L18.7 4.6A10 10 0 0 0 3.1 7.5L6.4 10c.8-2.3 3-4 5.6-4z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Main Menu</h4>
+        <a href="#top">Home</a><a href="services.html">Services</a><a href="#work">Past Work</a><a href="#about">About</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#contact">Career</a><a href="#contact">Academy</a><a href="#contact">Shop</a><a href="#about">Engineers</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a>
+      </div>
+      <div class="f-connect">
+        <h4>Connect With Us Now</h4>
+        <p class="f-note">Free site inspections · Clear upfront pricing · We reply within 24 hours.</p>
+        <a class="pill volt" href="#contact">Schedule Complimentary Consultation</a>
+      </div>
+    </div>
+    <div class="f-areas">
+      <h4>Service Areas</h4>
+      <div class="f-chips"><span>Ikoyi</span><span>Victoria Island</span><span>Lekki Phase 1</span><span>Banana Island</span><span>Oniru</span><span>Victoria Garden City (VGC)</span><span>Chevron / Lekki Conservation Area</span><span>Ajah</span><span>Magodo GRA</span><span>Ikeja GRA</span><span>Yaba</span></div>
+    </div>
+    <div class="f-bottom">
+      <div class="f-copy">
+        <svg class="f-c" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="21" stroke="#fff" stroke-width="4"/><path d="M30.5 18a8.5 8.5 0 1 0 0 12" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+        <p class="f-legal2">© 2026 AAO Engineering Services. All rights reserved.<br>Proudly Designed with ❤️ by PowerGrowthz</p>
+      </div>
+      <div class="f-year">2026</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+/* mobile menu */
+document.getElementById("menuBtn").addEventListener("click",function(){document.body.classList.toggle("menu-open");});
+
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll("[data-reveal]").forEach(function(el){io.observe(el);});
+
+/* generic slider factory */
+function slider(trackId,prevId,nextId,dotsId,auto){
+  var track=document.getElementById(trackId),n=track.children.length,i=0,timer;
+  var dots=dotsId?document.getElementById(dotsId):null;
+  if(dots)for(var d=0;d<n;d++){var b=document.createElement("button");(function(k){b.onclick=function(){go(k);reset();};})(d);dots.appendChild(b);}
+  function go(k){i=(k+n)%n;track.style.transform="translateX(-"+i*100+"%)";if(dots){var c=dots.children;for(var j=0;j<n;j++)c[j].classList.toggle("on",j===i);}}
+  function reset(){if(!auto)return;clearInterval(timer);timer=setInterval(function(){go(i+1);},auto);}
+  document.getElementById(prevId).onclick=function(){go(i-1);reset();};
+  document.getElementById(nextId).onclick=function(){go(i+1);reset();};
+  /* drag / swipe */
+  var sx=null;
+  track.parentElement.addEventListener("pointerdown",function(e){sx=e.clientX;});
+  addEventListener("pointerup",function(e){if(sx===null)return;var dx=e.clientX-sx;sx=null;if(Math.abs(dx)>50){go(i+(dx<0?1:-1));reset();}});
+  go(0);reset();
+}
+slider("slTrack","slPrev","slNext","slDots",0);      /* user scrolls themself */
+slider("wsTrack","wsPrev","wsNext",null,6000);
+
+/* expanding services carousel */
+var xpc=[].slice.call(document.querySelectorAll(".xp-card")),
+    xpd=document.getElementById("xpDots"),
+    xi=0,xauto=null;
+xpc.forEach(function(c,i){
+  var b=document.createElement("button");
+  b.setAttribute("aria-label","Show service "+(i+1));
+  b.addEventListener("click",function(){xset(i);xreset();});
+  xpd.appendChild(b);
+  c.addEventListener("mouseenter",function(){if(innerWidth>900){xset(i);xreset();}});
+  c.addEventListener("click",function(e){
+    if(!c.classList.contains("on")){e.preventDefault();xset(i);xreset();}
+  });
+});
+function xcenter(i){var el=xpc[i],
+  xr=xpEl.getBoundingClientRect(),er=el.getBoundingClientRect(),
+  target=xpEl.scrollLeft+(er.left-xr.left)-(xpEl.clientWidth-er.width)/2;
+  xpEl.scrollTo({left:target,behavior:"smooth"});}
+function xset(i,center){xi=i;
+  xpc.forEach(function(c,j){c.classList.toggle("on",j===i);});
+  var d=xpd.children;for(var j=0;j<d.length;j++)d[j].classList.toggle("on",j===i);
+  if(center!==false&&innerWidth<=900){setTimeout(function(){xcenter(i);},60);}}
+/* sync active card with manual swipes on mobile */
+var xpEl=document.getElementById("xp"),swT,xpTouch=false;
+xpEl.addEventListener("touchstart",function(){xpTouch=true;},{passive:true});
+xpEl.addEventListener("touchend",function(){xpTouch=false;},{passive:true});
+xpEl.addEventListener("scroll",function(){clearTimeout(swT);swT=setTimeout(function(){
+  if(innerWidth>900||xpTouch)return;
+  var mid=xpEl.scrollLeft+xpEl.clientWidth/2,best=0,bd=1e9;
+  xpc.forEach(function(el,i){var dd=Math.abs(el.offsetLeft+el.offsetWidth/2-mid);if(dd<bd){bd=dd;best=i;}});
+  if(best!==xi)xset(best,false);
+  xsettle(best);
+},140);},{passive:true});
+function xsettle(i){var el=xpc[i],
+  xr=xpEl.getBoundingClientRect(),er=el.getBoundingClientRect(),
+  target=xpEl.scrollLeft+(er.left-xr.left)-(xpEl.clientWidth-er.width)/2;
+  if(Math.abs(target-xpEl.scrollLeft)>2)smoothTo(target,550);}
+function xnext(){xset((xi+1)%xpc.length);}
+document.getElementById("xpPrev").addEventListener("click",function(){xset((xi-1+xpc.length)%xpc.length);xreset();});
+document.getElementById("xpNext").addEventListener("click",function(){xnext();xreset();});
+function xstart(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;xstop();xauto=setInterval(xnext,5200);}
+function xstop(){if(xauto){clearInterval(xauto);xauto=null;}}
+function xreset(){xstart();}
+new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){xstart();}else{xstop();}});},{threshold:.3}).observe(document.getElementById("xp"));
+xset(0);xstart();
+
+/* marquees duplicate */
+["badgeTrack"].forEach(function(id){var el=document.getElementById(id);if(el)el.innerHTML+=el.innerHTML;});
+
+/* blog insights carousel */
+var bxRow=document.getElementById("bxRow");
+document.getElementById("bxPrev").addEventListener("click",function(){bxRow.scrollBy({left:-324,behavior:"smooth"});});
+document.getElementById("bxNext").addEventListener("click",function(){bxRow.scrollBy({left:324,behavior:"smooth"});});
+
+/* process timeline */
+var prs=[].slice.call(document.querySelectorAll(".pr-step")),
+    prDesc=document.getElementById("prDesc"),
+    prTexts=[
+      "Call or message us and we'll schedule a convenient time — usually within the same week.",
+      "We inspect your site, map your load, and determine exactly what you need. No guesswork.",
+      "You get a best-fit recommendation with a clear, upfront quote — no hidden costs.",
+      "Our technicians install, test, and make sure everything works properly — neatly and on schedule.",
+      "Your installation is backed by warranty and responsive after-sales support that actually answers."
+    ],
+    prI=0,prAuto=null;
+function prSet(i){prI=i;
+  prs.forEach(function(s,j){s.classList.toggle("on",j===i);});
+  prDesc.classList.remove("swap");void prDesc.offsetWidth;
+  prDesc.innerHTML="<b>0"+(i+1)+"</b> · "+prTexts[i];
+  prDesc.classList.add("swap");}
+function prStart(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;prStop();prAuto=setInterval(function(){prSet((prI+1)%prs.length);},4000);}
+function prStop(){if(prAuto){clearInterval(prAuto);prAuto=null;}}
+prs.forEach(function(s,i){
+  s.addEventListener("mouseenter",function(){if(innerWidth>900){prSet(i);prStart();}});
+  s.addEventListener("click",function(){prSet(i);prStart();});
+});
+new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){prStart();}else{prStop();}});},{threshold:.3}).observe(document.getElementById("prRow"));
+prSet(0);prStart();
+
+/* reviews data + paging */
+var reviews=[
+ {q:"They assessed our load before recommending anything. Final quote matched the bill we were shown — no surprises, neat wiring, and the house hasn't seen a generator since.",w:"Mrs. A. Bakare",l:"Lekki Phase 1",s:"Google"},
+ {q:"Installed an 8-camera CCTV system with remote viewing on my phone. Clean cabling, labelled everything, and trained my family on the app before leaving.",w:"T. Okonkwo",l:"Magodo GRA",s:"Google"},
+ {q:"Professional from the free site visit to after-sales. They even called a week later to check the system. That's accountability you rarely see.",w:"Engr. E. Adeyemi",l:"Ikeja GRA",s:"Facebook"},
+ {q:"Our shop runs on their solar setup now. Diesel costs dropped by more than half in the first two months. Original panels, proper warranty papers.",w:"L. Fernandez",l:"Ajah",s:"Google"},
+ {q:"Automatic gate + intercom done in three days, exactly as quoted. The finishing is so neat you'd think it came with the house.",w:"B. Adewale",l:"VGC",s:"Facebook"},
+ {q:"Honest people. They told us our existing inverter was fine and only needed a battery upgrade instead of selling us a whole new system. We'll never use anyone else.",w:"F. Chukwu",l:"Yaba",s:"Google"}
+];
+var rg=document.getElementById("revGrid"),page=0,per=3,pages=Math.ceil(reviews.length/per);
+function showRev(p){page=(p+pages)%pages;rg.innerHTML=reviews.slice(page*per,page*per+per).map(function(r){
+ return '<div class="rev"><div class="stars">★★★★★</div><q>'+r.q+'</q><div class="who"><span><b>'+r.w+'</b> — '+r.l+'</span><span class="src">'+r.s+'</span></div></div>';}).join("");}
+document.getElementById("revPrev").onclick=function(){showRev(page-1);};
+document.getElementById("revNext").onclick=function(){showRev(page+1);};
+showRev(0);
+
+/* FAQ */
+var faqs=[
+ ["How do I know which solar or inverter system is right for me?","We start with a professional load audit to understand your energy needs before recommending a system. This helps you avoid paying for an oversized system or struggling with one that's too small."],
+ ["Do you offer free site inspections?","Yes. AAO Engineering Services offers free site inspections to assess your property and determine the right solution for your power or security needs."],
+ ["Do you use original products?","Yes. We prioritize original, quality products backed by warranty to give you greater reliability and peace of mind."],
+ ["Do you offer after-sales support?","Yes. Our service continues after installation with responsive after-sales support, troubleshooting, and maintenance when needed."],
+ ["Do you offer flexible payment plans?","Yes. Flexible payment options are available to help make reliable power and security solutions more accessible. Contact us to discuss the options available for your project."],
+ ["What services do you provide besides solar installation?","We provide electrical installations, domestic and industrial load audits, CCTV systems, smart door locks, access control, automatic gates, intercom systems, home automation, and ICT/networking solutions."],
+ ["Do you work with both homes and businesses?","Yes. We serve residential and commercial clients, including homes, offices, shops, schools, hospitals, and industrial facilities."],
+ ["How long does an installation take?","Installation time depends on the type and size of your project. After assessing your site, our team will explain the scope of work and provide an estimated timeline."],
+ ["How do I get started?","Simply call, message, or submit our contact form to book your site inspection. We'll assess your needs, recommend the right solution, provide a quote, and schedule your installation."]
+];
+var fl=document.getElementById("faqList");
+faqs.forEach(function(f){
+ var d=document.createElement("div");d.className="faq";
+ d.innerHTML='<button type="button"><span>'+f[0]+'</span><i>+</i></button><div class="a"><p>'+f[1]+'</p></div>';
+ d.querySelector("button").addEventListener("click",function(){
+   var open=d.classList.toggle("open"),a=d.querySelector(".a");
+   a.style.maxHeight=open?a.scrollHeight+"px":"0";
+ });
+ fl.appendChild(d);
+});
+
+/* forms */
+function done(form){form.addEventListener("submit",function(e){e.preventDefault();form.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:2rem 0"><div style="font-family:var(--disp);font-weight:800;font-size:1.4rem">Thank you! ✓</div><p style="color:var(--gray);margin-top:.6rem">An AAO expert will contact you within 24 hours.</p></div>';});}
+done(document.getElementById("qmini"));done(document.getElementById("cform"));
+})();
+</script>
+</body>
+</html>
+appendChild(d);
+});
+
+/* forms */
+function done(form){form.addEventListener("submit",function(e){e.preventDefault();form.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:2rem 0"><div style="font-family:var(--disp);font-weight:800;font-size:1.4rem">Thank you! ✓</div><p style="color:var(--gray);margin-top:.6rem">An AAO expert will contact you within 24 hours.</p></div>';});}
+done(document.getElementById("qmini"));done(document.getElementById("cform"));
+})();
+</script>
+</body>
+</html>

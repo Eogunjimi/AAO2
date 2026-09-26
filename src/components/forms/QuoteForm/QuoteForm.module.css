@@ -1,0 +1,45 @@
+.form {
+  margin-top: 1.2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 20px;
+  padding: 1.6rem;
+  box-shadow: 0 20px 50px rgba(11, 11, 12, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: var(--font-weight-extrabold);
+  margin-bottom: 0.2rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.submit {
+  margin-top: 0.3rem;
+}
+
+.note {
+  font-size: 0.7rem;
+  color: var(--color-soft);
+  text-align: center;
+}
+
+.submitError {
+  font-size: 0.78rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-danger);
+}
+
+@media (max-width: 520px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

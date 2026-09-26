@@ -1,0 +1,28 @@
+.success {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem 0;
+  animation: fade-up 0.5s var(--ease);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-extrabold);
+  font-size: 1.4rem;
+}
+
+.message {
+  color: var(--color-gray);
+  margin-top: 0.6rem;
+}
+
+.reset {
+  margin-top: 1.2rem;
+  background: none;
+  border: none;
+  font-weight: var(--font-weight-bold);
+  font-size: 0.85rem;
+  color: var(--color-ember);
+  text-decoration: underline;
+  cursor: pointer;
+}

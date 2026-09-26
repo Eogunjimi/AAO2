@@ -1,0 +1,110 @@
+.section {
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.title {
+  text-align: center;
+  flex: 1;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  text-transform: uppercase;
+  line-height: 1.12;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--color-volt);
+}
+
+.row {
+  display: flex;
+  gap: 1.4rem;
+  margin: 3.4rem calc(50% - 50vw) 0;
+  padding: 0 calc(50vw - 50%);
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  list-style: none;
+}
+
+.row::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 300px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border-radius: 14px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition:
+    transform var(--duration-base) var(--ease),
+    box-shadow var(--duration-base) var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.45);
+}
+
+.card article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.thumb {
+  aspect-ratio: 4 / 4.2;
+  background: #000;
+  overflow: hidden;
+}
+
+.thumb img {
+  transition: transform 1s var(--ease);
+}
+
+.card:hover .thumb img {
+  transform: scale(1.06);
+}
+
+.body {
+  padding: 1.3rem 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.byline {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--color-soft);
+  font-weight: var(--font-weight-medium);
+}
+
+.cardTitle {
+  font-size: 1.02rem;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.excerpt {
+  font-size: 0.82rem;
+  color: var(--color-gray);
+  flex: 1;
+}
+
+.link {
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-ember);
+  font-size: 0.84rem;
+  letter-spacing: var(--tracking-wide);
+}

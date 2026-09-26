@@ -1,0 +1,85 @@
+import { Button, Chip, Container, Reveal, Section, SectionHeading } from '@/components/ui';
+import { processSteps } from '@/data/process';
+import { useCarousel } from '@/hooks/useCarousel';
+import { useInView } from '@/hooks/useInView';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { cn } from '@/lib/cn';
+import { anchors, paths } from '@/routes/paths';
+
+import styles from './ProcessSection.module.css';
+
+const AUTOPLAY_MS = 4000;
+
+/** Auto-advancing five-step delivery timeline. */
+export function ProcessSection() {
+  const isDesktop = useMediaQuery('(min-width: 901px)');
+  const [timelineRef, inView] = useInView({ threshold: 0.3 });
+  const { index, goTo } = useCarousel({
+    length: processSteps.length,
+    autoPlayMs: AUTOPLAY_MS,
+    active: inView,
+  });
+
+  const activeStep = processSteps[index];
+
+  return (
+    <Section id="process" aria-labelledby="process-title">
+      <Container>
+        <SectionHeading
+          id="process-title"
+          align="center"
+          eyebrow="Our Process"
+          title="From site visit to switch-on — with no surprises"
+          className={styles.heading}
+        />
+
+        <Reveal>
+          <ol className={styles.row} ref={timelineRef}>
+            {processSteps.map((step, stepIndex) => {
+              const isActive = stepIndex === index;
+              return (
+                <li key={step.id} className={cn(styles.step, isActive && styles.stepActive)}>
+                  <button
+                    type="button"
+                    className={styles.stepButton}
+                    aria-current={isActive}
+                    onClick={() => goTo(stepIndex)}
+                    onMouseEnter={() => isDesktop && goTo(stepIndex)}
+                  >
+                    <span className={styles.top}>
+                      <span className={styles.number}>{step.number}</span>
+                      <span className={styles.line} aria-hidden="true" />
+                    </span>
+                    <span className={styles.stepTitle}>{step.title}</span>
+                    <span className={styles.duration}>{step.duration}</span>
+                    <span className={styles.tagWrap}>
+                      <Chip tone={step.tag.highlight ? 'highlight' : 'default'}>
+                        {step.tag.label}
+                      </Chip>
+                    </span>
+                    <span className={styles.bar} aria-hidden="true" />
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+        </Reveal>
+
+        <p key={activeStep.id} className={styles.description} aria-live="polite">
+          <b>{activeStep.number}</b> · {activeStep.description}
+        </p>
+
+        <p className={styles.median}>
+          Median: same-week site visit · 3-day installation · 200+ homes powered
+        </p>
+
+        <div className={styles.links}>
+          <Button to={paths.services} variant="ghost">
+            See the full process →
+          </Button>
+          <Button to={anchors.contact}>Book Your Free Site Visit</Button>
+        </div>
+      </Container>
+    </Section>
+  );
+}

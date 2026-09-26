@@ -1,0 +1,201 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: var(--header-height);
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  list-style: none;
+  font-size: 0.88rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.navLink {
+  transition: color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--color-gray);
+}
+
+/* ----- dropdowns ----- */
+.hasMenu {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s var(--ease),
+    transform 0.25s var(--ease);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(11, 11, 12, 0.12);
+  padding: 1.4rem;
+  z-index: var(--z-dropdown);
+}
+
+.hasMenu:hover .dropdown,
+.hasMenu:focus-within .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.mega {
+  width: min(920px, 92vw);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}
+
+.mega ul,
+.simple ul {
+  list-style: none;
+}
+
+.megaTitle {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-soft);
+  margin-bottom: 0.8rem;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+}
+
+.megaLink {
+  display: block;
+  padding: 0.32rem 0;
+  font-size: 0.86rem;
+  font-weight: var(--font-weight-medium);
+  color: #3c3f44;
+}
+
+.megaLink:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
+}
+
+.simple {
+  min-width: 190px;
+  padding: 1rem;
+}
+
+.simpleLink {
+  display: block;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  font-weight: var(--font-weight-medium);
+  font-size: 0.86rem;
+}
+
+.simpleLink:hover {
+  background: var(--color-wash);
+}
+
+/* ----- right hand actions ----- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.phone {
+  font-weight: var(--font-weight-bold);
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.menuButton {
+  display: none;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger,
+.burger::before,
+.burger::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background: var(--color-ink);
+  transform: translateX(-50%);
+  transition: transform var(--duration-fast) var(--ease);
+}
+
+.burger {
+  top: 50%;
+}
+
+.burger::before {
+  top: -6px;
+}
+
+.burger::after {
+  top: 6px;
+}
+
+.burgerOpen {
+  background: transparent;
+}
+
+.burgerOpen::before {
+  top: 0;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.burgerOpen::after {
+  top: 0;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+@media (max-width: 1080px) {
+  .nav,
+  .phone {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+}
+
+@media (max-width: 620px) {
+  .cta {
+    display: none;
+  }
+}

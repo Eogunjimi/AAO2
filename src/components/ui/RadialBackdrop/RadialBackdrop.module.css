@@ -1,0 +1,48 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -26vmax 0 0 -26vmax;
+  width: 52vmax;
+  height: 52vmax;
+  border: 1px solid rgba(233, 161, 59, 0.28);
+  border-radius: 50%;
+  animation: ring-pulse 9s ease-in-out infinite alternate;
+}
+
+.ringTwo {
+  margin: -39vmax 0 0 -39vmax;
+  width: 78vmax;
+  height: 78vmax;
+  animation-delay: 1.2s;
+}
+
+.ringThree {
+  margin: -52vmax 0 0 -52vmax;
+  width: 104vmax;
+  height: 104vmax;
+  animation-delay: 2.4s;
+}
+
+.glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(760px, 96vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 210, 63, 0.28) 0%,
+    rgba(255, 210, 63, 0.1) 52%,
+    transparent 72%
+  );
+}

@@ -1,0 +1,8 @@
+.slider {
+  box-shadow: var(--shadow-md);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 2.4rem;
+}
