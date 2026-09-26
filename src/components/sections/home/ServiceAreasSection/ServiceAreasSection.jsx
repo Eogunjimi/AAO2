@@ -1,6 +1,6 @@
 import { RadialBand } from '@/components/sections/shared/RadialBand';
 import { Button, Chip, Eyebrow, Icon, Reveal } from '@/components/ui';
-import { company, serviceAreas } from '@/data/company';
+import { company, primaryCtaLabel, serviceAreas } from '@/data/company';
 import { anchors } from '@/routes/paths';
 
 import styles from './ServiceAreasSection.module.css';
@@ -29,7 +29,7 @@ export function ServiceAreasSection() {
       </Reveal>
 
       <Reveal className={styles.actions}>
-        <Button to={anchors.contact}>Get Your Free Site Inspection →</Button>
+        <Button to={anchors.contact}>{primaryCtaLabel}</Button>
         <Button href={company.phone.href} variant="ghost">
           <Icon name="phone" size={15} />
           {company.phone.display}

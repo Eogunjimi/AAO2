@@ -37,6 +37,12 @@ export const company = {
   },
 };
 
+/**
+ * Site-wide primary call to action. Shared so the service-areas band and the
+ * footer render the exact same button instead of drifting apart.
+ */
+export const primaryCtaLabel = 'Get Your Free Site Inspection →';
+
 /** Headline proof points shown in the hero and service pages. */
 export const trustChips = [
   { id: 'installs', label: 'Installations', value: '200+' },

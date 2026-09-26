@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { Logo } from '@/components/layout/Logo';
 import { Button, Chip, Container, Icon, Marquee } from '@/components/ui';
-import { company, serviceAreas } from '@/data/company';
+import { company, primaryCtaLabel, serviceAreas } from '@/data/company';
 import { footerMenus } from '@/data/navigation';
 import { featuredServices } from '@/data/services';
 import { anchors } from '@/routes/paths';
@@ -70,8 +70,8 @@ export function Footer() {
             <p className={styles.note}>
               Free site inspections · Clear upfront pricing · {company.responseTime}.
             </p>
-            <Button to={anchors.contact} variant="volt">
-              Schedule Complimentary Consultation
+            <Button to={anchors.contact} className={styles.cta}>
+              {primaryCtaLabel}
             </Button>
           </div>
         </div>

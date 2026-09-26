@@ -130,6 +130,18 @@ a.line:hover {
   color: var(--color-ink);
 }
 
+/*
+ * Same CTA as the service-areas band. Its solid fill is near-black, so on the
+ * dark footer it gets a hairline edge to keep the button shape readable.
+ */
+.cta {
+  border: 1.5px solid var(--color-border-on-dark);
+}
+
+.cta:hover {
+  border-color: var(--color-volt);
+}
+
 .note {
   color: rgba(255, 255, 255, 0.55);
   font-size: 0.82rem;
