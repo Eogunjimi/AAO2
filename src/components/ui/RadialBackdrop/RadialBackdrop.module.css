@@ -12,7 +12,7 @@
   margin: -26vmax 0 0 -26vmax;
   width: 52vmax;
   height: 52vmax;
-  border: 1px solid rgba(233, 161, 59, 0.28);
+  border: 1px solid color-mix(in srgb, var(--color-ember-soft) 28%, transparent);
   border-radius: 50%;
   animation: ring-pulse 9s ease-in-out infinite alternate;
 }
@@ -41,8 +41,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 210, 63, 0.28) 0%,
-    rgba(255, 210, 63, 0.1) 52%,
+    color-mix(in srgb, var(--color-volt) 28%, transparent) 0%,
+    color-mix(in srgb, var(--color-volt) 10%, transparent) 52%,
     transparent 72%
   );
 }

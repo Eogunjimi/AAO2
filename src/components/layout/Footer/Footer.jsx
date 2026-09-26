@@ -70,7 +70,7 @@ export function Footer() {
             <p className={styles.note}>
               Free site inspections · Clear upfront pricing · {company.responseTime}.
             </p>
-            <Button to={anchors.contact} className={styles.cta}>
+            <Button to={anchors.contact} variant="volt">
               {primaryCtaLabel}
             </Button>
           </div>

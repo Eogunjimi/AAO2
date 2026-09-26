@@ -25,12 +25,12 @@
 
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 34px rgba(11, 11, 12, 0.22);
+  box-shadow: var(--shadow-button);
 }
 
 .button:active {
   transform: translateY(0) scale(0.97);
-  box-shadow: 0 6px 16px rgba(11, 11, 12, 0.18);
+  box-shadow: var(--shadow-button-pressed);
 }
 
 .button:disabled,
@@ -41,9 +41,15 @@
   box-shadow: none;
 }
 
+/* The brand yellow CTA: the system's primary action on dark surfaces. */
 .volt {
   background: var(--color-volt);
   color: var(--color-ink);
+}
+
+.volt:hover {
+  background: var(--color-star);
+  box-shadow: var(--shadow-volt);
 }
 
 .ghost {

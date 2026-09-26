@@ -53,5 +53,5 @@
   background: var(--color-volt);
   color: var(--color-ink);
   transform: scale(1.12);
-  box-shadow: 0 10px 26px rgba(255, 210, 63, 0.35);
+  box-shadow: var(--shadow-volt);
 }

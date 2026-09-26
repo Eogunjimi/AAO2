@@ -73,6 +73,11 @@
   --shadow-lg: 0 30px 70px rgba(11, 11, 12, 0.18);
   --shadow-xl: 0 40px 90px rgba(0, 0, 0, 0.5);
 
+  /* Interactive lift shared by the button primitives. */
+  --shadow-button: 0 16px 34px rgba(11, 11, 12, 0.22);
+  --shadow-button-pressed: 0 6px 16px rgba(11, 11, 12, 0.18);
+  --shadow-volt: 0 12px 30px rgba(255, 210, 63, 0.36);
+
   /* ----- motion ----- */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --duration-fast: 0.22s;
