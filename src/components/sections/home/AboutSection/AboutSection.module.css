@@ -53,9 +53,9 @@
 
 .figure {
   position: relative;
-  aspect-ratio: 4 / 5;
-  max-height: 640px;
-  border-radius: var(--radius-xl);
+  aspect-ratio: 4 / 5.2;
+  max-height: 680px;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-on-dark);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
@@ -67,6 +67,60 @@
   object-fit: cover;
 }
 
+/* Name plate over the foot of the portrait. */
+.plate {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 3rem 1.2rem 1.15rem;
+  background: linear-gradient(
+    to top,
+    rgba(8, 8, 10, 0.94) 10%,
+    rgba(8, 8, 10, 0.6) 52%,
+    rgba(8, 8, 10, 0) 100%
+  );
+  color: var(--color-on-dark);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-extrabold);
+  font-size: 1.05rem;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.2;
+}
+
+.role {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-on-dark-muted);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-volt);
+  color: var(--color-ink);
+  font-size: 0.68rem;
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: var(--shadow-volt);
+}
+
 @media (max-width: 960px) {
   .grid {
     grid-template-columns: 1fr;
@@ -74,7 +128,17 @@
   }
 
   .figure {
-    aspect-ratio: 4 / 3.4;
+    aspect-ratio: 4 / 4;
     max-height: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .plate {
+    padding: 2.6rem 1rem 1rem;
+  }
+
+  .name {
+    font-size: 0.98rem;
   }
 }

@@ -11,6 +11,9 @@ export const company = {
   description:
     'Professionally designed solar, electrical, CCTV and security systems for homes and businesses that demand reliability. 200+ installations across Lagos.',
   founder: 'Adebayo Aina',
+  founderRole: 'Founder & CEO',
+  /** Short promise shown on the badge over the about-section portrait. */
+  guarantee: 'Work Guaranteed',
   foundedYear: 2019,
   phone: {
     display: '(810) 574-3694',

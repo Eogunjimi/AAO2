@@ -1,4 +1,4 @@
-import { Container, Eyebrow, Reveal, Section } from '@/components/ui';
+import { Container, Eyebrow, Icon, Reveal, Section } from '@/components/ui';
 import { company } from '@/data/company';
 
 import styles from './AboutSection.module.css';
@@ -44,12 +44,23 @@ export function AboutSection() {
             <figure className={styles.figure}>
               <img
                 src="/images/about-engineer.jpg"
-                alt={`An ${company.shortName} engineer testing a household inverter and distribution board with a multimeter`}
+                alt={`${company.founder}, ${company.founderRole} of ${company.name}, testing a household inverter and distribution board with a multimeter`}
                 loading="lazy"
                 decoding="async"
                 width="922"
                 height="1152"
               />
+
+              <figcaption className={styles.plate}>
+                <p className={styles.name}>
+                  {company.founder}
+                  <span className={styles.role}>{company.founderRole}</span>
+                </p>
+                <span className={styles.badge}>
+                  <Icon name="shield" size={14} />
+                  {company.guarantee}
+                </span>
+              </figcaption>
             </figure>
           </Reveal>
         </div>
