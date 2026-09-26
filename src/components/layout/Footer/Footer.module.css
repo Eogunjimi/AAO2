@@ -1,7 +1,17 @@
 .footer {
+  /* Fallback for browsers without color-mix(): the flat dark base. */
+  background: var(--color-dark);
   background:
-    radial-gradient(56rem 32rem at 90% 112%, rgba(180, 71, 15, 0.5), transparent 62%),
-    radial-gradient(38rem 22rem at 4% 118%, rgba(245, 179, 1, 0.12), transparent 60%),
+    radial-gradient(
+      56rem 32rem at 90% 112%,
+      color-mix(in srgb, var(--color-volt) 42%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      38rem 22rem at 4% 118%,
+      color-mix(in srgb, var(--color-star) 18%, transparent),
+      transparent 60%
+    ),
     var(--color-dark);
   color: var(--color-on-dark);
   padding-bottom: 2.6rem;
