@@ -128,20 +128,85 @@
   margin-top: 2.2rem;
 }
 
+/*
+ * Mobile: the five-column timeline becomes a vertical list, and each step
+ * turns into a two-column row — the number sits in a fixed gutter with the
+ * title, duration, tag and progress bar stacked beside it.
+ */
 @media (max-width: 900px) {
+  .heading :global(h2) {
+    /* Fall back to the standard heading scale instead of the display size. */
+    font-size: clamp(1.9rem, 5.2vw, 2.6rem);
+  }
+
   .row {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: 2.4rem;
     margin-top: 2.6rem;
   }
 
+  .stepButton {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    column-gap: 1.1rem;
+  }
+
+  /* Hoist the number out of its wrapper so it can sit in the step grid. */
+  .top {
+    display: contents;
+  }
+
+  .line {
+    display: none;
+  }
+
   .number {
+    grid-column: 1;
+    grid-row: 1;
     font-size: 2.2rem;
+  }
+
+  .stepTitle {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0.35rem 0 0.45rem;
+  }
+
+  .duration {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .tagWrap {
+    grid-column: 2;
+    grid-row: 3;
+    margin-top: 0.7rem;
+  }
+
+  .bar {
+    grid-column: 2;
+    grid-row: 4;
+    margin-top: 0.9rem;
   }
 
   .description {
     min-height: 0;
     margin-top: 2.4rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .median {
+    display: block;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.76rem;
+    line-height: 1.55;
+    border-radius: var(--radius-lg);
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
