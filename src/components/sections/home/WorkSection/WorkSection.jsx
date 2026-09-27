@@ -14,6 +14,7 @@ export function WorkSection() {
       <Container>
         <SectionHeading
           id="work-title"
+          size="compact"
           align="center"
           title="Our work speaks for itself"
           description="200+ Installations • Neat Workmanship • Reliable Results"

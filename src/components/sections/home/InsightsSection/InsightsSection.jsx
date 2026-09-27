@@ -14,6 +14,7 @@ export function InsightsSection() {
       <Container>
         <SectionHeading
           id="insights-title"
+          size="compact"
           align="center"
           tone="inverse"
           title={

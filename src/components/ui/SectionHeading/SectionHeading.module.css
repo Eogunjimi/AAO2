@@ -17,12 +17,24 @@
 }
 
 /* The accent word: ember on light surfaces, volt where the section is dark. */
+/* Sections that lead on their promise rather than a label. */
+.compact {
+  font-size: var(--section-subtitle-size);
+  line-height: 1.35;
+}
+
 .title em {
   font-style: italic;
   color: var(--color-ember);
 }
 
-.inverse .title em {
+.inverse /* Sections that lead on their promise rather than a label. */
+.compact {
+  font-size: var(--section-subtitle-size);
+  line-height: 1.35;
+}
+
+.title em {
   color: var(--color-volt);
 }
 
@@ -30,7 +42,7 @@
 .subtitle {
   font-family: var(--font-display);
   font-weight: var(--font-weight-extrabold);
-  font-size: clamp(1rem, 1.9vw, 1.22rem);
+  font-size: var(--section-subtitle-size);
   line-height: 1.35;
   letter-spacing: var(--tracking-tight);
   color: var(--color-ink);

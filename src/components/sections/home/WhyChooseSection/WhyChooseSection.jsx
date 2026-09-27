@@ -11,6 +11,7 @@ export function WhyChooseSection() {
       <Container>
         <SectionHeading
           id="why-title"
+          size="compact"
           align="center"
           title="Why homes & businesses choose AAO"
           description="Our customers choose us because we take the time to understand their needs, recommend what actually works, and stand behind the quality of our work. Here’s what sets AAO apart:"
