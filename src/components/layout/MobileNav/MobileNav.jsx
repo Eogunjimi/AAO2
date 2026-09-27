@@ -110,7 +110,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, onNavigate }) {
           )}
 
           <li>
-            <Link to={anchors.work} className={styles.link} onClick={onNavigate}>
+            <Link to={paths.projects} className={styles.link} onClick={onNavigate}>
               Projects
             </Link>
           </li>
@@ -123,7 +123,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, onNavigate }) {
       </nav>
 
       <div className={styles.footer}>
-        <Button href={company.phone.whatsapp} variant="ghost" block className={styles.whatsapp}>
+        <Button href={company.phone.whatsapp} variant="whatsapp" block className={styles.whatsapp}>
           <Icon name="whatsapp" size={17} />
           Chat on WhatsApp
         </Button>

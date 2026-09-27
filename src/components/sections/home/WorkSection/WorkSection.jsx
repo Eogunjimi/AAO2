@@ -1,8 +1,11 @@
 import { Button, Container, ImageSlider, Reveal, Section, SectionHeading } from '@/components/ui';
-import { projects } from '@/data/projects';
-import { anchors } from '@/routes/paths';
+import { projectCaption, projects } from '@/data/projects';
+import { paths } from '@/routes/paths';
 
 import styles from './WorkSection.module.css';
+
+/** Captions are derived once: the data keeps title and location apart. */
+const slides = projects.map((project) => ({ ...project, caption: projectCaption(project) }));
 
 /** Completed project slider. */
 export function WorkSection() {
@@ -19,7 +22,7 @@ export function WorkSection() {
 
         <Reveal>
           <ImageSlider
-            slides={projects}
+            slides={slides}
             label="Completed AAO projects"
             autoPlayMs={6000}
             ratio="16/7.5"
@@ -28,7 +31,7 @@ export function WorkSection() {
         </Reveal>
 
         <div className={styles.footer}>
-          <Button to={anchors.contact} variant="ghost">
+          <Button to={paths.projects} variant="ghost">
             Explore Our Projects
           </Button>
         </div>

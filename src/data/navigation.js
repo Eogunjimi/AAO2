@@ -26,7 +26,7 @@ export const primaryNav = [
   { id: 'home', label: 'Home', to: paths.home },
   { id: 'about', label: 'About', to: anchors.about, menu: 'about' },
   { id: 'services', label: 'Services', to: paths.services, menu: 'services' },
-  { id: 'projects', label: 'Projects', to: anchors.work },
+  { id: 'projects', label: 'Projects', to: paths.projects },
   { id: 'contact', label: 'Contact Us', to: anchors.contact },
 ];
 
@@ -60,7 +60,7 @@ export const footerMenus = [
       { id: 'home', label: 'Home', to: paths.home },
       { id: 'about', label: 'About', to: anchors.about },
       { id: 'services', label: 'Services', to: paths.services },
-      { id: 'projects', label: 'Projects', to: anchors.work },
+      { id: 'projects', label: 'Projects', to: paths.projects },
       { id: 'contact', label: 'Contact Us', to: anchors.contact },
     ],
   },

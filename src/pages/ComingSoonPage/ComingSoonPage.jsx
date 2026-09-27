@@ -33,7 +33,7 @@ export default function ComingSoonPage({ pageKey }) {
 
         <div className={styles.actions}>
           <Button to={anchors.contact}>{primaryCtaLabel}</Button>
-          <Button href={company.phone.whatsapp} variant="ghost" className={styles.whatsapp}>
+          <Button href={company.phone.whatsapp} variant="whatsapp" className={styles.whatsapp}>
             <Icon name="whatsapp" size={17} />
             Chat on WhatsApp
           </Button>

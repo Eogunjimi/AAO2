@@ -26,7 +26,8 @@ export function ContactSection({ defaultService = '' }) {
       </Reveal>
 
       <Reveal className={styles.actions}>
-        <Button href={company.phone.whatsapp} variant="ghost">
+        <Button href={company.phone.whatsapp} variant="whatsapp">
+          <Icon name="whatsapp" size={17} />
           Message us on WhatsApp
         </Button>
         <Button href={company.phone.href} variant="ghost">

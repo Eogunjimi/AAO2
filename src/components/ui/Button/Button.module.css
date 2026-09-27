@@ -52,6 +52,19 @@
   box-shadow: var(--shadow-volt);
 }
 
+/* WhatsApp's own colour, so the action is recognised before it is read. */
+.whatsapp {
+  background: var(--color-whatsapp);
+  color: #fff;
+  padding-inline: 1.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.whatsapp:hover {
+  background: var(--color-whatsapp-dark);
+  box-shadow: var(--shadow-whatsapp);
+}
+
 .ghost {
   background: transparent;
   border: 1.5px solid var(--color-line);

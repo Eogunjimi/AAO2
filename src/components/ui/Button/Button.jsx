@@ -12,7 +12,7 @@ import styles from './Button.module.css';
  * markup semantics always match the action.
  *
  * @param {Object} props
- * @param {'solid'|'volt'|'ghost'|'ghost-light'} [props.variant]
+ * @param {'solid'|'volt'|'whatsapp'|'ghost'|'ghost-light'} [props.variant]
  * @param {'sm'|'md'} [props.size]
  * @param {boolean} [props.block] Stretch to the container width.
  */

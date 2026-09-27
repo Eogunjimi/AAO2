@@ -10,6 +10,7 @@ import { paths } from './paths';
 // The home page ships in the main bundle (it is the landing route); everything
 // else is code-split so first paint stays light.
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'));
+const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'));
 const ServiceDetailPage = lazy(() => import('@/pages/ServiceDetailPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 const ComingSoonPage = lazy(() => import('@/pages/ComingSoonPage'));
@@ -23,6 +24,7 @@ export function AppRoutes() {
           <Route path={paths.home} element={<HomePage />} />
           <Route path={paths.services} element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
+          <Route path={paths.projects} element={<ProjectsPage />} />
 
           {/* Announced in the About menu; placeholders until the real pages land. */}
           <Route path={paths.team} element={<ComingSoonPage pageKey="team" />} />

@@ -172,7 +172,7 @@ export function Header() {
         <div className={styles.actions}>
           <Button
             href={company.phone.whatsapp}
-            variant="ghost"
+            variant="whatsapp"
             size="sm"
             className={styles.whatsapp}
             aria-label="Chat with us on WhatsApp"

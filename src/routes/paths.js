@@ -3,6 +3,7 @@
 export const paths = {
   home: '/',
   services: '/services',
+  projects: '/projects',
   service: (slug) => `/services/${slug}`,
   team: '/team',
   career: '/career',
