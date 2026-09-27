@@ -24,7 +24,7 @@
 .navList {
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.25rem;
   list-style: none;
   font-size: 0.88rem;
   font-weight: var(--font-weight-medium);
@@ -167,6 +167,17 @@
   color: var(--color-ember);
 }
 
+.areas .panel {
+  width: min(520px, 92vw);
+}
+
+.areaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.1rem 0.8rem;
+  margin-top: 0.2rem;
+}
+
 .simple .panel {
   min-width: 210px;
   padding: 0.8rem;
@@ -247,7 +258,7 @@
   transform: translateX(-50%) rotate(-45deg);
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .nav {
     display: none;
   }

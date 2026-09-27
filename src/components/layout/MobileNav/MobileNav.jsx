@@ -18,9 +18,10 @@ import styles from './MobileNav.module.css';
  * @param {boolean} props.open
  * @param {Array<{id: string, title: string, links: Array}>} props.serviceGroups
  * @param {Array<{id: string, label: string, to: string}>} props.aboutLinks
+ * @param {Array<{id: string, label: string, to: string}>} props.areaLinks
  * @param {() => void} props.onNavigate
  */
-export function MobileNav({ id, open, serviceGroups, aboutLinks, onNavigate }) {
+export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNavigate }) {
   const [openSection, setOpenSection] = useState(null);
 
   // Collapse the sections whenever the drawer closes, without an effect.
@@ -107,6 +108,20 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, onNavigate }) {
                 </div>
               ))}
             </>,
+          )}
+
+          {renderDisclosure(
+            'areas',
+            'Service Areas',
+            <ul className={styles.sublist}>
+              {areaLinks.map((link) => (
+                <li key={link.id}>
+                  <Link to={link.to} className={styles.subLink} onClick={onNavigate}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>,
           )}
 
           <li>

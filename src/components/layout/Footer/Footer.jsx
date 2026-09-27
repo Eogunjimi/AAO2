@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 
 import { Logo } from '@/components/layout/Logo';
 import { Button, Chip, Container, Icon, Marquee } from '@/components/ui';
-import { company, officeAddress, primaryCtaLabel, serviceAreas } from '@/data/company';
+import { serviceAreaPages } from '@/data/areas';
+import { company, officeAddress, primaryCtaLabel } from '@/data/company';
 import { footerMenus } from '@/data/navigation';
 import { featuredServices } from '@/data/services';
-import { anchors } from '@/routes/paths';
+import { anchors, paths } from '@/routes/paths';
 
 import styles from './Footer.module.css';
 
@@ -95,9 +96,11 @@ export function Footer() {
             Service Areas
           </h2>
           <ul className={styles.areaChips}>
-            {serviceAreas.map((area) => (
-              <li key={area}>
-                <Chip tone="outline">{area}</Chip>
+            {serviceAreaPages.map((area) => (
+              <li key={area.slug}>
+                <Chip tone="outline" to={paths.serviceArea(area.slug)}>
+                  {area.name}
+                </Chip>
               </li>
             ))}
           </ul>

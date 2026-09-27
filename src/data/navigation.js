@@ -1,3 +1,4 @@
+import { serviceAreaPages } from '@/data/areas';
 import { getServicesByCategory } from '@/lib/services';
 import { anchors, paths } from '@/routes/paths';
 
@@ -22,10 +23,18 @@ export const aboutMenu = [
   { id: 'shop', label: 'Shop', to: paths.shop },
 ];
 
+/** Entries in the Service Areas menu, one per neighbourhood page. */
+export const areaMenu = serviceAreaPages.map((area) => ({
+  id: area.slug,
+  label: area.name,
+  to: paths.serviceArea(area.slug),
+}));
+
 export const primaryNav = [
   { id: 'home', label: 'Home', to: paths.home },
   { id: 'about', label: 'About', to: anchors.about, menu: 'about' },
   { id: 'services', label: 'Services', to: paths.services, menu: 'services' },
+  { id: 'areas', label: 'Service Areas', to: anchors.areas, menu: 'areas' },
   { id: 'projects', label: 'Projects', to: paths.projects },
   { id: 'contact', label: 'Contact Us', to: anchors.contact },
 ];
@@ -60,6 +69,7 @@ export const footerMenus = [
       { id: 'home', label: 'Home', to: paths.home },
       { id: 'about', label: 'About', to: anchors.about },
       { id: 'services', label: 'Services', to: paths.services },
+      { id: 'areas', label: 'Service Areas', to: anchors.areas },
       { id: 'projects', label: 'Projects', to: paths.projects },
       { id: 'contact', label: 'Contact Us', to: anchors.contact },
     ],

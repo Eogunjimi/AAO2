@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 
-import { aboutMenu, getServiceMenuGroups } from '@/data/navigation';
+import { aboutMenu, areaMenu, getServiceMenuGroups } from '@/data/navigation';
 
 import { MobileNav } from './MobileNav';
 
@@ -15,6 +15,7 @@ function renderDrawer(props = {}) {
         open
         serviceGroups={getServiceMenuGroups()}
         aboutLinks={aboutMenu}
+        areaLinks={areaMenu}
         onNavigate={() => {}}
         {...props}
       />
@@ -31,8 +32,11 @@ describe('<MobileNav />', () => {
     ['Home', 'Projects', 'Contact Us'].forEach((label) => {
       expect(within(drawer()).getByRole('link', { name: label })).toBeInTheDocument();
     });
-    expect(within(drawer()).getByRole('button', { name: /^About$/ })).toBeInTheDocument();
-    expect(within(drawer()).getByRole('button', { name: /^Services$/ })).toBeInTheDocument();
+    ['About', 'Services', 'Service Areas'].forEach((label) => {
+      expect(
+        within(drawer()).getByRole('button', { name: new RegExp(`^${label}$`) }),
+      ).toBeInTheDocument();
+    });
   });
 
   it('keeps the sections collapsed until tapped', async () => {
@@ -49,6 +53,20 @@ describe('<MobileNav />', () => {
     expect(within(drawer()).getByRole('link', { name: 'All Services' })).toBeInTheDocument();
     getServiceMenuGroups().forEach((group) => {
       expect(within(drawer()).getByText(group.title)).toBeInTheDocument();
+    });
+  });
+
+  it('lists every neighbourhood under Service Areas', async () => {
+    const user = userEvent.setup();
+    renderDrawer();
+
+    await user.click(within(drawer()).getByRole('button', { name: /^Service Areas$/ }));
+
+    areaMenu.forEach((area) => {
+      expect(within(drawer()).getByRole('link', { name: area.label })).toHaveAttribute(
+        'href',
+        area.to,
+      );
     });
   });
 

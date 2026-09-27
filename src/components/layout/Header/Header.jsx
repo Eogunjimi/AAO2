@@ -6,13 +6,16 @@ import { MobileNav } from '@/components/layout/MobileNav';
 import { TopBar } from '@/components/layout/TopBar';
 import { Button, Container, Icon } from '@/components/ui';
 import { company, primaryCtaLabel } from '@/data/company';
-import { aboutMenu, getServiceMenuGroups, primaryNav } from '@/data/navigation';
+import { aboutMenu, areaMenu, getServiceMenuGroups, primaryNav } from '@/data/navigation';
 import { useEventListener } from '@/hooks/useEventListener';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { cn } from '@/lib/cn';
 import { anchors, paths } from '@/routes/paths';
 
 import styles from './Header.module.css';
+
+/** Which panel shape each menu uses. */
+const PANEL_STYLES = { services: 'mega', areas: 'areas', about: 'simple' };
 
 /**
  * Sticky site header: announcement bar, primary navigation with dropdowns,
@@ -122,7 +125,7 @@ export function Header() {
                     hidden={!isOpen}
                     className={cn(
                       styles.dropdown,
-                      item.menu === 'services' ? styles.mega : styles.simple,
+                      styles[PANEL_STYLES[item.menu] ?? 'simple'],
                       isOpen && styles.dropdownOpen,
                     )}
                   >
@@ -147,6 +150,23 @@ export function Header() {
 
                         <Link to={paths.services} className={styles.megaFooter}>
                           View all services →
+                        </Link>
+                      </div>
+                    ) : item.menu === 'areas' ? (
+                      <div className={styles.panel}>
+                        <p className={styles.megaTitle}>Lagos neighbourhoods we cover</p>
+                        <ul className={styles.areaGrid}>
+                          {areaMenu.map((link) => (
+                            <li key={link.id}>
+                              <Link to={link.to} className={styles.simpleLink}>
+                                {link.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <Link to={anchors.areas} className={styles.megaFooter}>
+                          See our full coverage →
                         </Link>
                       </div>
                     ) : (
@@ -206,6 +226,7 @@ export function Header() {
         open={isDrawerOpen}
         serviceGroups={serviceGroups}
         aboutLinks={aboutMenu}
+        areaLinks={areaMenu}
         onNavigate={() => setDrawerOpen(false)}
       />
     </header>
