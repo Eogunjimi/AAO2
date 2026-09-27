@@ -78,15 +78,32 @@ describe('<ServiceDetailPage />', () => {
     });
   });
 
-  it('falls back to catalogue copy for a service without a long-form entry', () => {
+  it('mixes written copy with catalogue fallbacks where a page is part-written', () => {
     const service = getServiceBySlug('cctv');
+    const page = getServicePage(service);
     renderAt('/services/cctv');
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(service.headline);
-    expect(screen.getByText(service.intro)).toBeInTheDocument();
+    // Written: the headline and the story.
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(page.heroTitle);
+    expect(screen.getByText(page.introBody[0])).toBeInTheDocument();
+
+    // Fallen back: the cards still come from the catalogue benefits.
     service.benefits.forEach((benefit) => {
       expect(screen.getByRole('heading', { name: benefit.title })).toBeInTheDocument();
     });
+    expect(
+      screen.getByRole('button', { name: new RegExp(service.faq.question, 'i') }),
+    ).toBeInTheDocument();
+  });
+
+  it('picks the service keyword out of every headline', () => {
+    const page = getServicePage(getServiceBySlug('cctv'));
+    renderAt('/services/cctv');
+
+    expect(page.heroTitle.startsWith(page.heroKeyword)).toBe(true);
+    expect(screen.getByRole('heading', { level: 1 }).querySelector('em')).toHaveTextContent(
+      page.heroKeyword,
+    );
   });
 
   it('sets the document title from the service', () => {

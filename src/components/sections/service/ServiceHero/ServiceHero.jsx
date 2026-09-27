@@ -14,6 +14,22 @@ const REVIEW_BADGES = [
 ];
 
 /**
+ * The H1 with its leading keyword picked out, e.g.
+ * "**Solar & Inverter Installation** in Lagos That Carries Your Real Load".
+ * The full string stays intact for search engines and screen readers.
+ */
+function HeroTitle({ title, keyword }) {
+  if (!keyword || !title.startsWith(keyword)) return title;
+
+  return (
+    <>
+      <em>{keyword}</em>
+      {title.slice(keyword.length)}
+    </>
+  );
+}
+
+/**
  * Service hero: the service photograph as a full-bleed background, with the
  * headline, promise and the proof badges over it.
  *
@@ -44,7 +60,7 @@ export function ServiceHero({ service, page }) {
           <Eyebrow tone="volt">{service.category}</Eyebrow>
 
           <h1 id="service-title" className={styles.title}>
-            {page.heroTitle}
+            <HeroTitle title={page.heroTitle} keyword={page.heroKeyword} />
           </h1>
           <p className={styles.subtitle}>{page.heroSubtitle}</p>
 

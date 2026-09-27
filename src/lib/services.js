@@ -74,6 +74,7 @@ export function getServicePage(service) {
 
   return {
     heroTitle: page.heroTitle ?? service.headline,
+    heroKeyword: page.heroKeyword ?? null,
     heroSubtitle: page.heroSubtitle ?? service.summary,
     heroImage: page.heroImage ?? service.image,
 

@@ -8,6 +8,7 @@
  *
  * @typedef {Object} ServicePage
  * @property {string} heroTitle       Detailed H1. Rendered in caps.
+ * @property {string} [heroKeyword]   Leading phrase of the H1, picked out in the accent.
  * @property {string} heroSubtitle    One-line promise under the H1.
  * @property {string} heroImage       Background photograph for the hero.
  * @property {string} introTitle      Section heading. Rendered in caps.
@@ -24,6 +25,7 @@
 export const servicePages = {
   'solar-inverter': {
     heroTitle: 'Solar & Inverter Installation in Lagos That Carries Your Real Load',
+    heroKeyword: 'Solar & Inverter Installation',
     heroSubtitle: 'Sized from a professional load audit — not from guesswork.',
     heroImage: '/images/ion-home2.jpg',
 
@@ -31,9 +33,9 @@ export const servicePages = {
       'Professional Solar & Inverter Installation For Homes That Cannot Afford Another Blackout',
     introImage: '/images/ion-home1.jpg',
     introBody: [
-      'Most inverter systems in Lagos are sold before anybody measures anything. A salesperson asks how many rooms you have, quotes a size, and moves on. You end up paying for capacity you never use, or watching the system trip every time the pressing iron comes on.',
-      'Both mistakes cost you. An oversized bank ties up money you could have spent on better batteries; an undersized one dies early because it runs at its limit every night. And when the panels or inverter turn out to be counterfeit, there are no warranty papers to fall back on.',
-      'AAO Engineering Services starts with a professional load audit, then designs around what your home actually draws. Original panels, hybrid inverters and lithium batteries with warranty. Neat, labelled installation by trained technicians — and after-sales support that still answers months later.',
+      'Most solar and inverter systems in Lagos are sold before anybody measures anything. A salesperson asks how many rooms you have, quotes a size from memory, and moves on to the next customer.',
+      'Then the bill arrives. You pay for capacity you never use, or you watch the system trip every time the pressing iron comes on. The batteries die early. The warranty papers, if they ever existed, belong to somebody else.',
+      'AAO Engineering Services designs every solar and inverter installation from a professional load audit. Every system is sized against measured consumption. Every panel, inverter and battery is original and warranty-backed. Every installation is labelled, tested and handed over by technicians who still answer the phone months later.',
     ],
 
     includedTitle: { lead: "What's Included In", accent: 'Every Installation' },
@@ -143,7 +145,8 @@ export const servicePages = {
   },
 
   'commercial-solar': {
-    heroTitle: 'Commercial Solar & Inverter Systems That End the Diesel Cycle',
+    heroTitle: 'Commercial Solar & Inverter Installation in Lagos That Ends the Diesel Cycle',
+    heroKeyword: 'Commercial Solar & Inverter Installation',
     heroSubtitle: 'Engineered for your peak demand. Installed around your trading hours.',
     heroImage: '/images/project-commercial.jpg',
 
@@ -151,9 +154,9 @@ export const servicePages = {
       'Commercial Solar & Inverter Installation For Businesses That Cannot Close When the Grid Fails',
     introImage: '/images/hero-solar.jpg',
     introBody: [
-      'For most Lagos businesses the generator is not a backup any more — it is the main supply, and the fuel bill is quietly one of the largest line items in the business. Every litre is money that never reaches your margin.',
-      'The usual fix is a bigger generator, which raises the bill again. Meanwhile unstable supply keeps shortening the life of your compressors, servers and point-of-sale equipment, and every outage in front of a customer costs you something harder to measure.',
-      'We engineer hybrid systems around your measured peak demand, then install in phases planned around your trading hours — after close or over a weekend if that is what it takes. Original equipment, full documentation, and monitoring so you can see exactly what the system is saving.',
+      'For most Lagos businesses the generator stopped being a backup years ago. It is the main supply, and diesel has quietly become one of the largest lines in the accounts.',
+      'The usual answer is a bigger generator, which makes the bill bigger too. Your margins suffer. Your compressors, servers and point-of-sale equipment suffer. And every outage in front of a customer costs you something the ledger never shows.',
+      'AAO Engineering Services engineers commercial solar and inverter systems around measured peak demand. Every design is built on an industrial load audit. Every installation is phased around your trading hours, after close or over a weekend. Every component arrives with documentation your finance team can file.',
     ],
 
     includedTitle: { lead: "What's Included In", accent: 'Every Commercial Build' },
@@ -263,16 +266,17 @@ export const servicePages = {
   },
 
   'load-audit': {
-    heroTitle: 'Electrical Load Audits That Tell You What You Need Before You Spend',
+    heroTitle: 'Electrical Load Audits in Lagos That Tell You What You Need Before You Spend',
+    heroKeyword: 'Electrical Load Audits',
     heroSubtitle: 'Measured consumption, written findings, no product attached.',
     heroImage: '/images/about-engineer.jpg',
 
     introTitle: 'Domestic & Industrial Load Audits For People Who Refuse To Buy Blind',
     introImage: '/images/aao-electrical.jpg',
     introBody: [
-      'Almost every oversized or undersized inverter in Lagos has the same origin: nobody measured the load. The size was estimated from the number of rooms, or copied from whatever a neighbour installed, and the bill followed the guess.',
-      'The consequences show up later. Batteries that die in eighteen months because the bank was too small for the nightly draw. Capacity sitting idle that could have paid for better components. Circuits quietly overloaded because nothing was ever balanced.',
-      'A load audit replaces all of that with numbers. We measure appliance by appliance and circuit by circuit, then give you a written picture of your true daily consumption and peak demand — yours to keep, whether you buy a system from us or not.',
+      'Almost every oversized and undersized inverter in Lagos starts the same way: nobody measured the load. The size is estimated from the number of rooms, or copied from whatever the neighbour installed, and the bill follows the guess.',
+      'The guess is expensive. Batteries die in eighteen months because the bank was too small for the nightly draw. Money sits idle in capacity you never use. Circuits stay quietly overloaded because nothing was ever balanced.',
+      'AAO Engineering Services measures instead. Every significant appliance and circuit is logged, including the surges that decide your inverter rating. Every electrical load audit ends in a written report of your true daily consumption and peak demand. Every recommendation is yours to keep — even if you buy the system somewhere else.',
     ],
 
     includedTitle: { lead: 'What You Get From', accent: 'Every Load Audit' },
@@ -382,16 +386,17 @@ export const servicePages = {
   },
 
   electrical: {
-    heroTitle: 'Electrical Installations in Lagos Done Neat, Safe and to Standard',
+    heroTitle: 'Electrical Installation in Lagos Done Neat, Safe and to Standard',
+    heroKeyword: 'Electrical Installation',
     heroSubtitle: 'Balanced circuits, labelled boards, work you can inspect.',
     heroImage: '/images/service-electrical.jpg',
 
     introTitle: 'Electrical Installation & Rewiring For Buildings That Deserve To Be Done Once',
     introImage: '/images/aao-electrical.jpg',
     introBody: [
-      'Bad electrical work is easy to hide. Behind a finished wall, an undersized cable, an overloaded circuit and a twisted joint all look the same as good work — until a breaker refuses to hold, a socket discolours, or something burns.',
-      'It is rarely one dramatic failure. It is a distribution board nobody can read, circuits nobody balanced, and joints nobody would sign their name to, quietly aging inside a building full of people.',
-      'We wire buildings the way an engineer should be happy to inspect them. Every circuit sized to its load, the board balanced and clearly labelled, proper terminations throughout, and the installation tested in front of you before we call it finished.',
+      'Bad electrical work is easy to hide. Behind a finished wall, an undersized cable, an unbalanced board and a twisted joint look exactly like good work.',
+      'They stop looking the same later. A breaker that will not hold. A socket that discolours. A distribution board nobody can read, quietly aging inside a building full of people.',
+      'AAO Engineering Services wires buildings to be inspected. Every circuit is sized to the load it will actually carry. Every board is balanced, protected and labelled way by way. Every electrical installation is tested in front of you before we call it finished.',
     ],
 
     includedTitle: { lead: 'What Comes With', accent: 'Every Installation' },
@@ -501,16 +506,17 @@ export const servicePages = {
   },
 
   'power-gen': {
-    heroTitle: 'Power Generation & Changeover Systems That Start When the Grid Stops',
+    heroTitle: 'Power Generation & Changeover Systems in Lagos That Start When the Grid Stops',
+    heroKeyword: 'Power Generation & Changeover Systems',
     heroSubtitle: 'Correctly sized, properly installed, safely switched.',
     heroImage: '/images/service-power-gen.jpg',
 
     introTitle: 'Generator Supply, Installation & Changeover For Premises That Cannot Go Dark',
     introImage: '/images/project-commercial.jpg',
     introBody: [
-      'A generator is only as good as the installation around it. We are regularly called to sets that are the wrong size for the load, wired through a manual changeover nobody trusts, or sitting in an enclosure that traps heat and fumes.',
-      'The results are predictable: fuel burned carrying almost nothing, a set that struggles the moment a compressor starts, and a switchover that depends on somebody being awake and nearby to throw a lever.',
-      'We size the set against a measured load, install it with proper ventilation, earthing and cable sizing, and fit a changeover — manual or automatic — that transfers cleanly and safely. Then we test it under load with you watching, not on paper.',
+      'A generator is only as good as the installation around it. We are called out constantly to sets that are the wrong size for the load, wired through a changeover nobody trusts, sitting in an enclosure that traps its own heat and fumes.',
+      'So the fuel burns carrying almost nothing. The set struggles the moment a compressor starts. And the switchover depends on somebody being awake, nearby and willing to walk out in the rain.',
+      'AAO Engineering Services sizes every set against a measured load. Every installation gets proper earthing, cable sizing and ventilation. Every changeover, manual or automatic, is interlocked, labelled and tested under real load while you watch.',
     ],
 
     includedTitle: { lead: "What's Included In", accent: 'Every Installation' },
@@ -616,6 +622,136 @@ export const servicePages = {
         answer:
           'Yes. We service and repair existing sets, and we will tell you honestly when a set is worth maintaining and when replacing it is the cheaper decision.',
       },
+    ],
+  },
+
+  cctv: {
+    heroTitle: 'CCTV Installation in Lagos That Shows You What Actually Happened',
+    heroKeyword: 'CCTV Installation',
+    heroSubtitle: 'Coverage planned around entry points, recorded and verified.',
+
+    introTitle: 'Professional CCTV Installation For Homes And Businesses That Need Real Evidence',
+    introBody: [
+      'Most CCTV in Lagos is sold on the number of cameras. Eight sounds safer than four, so eight go up — pointed at corners, roofs and empty walls, recording to a box nobody has ever opened.',
+      'Then something happens at the gate, and the footage is grainy, or overwritten, or the drive stopped recording in March. The cameras were never the point. Coverage was.',
+      'AAO Engineering Services plans CCTV coverage around entry points, not corners. Every camera is original, warranty-backed equipment rather than the counterfeit kit that fills the market. Every system is configured for remote viewing on your phone. Every handover ends with your household or staff trained on the app.',
+    ],
+  },
+
+  'security-install': {
+    heroTitle: 'Security System Installation in Lagos That Covers Every Entry Point',
+    heroKeyword: 'Security System Installation',
+    heroSubtitle: 'One system, every entry point, commissioned and explained.',
+
+    introTitle: 'Complete Security System Installation For Premises That Cannot Rely On Luck',
+    introBody: [
+      'Security is usually bought one panic at a time. An alarm after a break-in, a camera after a scare, a sensor somebody had spare — and none of them talking to each other.',
+      'What you end up with is cover on paper. Gaps where the pieces meet. Alerts nobody receives. A system so awkward to arm that it quietly stops being armed at all.',
+      'AAO Engineering Services designs the whole perimeter as one system. Every entry point is assessed before anything is quoted. Every device is original and warranty-backed. Every security system installation is commissioned, tested and explained to the people who will actually use it.',
+    ],
+  },
+
+  'cctv-maintenance': {
+    heroTitle: 'CCTV Maintenance in Lagos That Keeps Your Cameras Actually Recording',
+    heroKeyword: 'CCTV Maintenance',
+    heroSubtitle: 'Checked, cleaned, tested — and proven to be recording.',
+
+    introTitle: 'CCTV Maintenance And Repair For Systems That Have To Be Working',
+    introBody: [
+      'Cameras get installed and then forgotten. Lenses film over in harmattan dust, a drive fills up, a power supply gives out in the rain — and nobody notices, because nobody watches a screen that shows nothing happening.',
+      'You find out when it matters. The one night you need footage is the night you learn the system stopped recording months ago. The investment is still on the wall, doing nothing.',
+      'AAO Engineering Services keeps CCTV systems working. Every maintenance visit checks recording, retention, storage health and camera alignment. Every fault is reported in writing with what it will cost to put right. Every visit ends with the system proven to be recording, not assumed to be.',
+    ],
+  },
+
+  'smart-locks': {
+    heroTitle: 'Smart Door Lock Installation in Lagos That Ends the Spare-Key Problem',
+    heroKeyword: 'Smart Door Lock Installation',
+    heroSubtitle: 'Codes, cards and fingerprints instead of keys you cannot trace.',
+
+    introTitle: 'Smart Door Lock Installation For Buildings Where Keys Have Stopped Being Secure',
+    introBody: [
+      'Keys are the weakest part of most Lagos homes and offices. They get copied at the junction, lent to workmen, lost by tenants, and inherited by whoever held them before you.',
+      'Changing the lock means changing everybody’s key, so it never quite happens. The old keys stay out there, and you have no way of knowing who still holds one.',
+      'AAO Engineering Services installs smart door locks that replace keys with codes, cards and fingerprints. Every lock is original equipment with a warranty and a mechanical override. Every installation is fitted to the door you already have. Every user is set up individually — and removed in seconds when they leave.',
+    ],
+  },
+
+  'access-control': {
+    heroTitle: 'Access Control Systems in Lagos That Prove Who Came Through the Door',
+    heroKeyword: 'Access Control Systems',
+    heroSubtitle: 'Every door mapped, every entry logged, every credential revocable.',
+
+    introTitle: 'Access Control Installation For Premises That Need To Know Who Was Where',
+    introBody: [
+      'Most premises still run on trust and a signing book. Staff share one code, visitors are waved through, and the only record of who entered is whatever somebody remembered to write down.',
+      'It works until it matters. Something goes missing, someone is somewhere they should not be, and there is no way to prove who was where and when.',
+      'AAO Engineering Services installs access control that answers that question. Every door, gate and zone is mapped before a quote is written. Every user gets their own credential, revocable the day they leave. Every entry is logged and searchable, on equipment that comes with a warranty.',
+    ],
+  },
+
+  'auto-gates': {
+    heroTitle: 'Automatic Gate Installation in Lagos That Opens Before You Step Out',
+    heroKeyword: 'Automatic Gate Installation',
+    heroSubtitle: 'Motors matched to your gate, with safety stops and manual release.',
+
+    introTitle: 'Automatic Gate Installation For Compounds That Should Not Be Waiting In The Road',
+    introBody: [
+      'The gate is where every arrival starts, and in most compounds it still needs somebody to walk out into the rain, or a gateman who cannot be in two places at once.',
+      'Meanwhile the traffic builds behind you in the road, the gate drags on its own track, and a motor that was never matched to the weight of the gate burns out inside a year.',
+      'AAO Engineering Services installs automatic gates that suit the gate you already have. Every motor is sized to the weight and travel it has to move. Every installation includes safety stops, manual release and remote or keypad entry. Every gate is finished neatly enough to look like it came with the house.',
+    ],
+  },
+
+  intercom: {
+    heroTitle: 'Intercom Systems in Lagos That Let You See Who Is at the Gate',
+    heroKeyword: 'Intercom Systems',
+    heroSubtitle: 'See and speak to your visitor before the gate ever opens.',
+
+    introTitle: 'Video Intercom Installation For Homes That Answer The Gate Safely',
+    introBody: [
+      'Answering the gate in most homes still means walking to it — at night, in the rain, with no idea who is standing on the other side.',
+      'So the gate gets opened before anybody is identified, or visitors stand outside shouting your name. Neither is secure, and neither is convenient.',
+      'AAO Engineering Services installs video intercom systems that bring the gate to a screen indoors or to your phone. Every installation is wired around the layout of your compound. Every unit is original equipment with a warranty. Every handover includes showing the household how to answer, release and record a visit.',
+    ],
+  },
+
+  'home-automation': {
+    heroTitle: 'Home Automation in Lagos That Still Works When the Power Does Not',
+    heroKeyword: 'Home Automation',
+    heroSubtitle: 'Built around your inverter, your network and your gate.',
+
+    introTitle: 'Home Automation Built For Nigerian Power, Not For A Showroom',
+    introBody: [
+      'Home automation is usually sold as a gadget — an app, a speaker, a light that changes colour. Then the grid goes down, the router reboots, and none of it answers.',
+      'Automation that assumes perfect power and perfect internet is decoration. In Lagos it has to survive an outage, a changeover and a slow network before it is worth paying for.',
+      'AAO Engineering Services installs home automation designed around Nigerian conditions. Every system is planned with your power supply in mind, inverter and changeover included. Every device is original and warranty-backed. Every installation is integrated with the lighting, gates, locks and cameras you already own.',
+    ],
+  },
+
+  network: {
+    heroTitle: 'Network Installation in Lagos That Holds Up With the Whole Office Online',
+    heroKeyword: 'Network Installation',
+    heroSubtitle: 'Surveyed, certified, labelled and documented.',
+
+    introTitle: 'Structured Network Installation For Offices That Cannot Afford Dropouts',
+    introBody: [
+      'Office networks are usually grown rather than designed. A router here, an extender there, cables run wherever they reached — until twenty people are sharing a setup that was fine for five.',
+      'So calls drop, the CCTV upload stalls, and somebody reboots the router twice a day as a matter of routine. The bandwidth is rarely the problem. The cabling and the layout are.',
+      'AAO Engineering Services installs structured networks properly. Every cable run is surveyed and tested rather than guessed. Every rack is patched, labelled and documented. Every network installation is built so the next person to touch it can read exactly what we did.',
+    ],
+  },
+
+  ict: {
+    heroTitle: 'ICT Solutions in Lagos That Keep Your Business Running Every Day',
+    heroKeyword: 'ICT Solutions',
+    heroSubtitle: 'Surveyed, installed, documented — and yours to keep.',
+
+    introTitle: 'ICT Solutions For Businesses That Need Their Systems To Simply Work',
+    introBody: [
+      'Most growing businesses in Lagos buy IT in pieces. A laptop here, a printer there, a CCTV recorder on its own network, and nobody owning how any of it fits together.',
+      'The result works only while nothing goes wrong. One failure and the office stops, because nothing was documented and nobody knows how it was wired in the first place.',
+      'AAO Engineering Services treats ICT as infrastructure. Every deployment starts with a survey of what you have and what you actually need. Every system and device is installed, labelled and documented. Every client keeps that documentation, so you are never held hostage by whoever touched it last.',
     ],
   },
 };
