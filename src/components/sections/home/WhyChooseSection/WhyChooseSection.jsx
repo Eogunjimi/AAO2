@@ -12,12 +12,7 @@ export function WhyChooseSection() {
         <SectionHeading
           id="why-title"
           align="center"
-          title={
-            <>
-              Why <em>Choose Us</em>
-            </>
-          }
-          subtitle="Why homes & businesses choose AAO"
+          title="Why homes & businesses choose AAO"
           description="Our customers choose us because we take the time to understand their needs, recommend what actually works, and stand behind the quality of our work. Here’s what sets AAO apart:"
         />
 
