@@ -13,7 +13,7 @@ export function ServiceAreasSection() {
       <Reveal>
         <Eyebrow tone="ember">Service Areas</Eyebrow>
         <h2 id="areas-title">
-          Ready to take control of your power in <span className="underline">Lagos?</span>
+          Ready to take control of your power in <em>Lagos</em>?
         </h2>
         <p className={styles.subtitle}>
           Proudly serving homes and businesses across Lagos &amp; surrounding areas — with free site

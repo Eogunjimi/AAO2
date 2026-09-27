@@ -16,12 +16,9 @@
   margin: 1.1rem 0 1.2rem;
 }
 
-.highlight {
-  font-style: normal;
-  background: var(--color-volt);
-  padding: 0 0.3em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+.title em {
+  font-style: italic;
+  color: var(--color-ember);
 }
 
 .subtitle {

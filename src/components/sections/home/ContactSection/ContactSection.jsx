@@ -12,7 +12,7 @@ export function ContactSection({ defaultService = '' }) {
       <Reveal>
         <Eyebrow tone="ember">Contact Us</Eyebrow>
         <h2 id="contact-title">
-          Talk to an <span className="underline">AAO expert</span> today
+          Talk to an <em>AAO expert</em> today
         </h2>
         <p className={styles.subtitle}>
           Your better power &amp; security solution starts here. Have questions about solar,

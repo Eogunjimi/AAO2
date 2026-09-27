@@ -16,8 +16,7 @@ export function HeroSection() {
             {company.name} — {company.address.display}
           </Eyebrow>
           <h1 id="hero-title" className={styles.title}>
-            Power &amp; Security Solutions for Homes and Businesses That Demand{' '}
-            <em className={styles.highlight}>Reliability</em>
+            Power &amp; Security Solutions for Homes and Businesses That Demand <em>Reliability</em>
           </h1>
           <p className={styles.subtitle}>
             Professionally designed solar, electrical, CCTV, and security systems built to give you
