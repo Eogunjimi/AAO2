@@ -52,17 +52,31 @@
   box-shadow: var(--shadow-volt);
 }
 
-/* WhatsApp's own colour, so the action is recognised before it is read. */
+/*
+ * WhatsApp is the secondary way to reach us, so it stays in the site palette
+ * rather than importing WhatsApp green: a light pill beside the solid primary
+ * CTA, with the glyph carried in a volt chip for recognition.
+ */
 .whatsapp {
-  background: var(--color-whatsapp);
-  color: #fff;
-  padding-inline: 1.5rem;
-  border-radius: var(--radius-pill);
+  gap: 0.55rem;
+  padding-inline: 0.7rem 1.35rem;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-line);
+  color: var(--color-ink);
+}
+
+.whatsapp svg {
+  width: 26px;
+  height: 26px;
+  padding: 5px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  color: var(--color-ink);
 }
 
 .whatsapp:hover {
-  background: var(--color-whatsapp-dark);
-  box-shadow: var(--shadow-whatsapp);
+  border-color: var(--color-ink);
+  box-shadow: var(--shadow-sm);
 }
 
 .ghost {
@@ -97,4 +111,10 @@
 
 .block {
   width: 100%;
+}
+
+/* Sizes carry their own radius, so the pill is restated with equal weight. */
+.whatsapp,
+.whatsapp.sm {
+  border-radius: var(--radius-pill);
 }

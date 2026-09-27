@@ -90,11 +90,6 @@
   --duration-base: 0.4s;
   --duration-slow: 0.9s;
 
-  /* Third-party brand colours, used only for that brand's own button. */
-  --color-whatsapp: #25d366;
-  --color-whatsapp-dark: #1da851;
-  --shadow-whatsapp: 0 12px 26px color-mix(in srgb, #25d366 34%, transparent);
-
   /* ----- z-index scale ----- */
   --z-dropdown: 50;
   --z-header: 90;

@@ -123,7 +123,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, onNavigate }) {
       </nav>
 
       <div className={styles.footer}>
-        <Button href={company.phone.whatsapp} variant="whatsapp" block className={styles.whatsapp}>
+        <Button href={company.phone.whatsapp} variant="whatsapp" block>
           <Icon name="whatsapp" size={17} />
           Chat on WhatsApp
         </Button>
