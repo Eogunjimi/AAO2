@@ -1,5 +1,6 @@
+import { PartnerStrip } from '@/components/sections/shared/PartnerStrip';
 import { Button, Container, Eyebrow, Marquee, Reveal, Section } from '@/components/ui';
-import { certifications, company } from '@/data/company';
+import { company } from '@/data/company';
 
 import styles from './ServiceIntro.module.css';
 
@@ -16,14 +17,7 @@ export function ServiceIntro({ service }) {
       </div>
 
       <div className={styles.badges}>
-        <Marquee speed={32}>
-          {certifications.map((name) => (
-            <span key={name} className={styles.badge}>
-              <i className={styles.dot} />
-              {name}
-            </span>
-          ))}
-        </Marquee>
+        <PartnerStrip speed={34} />
       </div>
 
       <Section aria-labelledby="service-intro-title">

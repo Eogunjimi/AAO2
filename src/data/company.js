@@ -80,17 +80,24 @@ export const promises = [
 ];
 
 /** Accreditations and manufacturer partners shown in the badge marquee. */
+/**
+ * Accreditations and product partners shown in the trust strip.
+ *
+ * Each entry renders as a typographic mark. Drop a file in
+ * `public/images/partners/` and set `logo` to swap in the real artwork —
+ * nothing else needs to change.
+ */
 export const certifications = [
-  'CAC',
-  'COREN',
-  'NEMSA',
-  'NSE',
-  'REAN',
-  'Felicity Solar',
-  'Luminous',
-  'Growatt',
-  'Deye',
-  'Hikvision',
+  { id: 'cac', name: 'CAC', descriptor: 'Accredited', logo: null },
+  { id: 'coren', name: 'COREN', descriptor: 'Accredited', logo: null },
+  { id: 'nemsa', name: 'NEMSA', descriptor: 'Accredited', logo: null },
+  { id: 'nse', name: 'NSE', descriptor: 'Accredited', logo: null },
+  { id: 'rean', name: 'REAN', descriptor: 'Accredited', logo: null },
+  { id: 'felicity-solar', name: 'Felicity Solar', descriptor: 'Partner brand', logo: null },
+  { id: 'luminous', name: 'Luminous', descriptor: 'Partner brand', logo: null },
+  { id: 'growatt', name: 'Growatt', descriptor: 'Partner brand', logo: null },
+  { id: 'deye', name: 'Deye', descriptor: 'Partner brand', logo: null },
+  { id: 'hikvision', name: 'Hikvision', descriptor: 'Partner brand', logo: null },
 ];
 
 /** Lagos neighbourhoods covered by the team. */

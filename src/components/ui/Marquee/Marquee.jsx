@@ -14,13 +14,26 @@ import styles from './Marquee.module.css';
  * @param {Object} props
  * @param {number} [props.speed] Duration of one loop in seconds.
  * @param {boolean} [props.pauseOnHover]
+ * @param {boolean} [props.paused] Hold the animation — e.g. while off-screen.
  */
-export function Marquee({ speed = 32, pauseOnHover = true, className, children, ...rest }) {
+export function Marquee({
+  speed = 32,
+  pauseOnHover = true,
+  paused = false,
+  className,
+  children,
+  ...rest
+}) {
   const items = Children.toArray(children);
 
   return (
     <div
-      className={cn(styles.viewport, pauseOnHover && styles.pausable, className)}
+      className={cn(
+        styles.viewport,
+        pauseOnHover && styles.pausable,
+        paused && styles.paused,
+        className,
+      )}
       aria-hidden="true"
       {...rest}
     >

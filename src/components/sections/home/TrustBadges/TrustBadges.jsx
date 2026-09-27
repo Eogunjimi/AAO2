@@ -1,5 +1,5 @@
-import { Container, Eyebrow, Marquee } from '@/components/ui';
-import { certifications } from '@/data/company';
+import { PartnerStrip } from '@/components/sections/shared/PartnerStrip';
+import { Container, Eyebrow } from '@/components/ui';
 
 import styles from './TrustBadges.module.css';
 
@@ -12,19 +12,8 @@ export function TrustBadges() {
           Certified, accredited &amp; partnered with the best
         </Eyebrow>
       </Container>
-      <Marquee speed={32}>
-        {certifications.map((name) => (
-          <span key={name} className={styles.badge}>
-            <i className={styles.dot} />
-            {name}
-          </span>
-        ))}
-      </Marquee>
-      <ul className={styles.srOnly}>
-        {certifications.map((name) => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
+
+      <PartnerStrip />
     </section>
   );
 }
