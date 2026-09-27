@@ -1,0 +1,120 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-wide);
+  font-size: 0.95rem;
+  min-height: 52px;
+  padding: 0.9rem 1.9rem;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    transform var(--duration-fast) var(--ease),
+    box-shadow var(--duration-fast) var(--ease),
+    background var(--duration-fast),
+    border-color var(--duration-fast),
+    color var(--duration-fast);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button);
+}
+
+.button:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: var(--shadow-button-pressed);
+}
+
+.button:disabled,
+.button[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* The brand yellow CTA: the system's primary action on dark surfaces. */
+.volt {
+  background: var(--color-volt);
+  color: var(--color-ink);
+}
+
+.volt:hover {
+  background: var(--color-star);
+  box-shadow: var(--shadow-volt);
+}
+
+/*
+ * WhatsApp is the secondary way to reach us, so it stays in the site palette
+ * rather than importing WhatsApp green: a light pill beside the solid primary
+ * CTA, with the glyph carried in a volt chip for recognition.
+ */
+.whatsapp {
+  gap: 0.55rem;
+  padding-inline: 0.7rem 1.35rem;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-line);
+  color: var(--color-ink);
+}
+
+.whatsapp svg {
+  width: 26px;
+  height: 26px;
+  padding: 5px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  color: var(--color-ink);
+}
+
+.whatsapp:hover {
+  border-color: var(--color-ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.ghost {
+  background: transparent;
+  border: 1.5px solid var(--color-line);
+  color: var(--color-ink);
+}
+
+.ghost:hover {
+  border-color: var(--color-ink);
+  box-shadow: none;
+}
+
+.ghost-light {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: var(--color-on-dark);
+}
+
+.ghost-light:hover {
+  border-color: var(--color-volt);
+  color: var(--color-volt);
+  box-shadow: none;
+}
+
+.sm {
+  min-height: 44px;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.8rem;
+  border-radius: 12px;
+}
+
+.block {
+  width: 100%;
+}
+
+/* Sizes carry their own radius, so the pill is restated with equal weight. */
+.whatsapp,
+.whatsapp.sm {
+  border-radius: var(--radius-pill);
+}

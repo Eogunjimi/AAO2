@@ -1,0 +1,65 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -26vmax 0 0 -26vmax;
+  width: 52vmax;
+  height: 52vmax;
+  border: 1px solid color-mix(in srgb, var(--color-ember-soft) 28%, transparent);
+  border-radius: 50%;
+  animation: ring-pulse 9s ease-in-out infinite alternate;
+}
+
+.ringTwo {
+  margin: -39vmax 0 0 -39vmax;
+  width: 78vmax;
+  height: 78vmax;
+  animation-delay: 1.2s;
+}
+
+.ringThree {
+  margin: -52vmax 0 0 -52vmax;
+  width: 104vmax;
+  height: 104vmax;
+  animation-delay: 2.4s;
+}
+
+.glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(760px, 96vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-volt) 28%, transparent) 0%,
+    color-mix(in srgb, var(--color-volt) 10%, transparent) 52%,
+    transparent 72%
+  );
+}
+
+/*
+ * Keyframes live in the module that uses them: Lightning CSS scopes
+ * animation names inside CSS Modules, so a shared definition in a global
+ * stylesheet can never be referenced from here.
+ */
+@keyframes ring-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  to {
+    transform: scale(1.07);
+    opacity: 0.45;
+  }
+}

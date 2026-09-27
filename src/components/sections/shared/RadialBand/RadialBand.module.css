@@ -1,0 +1,25 @@
+.band {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-image: var(--band-pinstripe);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.content :global(h2) {
+  color: var(--color-ink);
+  text-transform: uppercase;
+  font-size: var(--section-title-size);
+  line-height: var(--section-title-leading);
+  max-width: 24ch;
+  margin: 1rem auto 1.2rem;
+}
+
+.content :global(em) {
+  font-style: italic;
+  color: var(--color-ember);
+}

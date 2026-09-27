@@ -1,0 +1,101 @@
+/**
+ * Design tokens.
+ *
+ * Single source of truth for colour, typography, spacing, radii, shadows and
+ * motion. Components consume these variables through CSS Modules and never
+ * hard-code raw values.
+ */
+
+:root {
+  /* ----- colour ----- */
+  --color-ink: #0b0b0c;
+  --color-gray: #5c6066;
+  --color-soft: #8a8f96;
+  --color-line: #e9e9e6;
+  --color-wash: #f6f6f4;
+  --color-surface: #ffffff;
+  --color-dark: #101012;
+  --color-card-dark: #1b1b1e;
+  --color-star: #f5b301;
+  --color-volt: #ffd23f;
+  --color-ember: #b4530f;
+  --color-ember-soft: #e7a83e;
+  --color-danger: #b3261e;
+
+  --color-on-dark: #ffffff;
+  --color-on-dark-muted: rgba(255, 255, 255, 0.72);
+  --color-on-dark-faint: rgba(255, 255, 255, 0.45);
+  --color-border-on-dark: rgba(255, 255, 255, 0.16);
+
+  /* ----- typography ----- */
+  --font-display: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-eyebrow: 0.16em;
+
+  /* ----- layout ----- */
+  --container-max: 1180px;
+  /* Faint pinstripe that gives the contact band its texture. */
+  --band-pinstripe: repeating-linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-ink) 2%, transparent) 0 1px,
+    transparent 1px 88px
+  );
+  --container-gutter: 24px;
+  --header-height: 74px;
+
+  /* ----- radii ----- */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* ----- spacing ----- */
+  --space-2xs: 0.35rem;
+  --space-xs: 0.6rem;
+  --space-sm: 1rem;
+  --space-md: 1.6rem;
+  --space-lg: 2.6rem;
+  --space-xl: 4rem;
+  --section-padding: 6rem;
+
+  /* ----- elevation ----- */
+  --shadow-xs: 0 6px 18px rgba(11, 11, 12, 0.06);
+  --shadow-sm: 0 10px 26px rgba(11, 11, 12, 0.08);
+  --shadow-md: 0 18px 44px rgba(11, 11, 12, 0.1);
+  --shadow-lg: 0 30px 70px rgba(11, 11, 12, 0.18);
+  --shadow-xl: 0 40px 90px rgba(0, 0, 0, 0.5);
+
+  /* Interactive lift shared by the button primitives. */
+  --shadow-button: 0 16px 34px rgba(11, 11, 12, 0.22);
+  --shadow-button-pressed: 0 6px 16px rgba(11, 11, 12, 0.18);
+  --shadow-volt: 0 12px 30px rgba(255, 210, 63, 0.36);
+
+  /* ----- motion ----- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.22s;
+  --duration-base: 0.4s;
+  --duration-slow: 0.9s;
+
+  /* Section titles: the scale set by the reviews heading. */
+  --section-title-size: clamp(1.9rem, 4.2vw, 3rem);
+  --section-title-leading: 1.12;
+
+  /* ----- z-index scale ----- */
+  --z-dropdown: 50;
+  --z-header: 90;
+  --z-modal: 120;
+}

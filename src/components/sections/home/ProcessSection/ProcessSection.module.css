@@ -1,0 +1,228 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+  list-style: none;
+  counter-reset: none;
+}
+
+.step {
+  position: relative;
+}
+
+.stepButton {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-extrabold);
+  font-size: 3.1rem;
+  line-height: 1;
+  color: var(--color-ember-soft);
+  transition:
+    color 0.45s ease,
+    transform 0.45s var(--ease);
+}
+
+.stepActive .number {
+  color: var(--color-ember);
+  transform: scale(1.12);
+  transform-origin: left center;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(224, 122, 36, 0.45), rgba(224, 122, 36, 0.12));
+}
+
+.stepTitle {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: var(--font-weight-extrabold);
+  margin: 1.1rem 0 0.45rem;
+}
+
+.duration {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--color-gray);
+  font-weight: var(--font-weight-semibold);
+}
+
+.tagWrap {
+  display: block;
+  margin-top: 0.85rem;
+}
+
+.bar {
+  display: block;
+  height: 3px;
+  width: 46px;
+  border-radius: 2px;
+  background: #c05a33;
+  margin-top: 1.05rem;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s var(--ease);
+}
+
+.stepActive .bar {
+  transform: scaleX(1);
+}
+
+.description {
+  max-width: 660px;
+  margin: 3.2rem auto 0;
+  text-align: center;
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  min-height: 3.4em;
+  animation: fade-up 0.55s var(--ease);
+}
+
+.description b {
+  color: var(--color-ink);
+}
+
+.median {
+  display: table;
+  margin: 2.1rem auto 0;
+  background: var(--color-wash);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  padding: 0.72rem 1.6rem;
+  font-size: 0.76rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray);
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.2rem;
+}
+
+/*
+ * Mobile: the five-column timeline becomes a vertical list, and each step
+ * turns into a two-column row — the number sits in a fixed gutter with the
+ * title, duration, tag and progress bar stacked beside it.
+ */
+@media (max-width: 900px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin-top: 2.6rem;
+  }
+
+  .stepButton {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    column-gap: 1.1rem;
+  }
+
+  /* Hoist the number out of its wrapper so it can sit in the step grid. */
+  .top {
+    display: contents;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .number {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 2.2rem;
+  }
+
+  .stepTitle {
+    grid-column: 2;
+    grid-row: 1;
+    /* Mobile keeps the original scale; only desktop was trimmed. */
+    font-size: 1.06rem;
+    margin: 0.35rem 0 0.45rem;
+  }
+
+  .duration {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 0.78rem;
+  }
+
+  .tagWrap {
+    grid-column: 2;
+    grid-row: 3;
+    margin-top: 0.7rem;
+  }
+
+  .bar {
+    grid-column: 2;
+    grid-row: 4;
+    margin-top: 0.9rem;
+  }
+
+  .description {
+    min-height: 0;
+    margin-top: 2.4rem;
+    font-size: 0.95rem;
+  }
+
+  .median {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .median {
+    display: block;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.76rem;
+    line-height: 1.55;
+    border-radius: var(--radius-lg);
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/*
+ * Keyframes live in the module that uses them: Lightning CSS scopes
+ * animation names inside CSS Modules, so a shared definition in a global
+ * stylesheet can never be referenced from here.
+ */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

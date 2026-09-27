@@ -1,0 +1,1 @@
+export { ServiceBrief } from './ServiceBrief';

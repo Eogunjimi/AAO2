@@ -1,0 +1,5 @@
+.heading :global(h2) {
+  /* The reviews heading sets the house style; only its measure is local. */
+  max-width: 20ch;
+  margin-inline: auto;
+}

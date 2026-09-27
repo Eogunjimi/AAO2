@@ -1,0 +1,1 @@
+export { PartnerStrip } from './PartnerStrip';

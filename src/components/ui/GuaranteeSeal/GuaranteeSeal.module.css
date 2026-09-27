@@ -1,0 +1,68 @@
+.seal {
+  display: block;
+  flex: none;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
+}
+
+/* Gradient stops: `stop-color` is a real CSS property, so tokens work here. */
+.stopLight {
+  stop-color: color-mix(in srgb, var(--color-volt) 72%, #fff);
+}
+
+.stopMid {
+  stop-color: var(--color-volt);
+}
+
+.stopDeep {
+  stop-color: var(--color-star);
+}
+
+.rim {
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: 0.7;
+  opacity: 0.5;
+}
+
+.field {
+  fill: var(--color-ink);
+}
+
+.fieldRing {
+  fill: none;
+  stroke: var(--color-volt);
+  stroke-width: 0.7;
+  opacity: 0.6;
+}
+
+.monogram {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-extrabold);
+  font-size: 11.5px;
+  text-anchor: middle;
+  fill: var(--color-volt);
+}
+
+.since {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: 4.3px;
+  letter-spacing: 0.45px;
+  text-anchor: middle;
+  text-transform: uppercase;
+  fill: var(--color-on-dark);
+}
+
+.ribbon {
+  fill: var(--color-ember);
+}
+
+.banner {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: 4.3px;
+  letter-spacing: 0.5px;
+  text-anchor: middle;
+  text-transform: uppercase;
+  fill: var(--color-on-dark);
+}

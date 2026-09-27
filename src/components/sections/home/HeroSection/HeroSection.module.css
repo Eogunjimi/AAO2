@@ -1,0 +1,49 @@
+.hero {
+  padding: 4rem 0 5rem;
+  background: linear-gradient(180deg, var(--color-wash), var(--color-surface));
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.title {
+  font-size: clamp(2.2rem, 4.6vw, 3.7rem);
+  text-transform: uppercase;
+  margin: 1.1rem 0 1.2rem;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--color-ember);
+}
+
+.subtitle {
+  color: var(--color-gray);
+  max-width: 54ch;
+  font-size: 1.02rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.8rem 0 2rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+}

@@ -1,0 +1,38 @@
+.subtitle {
+  color: var(--color-gray);
+  max-width: 54ch;
+  margin: 0 auto;
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.4rem;
+}
+
+.note {
+  margin-top: 1.8rem;
+  font-size: 0.78rem;
+  color: var(--color-gray);
+}
+
+.note a {
+  text-decoration: underline;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-ink);
+}
+
+.note a:hover {
+  color: var(--color-ember);
+}
+
+.legal {
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-soft);
+  letter-spacing: 0.06em;
+}

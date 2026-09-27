@@ -1,0 +1,53 @@
+.viewport {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.pausable:hover .track,
+.paused .track {
+  animation-play-state: paused;
+}
+
+/*
+ * Without motion the loop would clip everything past the first screen, so the
+ * single set of items wraps into a centred block instead.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    width: 100%;
+  }
+
+  .group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .group + .group {
+    display: none;
+  }
+}
+
+/*
+ * Keyframes live in the module that uses them: Lightning CSS scopes
+ * animation names inside CSS Modules, so a shared definition in a global
+ * stylesheet can never be referenced from here.
+ */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

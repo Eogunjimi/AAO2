@@ -1,0 +1,104 @@
+.slider {
+  position: relative;
+  /*
+   * Shape comes from `--slider-ratio` (set by the component). A consumer can
+   * set `--slider-height` — at a breakpoint, say — to drive the height
+   * directly instead, which then wins over the ratio.
+   */
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: var(--slider-ratio, 4 / 3);
+  height: var(--slider-height, auto);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  touch-action: pan-y;
+  background: var(--color-wash);
+}
+
+.track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s var(--ease);
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  /* Wrap inside the card rather than running under the clipped edge. */
+  max-width: calc(100% - 68px);
+  background: rgba(11, 11, 12, 0.82);
+  color: var(--color-on-dark);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 1rem;
+  font-size: 0.78rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.prev {
+  left: 12px;
+}
+
+.next {
+  right: 12px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  display: flex;
+  gap: 0.4rem;
+  z-index: 3;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition:
+    width var(--duration-base) var(--ease),
+    background var(--duration-base);
+}
+
+.dotActive {
+  background: var(--color-volt);
+  width: 20px;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 560px) {
+  .caption {
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 56px);
+    padding: 0.45rem 0.8rem;
+    font-size: 0.72rem;
+  }
+
+  .prev {
+    left: 8px;
+  }
+
+  .next {
+    right: 8px;
+  }
+}

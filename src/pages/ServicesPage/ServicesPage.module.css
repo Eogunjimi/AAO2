@@ -1,0 +1,102 @@
+.hero {
+  padding: 4.5rem 0 3.5rem;
+  background: linear-gradient(180deg, var(--color-wash), var(--color-surface));
+}
+
+.title {
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  margin: 1rem 0 1.1rem;
+  max-width: 20ch;
+}
+
+.subtitle {
+  color: var(--color-gray);
+  max-width: 58ch;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.groupHeading {
+  margin-bottom: 2.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-surface);
+  transition:
+    transform var(--duration-base) var(--ease),
+    box-shadow var(--duration-base);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.thumb {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-wash);
+}
+
+.thumb img {
+  transition: transform 1.2s var(--ease);
+}
+
+.card:hover .thumb img {
+  transform: scale(1.06);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.4rem 1.4rem 1.6rem;
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+}
+
+.summary {
+  color: var(--color-gray);
+  font-size: 0.88rem;
+  flex: 1;
+}
+
+.link {
+  font-weight: var(--font-weight-bold);
+  font-size: 0.82rem;
+  color: var(--color-ember);
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

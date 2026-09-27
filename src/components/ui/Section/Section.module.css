@@ -1,0 +1,50 @@
+.section {
+  position: relative;
+}
+
+.spacing-default {
+  padding-block: var(--section-padding);
+}
+
+.spacing-compact {
+  padding-block: 3.4rem;
+}
+
+.spacing-spacious {
+  padding-block: 7.5rem;
+}
+
+.spacing-none {
+  padding-block: 0;
+}
+
+.light {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.wash {
+  background: var(--color-wash);
+  color: var(--color-ink);
+}
+
+.dark {
+  background: var(--color-dark);
+  color: var(--color-on-dark);
+}
+
+.ink {
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .spacing-default {
+    padding-block: 4rem;
+  }
+
+  .spacing-spacious {
+    padding-block: 5rem;
+  }
+}

@@ -1,0 +1,139 @@
+/**
+ * Company profile: the single source of truth for every piece of business
+ * information rendered on the site (header, footer, forms, structured data).
+ */
+
+export const company = {
+  name: 'AAO Engineering Services',
+  shortName: 'AAO',
+  legalName: 'AAO Engineering Services',
+  tagline: 'Accountability. Authenticity. Outstanding Service.',
+  description:
+    'Professionally designed solar, electrical, CCTV and security systems for homes and businesses that demand reliability. 200+ installations across Lagos.',
+  founder: 'Adebayo Aina',
+  founderRole: 'Founder & CEO',
+  /** Short promise shown on the badge over the about-section portrait. */
+  guarantee: 'Work Guaranteed',
+  foundedYear: 2019,
+  phone: {
+    display: '(810) 574-3694',
+    href: 'tel:+2348105743694',
+    whatsapp: 'https://wa.me/2348105743694',
+  },
+  email: 'aaoengineeringservices@gmail.com',
+  address: {
+    landmark: 'Magnet Plaza, beside Majok Filling Station',
+    street: '18 Iyo Street, Ladipo Bus Stop, Meiran',
+    locality: 'Lagos',
+    region: 'Lagos State',
+    postalCode: '110020',
+    country: 'Nigeria',
+    countryCode: 'NG',
+    /** Short form, for inline mentions like the hero strapline. */
+    display: 'Lagos, Nigeria',
+  },
+  hours: 'Mon – Sat, 8:00 – 18:00',
+  responseTime: 'We reply within 24 hours',
+  socials: [
+    { id: 'facebook', label: 'Facebook', href: 'https://facebook.com', icon: 'facebook' },
+    { id: 'instagram', label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
+    { id: 'google', label: 'Google Business Profile', href: 'https://google.com', icon: 'google' },
+  ],
+  credit: {
+    label: 'PowerGrowthz',
+    href: 'https://powergrowthz.com',
+  },
+};
+
+/** The office address as display lines, and a maps link for directions. */
+export const officeAddress = {
+  lines: [
+    company.address.landmark,
+    company.address.street,
+    `${company.address.locality} ${company.address.postalCode}, ${company.address.country}`,
+  ],
+  mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    [
+      company.name,
+      company.address.landmark,
+      company.address.street,
+      company.address.locality,
+      company.address.country,
+    ].join(', '),
+  )}`,
+};
+
+/**
+ * Site-wide primary call to action. Shared so the service-areas band and the
+ * footer render the exact same button instead of drifting apart.
+ */
+export const primaryCtaLabel = 'Get Your Free Site Inspection →';
+
+/** Headline proof points shown in the hero and service pages. */
+export const trustChips = [
+  { id: 'installs', label: 'Installations', value: '200+' },
+  { id: 'technicians', label: 'Certified Technicians' },
+  { id: 'products', label: 'Original Products + Warranty' },
+  { id: 'cac', label: 'CAC Certified' },
+  { id: 'experience', label: 'Years of Experience' },
+  { id: 'google', label: 'Google Reviews', starred: true },
+  { id: 'facebook', label: 'Facebook Reviews', starred: true },
+];
+
+/** The three promises behind every AAO project. */
+export const promises = [
+  {
+    id: 'accountability',
+    title: 'Accountability.',
+    description:
+      'We own every project from assessment to after-sales — one team, one point of contact, no excuses.',
+  },
+  {
+    id: 'authenticity',
+    title: 'Authenticity.',
+    description:
+      'Original products, honest recommendations, and upfront pricing. You get what actually works for you.',
+  },
+  {
+    id: 'outstanding-service',
+    title: 'Outstanding Service.',
+    description:
+      'Neat workmanship, certified technicians, and support that continues long after installation day.',
+  },
+];
+
+/** Accreditations and manufacturer partners shown in the badge marquee. */
+/**
+ * Accreditations and product partners shown in the trust strip.
+ *
+ * Each entry renders as a typographic mark. Drop a file in
+ * `public/images/partners/` and set `logo` to swap in the real artwork —
+ * nothing else needs to change.
+ */
+export const certifications = [
+  { id: 'cac', name: 'CAC', descriptor: 'Accredited', logo: null },
+  { id: 'coren', name: 'COREN', descriptor: 'Accredited', logo: null },
+  { id: 'nemsa', name: 'NEMSA', descriptor: 'Accredited', logo: null },
+  { id: 'nse', name: 'NSE', descriptor: 'Accredited', logo: null },
+  { id: 'rean', name: 'REAN', descriptor: 'Accredited', logo: null },
+  { id: 'felicity-solar', name: 'Felicity Solar', descriptor: 'Partner brand', logo: null },
+  { id: 'luminous', name: 'Luminous', descriptor: 'Partner brand', logo: null },
+  { id: 'growatt', name: 'Growatt', descriptor: 'Partner brand', logo: null },
+  { id: 'deye', name: 'Deye', descriptor: 'Partner brand', logo: null },
+  { id: 'hikvision', name: 'Hikvision', descriptor: 'Partner brand', logo: null },
+];
+
+/** Lagos neighbourhoods covered by the team. */
+export const serviceAreas = [
+  'Ikoyi',
+  'Victoria Island',
+  'Lekki Phase 1',
+  'Banana Island',
+  'Oniru',
+  'Victoria Garden City (VGC)',
+  'Chevron / Lekki Conservation Area',
+  'Ajah',
+  'Magodo GRA',
+  'Ikeja GRA',
+  'Yaba',
+];
