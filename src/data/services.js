@@ -81,6 +81,8 @@ export const services = [
   {
     slug: 'commercial-solar',
     category: 'Solar & Power',
+    // Sold through the residential listing and direct enquiries, not the menu.
+    hiddenFromMenu: true,
     title: 'Commercial Solar & Inverter Installation',
     headline: 'Cut fuel costs and keep your business running through every outage.',
     summary: 'Cut fuel costs and keep your business running through every outage.',

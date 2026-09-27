@@ -4,6 +4,10 @@ export const paths = {
   home: '/',
   services: '/services',
   service: (slug) => `/services/${slug}`,
+  team: '/team',
+  career: '/career',
+  academy: '/academy',
+  shop: '/shop',
   notFound: '/404',
 };
 

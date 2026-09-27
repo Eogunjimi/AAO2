@@ -1,43 +1,55 @@
-import { anchors, paths } from '@/routes/paths';
-
 import { getServicesByCategory } from '@/lib/services';
+import { anchors, paths } from '@/routes/paths';
 
 /**
  * Navigation model.
  *
- * The services mega-menu is generated from the service catalogue so menus can
- * never drift from the pages that actually exist.
+ * `primaryNav` is the single source of truth for the header and the mobile
+ * drawer, and the services menu is generated from the service catalogue so it
+ * can never drift from the pages that actually exist.
  */
 
-export const companyLinks = [
-  { id: 'about', label: 'About', to: anchors.about },
+/** Categories offered in the services menu, in this order. */
+const SERVICE_MENU_CATEGORIES = ['solar-power', 'security', 'access-automation'];
+
+/** Entries in the About menu. */
+export const aboutMenu = [
+  { id: 'about', label: 'About AAO', to: anchors.about },
   { id: 'blog', label: 'Blog', to: anchors.insights },
-  { id: 'career', label: 'Career', to: anchors.contact },
-  { id: 'academy', label: 'Academy', to: anchors.contact },
-  { id: 'shop', label: 'Shop', to: anchors.contact },
-  { id: 'engineers', label: 'Engineers', to: anchors.about },
+  { id: 'team', label: 'Team', to: paths.team },
+  { id: 'career', label: 'Career', to: paths.career },
+  { id: 'academy', label: 'Academy', to: paths.academy },
+  { id: 'shop', label: 'Shop', to: paths.shop },
 ];
 
 export const primaryNav = [
   { id: 'home', label: 'Home', to: paths.home },
+  { id: 'about', label: 'About', to: anchors.about, menu: 'about' },
   { id: 'services', label: 'Services', to: paths.services, menu: 'services' },
-  { id: 'work', label: 'Past Work', to: anchors.work },
-  { id: 'company', label: 'Company', to: anchors.about, menu: 'company' },
-  { id: 'blog', label: 'Blog', to: anchors.insights },
-  { id: 'contact', label: 'Contact', to: anchors.contact },
+  { id: 'projects', label: 'Projects', to: anchors.work },
+  { id: 'contact', label: 'Contact Us', to: anchors.contact },
 ];
 
-/** Service groups rendered inside the mega-menu and the mobile drawer. */
+/**
+ * Service groups rendered inside the mega-menu and the mobile drawer.
+ *
+ * ICT & Networking is deliberately absent — those services stay reachable from
+ * the catalogue at /services. Add its id above to bring it into the menu.
+ */
 export function getServiceMenuGroups() {
-  return getServicesByCategory().map((group) => ({
-    id: group.id,
-    title: group.name,
-    links: group.services.map((service) => ({
-      id: service.slug,
-      label: service.title,
-      to: paths.service(service.slug),
-    })),
-  }));
+  return getServicesByCategory()
+    .filter((group) => SERVICE_MENU_CATEGORIES.includes(group.id))
+    .map((group) => ({
+      id: group.id,
+      title: group.name,
+      links: group.services
+        .filter((service) => !service.hiddenFromMenu)
+        .map((service) => ({
+          id: service.slug,
+          label: service.title,
+          to: paths.service(service.slug),
+        })),
+    }));
 }
 
 export const footerMenus = [
@@ -46,23 +58,22 @@ export const footerMenus = [
     title: 'Main Menu',
     links: [
       { id: 'home', label: 'Home', to: paths.home },
-      { id: 'services', label: 'Services', to: paths.services },
-      { id: 'work', label: 'Past Work', to: anchors.work },
       { id: 'about', label: 'About', to: anchors.about },
-      { id: 'blog', label: 'Blog', to: anchors.insights },
-      { id: 'contact', label: 'Contact', to: anchors.contact },
+      { id: 'services', label: 'Services', to: paths.services },
+      { id: 'projects', label: 'Projects', to: anchors.work },
+      { id: 'contact', label: 'Contact Us', to: anchors.contact },
     ],
   },
   {
     id: 'company',
     title: 'Company',
     links: [
-      { id: 'career', label: 'Career', to: anchors.contact },
-      { id: 'academy', label: 'Academy', to: anchors.contact },
-      { id: 'shop', label: 'Shop', to: anchors.contact },
-      { id: 'engineers', label: 'Engineers', to: anchors.about },
-      { id: 'privacy', label: 'Privacy Policy', to: anchors.contact },
-      { id: 'terms', label: 'Terms of Service', to: anchors.contact },
+      { id: 'blog', label: 'Blog', to: anchors.insights },
+      { id: 'team', label: 'Team', to: paths.team },
+      { id: 'career', label: 'Career', to: paths.career },
+      { id: 'academy', label: 'Academy', to: paths.academy },
+      { id: 'shop', label: 'Shop', to: paths.shop },
+      { id: 'faq', label: 'FAQ', to: anchors.faq },
     ],
   },
 ];

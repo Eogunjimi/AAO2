@@ -44,80 +44,132 @@
   position: relative;
 }
 
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  cursor: pointer;
+}
+
+.caret {
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--duration-fast) var(--ease);
+}
+
+.triggerOpen .caret {
+  transform: rotate(-135deg);
+  margin-top: 2px;
+}
+
+/*
+ * The positioned wrapper carries the gap under the trigger, so moving the
+ * pointer from the trigger to the panel never crosses a dead zone.
+ */
 .dropdown {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translate(-50%, 10px);
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    opacity 0.25s var(--ease),
-    transform 0.25s var(--ease);
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: 16px;
-  box-shadow: 0 30px 60px rgba(11, 11, 12, 0.12);
-  padding: 1.4rem;
+  transform: translateX(-50%);
+  padding-top: 12px;
   z-index: var(--z-dropdown);
 }
 
-.hasMenu:hover .dropdown,
-.hasMenu:focus-within .dropdown {
+/* Override the UA `display: none` so the panel can animate; `visibility`
+   still keeps its links out of the tab order while closed. */
+.dropdown[hidden] {
+  display: block;
+}
+
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 1.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 0.22s var(--ease),
+    transform 0.22s var(--ease),
+    visibility 0.22s;
+}
+
+.dropdownOpen .panel {
   opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, 0);
+  visibility: visible;
+  transform: none;
 }
 
-.mega {
-  width: min(920px, 92vw);
+.mega .panel {
+  width: min(780px, 92vw);
+}
+
+.megaGroups {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.6rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem 1.8rem;
 }
 
-.mega ul,
-.simple ul {
+.panel ul {
   list-style: none;
 }
 
 .megaTitle {
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-soft);
-  margin-bottom: 0.8rem;
-  font-family: var(--font-sans);
   font-weight: var(--font-weight-bold);
+  margin-bottom: 0.7rem;
 }
 
 .megaLink {
   display: block;
-  padding: 0.32rem 0;
-  font-size: 0.86rem;
+  padding: 0.3rem 0;
+  font-size: 0.85rem;
   font-weight: var(--font-weight-medium);
-  color: #3c3f44;
+  color: var(--color-gray);
+  transition: color var(--duration-fast);
 }
 
-.megaLink:hover {
+.megaLink:hover,
+.megaLink:focus-visible {
   color: var(--color-ink);
-  text-decoration: underline;
 }
 
-.simple {
-  min-width: 190px;
-  padding: 1rem;
+.megaFooter {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-line);
+  width: 100%;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-ember);
+}
+
+.simple .panel {
+  min-width: 210px;
+  padding: 0.8rem;
 }
 
 .simpleLink {
   display: block;
-  padding: 0.45rem 0.6rem;
-  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  border-radius: var(--radius-sm);
   font-weight: var(--font-weight-medium);
   font-size: 0.86rem;
+  transition: background var(--duration-fast);
 }
 
-.simpleLink:hover {
+.simpleLink:hover,
+.simpleLink:focus-visible {
   background: var(--color-wash);
 }
 
@@ -128,10 +180,8 @@
   gap: 1rem;
 }
 
-.phone {
-  font-weight: var(--font-weight-bold);
-  font-size: 0.88rem;
-  white-space: nowrap;
+.whatsapp {
+  gap: 0.45rem;
 }
 
 .menuButton {
@@ -184,8 +234,7 @@
 }
 
 @media (max-width: 1080px) {
-  .nav,
-  .phone {
+  .nav {
     display: none;
   }
 
@@ -194,8 +243,15 @@
   }
 }
 
-@media (max-width: 620px) {
+/* The drawer carries the full CTA from here down. */
+@media (max-width: 900px) {
   .cta {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .whatsappLabel {
     display: none;
   }
 }

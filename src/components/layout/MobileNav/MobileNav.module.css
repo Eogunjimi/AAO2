@@ -1,9 +1,9 @@
 .drawer {
   border-top: 1px solid var(--color-line);
   background: var(--color-surface);
-  max-height: min(70vh, 640px);
+  max-height: min(78vh, 680px);
   overflow-y: auto;
-  padding: 1rem var(--container-gutter) 1.6rem;
+  padding: 0.6rem var(--container-gutter) 1.6rem;
   animation: fade-in 0.2s var(--ease);
 }
 
@@ -17,30 +17,113 @@
 
 .link {
   display: block;
-  padding: 0.65rem 0;
+  width: 100%;
+  padding: 0.82rem 0;
+  font-family: inherit;
+  font-size: 0.95rem;
   font-weight: var(--font-weight-semibold);
+  text-align: left;
+  color: inherit;
+  background: none;
+  border: none;
   border-bottom: 1px solid var(--color-wash);
+}
+
+.disclosure {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.caret {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  margin-right: 4px;
+  border-right: 1.8px solid var(--color-soft);
+  border-bottom: 1.8px solid var(--color-soft);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform var(--duration-base) var(--ease);
+}
+
+.disclosureOpen .caret {
+  transform: rotate(-135deg) translateY(-2px);
+  border-color: var(--color-ember);
+}
+
+/* Same collapse as the FAQ: the row animates, so `hidden` has to stay a grid. */
+.panel[hidden] {
+  display: grid;
+  visibility: hidden;
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows 0.35s var(--ease),
+    visibility 0.35s;
+}
+
+.panelOpen {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+
+.panelInner {
+  overflow: hidden;
+}
+
+.sublist {
+  list-style: none;
+}
+
+.subLink {
+  display: block;
+  padding: 0.5rem 0 0.5rem 0.9rem;
+  border-left: 2px solid var(--color-line);
+  margin-left: 0.2rem;
+  font-size: 0.88rem;
+  color: var(--color-gray);
+}
+
+.subLink:hover,
+.subLink:focus-visible {
+  color: var(--color-ink);
+  border-left-color: var(--color-ember);
+}
+
+.group {
+  margin-top: 0.4rem;
 }
 
 .groupTitle {
   margin: 0.9rem 0 0.2rem;
   font-family: var(--font-sans);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-soft);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
 }
 
 .footer {
   margin-top: 1.4rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
+  align-items: stretch;
+  gap: 0.7rem;
+}
+
+.whatsapp {
+  gap: 0.5rem;
 }
 
 .phone {
+  margin-top: 0.2rem;
+  text-align: center;
   font-weight: var(--font-weight-bold);
   font-size: 0.9rem;
 }
