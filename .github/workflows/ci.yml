@@ -19,7 +19,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Vitest 5 requires ^22.12 || ^24; Vite 8 needs 20.19+.
+          node-version: 22
           cache: npm
 
       - name: Install dependencies

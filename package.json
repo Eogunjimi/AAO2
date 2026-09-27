@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Marketing website for AAO Engineering Services — solar, electrical, security, automation and ICT solutions in Lagos, Nigeria.",
   "engines": {
-    "node": ">=20.19"
+    "node": ">=22.12"
   },
   "scripts": {
     "dev": "vite",
