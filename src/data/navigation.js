@@ -34,8 +34,8 @@ export const primaryNav = [
   { id: 'home', label: 'Home', to: paths.home },
   { id: 'about', label: 'About', to: anchors.about, menu: 'about' },
   { id: 'services', label: 'Services', to: paths.services, menu: 'services' },
-  { id: 'areas', label: 'Service Areas', to: anchors.areas, menu: 'areas' },
   { id: 'projects', label: 'Projects', to: paths.projects },
+  { id: 'areas', label: 'Service Areas', to: anchors.areas, menu: 'areas' },
   { id: 'contact', label: 'Contact Us', to: anchors.contact },
 ];
 
@@ -69,8 +69,8 @@ export const footerMenus = [
       { id: 'home', label: 'Home', to: paths.home },
       { id: 'about', label: 'About', to: anchors.about },
       { id: 'services', label: 'Services', to: paths.services },
-      { id: 'areas', label: 'Service Areas', to: anchors.areas },
       { id: 'projects', label: 'Projects', to: paths.projects },
+      { id: 'areas', label: 'Service Areas', to: anchors.areas },
       { id: 'contact', label: 'Contact Us', to: anchors.contact },
     ],
   },

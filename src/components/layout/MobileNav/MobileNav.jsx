@@ -110,6 +110,12 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
             </>,
           )}
 
+          <li>
+            <Link to={paths.projects} className={styles.link} onClick={onNavigate}>
+              Projects
+            </Link>
+          </li>
+
           {renderDisclosure(
             'areas',
             'Service Areas',
@@ -124,11 +130,6 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
             </ul>,
           )}
 
-          <li>
-            <Link to={paths.projects} className={styles.link} onClick={onNavigate}>
-              Projects
-            </Link>
-          </li>
           <li>
             <Link to={anchors.contact} className={styles.link} onClick={onNavigate}>
               Contact Us
