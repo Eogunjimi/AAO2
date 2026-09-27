@@ -44,3 +44,18 @@
   font-weight: var(--font-weight-bold);
   font-size: 0.9rem;
 }
+
+/*
+ * Keyframes live in the module that uses them: Lightning CSS scopes
+ * animation names inside CSS Modules, so a shared definition in a global
+ * stylesheet can never be referenced from here.
+ */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

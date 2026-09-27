@@ -40,3 +40,14 @@
     display: none;
   }
 }
+
+/*
+ * Keyframes live in the module that uses them: Lightning CSS scopes
+ * animation names inside CSS Modules, so a shared definition in a global
+ * stylesheet can never be referenced from here.
+ */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

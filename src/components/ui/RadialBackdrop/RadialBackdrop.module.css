@@ -46,3 +46,20 @@
     transparent 72%
   );
 }
+
+/*
+ * Keyframes live in the module that uses them: Lightning CSS scopes
+ * animation names inside CSS Modules, so a shared definition in a global
+ * stylesheet can never be referenced from here.
+ */
+@keyframes ring-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  to {
+    transform: scale(1.07);
+    opacity: 0.45;
+  }
+}

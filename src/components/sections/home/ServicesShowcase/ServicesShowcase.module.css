@@ -195,3 +195,20 @@
     gap: 0.9rem;
   }
 }
+
+/*
+ * Keyframes live in the module that uses them: Lightning CSS scopes
+ * animation names inside CSS Modules, so a shared definition in a global
+ * stylesheet can never be referenced from here.
+ */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
