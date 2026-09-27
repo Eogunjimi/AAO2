@@ -3,20 +3,24 @@ import { company } from '@/data/company';
 
 import styles from './AboutSection.module.css';
 
-/** Company story, paired with a portrait of the team at work. */
+/**
+ * Company story beside a portrait of the founder at work.
+ *
+ * The copy comes first in the DOM — it carries the heading the section is
+ * labelled by — while the grid places the portrait on the left at desktop
+ * widths.
+ */
 export function AboutSection() {
   return (
     <Section id="about" tone="dark" aria-labelledby="about-title">
       <Container>
-        <Reveal>
-          <Eyebrow tone="volt">About Us</Eyebrow>
-          <h2 id="about-title" className={styles.title}>
-            Built on trust. Engineered to last.
-          </h2>
-        </Reveal>
-
         <div className={styles.grid}>
-          <Reveal className={styles.copy}>
+          <Reveal className={styles.copy} delay={80}>
+            <Eyebrow tone="volt">About Us</Eyebrow>
+            <h2 id="about-title" className={styles.title}>
+              Built on trust. Engineered to last.
+            </h2>
+
             <p>
               {company.name} was built to solve two problems homes and businesses face every day:
               unreliable power and security systems they can’t depend on.
@@ -38,7 +42,7 @@ export function AboutSection() {
             </p>
           </Reveal>
 
-          <Reveal className={styles.media} delay={100}>
+          <Reveal className={styles.media}>
             <figure className={styles.figure}>
               <img
                 src="/images/about-engineer.jpg"
