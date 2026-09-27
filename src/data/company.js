@@ -22,9 +22,14 @@ export const company = {
   },
   email: 'aaoengineeringservices@gmail.com',
   address: {
+    landmark: 'Magnet Plaza, beside Majok Filling Station',
+    street: '18 Iyo Street, Ladipo Bus Stop, Meiran',
     locality: 'Lagos',
     region: 'Lagos State',
+    postalCode: '110020',
     country: 'Nigeria',
+    countryCode: 'NG',
+    /** Short form, for inline mentions like the hero strapline. */
     display: 'Lagos, Nigeria',
   },
   hours: 'Mon – Sat, 8:00 – 18:00',
@@ -38,6 +43,24 @@ export const company = {
     label: 'PowerGrowthz',
     href: 'https://powergrowthz.com',
   },
+};
+
+/** The office address as display lines, and a maps link for directions. */
+export const officeAddress = {
+  lines: [
+    company.address.landmark,
+    company.address.street,
+    `${company.address.locality} ${company.address.postalCode}, ${company.address.country}`,
+  ],
+  mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    [
+      company.name,
+      company.address.landmark,
+      company.address.street,
+      company.address.locality,
+      company.address.country,
+    ].join(', '),
+  )}`,
 };
 
 /**

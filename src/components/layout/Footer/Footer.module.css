@@ -91,6 +91,27 @@
   font-size: 0.9rem;
 }
 
+.address {
+  margin-top: 0.5rem;
+  font-style: normal;
+}
+
+.address .line {
+  padding: 0.08rem 0;
+}
+
+.directions {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-volt);
+}
+
+.directions:hover {
+  text-decoration: underline;
+}
+
 .line {
   display: block;
   color: rgba(255, 255, 255, 0.72);

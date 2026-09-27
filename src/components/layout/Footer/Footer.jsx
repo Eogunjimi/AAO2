@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { Logo } from '@/components/layout/Logo';
 import { Button, Chip, Container, Icon, Marquee } from '@/components/ui';
-import { company, primaryCtaLabel, serviceAreas } from '@/data/company';
+import { company, officeAddress, primaryCtaLabel, serviceAreas } from '@/data/company';
 import { footerMenus } from '@/data/navigation';
 import { featuredServices } from '@/data/services';
 import { anchors } from '@/routes/paths';
@@ -37,7 +37,21 @@ export function Footer() {
             <a className={styles.line} href={company.phone.href}>
               {company.phone.display}
             </a>
-            <span className={styles.line}>{company.address.display}</span>
+            <address className={styles.address}>
+              {officeAddress.lines.map((line) => (
+                <span key={line} className={styles.line}>
+                  {line}
+                </span>
+              ))}
+              <a
+                className={styles.directions}
+                href={officeAddress.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Get directions →
+              </a>
+            </address>
 
             <ul className={styles.socials}>
               {company.socials.map((social) => (

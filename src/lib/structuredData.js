@@ -24,9 +24,11 @@ export function buildLocalBusinessSchema() {
     founder: { '@type': 'Person', name: company.founder },
     address: {
       '@type': 'PostalAddress',
+      streetAddress: `${company.address.landmark}, ${company.address.street}`,
       addressLocality: company.address.locality,
       addressRegion: company.address.region,
-      addressCountry: company.address.country,
+      postalCode: company.address.postalCode,
+      addressCountry: company.address.countryCode,
     },
     areaServed: serviceAreas.map((area) => ({ '@type': 'Place', name: area })),
     sameAs: company.socials.map((social) => social.href),
