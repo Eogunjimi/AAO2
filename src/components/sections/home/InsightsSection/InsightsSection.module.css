@@ -2,26 +2,6 @@
   overflow: hidden;
 }
 
-.head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-.title {
-  text-align: center;
-  flex: 1;
-  font-size: var(--section-title-size);
-  text-transform: uppercase;
-  line-height: var(--section-title-leading);
-}
-
-.title em {
-  font-style: italic;
-  color: var(--color-volt);
-}
-
 .row {
   display: flex;
   gap: 1.4rem;
@@ -136,4 +116,11 @@
     flex-basis: 100%;
     scroll-snap-align: center;
   }
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2.4rem;
 }

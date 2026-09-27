@@ -15,8 +15,12 @@ export function WorkSection() {
         <SectionHeading
           id="work-title"
           align="center"
-          eyebrow="Our Work"
-          title="Our work speaks for itself"
+          title={
+            <>
+              Our <em>Work</em>
+            </>
+          }
+          subtitle="Our work speaks for itself"
           description="200+ Installations • Neat Workmanship • Reliable Results"
         />
 

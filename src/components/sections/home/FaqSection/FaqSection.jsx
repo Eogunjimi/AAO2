@@ -12,8 +12,8 @@ export function FaqSection() {
         <SectionHeading
           id="faq-title"
           align="center"
-          eyebrow="FAQ"
-          title="Got Questions? We’ve Got Answers."
+          title="FAQ"
+          subtitle="Got Questions? We’ve Got Answers."
         />
 
         <Reveal>

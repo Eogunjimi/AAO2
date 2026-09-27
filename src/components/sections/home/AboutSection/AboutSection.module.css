@@ -19,6 +19,11 @@
   align-self: start;
 }
 
+.title em {
+  font-style: italic;
+  color: var(--color-volt);
+}
+
 .title {
   font-size: var(--section-title-size);
   line-height: var(--section-title-leading);

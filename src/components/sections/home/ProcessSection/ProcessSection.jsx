@@ -20,12 +20,18 @@ const AUTOPLAY_MS = 4000;
  * @param {Object} props
  * @param {Array} [props.steps]
  * @param {React.ReactNode} [props.title]
+ * @param {React.ReactNode} [props.subtitle] Bold line under the title.
  * @param {string} [props.id]
  * @param {boolean} [props.showFooter] Median line and call-to-action links.
  */
 export function ProcessSection({
   steps = defaultSteps,
-  title = 'From site visit to switch-on — with no surprises',
+  title = (
+    <>
+      Our <em>Process</em>
+    </>
+  ),
+  subtitle = 'From site visit to switch-on — with no surprises',
   id = 'process',
   showFooter = true,
 }) {
@@ -45,8 +51,8 @@ export function ProcessSection({
         <SectionHeading
           id={`${id}-title`}
           align="center"
-          eyebrow="Our Process"
           title={title}
+          subtitle={subtitle}
           className={styles.heading}
         />
 

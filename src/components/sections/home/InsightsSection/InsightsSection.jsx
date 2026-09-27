@@ -1,4 +1,4 @@
-import { Container, IconButton, Reveal, Section } from '@/components/ui';
+import { Container, IconButton, Reveal, Section, SectionHeading } from '@/components/ui';
 import { company } from '@/data/company';
 import { posts } from '@/data/posts';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
@@ -12,19 +12,17 @@ export function InsightsSection() {
   return (
     <Section id="insights" tone="dark" aria-labelledby="insights-title" className={styles.section}>
       <Container>
-        <Reveal className={styles.head}>
-          <IconButton variant="volt" label="Previous articles" onClick={scrollPrevious}>
-            ←
-          </IconButton>
-          <h2 id="insights-title" className={styles.title}>
-            Insights that help
-            <br />
-            <em>homeowners</em> win power
-          </h2>
-          <IconButton variant="volt" label="Next articles" onClick={scrollNext}>
-            →
-          </IconButton>
-        </Reveal>
+        <SectionHeading
+          id="insights-title"
+          align="center"
+          tone="inverse"
+          title={
+            <>
+              Our <em>Blog</em>
+            </>
+          }
+          subtitle="Insights that help homeowners win power"
+        />
 
         <Reveal>
           <ul className={styles.row} ref={ref}>
@@ -47,6 +45,15 @@ export function InsightsSection() {
             ))}
           </ul>
         </Reveal>
+
+        <div className={styles.controls}>
+          <IconButton variant="volt" label="Previous articles" onClick={scrollPrevious}>
+            ←
+          </IconButton>
+          <IconButton variant="volt" label="Next articles" onClick={scrollNext}>
+            →
+          </IconButton>
+        </div>
       </Container>
     </Section>
   );

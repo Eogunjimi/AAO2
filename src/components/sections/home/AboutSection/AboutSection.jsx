@@ -17,7 +17,7 @@ export function AboutSection() {
         <div className={styles.grid}>
           <Reveal className={styles.copy} delay={80}>
             <h2 id="about-title" className={styles.title}>
-              Built on trust. Engineered to last.
+              Built on <em>trust</em>. Engineered to last.
             </h2>
 
             <p>
