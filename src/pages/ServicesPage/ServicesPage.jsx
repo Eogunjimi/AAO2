@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { Seo } from '@/components/common/Seo';
-import { ContactSection } from '@/components/sections/home';
-import { ServiceProcess } from '@/components/sections/service';
+import { ContactSection, ProcessSection } from '@/components/sections/home';
 import { Button, Container, Eyebrow, Reveal, Section, SectionHeading } from '@/components/ui';
 import { company } from '@/data/company';
 import { getServicesByCategory } from '@/lib/services';
@@ -85,7 +84,15 @@ export default function ServicesPage() {
         </Section>
       ))}
 
-      <ServiceProcess />
+      <ProcessSection
+        id="services-process"
+        showFooter={false}
+        title={
+          <>
+            Getting Started <em>Is Simple</em>
+          </>
+        }
+      />
       <ContactSection />
     </>
   );

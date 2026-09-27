@@ -1,13 +1,40 @@
 .hero {
-  padding: 3.5rem 0 4rem;
-  background: linear-gradient(180deg, var(--color-wash), var(--color-surface));
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(460px, 62vh, 640px);
+  padding: 5rem 0 3.4rem;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  overflow: hidden;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3.5rem;
-  align-items: center;
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* Dark from the bottom so the type always has something to sit on. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(8, 8, 10, 0.92) 0%,
+    rgba(8, 8, 10, 0.72) 42%,
+    rgba(8, 8, 10, 0.42) 100%
+  );
+}
+
+.inner {
+  position: relative;
 }
 
 .breadcrumb {
@@ -20,49 +47,85 @@
   gap: 0.4rem;
   list-style: none;
   font-size: 0.75rem;
-  color: var(--color-soft);
+  color: var(--color-on-dark-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-volt);
 }
 
 .breadcrumb li + li::before {
   content: '/';
   margin-right: 0.4rem;
-  color: var(--color-line);
-}
-
-.breadcrumb a:hover {
-  color: var(--color-ink);
-  text-decoration: underline;
+  opacity: 0.5;
 }
 
 .title {
-  font-size: clamp(2rem, 4.2vw, 3.3rem);
-  margin: 1rem 0 1.1rem;
+  max-width: 20ch;
+  margin: 0.9rem 0 1rem;
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  line-height: 1.06;
+  text-transform: uppercase;
+  color: var(--color-on-dark);
 }
 
-.summary {
-  font-weight: var(--font-weight-bold);
-  color: var(--color-gray);
-  font-size: 1.05rem;
+.subtitle {
+  max-width: 52ch;
+  font-size: clamp(0.98rem, 1.6vw, 1.15rem);
+  color: var(--color-on-dark-muted);
 }
 
-.chips {
+.badges {
   display: flex;
-  gap: 0.6rem;
   flex-wrap: wrap;
-  margin-top: 1.6rem;
+  gap: 0.7rem;
+  margin-top: 2rem;
   list-style: none;
 }
 
-.image {
-  border-radius: 26px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 30px 70px rgba(11, 11, 12, 0.16);
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-on-dark);
+  background: color-mix(in srgb, var(--color-ink) 55%, transparent);
+  backdrop-filter: blur(6px);
+  font-size: 0.8rem;
+  color: var(--color-on-dark);
 }
 
-@media (max-width: 960px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 2.2rem;
+.badge b {
+  font-weight: var(--font-weight-extrabold);
+}
+
+.count {
+  color: var(--color-volt);
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.badgeLabel {
+  color: var(--color-on-dark-muted);
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 0;
+    padding: 3.2rem 0 2.6rem;
+  }
+
+  .badge {
+    font-size: 0.74rem;
+    padding: 0.42rem 0.8rem;
+  }
+
+  .badgeLabel {
+    display: none;
+  }
+
+  .badges li:last-child .badgeLabel {
+    display: inline;
   }
 }

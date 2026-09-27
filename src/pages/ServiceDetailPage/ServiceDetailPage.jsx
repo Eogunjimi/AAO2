@@ -2,20 +2,15 @@ import { useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
 import { Seo } from '@/components/common/Seo';
-import { ContactSection } from '@/components/sections/home';
+import { ContactSection, ProcessSection, TrustBadges } from '@/components/sections/home';
+import { ProjectMarquee } from '@/components/sections/shared/ProjectMarquee';
 import {
-  RelatedServices,
-  ServiceBenefits,
+  ServiceBrief,
   ServiceFaq,
   ServiceHero,
-  ServiceIntro,
-  ServiceProcess,
   ServiceReviews,
-  ServiceSigns,
-  ServiceSwitcher,
 } from '@/components/sections/service';
-import { serviceFaqs } from '@/data/faqs';
-import { getRelatedServices, getServiceBySlug } from '@/lib/services';
+import { getServiceBySlug, getServicePage } from '@/lib/services';
 import { buildFaqSchema, buildServiceSchema } from '@/lib/structuredData';
 import { paths } from '@/routes/paths';
 
@@ -24,15 +19,12 @@ export default function ServiceDetailPage() {
   const { slug } = useParams();
   const service = getServiceBySlug(slug);
 
-  const faqs = useMemo(() => {
-    if (!service) return [];
-    return [{ id: `${service.slug}-faq`, ...service.faq }, ...serviceFaqs];
-  }, [service]);
+  const page = useMemo(() => (service ? getServicePage(service) : null), [service]);
 
   const jsonLd = useMemo(() => {
     if (!service) return [];
-    return [buildServiceSchema(service), buildFaqSchema(faqs)];
-  }, [service, faqs]);
+    return [buildServiceSchema(service), buildFaqSchema(page.faqs)];
+  }, [service, page]);
 
   // Unknown slugs fall through to the 404 route rather than rendering an empty shell.
   if (!service) return <Navigate to={paths.notFound} replace />;
@@ -42,20 +34,37 @@ export default function ServiceDetailPage() {
       <Seo
         title={service.title}
         description={service.summary}
-        image={service.image}
+        image={page.heroImage}
         jsonLd={jsonLd}
       />
 
-      <ServiceSwitcher activeSlug={service.slug} />
-      <ServiceHero service={service} />
-      <ServiceIntro service={service} />
-      <ServiceSigns service={service} />
-      <ServiceBenefits benefits={service.benefits} />
-      <ServiceProcess />
+      <ServiceHero service={service} page={page} />
+      <TrustBadges />
+      <ServiceBrief service={service} page={page} />
+
+      <ProcessSection
+        id="service-process"
+        steps={page.process}
+        showFooter={false}
+        title={
+          <>
+            {page.processTitle.lead} <em>{page.processTitle.accent}</em>
+          </>
+        }
+      />
+
+      <ProjectMarquee
+        title={
+          <>
+            Work We Have <em>Already Delivered</em>
+          </>
+        }
+        description="Completed installations across Lagos — the same crew, the same standards, whatever the job."
+      />
+
       <ServiceReviews />
-      <ServiceFaq faqs={faqs} />
-      <RelatedServices services={getRelatedServices(service.slug)} />
       <ContactSection defaultService={service.slug} />
+      <ServiceFaq faqs={page.faqs} service={service} />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { Button, Chip, Container, Reveal, Section, SectionHeading } from '@/components/ui';
-import { processSteps } from '@/data/process';
+import { processSteps as defaultSteps } from '@/data/process';
 import { useCarousel } from '@/hooks/useCarousel';
 import { useInView } from '@/hooks/useInView';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -10,32 +10,49 @@ import styles from './ProcessSection.module.css';
 
 const AUTOPLAY_MS = 4000;
 
-/** Auto-advancing five-step delivery timeline. */
-export function ProcessSection() {
+/**
+ * Auto-advancing delivery timeline.
+ *
+ * Shared between the home page and the service pages: pass `steps` to describe
+ * a single service, and drop the footer to keep that version focused on the
+ * process alone.
+ *
+ * @param {Object} props
+ * @param {Array} [props.steps]
+ * @param {React.ReactNode} [props.title]
+ * @param {string} [props.id]
+ * @param {boolean} [props.showFooter] Median line and call-to-action links.
+ */
+export function ProcessSection({
+  steps = defaultSteps,
+  title = 'From site visit to switch-on — with no surprises',
+  id = 'process',
+  showFooter = true,
+}) {
   const isDesktop = useMediaQuery('(min-width: 901px)');
   const [timelineRef, inView] = useInView({ threshold: 0.3 });
   const { index, goTo } = useCarousel({
-    length: processSteps.length,
+    length: steps.length,
     autoPlayMs: AUTOPLAY_MS,
     active: inView,
   });
 
-  const activeStep = processSteps[index];
+  const activeStep = steps[index];
 
   return (
-    <Section id="process" aria-labelledby="process-title">
+    <Section id={id} aria-labelledby={`${id}-title`}>
       <Container>
         <SectionHeading
-          id="process-title"
+          id={`${id}-title`}
           align="center"
           eyebrow="Our Process"
-          title="From site visit to switch-on — with no surprises"
+          title={title}
           className={styles.heading}
         />
 
         <Reveal>
           <ol className={styles.row} ref={timelineRef}>
-            {processSteps.map((step, stepIndex) => {
+            {steps.map((step, stepIndex) => {
               const isActive = stepIndex === index;
               return (
                 <li key={step.id} className={cn(styles.step, isActive && styles.stepActive)}>
@@ -69,16 +86,20 @@ export function ProcessSection() {
           <b>{activeStep.number}</b> · {activeStep.description}
         </p>
 
-        <p className={styles.median}>
-          Median: same-week site visit · 3-day installation · 200+ homes powered
-        </p>
+        {showFooter ? (
+          <>
+            <p className={styles.median}>
+              Median: same-week site visit · 3-day installation · 200+ homes powered
+            </p>
 
-        <div className={styles.links}>
-          <Button to={paths.services} variant="ghost">
-            See the full process →
-          </Button>
-          <Button to={anchors.contact}>Book Your Free Site Visit</Button>
-        </div>
+            <div className={styles.links}>
+              <Button to={paths.services} variant="ghost">
+                See the full process →
+              </Button>
+              <Button to={anchors.contact}>Book Your Free Site Visit</Button>
+            </div>
+          </>
+        ) : null}
       </Container>
     </Section>
   );

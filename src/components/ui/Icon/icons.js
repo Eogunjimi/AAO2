@@ -10,6 +10,10 @@ export const icons = {
   clipboard: {
     paths: ['M9 5h6M9 5a3 3 0 0 1 6 0M7 5h10v16H7zM10 10h4M10 13.5h4M10 17h2.5'],
   },
+  bolt: {
+    filled: true,
+    paths: ['M13.6 2 4.8 13.4h5.3L9.3 22l9.4-12.1h-5.6z'],
+  },
   quote: {
     filled: true,
     paths: ['M1 3H10V11L6.5 18.5H4L7 11H1Z', 'M13 3H22V11L18.5 18.5H16L19 11H13Z'],

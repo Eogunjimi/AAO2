@@ -4,12 +4,14 @@ import { anchors } from '@/routes/paths';
 import styles from './ServiceFaq.module.css';
 
 /**
- * Service-specific question followed by the general enquiries everyone asks.
+ * Questions about this service only — five at most, so the page closes on
+ * answers rather than a wall of them.
  *
  * @param {Object} props
  * @param {Array<{id: string, question: string, answer: string}>} props.faqs
+ * @param {import('@/data/services').Service} props.service
  */
-export function ServiceFaq({ faqs }) {
+export function ServiceFaq({ faqs, service }) {
   return (
     <Section tone="wash" aria-labelledby="service-faq-title">
       <Container>
@@ -17,7 +19,7 @@ export function ServiceFaq({ faqs }) {
           id="service-faq-title"
           align="center"
           eyebrow="FAQ"
-          title="Questions about this service"
+          title={`${service.title}: Your Questions Answered`}
         />
 
         <Reveal>
