@@ -97,8 +97,12 @@ export function ServicesShowcase() {
         <SectionHeading
           id="services-title"
           align="center"
-          eyebrow="Our Services"
-          title="Power & Security Solutions Built for Homes & Businesses"
+          title={
+            <>
+              Our <em>Services</em>
+            </>
+          }
+          subtitle="Power & Security Solutions Built for Homes & Businesses"
           description="We help homes and businesses stay powered, protected, and connected. Hover, tap, or use the arrows to explore each solution."
         />
 

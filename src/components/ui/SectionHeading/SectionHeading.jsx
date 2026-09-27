@@ -10,6 +10,7 @@ import styles from './SectionHeading.module.css';
  * @param {Object} props
  * @param {string} props.eyebrow
  * @param {React.ReactNode} props.title
+ * @param {React.ReactNode} [props.subtitle] Bold line under the title.
  * @param {React.ReactNode} [props.description]
  * @param {'left'|'center'} [props.align]
  * @param {'default'|'inverse'} [props.tone]
@@ -18,6 +19,7 @@ import styles from './SectionHeading.module.css';
 export function SectionHeading({
   eyebrow,
   title,
+  subtitle,
   description,
   align = 'left',
   tone = 'default',
@@ -33,6 +35,7 @@ export function SectionHeading({
       <Heading id={id} className={styles.title}>
         {title}
       </Heading>
+      {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
       {description ? <p className={styles.description}>{description}</p> : null}
     </Reveal>
   );

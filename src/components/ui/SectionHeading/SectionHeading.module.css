@@ -26,9 +26,28 @@
   color: var(--color-volt);
 }
 
+/* The bold line between the title and the supporting copy. */
+.subtitle {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-extrabold);
+  font-size: clamp(1rem, 1.9vw, 1.22rem);
+  line-height: 1.35;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink);
+  margin-top: 1rem;
+}
+
 .description {
   color: var(--color-gray);
   margin-top: 1rem;
+}
+
+.subtitle + .description {
+  margin-top: 0.8rem;
+}
+
+.inverse .subtitle {
+  color: var(--color-on-dark);
 }
 
 .inverse .title {
