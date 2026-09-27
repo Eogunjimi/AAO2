@@ -1,4 +1,4 @@
-import { Container, Eyebrow, Icon, Reveal, Section } from '@/components/ui';
+import { Container, Eyebrow, GuaranteeSeal, Reveal, Section } from '@/components/ui';
 import { company } from '@/data/company';
 
 import styles from './AboutSection.module.css';
@@ -36,8 +36,6 @@ export function AboutSection() {
               Because when it comes to powering your property or protecting what matters, getting it
               almost right isn’t good enough.
             </p>
-            <p>That’s why every AAO project is built around three promises:</p>
-            <p className={styles.motto}>{company.tagline}</p>
           </Reveal>
 
           <Reveal className={styles.media} delay={100}>
@@ -52,13 +50,17 @@ export function AboutSection() {
               />
 
               <figcaption className={styles.plate}>
-                <p className={styles.name}>
-                  {company.founder}
-                  <span className={styles.role}>{company.founderRole}</span>
-                </p>
-                <span className={styles.badge}>
-                  <Icon name="shield" size={14} />
-                  {company.guarantee}
+                <GuaranteeSeal
+                  className={styles.seal}
+                  monogram={company.shortName}
+                  since={company.foundedYear}
+                  label={`${company.guarantee} by ${company.name}`}
+                />
+                <span className={styles.credit}>
+                  <span className={styles.name}>{company.founder}</span>
+                  <span className={styles.role}>
+                    {company.founderRole} of <b>{company.name}</b>
+                  </span>
                 </span>
               </figcaption>
             </figure>

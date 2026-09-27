@@ -5,6 +5,7 @@ export { Button } from './Button';
 export { Chip } from './Chip';
 export { Container } from './Container';
 export { Eyebrow } from './Eyebrow';
+export { GuaranteeSeal } from './GuaranteeSeal';
 export { Icon } from './Icon';
 export { IconButton } from './IconButton';
 export { ImageSlider } from './ImageSlider';
