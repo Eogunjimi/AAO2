@@ -1,11 +1,5 @@
 .heading :global(h2) {
-  font-size: clamp(1.9rem, 4.2vw, 3rem);
-  line-height: 1.12;
+  /* The reviews heading sets the house style; only its measure is local. */
   max-width: 20ch;
   margin-inline: auto;
-}
-
-.heading :global(em) {
-  font-style: italic;
-  color: var(--color-ember);
 }

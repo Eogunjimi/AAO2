@@ -20,7 +20,8 @@
 }
 
 .title {
-  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  font-size: var(--section-title-size);
+  line-height: var(--section-title-leading);
   text-transform: uppercase;
   margin: 0 0 1.4rem;
 }

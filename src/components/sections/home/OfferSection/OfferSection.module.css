@@ -19,7 +19,8 @@
 }
 
 .title {
-  font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+  font-size: var(--section-title-size);
+  line-height: var(--section-title-leading);
   margin: 0.9rem 0 1.2rem;
 }
 

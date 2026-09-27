@@ -9,10 +9,21 @@
 }
 
 .title {
-  font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+  font-size: var(--section-title-size);
+  line-height: var(--section-title-leading);
   font-weight: var(--font-weight-extrabold);
   text-transform: uppercase;
   margin-top: 0.9rem;
+}
+
+/* The accent word: ember on light surfaces, volt where the section is dark. */
+.title em {
+  font-style: italic;
+  color: var(--color-ember);
+}
+
+.inverse .title em {
+  color: var(--color-volt);
 }
 
 .description {

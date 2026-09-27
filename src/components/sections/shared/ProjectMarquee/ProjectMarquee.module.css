@@ -3,14 +3,8 @@
 }
 
 .heading :global(h2) {
-  text-transform: uppercase;
   max-width: 22ch;
   margin-inline: auto;
-}
-
-.heading :global(em) {
-  font-style: normal;
-  color: var(--color-ember);
 }
 
 .rail {

@@ -1,7 +1,3 @@
-.heading :global(h2) {
-  font-size: clamp(2.1rem, 4.6vw, 3.2rem);
-}
-
 .row {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -134,11 +130,6 @@
  * title, duration, tag and progress bar stacked beside it.
  */
 @media (max-width: 900px) {
-  .heading :global(h2) {
-    /* Fall back to the standard heading scale instead of the display size. */
-    font-size: clamp(1.9rem, 5.2vw, 2.6rem);
-  }
-
   .row {
     display: flex;
     flex-direction: column;
