@@ -1,7 +1,8 @@
 import { RadialBand } from '@/components/sections/shared/RadialBand';
 import { Button, Chip, Eyebrow, Icon, Reveal } from '@/components/ui';
-import { company, primaryCtaLabel, serviceAreas } from '@/data/company';
-import { anchors } from '@/routes/paths';
+import { company, primaryCtaLabel } from '@/data/company';
+import { serviceAreaPages } from '@/data/areas';
+import { anchors, paths } from '@/routes/paths';
 
 import styles from './ServiceAreasSection.module.css';
 
@@ -21,9 +22,9 @@ export function ServiceAreasSection() {
       </Reveal>
 
       <Reveal as="ul" className={styles.chips}>
-        {serviceAreas.map((area) => (
-          <li key={area}>
-            <Chip>{area}</Chip>
+        {serviceAreaPages.map((area) => (
+          <li key={area.slug}>
+            <Chip to={paths.serviceArea(area.slug)}>{area.name}</Chip>
           </li>
         ))}
       </Reveal>

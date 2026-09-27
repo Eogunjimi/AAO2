@@ -1,37 +1,8 @@
-import { Link } from 'react-router-dom';
-
-import { Container, Eyebrow, Icon, Reveal, Stars } from '@/components/ui';
-import { trustChips } from '@/data/company';
+import { PageHero } from '@/components/sections/shared/PageHero';
 import { paths } from '@/routes/paths';
 
-import styles from './ServiceHero.module.css';
-
-const INSTALLS = trustChips.find((chip) => chip.id === 'installs');
-
-const REVIEW_BADGES = [
-  { id: 'google', label: 'Google Reviews' },
-  { id: 'facebook', label: 'Facebook Reviews' },
-];
-
 /**
- * The H1 with its leading keyword picked out, e.g.
- * "**Solar & Inverter Installation** in Lagos That Carries Your Real Load".
- * The full string stays intact for search engines and screen readers.
- */
-function HeroTitle({ title, keyword }) {
-  if (!keyword || !title.startsWith(keyword)) return title;
-
-  return (
-    <>
-      <em>{keyword}</em>
-      {title.slice(keyword.length)}
-    </>
-  );
-}
-
-/**
- * Service hero: the service photograph as a full-bleed background, with the
- * headline, promise and the proof badges over it.
+ * Service detail hero — the shared page hero with the service breadcrumb.
  *
  * @param {Object} props
  * @param {import('@/data/services').Service} props.service
@@ -39,48 +10,18 @@ function HeroTitle({ title, keyword }) {
  */
 export function ServiceHero({ service, page }) {
   return (
-    <section className={styles.hero} aria-labelledby="service-title">
-      <img className={styles.backdrop} src={page.heroImage} alt="" aria-hidden="true" />
-      <span className={styles.scrim} aria-hidden="true" />
-
-      <Container className={styles.inner}>
-        <Reveal>
-          <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
-            <ol>
-              <li>
-                <Link to={paths.home}>Home</Link>
-              </li>
-              <li>
-                <Link to={paths.services}>Services</Link>
-              </li>
-              <li aria-current="page">{service.title}</li>
-            </ol>
-          </nav>
-
-          <Eyebrow tone="volt">{service.category}</Eyebrow>
-
-          <h1 id="service-title" className={styles.title}>
-            <HeroTitle title={page.heroTitle} keyword={page.heroKeyword} />
-          </h1>
-          <p className={styles.subtitle}>{page.heroSubtitle}</p>
-
-          <ul className={styles.badges}>
-            {REVIEW_BADGES.map((badge) => (
-              <li key={badge.id} className={styles.badge}>
-                <Icon name={badge.id} size={18} />
-                <b>5.0</b>
-                <Stars rating={5} />
-                <span className={styles.badgeLabel}>{badge.label}</span>
-              </li>
-            ))}
-
-            <li className={styles.badge}>
-              <b className={styles.count}>{INSTALLS.value}</b>
-              <span className={styles.badgeLabel}>{INSTALLS.label}</span>
-            </li>
-          </ul>
-        </Reveal>
-      </Container>
-    </section>
+    <PageHero
+      id="service-title"
+      title={page.heroTitle}
+      keyword={page.heroKeyword}
+      subtitle={page.heroSubtitle}
+      image={page.heroImage}
+      eyebrow={service.category}
+      breadcrumb={[
+        { label: 'Home', to: paths.home },
+        { label: 'Services', to: paths.services },
+        { label: service.title },
+      ]}
+    />
   );
 }

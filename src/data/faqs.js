@@ -70,3 +70,37 @@ export const serviceFaqs = ['original-products', 'inspection', 'payment-plans', 
     return { ...faq, id: `svc-${faq.id}` };
   },
 );
+
+/** Asked about the work itself, on the projects page. */
+export const projectFaqs = [
+  {
+    id: 'project-timeline',
+    question: 'How long does a typical project take?',
+    answer:
+      'A home solar and inverter installation runs two to five days, CCTV and access control usually one to two, and a full rewire depends on the size of the building. We give you the timeline in writing after the site inspection and work to it.',
+  },
+  {
+    id: 'project-similar',
+    question: 'Can I see a job similar to mine before I commit?',
+    answer:
+      'Yes. Tell us what you are planning and we will point you to the closest match we have completed, including what it cost to achieve. Where the client agrees, we can arrange for you to see the work in person.',
+  },
+  {
+    id: 'project-areas',
+    question: 'Which parts of Lagos do you cover?',
+    answer:
+      'We work across Lagos — Ikoyi, Victoria Island, Lekki, Banana Island, Oniru, VGC, Chevron, Ajah, Magodo GRA, Ikeja GRA and Yaba among them — and we travel beyond Lagos for larger commercial projects.',
+  },
+  {
+    id: 'project-scope',
+    question: 'Do you handle both homes and businesses?',
+    answer:
+      'Both. The projects here range from single-family homes to shops, offices and industrial premises. The difference is the load and the scheduling, not the standard of the work.',
+  },
+  {
+    id: 'project-start',
+    question: 'How do I get a project like these started?',
+    answer:
+      'Book a free site inspection. We measure and assess first, recommend what the numbers justify, quote it in writing, then schedule the installation — usually within the same week as the visit.',
+  },
+];

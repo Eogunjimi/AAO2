@@ -1,0 +1,1 @@
+export { FaqBand } from './FaqBand';

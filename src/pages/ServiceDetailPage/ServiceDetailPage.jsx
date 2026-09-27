@@ -3,13 +3,9 @@ import { Navigate, useParams } from 'react-router-dom';
 
 import { Seo } from '@/components/common/Seo';
 import { ContactSection, ProcessSection, TrustBadges } from '@/components/sections/home';
+import { ServiceBrief, ServiceHero, ServiceReviews } from '@/components/sections/service';
+import { FaqBand } from '@/components/sections/shared/FaqBand';
 import { ProjectMarquee } from '@/components/sections/shared/ProjectMarquee';
-import {
-  ServiceBrief,
-  ServiceFaq,
-  ServiceHero,
-  ServiceReviews,
-} from '@/components/sections/service';
 import { getServiceBySlug, getServicePage } from '@/lib/services';
 import { buildFaqSchema, buildServiceSchema } from '@/lib/structuredData';
 import { paths } from '@/routes/paths';
@@ -64,7 +60,11 @@ export default function ServiceDetailPage() {
 
       <ServiceReviews />
       <ContactSection defaultService={service.slug} />
-      <ServiceFaq faqs={page.faqs} service={service} />
+      <FaqBand
+        id="service-faq-title"
+        title={`${service.title}: Your Questions Answered`}
+        faqs={page.faqs}
+      />
     </>
   );
 }

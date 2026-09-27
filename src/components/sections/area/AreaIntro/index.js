@@ -1,0 +1,1 @@
+export { AreaIntro } from './AreaIntro';
