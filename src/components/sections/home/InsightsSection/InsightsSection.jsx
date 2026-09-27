@@ -18,10 +18,9 @@ export function InsightsSection() {
           tone="inverse"
           title={
             <>
-              Our <em>Blog</em>
+              Insights that help <em>homeowners</em> win power
             </>
           }
-          subtitle="Insights that help homeowners win power"
         />
 
         <Reveal>
