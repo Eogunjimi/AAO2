@@ -1,5 +1,5 @@
 .heading :global(h2) {
-  font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+  font-size: clamp(2.1rem, 4.6vw, 3.2rem);
 }
 
 .row {
@@ -36,7 +36,7 @@
 .number {
   font-family: var(--font-display);
   font-weight: var(--font-weight-extrabold);
-  font-size: 3.6rem;
+  font-size: 3.1rem;
   line-height: 1;
   color: var(--color-ember-soft);
   transition:
@@ -59,7 +59,7 @@
 .stepTitle {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.06rem;
+  font-size: 0.98rem;
   font-weight: var(--font-weight-extrabold);
   margin: 1.1rem 0 0.45rem;
 }
@@ -67,7 +67,7 @@
 .duration {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   color: var(--color-gray);
   font-weight: var(--font-weight-semibold);
 }
@@ -98,7 +98,7 @@
   margin: 3.2rem auto 0;
   text-align: center;
   color: var(--color-gray);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   min-height: 3.4em;
   animation: fade-up 0.55s var(--ease);
 }
@@ -114,7 +114,7 @@
   border: 1px solid var(--color-line);
   border-radius: var(--radius-pill);
   padding: 0.72rem 1.6rem;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: var(--font-weight-semibold);
   color: var(--color-gray);
   text-align: center;
@@ -170,12 +170,15 @@
   .stepTitle {
     grid-column: 2;
     grid-row: 1;
+    /* Mobile keeps the original scale; only desktop was trimmed. */
+    font-size: 1.06rem;
     margin: 0.35rem 0 0.45rem;
   }
 
   .duration {
     grid-column: 2;
     grid-row: 2;
+    font-size: 0.78rem;
   }
 
   .tagWrap {
@@ -193,6 +196,11 @@
   .description {
     min-height: 0;
     margin-top: 2.4rem;
+    font-size: 0.95rem;
+  }
+
+  .median {
+    font-size: 0.8rem;
   }
 }
 
