@@ -25,8 +25,8 @@
 }
 
 .title {
-  font-size: var(--section-subtitle-size);
-  line-height: 1.35;
+  font-size: var(--section-title-size);
+  line-height: var(--section-title-leading);
   text-transform: uppercase;
   margin: 0 0 1.4rem;
 }

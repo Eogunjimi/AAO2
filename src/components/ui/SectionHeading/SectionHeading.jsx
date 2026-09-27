@@ -13,8 +13,6 @@ import styles from './SectionHeading.module.css';
  * @param {React.ReactNode} [props.subtitle] Bold line under the title.
  * @param {React.ReactNode} [props.description]
  * @param {'left'|'center'} [props.align]
- * @param {'display'|'compact'} [props.size] `compact` sets the title at the
- *   sub-headline scale, for sections that lead on their promise.
  * @param {'default'|'inverse'} [props.tone]
  * @param {2|3} [props.level] Heading level to render.
  */
@@ -24,7 +22,6 @@ export function SectionHeading({
   subtitle,
   description,
   align = 'left',
-  size = 'display',
   tone = 'default',
   level = 2,
   id,
@@ -35,7 +32,7 @@ export function SectionHeading({
   return (
     <Reveal className={cn(styles.heading, styles[align], styles[tone], className)}>
       {eyebrow ? <Eyebrow tone={tone === 'inverse' ? 'volt' : 'default'}>{eyebrow}</Eyebrow> : null}
-      <Heading id={id} className={cn(styles.title, styles[size])}>
+      <Heading id={id} className={styles.title}>
         {title}
       </Heading>
       {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
