@@ -12,6 +12,7 @@
 
 .content :global(h2) {
   color: var(--color-ink);
+  text-transform: uppercase;
   font-size: clamp(2.1rem, 5vw, 3.6rem);
   max-width: 24ch;
   margin: 1rem auto 1.2rem;

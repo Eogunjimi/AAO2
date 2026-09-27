@@ -1,6 +1,5 @@
 .heading :global(h2) {
   font-size: clamp(1.9rem, 4.2vw, 3rem);
-  text-transform: uppercase;
   line-height: 1.12;
   max-width: 20ch;
   margin-inline: auto;

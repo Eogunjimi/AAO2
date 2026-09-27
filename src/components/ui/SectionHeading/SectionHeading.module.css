@@ -11,6 +11,7 @@
 .title {
   font-size: clamp(1.9rem, 3.8vw, 2.8rem);
   font-weight: var(--font-weight-extrabold);
+  text-transform: uppercase;
   margin-top: 0.9rem;
 }
 
