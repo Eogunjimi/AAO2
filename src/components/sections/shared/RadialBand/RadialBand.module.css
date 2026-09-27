@@ -2,11 +2,7 @@
   position: relative;
   overflow: hidden;
   text-align: center;
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgba(11, 11, 12, 0.02) 0 1px,
-    transparent 1px 88px
-  );
+  background-image: var(--band-pinstripe);
 }
 
 .content {

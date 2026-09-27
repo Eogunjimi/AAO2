@@ -47,6 +47,12 @@
 
   /* ----- layout ----- */
   --container-max: 1180px;
+  /* Faint pinstripe that gives the contact band its texture. */
+  --band-pinstripe: repeating-linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-ink) 2%, transparent) 0 1px,
+    transparent 1px 88px
+  );
   --container-gutter: 24px;
   --header-height: 74px;
 
