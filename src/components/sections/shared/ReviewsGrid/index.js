@@ -1,1 +1,0 @@
-export { ReviewsGrid } from './ReviewsGrid';

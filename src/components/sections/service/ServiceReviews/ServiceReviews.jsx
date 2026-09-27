@@ -1,4 +1,4 @@
-import { ReviewsGrid } from '@/components/sections/shared/ReviewsGrid';
+import { ReviewsCarousel } from '@/components/sections/shared/ReviewsCarousel';
 import { Container, Section, SectionHeading } from '@/components/ui';
 import { reviews } from '@/data/reviews';
 
@@ -12,7 +12,7 @@ export function ServiceReviews() {
           eyebrow="Reviews"
           title="What customers say about our work"
         />
-        <ReviewsGrid reviews={reviews} showSource={false} align="start" />
+        <ReviewsCarousel reviews={reviews} showSource={false} align="start" />
       </Container>
     </Section>
   );
