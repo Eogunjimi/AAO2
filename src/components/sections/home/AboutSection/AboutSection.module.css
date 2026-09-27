@@ -13,15 +13,16 @@
   grid-area: 1 / 1;
 }
 
+/* Title starts level with the top of the portrait. */
 .copy {
   grid-area: 1 / 2;
-  align-self: center;
+  align-self: start;
 }
 
 .title {
   font-size: clamp(1.8rem, 3.2vw, 2.7rem);
   text-transform: uppercase;
-  margin: 0.75rem 0 1.4rem;
+  margin: 0 0 1.4rem;
 }
 
 .copy p {
@@ -51,11 +52,14 @@
   pointer-events: none;
 }
 
-/* Fills the row, so both columns end on the same line. */
+/*
+ * Height follows the story column, so the two end on the same line; the
+ * minimum only matters if the copy is ever trimmed right back.
+ */
 .figure {
   position: relative;
   flex: 1;
-  min-height: 520px;
+  min-height: 460px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-on-dark);
   overflow: hidden;

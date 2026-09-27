@@ -1,4 +1,4 @@
-import { Container, Eyebrow, GuaranteeSeal, Reveal, Section } from '@/components/ui';
+import { Container, GuaranteeSeal, Reveal, Section } from '@/components/ui';
 import { company } from '@/data/company';
 
 import styles from './AboutSection.module.css';
@@ -16,7 +16,6 @@ export function AboutSection() {
       <Container>
         <div className={styles.grid}>
           <Reveal className={styles.copy} delay={80}>
-            <Eyebrow tone="volt">About Us</Eyebrow>
             <h2 id="about-title" className={styles.title}>
               Built on trust. Engineered to last.
             </h2>
