@@ -114,7 +114,9 @@ export function HeroSection() {
               </p>
             </div>
 
-            <p className={styles.reviewText}>Trusted by 200 Homes &amp; Businesses Across Nigeria</p>
+            <p className={styles.reviewText}>
+              Trusted by 200 Homes &amp; Businesses Across Nigeria
+            </p>
           </div>
 
           <div className={styles.actions}>
