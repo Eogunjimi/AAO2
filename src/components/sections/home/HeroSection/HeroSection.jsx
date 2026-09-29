@@ -74,7 +74,7 @@ export function HeroSection() {
 
           <div
             className={styles.reviewBadge}
-            aria-label="5.0 star rating. Trusted by 100+ Homes & Businesses Across Nigeria."
+            aria-label="5.0 star rating. Trusted by 200 Homes & Businesses Across Nigeria."
           >
             <div className={styles.reviewBadgeTop}>
               <ul className={styles.reviewAvatars} aria-label="Customers">
@@ -114,7 +114,7 @@ export function HeroSection() {
               </p>
             </div>
 
-            <p className={styles.reviewText}>Trusted by 100+ Homes &amp; Businesses Across Nigeria</p>
+            <p className={styles.reviewText}>Trusted by 200 Homes &amp; Businesses Across Nigeria</p>
           </div>
 
           <div className={styles.actions}>
