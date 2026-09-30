@@ -62,12 +62,19 @@
   margin-top: auto;
 }
 
+/*
+ * Doubles as the initials badge and the portrait frame. The ink fill shows
+ * through while a photo is still loading, so the row never jumps.
+ */
 .avatar {
+  --avatar-size: 48px;
+
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
   flex: none;
+  overflow: hidden;
   border-radius: 50%;
   background: var(--color-ink);
   color: var(--color-volt);
@@ -75,6 +82,18 @@
   font-weight: var(--font-weight-extrabold);
   font-size: 0.82rem;
   letter-spacing: 0.02em;
+  box-shadow: 0 0 0 2px var(--color-surface);
+}
+
+/*
+ * Portraits ship square and tightly cropped, so `cover` is a no-op for them.
+ * It is here to keep a non-square replacement from distorting.
+ */
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .author {

@@ -1,5 +1,18 @@
 /** Customer reviews syndicated from Google and Facebook. */
 
+/**
+ * @typedef {Object} Review
+ * @property {string} id
+ * @property {string} quote
+ * @property {string} author
+ * @property {string} location
+ * @property {'Google'|'Facebook'} source
+ * @property {number} rating
+ * @property {string} [avatar] Square portrait in `public/images/`. Falls back
+ *   to the author's initials when omitted.
+ */
+
+/** @type {Review[]} */
 export const reviews = [
   {
     id: 'bakare',
@@ -9,6 +22,7 @@ export const reviews = [
     location: 'Lekki Phase 1',
     source: 'Google',
     rating: 5,
+    avatar: '/images/review-avatar-bakare.jpg',
   },
   {
     id: 'okonkwo',
@@ -18,6 +32,7 @@ export const reviews = [
     location: 'Magodo GRA',
     source: 'Google',
     rating: 5,
+    avatar: '/images/review-avatar-okonkwo.jpg',
   },
   {
     id: 'adeyemi',
@@ -27,6 +42,7 @@ export const reviews = [
     location: 'Ikeja GRA',
     source: 'Facebook',
     rating: 5,
+    avatar: '/images/review-avatar-adeyemi.jpg',
   },
   {
     id: 'fernandez',
@@ -36,6 +52,7 @@ export const reviews = [
     location: 'Ajah',
     source: 'Google',
     rating: 5,
+    avatar: '/images/review-avatar-fernandez.jpg',
   },
   {
     id: 'adewale',
@@ -45,6 +62,7 @@ export const reviews = [
     location: 'VGC',
     source: 'Facebook',
     rating: 5,
+    avatar: '/images/review-avatar-adewale.jpg',
   },
   {
     id: 'chukwu',
@@ -54,5 +72,6 @@ export const reviews = [
     location: 'Yaba',
     source: 'Google',
     rating: 5,
+    avatar: '/images/review-avatar-chukwu.jpg',
   },
 ];
