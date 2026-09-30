@@ -17,7 +17,7 @@ export function ReviewsSection() {
           eyebrow="Reviews"
           title={
             <>
-              See why Lagos homeowners <em>choose</em> {company.shortName} Engineering
+              See Why Clients <em>Choose</em> {company.shortName} Engineering
             </>
           }
         />

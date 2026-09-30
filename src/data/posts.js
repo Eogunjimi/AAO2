@@ -1,5 +1,16 @@
-/** Editorial posts shown in the "Insights" carousel. */
+/**
+ * Editorial posts, shown in the home page's "Insights" rail and on /blog.
+ *
+ * @typedef {Object} Post
+ * @property {string} id
+ * @property {string} category
+ * @property {string} title
+ * @property {string} excerpt
+ * @property {string} image
+ * @property {string} alt
+ */
 
+/** @type {Post[]} */
 export const posts = [
   {
     id: 'inverter-sizing',

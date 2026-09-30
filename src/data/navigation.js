@@ -16,7 +16,7 @@ const SERVICE_MENU_CATEGORIES = ['solar-power', 'security', 'access-automation']
 /** Entries in the About menu. */
 export const aboutMenu = [
   { id: 'about', label: 'About AAO', to: anchors.about },
-  { id: 'blog', label: 'Blog', to: anchors.insights },
+  { id: 'blog', label: 'Blog', to: paths.blog },
   { id: 'team', label: 'Team', to: paths.team },
   { id: 'career', label: 'Career', to: paths.career },
   { id: 'academy', label: 'Academy', to: paths.academy },
@@ -78,7 +78,7 @@ export const footerMenus = [
     id: 'company',
     title: 'Company',
     links: [
-      { id: 'blog', label: 'Blog', to: anchors.insights },
+      { id: 'blog', label: 'Blog', to: paths.blog },
       { id: 'team', label: 'Team', to: paths.team },
       { id: 'career', label: 'Career', to: paths.career },
       { id: 'academy', label: 'Academy', to: paths.academy },

@@ -20,7 +20,8 @@ export function buildLocalBusinessSchema() {
     description: company.description,
     url: SITE_URL,
     email: company.email,
-    telephone: company.phone.display,
+    // Schema.org wants a dialable international number, not the local display form.
+    telephone: company.phone.e164,
     founder: { '@type': 'Person', name: company.founder },
     address: {
       '@type': 'PostalAddress',

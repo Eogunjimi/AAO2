@@ -38,10 +38,6 @@ export function ServiceAreasSection() {
       </Reveal>
 
       <Reveal>
-        <p className={styles.note}>
-          Already a customer? <a href={anchors.contact}>Refer a friend &amp; earn rewards</a> ·{' '}
-          <a href={anchors.reviews}>See our customer reviews</a>
-        </p>
         <p className={styles.legal}>CAC Certified · COREN · NEMSA — Licensed &amp; Insured</p>
       </Reveal>
     </RadialBand>

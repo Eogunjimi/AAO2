@@ -29,24 +29,9 @@
   margin-top: 2.4rem;
 }
 
-.note {
-  margin-top: 1.8rem;
-  font-size: 0.78rem;
-  color: var(--color-gray);
-}
-
-.note a {
-  text-decoration: underline;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-ink);
-}
-
-.note a:hover {
-  color: var(--color-ember);
-}
-
+/* Now the first line in its block, so it carries the gap the note used to. */
 .legal {
-  margin-top: 0.9rem;
+  margin-top: 1.8rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   color: var(--color-soft);

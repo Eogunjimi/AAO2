@@ -16,7 +16,10 @@ export const company = {
   guarantee: 'Work Guaranteed',
   foundedYear: 2019,
   phone: {
-    display: '(810) 574-3694',
+    /** Nigerian national format — how a Lagos customer reads it back to you. */
+    display: '0810 574 3694',
+    /** E.164, for `tel:` links and schema.org `telephone`. */
+    e164: '+2348105743694',
     href: 'tel:+2348105743694',
     whatsapp: 'https://wa.me/2348105743694',
   },
