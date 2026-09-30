@@ -61,6 +61,27 @@ export function buildServiceSchema(service) {
   };
 }
 
+/**
+ * Article schema for a blog post.
+ *
+ * @param {import('@/data/posts').Post} post
+ */
+export function buildArticleSchema(post) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    url: absoluteUrl(`/blog/${post.slug}`),
+    image: absoluteUrl(post.image),
+    datePublished: post.publishedAt,
+    articleSection: post.category,
+    author: { '@type': 'Organization', name: company.name, url: SITE_URL },
+    publisher: { '@type': 'Organization', name: company.name, url: SITE_URL },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl(`/blog/${post.slug}`) },
+  };
+}
+
 export function buildFaqSchema(faqs) {
   return {
     '@context': 'https://schema.org',

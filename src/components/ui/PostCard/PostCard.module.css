@@ -3,6 +3,7 @@
  * home-page rail and the blog grid share one appearance.
  */
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -15,7 +16,9 @@
     box-shadow var(--duration-base) var(--ease);
 }
 
-.card:hover {
+/* Lifts on pointer hover and on keyboard focus of the stretched link. */
+.card:hover,
+.card:focus-within {
   transform: translateY(-6px);
   box-shadow: 0 24px 54px rgba(0, 0, 0, 0.45);
 }
@@ -53,6 +56,32 @@
   font-size: 1.02rem;
   text-transform: uppercase;
   line-height: 1.3;
+}
+
+/*
+ * Stretched link: the anchor is the title, but its ::after covers the whole
+ * card, so a click anywhere — including on "Read now…" — follows it.
+ */
+.titleLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+/* The ring belongs on the card, not on the stretched anchor. */
+.titleLink:focus-visible {
+  outline: none;
+}
+
+.card:has(.titleLink:focus-visible) {
+  outline: 2px solid var(--color-volt);
+  outline-offset: 3px;
+}
+
+.card:hover .titleLink,
+.card:focus-within .titleLink {
+  color: var(--color-ember);
 }
 
 .excerpt {

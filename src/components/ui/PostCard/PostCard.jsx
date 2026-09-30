@@ -1,14 +1,21 @@
+import { Link } from 'react-router-dom';
+
 import { company } from '@/data/company';
 import { cn } from '@/lib/cn';
+import { paths } from '@/routes/paths';
 
 import styles from './PostCard.module.css';
 
 /**
- * Editorial card for a single post.
+ * Editorial card for a single post, linking to the full article.
+ *
+ * The whole card is clickable, but only the title is a real link: it is
+ * stretched over the card with a pseudo-element. That keeps one entry in the
+ * accessibility tree — named with the post title rather than "Read now" — and
+ * leaves the card's text selectable.
  *
  * The insights rail on the home page and the blog index render this exact
- * component, so the two presentations cannot drift apart. Sizing belongs to
- * the parent — the rail gives it a flex basis, the blog index a grid cell.
+ * component, so the two cannot drift apart. Sizing belongs to the parent.
  *
  * @param {Object} props
  * @param {import('@/data/posts').Post} props.post
@@ -25,9 +32,19 @@ export function PostCard({ post, className }) {
         <p className={styles.byline}>
           By: {company.shortName} Engineering · {post.category}
         </p>
-        <h3 className={styles.cardTitle}>{post.title}</h3>
+
+        <h3 className={styles.cardTitle}>
+          <Link className={styles.titleLink} to={paths.blogPost(post.slug)}>
+            {post.title}
+          </Link>
+        </h3>
+
         <p className={styles.excerpt}>{post.excerpt}</p>
-        <span className={styles.link}>Read now…</span>
+
+        {/* Decorative: the stretched title link already covers this area. */}
+        <span className={styles.link} aria-hidden="true">
+          Read now…
+        </span>
       </div>
     </article>
   );

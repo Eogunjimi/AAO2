@@ -5,6 +5,7 @@ export const paths = {
   services: '/services',
   projects: '/projects',
   blog: '/blog',
+  blogPost: (slug) => `/blog/${slug}`,
   serviceArea: (slug) => `/service-areas/${slug}`,
   service: (slug) => `/services/${slug}`,
   team: '/team',
