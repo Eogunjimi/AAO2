@@ -12,17 +12,19 @@
   --color-muted: #68716c;
   --color-cream: #f4f5ef;
   --color-paper: #fbfcf8;
-  --color-green: #1c352b;
-  --color-green-dark: #13231d;
-  --color-forest-green: var(--color-green);
+  --color-green: #22be13;
+  --color-green-dark: #198c0b;
+  --color-forest-green: var(--color-green-dark);
   --color-dark-green: var(--color-green-dark);
-  --color-gold: #d6a84d;
-  --color-gold-hover: #edc66b;
+  --color-green-bright: var(--color-green);
+  --color-yellow: #ffd800;
+  --color-gold: var(--color-yellow);
+  --color-gold-hover: var(--color-yellow);
   --color-line: #d9dfd8;
   --color-white: #ffffff;
   --color-danger: #b3261e;
-  --color-whatsapp: #25d366;
-  --color-whatsapp-hover: #20bd5a;
+  --color-whatsapp: var(--color-green);
+  --color-whatsapp-hover: var(--color-green-dark);
 
   /* ----- typography ----- */
   --font-display: 'Manrope', sans-serif;
@@ -82,7 +84,7 @@
   --shadow-xl: 0 24px 58px rgba(7, 20, 13, 0.28);
   --shadow-button: 0 10px 22px rgba(7, 20, 13, 0.18);
   --shadow-button-pressed: 0 5px 12px rgba(7, 20, 13, 0.16);
-  --shadow-gold: 0 10px 24px rgba(214, 168, 77, 0.28);
+  --shadow-gold: 0 10px 24px rgba(255, 216, 0, 0.28);
   --shadow-volt: var(--shadow-gold);
 
   /* ----- motion ----- */
@@ -104,12 +106,12 @@
   --color-soft: #87918a;
   --color-wash: var(--color-cream);
   --color-surface: var(--color-paper);
-  --color-dark: var(--color-green);
+  --color-dark: var(--color-green-dark);
   --color-card-dark: var(--color-green-dark);
   --color-volt: var(--color-gold);
   --color-star: var(--color-gold);
-  --color-ember: var(--color-green);
-  --color-ember-soft: #9a7a37;
+  --color-ember: var(--color-green-dark);
+  --color-ember-soft: var(--color-yellow);
 
   --band-pinstripe: repeating-linear-gradient(
     90deg,

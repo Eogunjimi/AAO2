@@ -12,7 +12,7 @@
 
 .title {
   margin-bottom: 0.2rem;
-  color: var(--color-green);
+  color: var(--color-green-dark);
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: var(--font-weight-extrabold);

@@ -41,12 +41,12 @@
   border-color: color-mix(in srgb, var(--color-gold) 60%, var(--color-line));
   background: color-mix(in srgb, var(--color-gold) 20%, var(--color-paper));
   box-shadow: none;
-  color: var(--color-green);
+  color: var(--color-green-dark);
 }
 
 .interactive:hover {
-  border-color: var(--color-green);
-  background: var(--color-green);
+  border-color: var(--color-green-dark);
+  background: var(--color-green-dark);
   color: var(--color-white);
 }
 

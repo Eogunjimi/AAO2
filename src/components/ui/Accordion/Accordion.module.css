@@ -18,12 +18,12 @@
 }
 
 .item:hover:not(.open) {
-  border-color: color-mix(in srgb, var(--color-green) 40%, var(--color-line));
+  border-color: color-mix(in srgb, var(--color-green-dark) 40%, var(--color-line));
 }
 
 .open {
-  border-color: var(--color-green);
-  background: var(--color-green);
+  border-color: var(--color-green-dark);
+  background: var(--color-green-dark);
   box-shadow: var(--shadow-medium);
 }
 
@@ -44,7 +44,7 @@
   padding: 0.8rem 1.1rem;
   border: none;
   background: none;
-  color: var(--color-green);
+  color: var(--color-green-dark);
   cursor: pointer;
   font-family: var(--font-display);
   font-size: 0.93rem;
