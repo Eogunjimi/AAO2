@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { submitLead } from '@/lib/leads';
+import { buildWhatsappHandoff, submitLead } from '@/lib/leads';
 import { validate } from '@/lib/validation';
 
 /** @typedef {'idle'|'submitting'|'success'|'error'} LeadFormStatus */
@@ -25,6 +25,21 @@ function focusFirstInvalid(form, errors) {
     control.scrollIntoView?.({ block: 'center', behavior: 'smooth' });
     return;
   }
+}
+
+/**
+ * Open WhatsApp while still inside the submit gesture so browsers do not
+ * classify the hand-off as an unsolicited popup.
+ *
+ * WhatsApp opens with the lead details prefilled; its own security model still
+ * requires the visitor to tap Send before a message reaches the inbox.
+ *
+ * @param {Record<string, string>} values
+ */
+function openWhatsappHandoff(values) {
+  if (typeof window === 'undefined') return;
+
+  window.open(buildWhatsappHandoff(values), '_blank', 'noopener,noreferrer');
 }
 
 /**
@@ -116,6 +131,10 @@ export function useLeadForm({ initialValues, schema, source }) {
         setStatus('success');
         return { ok: true };
       }
+
+      // Start the WhatsApp hand-off before awaiting the optional lead endpoint
+      // so popup blockers see it as part of the visitor's submit gesture.
+      openWhatsappHandoff(values);
 
       abortRef.current?.abort();
       const controller = new AbortController();

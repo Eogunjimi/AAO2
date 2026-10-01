@@ -39,5 +39,6 @@ window.IntersectionObserver = IntersectionObserverStub;
 global.IntersectionObserver = IntersectionObserverStub;
 
 window.scrollTo = vi.fn();
+window.open = vi.fn(() => ({}));
 Element.prototype.scrollTo = vi.fn();
 Element.prototype.scrollIntoView = vi.fn();

@@ -1,4 +1,5 @@
 import { company } from '@/data/company';
+import { getServiceBySlug } from '@/lib/services';
 import { toE164 } from '@/lib/phone';
 
 /**
@@ -78,9 +79,9 @@ export async function submitLead(payload, { signal } = {}) {
 }
 
 /**
- * A WhatsApp deep link carrying the enquiry, so the visitor can deliver it
- * themselves. This is the recovery path when the endpoint is unreachable, and
- * the reason the form is still useful before a backend exists.
+ * A WhatsApp deep link carrying the enquiry. The form hook opens this link
+ * immediately after validation, while the contact form also exposes it as a
+ * manual recovery link if the lead endpoint fails.
  *
  * @param {Record<string, string>} values
  * @param {{serviceLabel?: string}} [options]
@@ -95,7 +96,8 @@ export function buildWhatsappHandoff(values, { serviceLabel } = {}) {
   add('Name', values.name);
   add('Phone', values.phone);
   add('Email', values.email);
-  add('Service', serviceLabel ?? values.service);
+  const serviceName = serviceLabel ?? getServiceBySlug(values.service)?.title ?? values.service;
+  add('Service', serviceName);
   add('Location', values.location);
 
   if (values.message) lines.push('', values.message);
