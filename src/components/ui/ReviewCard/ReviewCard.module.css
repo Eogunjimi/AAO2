@@ -33,7 +33,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--color-green-dark);
+  color: var(--color-green);
   font-size: 0.84rem;
 }
 
@@ -73,7 +73,7 @@
   flex: none;
   overflow: hidden;
   border-radius: 50%;
-  background: var(--color-green-dark);
+  background: var(--color-green);
   color: var(--color-gold);
   font-family: var(--font-display);
   font-size: 0.82rem;
@@ -91,7 +91,7 @@
 
 .author {
   display: block;
-  color: var(--color-green-dark);
+  color: var(--color-green);
   font-size: 0.82rem;
   font-weight: var(--font-weight-extrabold);
 }

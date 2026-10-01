@@ -3,7 +3,7 @@
   top: 0;
   z-index: var(--z-header);
   border-bottom: 1px solid rgba(255, 255, 255, 0.13);
-  background: color-mix(in srgb, var(--color-green-dark) 92%, transparent);
+  background: color-mix(in srgb, var(--color-green) 92%, transparent);
   color: var(--color-white);
   backdrop-filter: blur(16px);
 }
@@ -163,7 +163,7 @@
 
 .megaLink:hover,
 .megaLink:focus-visible {
-  color: var(--color-green-dark);
+  color: var(--color-green);
 }
 
 .megaFooter {
@@ -172,7 +172,7 @@
   margin-top: 1.2rem;
   padding-top: 1rem;
   border-top: 1px solid var(--color-line);
-  color: var(--color-green-dark);
+  color: var(--color-green);
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: var(--font-weight-bold);
@@ -208,7 +208,7 @@
 .simpleLink:hover,
 .simpleLink:focus-visible {
   background: var(--color-cream);
-  color: var(--color-green-dark);
+  color: var(--color-green);
 }
 
 .actions {

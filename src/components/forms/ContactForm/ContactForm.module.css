@@ -47,7 +47,7 @@
 }
 
 .whatsapp:hover {
-  color: var(--color-green-dark);
+  color: var(--color-green);
 }
 
 .submitError {
@@ -71,7 +71,7 @@
 }
 
 .errorAction:hover {
-  color: var(--color-green-dark);
+  color: var(--color-green);
 }
 
 .srOnly {

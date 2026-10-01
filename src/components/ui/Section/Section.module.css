@@ -30,7 +30,7 @@
 }
 
 .dark {
-  background: var(--color-green-dark);
+  background: var(--color-green);
   color: var(--color-white);
 }
 

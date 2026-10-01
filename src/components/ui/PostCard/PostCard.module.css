@@ -71,7 +71,7 @@
 
 .card:hover .titleLink,
 .card:focus-within .titleLink {
-  color: var(--color-green-dark);
+  color: var(--color-green);
 }
 
 .excerpt {
@@ -81,7 +81,7 @@
 }
 
 .link {
-  color: var(--color-green-dark);
+  color: var(--color-green);
   font-size: 0.84rem;
   font-style: italic;
   font-weight: var(--font-weight-bold);
