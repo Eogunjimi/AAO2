@@ -230,51 +230,29 @@
 }
 
 .gears {
-  position: relative;
-  display: inline-block;
+  display: inline-grid;
   flex: 0 0 auto;
-  width: 1.4rem;
-  height: 1.2rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  place-items: center;
 }
 
-.gearBack,
-.gearFront {
-  position: absolute;
+.gear {
+  width: 1.2rem;
+  height: 1.2rem;
   color: currentColor;
   transform-origin: center;
+  animation: gear-spin 4.5s linear infinite;
 }
 
-.gearBack {
-  top: 0;
-  left: 0;
-  width: 1rem;
-  height: 1rem;
-  animation: gear-spin-clockwise 5s linear infinite;
-}
-
-.gearFront {
-  right: 0;
-  bottom: 0;
-  width: 0.78rem;
-  height: 0.78rem;
-  animation: gear-spin-counter 3.5s linear infinite;
-}
-
-@keyframes gear-spin-clockwise {
+@keyframes gear-spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-@keyframes gear-spin-counter {
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .gearBack,
-  .gearFront {
+  .gear {
     animation: none;
   }
 }

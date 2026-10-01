@@ -116,8 +116,7 @@ export function HeroSection() {
             <Button to={anchors.process} variant="ghost-light">
               See How We Work
               <span className={styles.gears} aria-hidden="true">
-                <Icon name="gear" size={18} className={styles.gearBack} />
-                <Icon name="gear" size={14} className={styles.gearFront} />
+                <Icon name="gear" size={20} className={styles.gear} />
               </span>
             </Button>
           </div>
