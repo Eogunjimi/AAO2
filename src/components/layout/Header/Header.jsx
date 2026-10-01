@@ -4,8 +4,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Logo } from '@/components/layout/Logo';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { TopBar } from '@/components/layout/TopBar';
-import { Button, Container, Icon } from '@/components/ui';
-import { company, primaryCtaLabel } from '@/data/company';
+import { Button, Container } from '@/components/ui';
+import { navbarCtaLabel } from '@/data/company';
 import { aboutMenu, areaMenu, getServiceMenuGroups, primaryNav } from '@/data/navigation';
 import { useEventListener } from '@/hooks/useEventListener';
 import { useScrollLock } from '@/hooks/useScrollLock';
@@ -185,19 +185,8 @@ export function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Button
-            href={company.phone.whatsapp}
-            variant="whatsapp"
-            size="sm"
-            className={styles.whatsapp}
-            aria-label="Chat with us on WhatsApp"
-          >
-            <Icon name="whatsapp" size={16} />
-            <span className={styles.whatsappLabel}>WhatsApp</span>
-          </Button>
-
-          <Button to={anchors.contact} size="sm" className={styles.cta}>
-            {primaryCtaLabel}
+          <Button to={anchors.contact} variant="volt" size="sm" className={styles.cta}>
+            {navbarCtaLabel}
           </Button>
 
           <button

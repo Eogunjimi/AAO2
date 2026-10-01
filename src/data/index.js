@@ -7,6 +7,7 @@ export {
   certifications,
   serviceAreas,
   primaryCtaLabel,
+  navbarCtaLabel,
 } from './company';
 export { services, serviceCategories, featuredServices, DEFAULT_SERVICE_SLUG } from './services';
 export { reviews } from './reviews';

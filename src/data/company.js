@@ -71,6 +71,7 @@ export const officeAddress = {
  * footer render the exact same button instead of drifting apart.
  */
 export const primaryCtaLabel = 'Get Your Free Site Inspection →';
+export const navbarCtaLabel = 'GET A FREE QUOTE';
 
 /** Headline proof points shown in the hero and service pages. */
 export const trustChips = [

@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
+import { FloatingWhatsapp } from '@/components/layout/FloatingWhatsapp';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { ScrollManager } from '@/components/layout/ScrollManager';
@@ -18,6 +19,7 @@ export function SiteLayout() {
         <Outlet />
       </main>
       <Footer />
+      <FloatingWhatsapp />
     </>
   );
 }

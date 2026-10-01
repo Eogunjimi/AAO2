@@ -1,0 +1,29 @@
+.button {
+  position: fixed;
+  right: max(var(--container-gutter), env(safe-area-inset-right));
+  bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem));
+  z-index: var(--z-header);
+  min-height: 52px;
+  padding: 0.65rem 1rem 0.65rem 0.7rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.button:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.label {
+  display: inline;
+}
+
+@media (max-width: 560px) {
+  .button {
+    width: 52px;
+    min-height: 52px;
+    padding: 0.7rem;
+  }
+
+  .label {
+    display: none;
+  }
+}
