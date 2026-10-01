@@ -1,25 +1,13 @@
 .footer {
-  /* Fallback for browsers without color-mix(): the flat dark base. */
-  background: var(--color-dark);
-  background:
-    radial-gradient(
-      56rem 32rem at 90% 112%,
-      color-mix(in srgb, var(--color-volt) 42%, transparent),
-      transparent 62%
-    ),
-    radial-gradient(
-      38rem 22rem at 4% 118%,
-      color-mix(in srgb, var(--color-star) 18%, transparent),
-      transparent 60%
-    ),
-    var(--color-dark);
+  background-color: var(--color-green);
+  background-image: var(--band-pinstripe);
   color: var(--color-on-dark);
   padding-bottom: 2.6rem;
   overflow: hidden;
 }
 
 .marquee {
-  background: #08080a;
+  background: var(--color-green-dark);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 1.2rem 0 1.1rem;
 }

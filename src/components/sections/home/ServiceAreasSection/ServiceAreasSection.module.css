@@ -17,7 +17,7 @@
 
 .chips li :global(span):hover {
   border-color: var(--color-star);
-  box-shadow: 0 10px 24px rgba(11, 11, 12, 0.1);
+  box-shadow: var(--shadow-small);
   transform: translateY(-2px);
 }
 

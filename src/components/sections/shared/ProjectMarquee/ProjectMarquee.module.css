@@ -42,7 +42,11 @@
   flex-direction: column;
   gap: 0.1rem;
   padding: 2.4rem 1rem 0.95rem;
-  background: linear-gradient(to top, rgba(8, 8, 10, 0.92), rgba(8, 8, 10, 0));
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-green-dark) 92%, transparent),
+    transparent
+  );
   color: var(--color-on-dark);
 }
 

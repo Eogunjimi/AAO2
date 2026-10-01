@@ -89,9 +89,9 @@
   padding: 3.4rem 1.2rem 1.2rem;
   background: linear-gradient(
     to top,
-    rgba(8, 8, 10, 0.95) 12%,
-    rgba(8, 8, 10, 0.62) 54%,
-    rgba(8, 8, 10, 0) 100%
+    color-mix(in srgb, var(--color-green-dark) 95%, transparent) 12%,
+    color-mix(in srgb, var(--color-green-dark) 62%, transparent) 54%,
+    transparent 100%
   );
   color: var(--color-on-dark);
 }

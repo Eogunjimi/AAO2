@@ -9,49 +9,47 @@
 }
 
 .title {
-  font-size: var(--section-title-size);
-  line-height: var(--section-title-leading);
-  font-weight: var(--font-weight-extrabold);
-  text-transform: uppercase;
   margin-top: 0.9rem;
-}
-
-/* The accent word: ember on light surfaces, volt where the section is dark. */
-.title em {
-  font-style: italic;
-  color: var(--color-ember);
-}
-
-.inverse .title em {
-  color: var(--color-volt);
-}
-
-/* The bold line between the title and the supporting copy. */
-.subtitle {
+  color: var(--color-green);
   font-family: var(--font-display);
+  font-size: var(--section-title-size);
   font-weight: var(--font-weight-extrabold);
+  line-height: var(--section-title-leading);
+  letter-spacing: var(--tracking-tight);
+}
+
+.title em {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  color: var(--color-ink);
+  font-family: var(--font-display);
   font-size: clamp(1rem, 1.9vw, 1.22rem);
+  font-weight: var(--font-weight-extrabold);
   line-height: 1.35;
   letter-spacing: var(--tracking-tight);
-  color: var(--color-ink);
-  margin-top: 1rem;
 }
 
 .description {
-  color: var(--color-gray);
   margin-top: 1rem;
+  color: var(--color-muted);
+  max-width: 62ch;
 }
 
 .subtitle + .description {
   margin-top: 0.8rem;
 }
 
+.inverse .title,
 .inverse .subtitle {
-  color: var(--color-on-dark);
+  color: var(--color-white);
 }
 
-.inverse .title {
-  color: var(--color-on-dark);
+.inverse .title em {
+  color: var(--color-gold);
 }
 
 .inverse .description {
@@ -61,5 +59,9 @@
 @media (max-width: 700px) {
   .heading {
     margin-bottom: 2.2rem;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 10vw, 3.25rem);
   }
 }

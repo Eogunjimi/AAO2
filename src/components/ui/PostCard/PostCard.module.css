@@ -1,99 +1,89 @@
-/*
- * Visual treatment only. The card is sized by whatever lays it out, so the
- * home-page rail and the blog grid share one appearance.
- */
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--color-surface);
-  color: var(--color-ink);
-  border-radius: 14px;
   overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  color: var(--color-ink);
   transition:
-    transform var(--duration-base) var(--ease),
-    box-shadow var(--duration-base) var(--ease);
+    transform var(--transition-standard) var(--ease),
+    box-shadow var(--transition-standard);
 }
 
-/* Lifts on pointer hover and on keyboard focus of the stretched link. */
 .card:hover,
 .card:focus-within {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.45);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-large);
 }
 
 .thumb {
-  aspect-ratio: 4 / 4.2;
-  background: #000;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
+  background: var(--color-green-dark);
 }
 
 .thumb img {
-  transition: transform 1s var(--ease);
+  transition: transform 0.8s var(--ease);
 }
 
 .card:hover .thumb img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .body {
-  padding: 1.3rem 1.2rem 1.5rem;
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.6rem;
-  flex: 1;
+  padding: 1.3rem 1.2rem 1.5rem;
 }
 
 .byline {
+  color: var(--color-muted);
   font-family: var(--font-mono);
   font-size: 0.66rem;
-  color: var(--color-soft);
   font-weight: var(--font-weight-medium);
 }
 
 .cardTitle {
-  font-size: 1.02rem;
-  text-transform: uppercase;
-  line-height: 1.3;
+  font-size: 1.1rem;
+  line-height: 1.25;
 }
 
-/*
- * Stretched link: the anchor is the title, but its ::after covers the whole
- * card, so a click anywhere — including on "Read now…" — follows it.
- */
 .titleLink::after {
-  content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  content: '';
 }
 
-/* The ring belongs on the card, not on the stretched anchor. */
 .titleLink:focus-visible {
   outline: none;
 }
 
 .card:has(.titleLink:focus-visible) {
-  outline: 2px solid var(--color-volt);
+  outline: 2px solid var(--color-gold);
   outline-offset: 3px;
 }
 
 .card:hover .titleLink,
 .card:focus-within .titleLink {
-  color: var(--color-ember);
+  color: var(--color-green);
 }
 
 .excerpt {
-  font-size: 0.82rem;
-  color: var(--color-gray);
   flex: 1;
+  color: var(--color-muted);
+  font-size: 0.84rem;
 }
 
 .link {
+  color: var(--color-green);
+  font-size: 0.84rem;
   font-style: italic;
   font-weight: var(--font-weight-bold);
-  color: var(--color-ember);
-  font-size: 0.84rem;
   letter-spacing: var(--tracking-wide);
 }
