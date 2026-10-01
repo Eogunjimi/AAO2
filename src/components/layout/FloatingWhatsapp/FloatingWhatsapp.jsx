@@ -8,12 +8,11 @@ export function FloatingWhatsapp() {
   return (
     <Button
       href={company.phone.whatsapp}
-      variant="whatsapp"
+      variant="solid"
       className={styles.button}
       aria-label="Chat on WhatsApp"
     >
-      <Icon name="whatsapp" size={18} />
-      <span className={styles.label}>WhatsApp</span>
+      <Icon name="whatsapp" size={34} />
     </Button>
   );
 }
