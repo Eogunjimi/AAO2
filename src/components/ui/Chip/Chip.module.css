@@ -2,54 +2,54 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.5rem 1rem;
+  background: var(--color-surface);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-pill);
-  background: var(--color-paper);
-  box-shadow: var(--shadow-small);
-  color: var(--color-ink);
+  padding: 0.5rem 1rem;
   font-size: 0.78rem;
   font-weight: var(--font-weight-semibold);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-xs);
   transition:
-    transform var(--transition-standard) var(--ease),
-    border-color var(--transition-standard),
-    box-shadow var(--transition-standard),
-    background var(--transition-standard),
-    color var(--transition-standard);
+    transform var(--duration-base) var(--ease),
+    border-color var(--duration-base),
+    box-shadow var(--duration-base),
+    background var(--duration-base),
+    color var(--duration-base);
 }
 
 .outline {
-  border-color: rgba(255, 255, 255, 0.25);
   background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.78);
   box-shadow: none;
-  color: var(--color-on-dark-muted);
 }
 
 .outline:hover {
-  border-color: var(--color-gold);
-  color: var(--color-gold);
+  border-color: var(--color-volt);
+  color: var(--color-volt);
   transform: translateY(-2px);
 }
 
 .dark {
-  border-color: var(--color-green-dark);
-  background: var(--color-green-dark);
-  color: var(--color-white);
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-on-dark);
 }
 
 .highlight {
-  border-color: color-mix(in srgb, var(--color-gold) 60%, var(--color-line));
-  background: color-mix(in srgb, var(--color-gold) 20%, var(--color-paper));
+  background: #fff3c9;
+  border-color: #f0d488;
+  color: #7c5600;
   box-shadow: none;
-  color: var(--color-green);
 }
 
 .interactive:hover {
-  border-color: var(--color-green);
-  background: var(--color-green);
-  color: var(--color-white);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  border-color: var(--color-ink);
 }
 
 .chip :global(.star) {
-  color: var(--color-gold);
+  color: var(--color-star);
 }

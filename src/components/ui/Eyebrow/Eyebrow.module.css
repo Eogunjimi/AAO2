@@ -1,27 +1,16 @@
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  color: var(--color-gold);
-  font-family: var(--font-display);
+  display: inline-block;
   font-size: 0.7rem;
-  font-weight: var(--font-weight-extrabold);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: var(--tracking-eyebrow);
-  line-height: 1.2;
   text-transform: uppercase;
-}
-
-.eyebrow::before {
-  width: 22px;
-  height: 1px;
-  background: currentColor;
-  content: '';
+  color: var(--color-soft);
 }
 
 .volt {
-  color: var(--color-gold);
+  color: var(--color-volt);
 }
 
 .ember {
-  color: var(--color-gold);
+  color: var(--color-ember);
 }

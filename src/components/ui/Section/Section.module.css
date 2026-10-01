@@ -3,7 +3,7 @@
 }
 
 .spacing-default {
-  padding-block: var(--section-space-desktop);
+  padding-block: var(--section-padding);
 }
 
 .spacing-compact {
@@ -19,30 +19,29 @@
 }
 
 .light {
-  background: var(--color-paper);
+  background: var(--color-surface);
   color: var(--color-ink);
 }
 
 .wash {
-  background-color: var(--color-cream);
-  background-image: var(--band-pinstripe);
+  background: var(--color-wash);
   color: var(--color-ink);
 }
 
 .dark {
-  background: var(--color-green);
-  color: var(--color-white);
+  background: var(--color-dark);
+  color: var(--color-on-dark);
 }
 
 .ink {
-  overflow: hidden;
   background: var(--color-ink);
-  color: var(--color-white);
+  color: var(--color-on-dark);
+  overflow: hidden;
 }
 
 @media (max-width: 700px) {
   .spacing-default {
-    padding-block: var(--section-space-mobile);
+    padding-block: 4rem;
   }
 
   .spacing-spacious {

@@ -17,6 +17,10 @@
   display: none;
 }
 
+/*
+ * Layout only — the card's appearance lives in <PostCard />. Three fill the
+ * container exactly; the rail bleeds past both edges.
+ */
 .slide {
   flex: 0 0 calc((100% - 2 * 1.4rem) / 3);
   scroll-snap-align: start;
@@ -28,22 +32,21 @@
     gap: 1rem;
   }
 
+  /* Two per view on tablets… */
   .slide {
     flex-basis: calc((100% - 1rem) / 2);
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 620px) {
+  /* …and exactly one per view on phones, with a firm snap. */
   .row {
-    display: grid;
-    margin-inline: 0;
-    padding: 0;
-    overflow: visible;
+    scroll-snap-type: x mandatory;
   }
 
   .slide {
-    flex: none;
-    width: 100%;
+    flex-basis: 100%;
+    scroll-snap-align: center;
   }
 }
 

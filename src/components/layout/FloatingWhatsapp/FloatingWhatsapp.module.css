@@ -2,21 +2,21 @@
   position: fixed;
   right: max(var(--container-gutter), env(safe-area-inset-right));
   bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem));
-  z-index: var(--z-floating);
-  width: 68px;
-  height: 68px;
-  min-height: 68px;
+  z-index: var(--z-header);
+  width: 64px;
+  height: 64px;
+  min-height: 64px;
   padding: 0;
   border: 0;
   border-radius: 50%;
   background: var(--color-whatsapp);
-  color: var(--color-white);
+  color: #ffffff;
   box-shadow: var(--shadow-lg);
 }
 
 .button:hover {
   background: var(--color-whatsapp-hover);
-  color: var(--color-white);
+  color: #ffffff;
   box-shadow: var(--shadow-xl);
 }
 

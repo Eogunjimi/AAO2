@@ -1,8 +1,8 @@
 .topbar {
-  background: var(--color-green-dark);
-  color: var(--color-white);
-  font-size: 0.72rem;
-  padding: 0.42rem 0;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  font-size: 0.75rem;
+  padding: 0.45rem 0;
 }
 
 .inner {
@@ -13,13 +13,12 @@
 }
 
 .topbar a {
-  color: var(--color-on-dark-muted);
-  transition: color var(--transition-fast);
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--duration-fast);
 }
 
-.topbar a:hover,
-.topbar a:focus-visible {
-  color: var(--color-gold-hover);
+.topbar a:hover {
+  color: var(--color-volt);
 }
 
 .contacts {

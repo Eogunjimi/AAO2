@@ -3,11 +3,11 @@
   isolation: isolate;
   display: flex;
   align-items: flex-end;
-  min-height: clamp(440px, 60vh, 620px);
-  padding: 5rem 0 3.6rem;
+  min-height: clamp(460px, 62vh, 640px);
+  padding: 5rem 0 3.4rem;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
   overflow: hidden;
-  background: var(--color-green-dark);
-  color: var(--color-white);
 }
 
 .backdrop {
@@ -20,15 +20,16 @@
   object-position: center 40%;
 }
 
+/* Dark from the bottom so the type always has something to sit on. */
 .scrim {
   position: absolute;
   inset: 0;
   z-index: -1;
   background: linear-gradient(
     to top,
-    color-mix(in srgb, var(--color-green-dark) 94%, transparent),
-    color-mix(in srgb, var(--color-green-dark) 55%, transparent) 52%,
-    color-mix(in srgb, var(--color-green-dark) 35%, transparent)
+    rgba(8, 8, 10, 0.92) 0%,
+    rgba(8, 8, 10, 0.72) 42%,
+    rgba(8, 8, 10, 0.42) 100%
   );
 }
 
@@ -45,38 +46,38 @@
   flex-wrap: wrap;
   gap: 0.4rem;
   list-style: none;
-  color: var(--color-on-dark-muted);
   font-size: 0.75rem;
+  color: var(--color-on-dark-muted);
 }
 
-.breadcrumb a:hover,
-.breadcrumb a:focus-visible {
-  color: var(--color-gold-hover);
+.breadcrumb a:hover {
+  color: var(--color-volt);
 }
 
 .breadcrumb li + li::before {
-  margin-right: 0.4rem;
   content: '/';
+  margin-right: 0.4rem;
   opacity: 0.5;
 }
 
 .title {
   max-width: 20ch;
   margin: 0.9rem 0 1rem;
-  color: var(--color-white);
-  font-size: clamp(2.25rem, 4.4vw, 4rem);
-  line-height: 1.04;
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  line-height: 1.06;
+  text-transform: uppercase;
+  color: var(--color-on-dark);
 }
 
 .title em {
-  color: var(--color-gold);
   font-style: italic;
+  color: var(--color-volt);
 }
 
 .subtitle {
   max-width: 52ch;
-  color: var(--color-on-dark-muted);
   font-size: clamp(0.98rem, 1.6vw, 1.15rem);
+  color: var(--color-on-dark-muted);
 }
 
 .badges {
@@ -92,11 +93,12 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-pill);
   border: 1px solid var(--color-border-on-dark);
-  border-radius: var(--radius-button);
-  background: color-mix(in srgb, var(--color-green-dark) 70%, transparent);
-  color: var(--color-white);
+  background: color-mix(in srgb, var(--color-ink) 55%, transparent);
+  backdrop-filter: blur(6px);
   font-size: 0.8rem;
+  color: var(--color-on-dark);
 }
 
 .badge b {
@@ -104,7 +106,7 @@
 }
 
 .count {
-  color: var(--color-gold);
+  color: var(--color-volt);
   font-family: var(--font-display);
   font-size: 1rem;
 }

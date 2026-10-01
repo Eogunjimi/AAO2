@@ -39,7 +39,7 @@
   bottom: 16px;
   /* Wrap inside the card rather than running under the clipped edge. */
   max-width: calc(100% - 68px);
-  background: color-mix(in srgb, var(--color-green-dark) 84%, transparent);
+  background: rgba(11, 11, 12, 0.82);
   color: var(--color-on-dark);
   border-radius: var(--radius-sm);
   padding: 0.55rem 1rem;

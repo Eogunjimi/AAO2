@@ -1,4 +1,4 @@
-/** Global reset and accessible element defaults. Component styling lives in CSS Modules. */
+/** Global reset and element defaults. Component styling lives in CSS Modules. */
 
 *,
 *::before,
@@ -14,9 +14,9 @@ html {
 }
 
 body {
-  background: var(--color-paper);
+  background: var(--color-surface);
   color: var(--color-ink);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -51,12 +51,6 @@ textarea {
   color: inherit;
 }
 
-button,
-a,
-select {
-  -webkit-tap-highlight-color: transparent;
-}
-
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
@@ -68,7 +62,7 @@ h3,
 h4 {
   font-family: var(--font-display);
   letter-spacing: var(--tracking-tight);
-  line-height: 1.03;
+  line-height: 1.08;
   font-weight: var(--font-weight-extrabold);
   text-wrap: balance;
 }
@@ -78,12 +72,12 @@ p {
 }
 
 ::selection {
-  background: var(--color-gold);
-  color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-ink);
   outline-offset: 3px;
   border-radius: 4px;
 }

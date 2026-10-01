@@ -5,23 +5,24 @@
   gap: 1rem;
   max-width: 780px;
   margin: 2.8rem auto 0;
-  padding: 2.4rem;
+  background: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-feature-card);
-  background: var(--color-paper);
-  box-shadow: var(--shadow-large);
+  border-radius: var(--radius-xl);
+  padding: 2.4rem;
+  box-shadow: 0 30px 70px rgba(11, 11, 12, 0.08);
   text-align: left;
 }
 
+/* Sits above the fields so the count is read before the first error. */
 .summary {
   grid-column: 1 / -1;
   padding: 0.7rem 0.9rem;
   border-left: 3px solid var(--color-danger);
-  border-radius: 0 var(--radius-control) var(--radius-control) 0;
-  background: color-mix(in srgb, var(--color-danger) 7%, transparent);
-  color: var(--color-danger);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(214, 69, 69, 0.07);
   font-size: 0.82rem;
   font-weight: var(--font-weight-semibold);
+  color: var(--color-danger);
 }
 
 .actions {
@@ -38,16 +39,16 @@
 }
 
 .whatsapp {
-  color: var(--color-muted);
   font-size: 0.82rem;
   font-weight: var(--font-weight-semibold);
+  color: var(--color-gray);
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: color var(--transition-fast);
+  transition: color var(--duration-fast);
 }
 
 .whatsapp:hover {
-  color: var(--color-green);
+  color: var(--color-ember);
 }
 
 .submitError {
@@ -56,11 +57,11 @@
   gap: 0.45rem;
   padding: 0.85rem 1rem;
   border-left: 3px solid var(--color-danger);
-  border-radius: 0 var(--radius-control) var(--radius-control) 0;
-  background: color-mix(in srgb, var(--color-danger) 7%, transparent);
-  color: var(--color-danger);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(214, 69, 69, 0.07);
   font-size: 0.82rem;
   font-weight: var(--font-weight-semibold);
+  color: var(--color-danger);
 }
 
 .errorAction {
@@ -71,7 +72,7 @@
 }
 
 .errorAction:hover {
-  color: var(--color-green);
+  color: var(--color-ember);
 }
 
 .srOnly {

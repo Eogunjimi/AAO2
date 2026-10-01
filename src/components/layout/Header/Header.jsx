@@ -66,7 +66,7 @@ export function Header() {
       <TopBar />
 
       <Container className={styles.bar}>
-        <Logo tone="inverse" />
+        <Logo />
 
         <nav
           ref={navRef}
@@ -78,18 +78,10 @@ export function Header() {
         >
           <ul className={styles.navList}>
             {primaryNav.map((item) => {
-              const isActive =
-                item.to === location.pathname ||
-                (item.to.includes('#') && `${location.pathname}${location.hash}` === item.to);
-
               if (!item.menu) {
                 return (
                   <li key={item.id}>
-                    <Link
-                      to={item.to}
-                      className={cn(styles.navLink, isActive && styles.navLinkActive)}
-                      aria-current={isActive ? 'page' : undefined}
-                    >
+                    <Link to={item.to} className={styles.navLink}>
                       {item.label}
                     </Link>
                   </li>
@@ -112,13 +104,7 @@ export function Header() {
                     ref={(node) => {
                       triggerRefs.current[item.menu] = node;
                     }}
-                    className={cn(
-                      styles.navLink,
-                      styles.trigger,
-                      isOpen && styles.triggerOpen,
-                      isActive && styles.navLinkActive,
-                    )}
-                    aria-current={isActive ? 'page' : undefined}
+                    className={cn(styles.navLink, styles.trigger, isOpen && styles.triggerOpen)}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() =>
