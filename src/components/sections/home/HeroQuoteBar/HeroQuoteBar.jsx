@@ -8,7 +8,7 @@ import { validators } from '@/lib/validation';
 
 import styles from './HeroQuoteBar.module.css';
 
-const INITIAL_VALUES = { name: '', phone: '', email: '', service: '' };
+const INITIAL_VALUES = { name: '', phone: '', service: '' };
 
 const SCHEMA = {
   name: [
@@ -16,7 +16,6 @@ const SCHEMA = {
     validators.minLength(heroQuote.fields.name.label, 2),
   ],
   phone: [validators.required(heroQuote.fields.phone.label), validators.phone()],
-  email: [validators.email()],
   service: [validators.required(heroQuote.fields.service.label)],
 };
 
@@ -96,16 +95,6 @@ export function HeroQuoteBar() {
                 inputMode="tel"
                 autoComplete="tel"
                 leadingIcon={<Icon name="phone" size={15} />}
-                className={styles.field}
-              />
-              <FormField
-                {...field('email')}
-                label={heroQuote.fields.email.label}
-                placeholder={heroQuote.fields.email.placeholder}
-                hideLabel
-                type="email"
-                autoComplete="email"
-                leadingIcon={<Icon name="mail" size={16} />}
                 className={styles.field}
               />
               <FormField

@@ -23,9 +23,6 @@ export const icons = {
   user: {
     paths: ['M20 21a8 8 0 0 0-16 0', 'M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],
   },
-  mail: {
-    paths: ['M3 5h18v14H3z', 'm3 6 9 7 9-7'],
-  },
   quote: {
     filled: true,
     paths: ['M1 3H10V11L6.5 18.5H4L7 11H1Z', 'M13 3H22V11L18.5 18.5H16L19 11H13Z'],

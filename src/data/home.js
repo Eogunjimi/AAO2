@@ -5,7 +5,6 @@ export const heroQuote = {
   fields: {
     name: { label: 'Name', placeholder: 'Name' },
     phone: { label: 'Phone', placeholder: 'Phone' },
-    email: { label: 'Email', placeholder: 'Email' },
     service: { label: "Service you're interested in", placeholder: 'Select service' },
   },
   submit: 'Get quote',

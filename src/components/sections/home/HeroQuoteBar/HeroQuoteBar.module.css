@@ -10,10 +10,10 @@
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 2.55fr);
-  align-items: center;
-  gap: clamp(1rem, 2.2vw, 2rem);
-  min-height: 96px;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 0.75rem;
+  min-height: 0;
   padding: 0.82rem clamp(0.85rem, 1.8vw, 1.25rem);
   overflow: hidden;
   border: 1px solid var(--color-border-on-dark);
@@ -68,9 +68,7 @@
 
 .form {
   display: grid;
-  grid-template-columns:
-    minmax(100px, 0.82fr) minmax(104px, 0.9fr) minmax(130px, 1fr) minmax(142px, 1.15fr)
-    auto;
+  grid-template-columns: minmax(150px, 0.95fr) minmax(150px, 1fr) minmax(190px, 1.25fr) auto;
   align-items: start;
   gap: 0.45rem;
   min-width: 0;
@@ -194,19 +192,14 @@
 }
 
 @media (max-width: 1040px) {
-  .bar {
-    grid-template-columns: minmax(185px, 0.7fr) minmax(0, 2.8fr);
-    gap: 1rem;
-  }
-
   .form {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 1.15fr) auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
   }
 
   .form > :global(button) {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    width: 100%;
+    grid-column: auto;
+    grid-row: auto;
+    width: auto;
   }
 }
 
