@@ -36,7 +36,7 @@ describe('<QuoteForm />', () => {
     await user.selectOptions(screen.getByRole('combobox'), 'cctv');
     await user.click(screen.getByRole('button', { name: /get my free quote/i }));
 
-    expect(await screen.findByText(/valid phone/i)).toBeInTheDocument();
+    expect(await screen.findByText(/valid Nigerian number/i)).toBeInTheDocument();
   });
 
   it('submits a valid lead and confirms to the visitor', async () => {

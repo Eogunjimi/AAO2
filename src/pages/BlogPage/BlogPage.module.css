@@ -1,0 +1,25 @@
+/*
+ * Three across, matching the home-page rail's card width, then two and one.
+ * The cards themselves are <PostCard /> — this only places them.
+ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 3.4rem;
+  list-style: none;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2.6rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

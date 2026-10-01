@@ -5,9 +5,35 @@ import { validate } from '@/lib/validation';
 
 /** @typedef {'idle'|'submitting'|'success'|'error'} LeadFormStatus */
 
+/** Name of the honeypot input. Humans never see it; bots fill everything. */
+export const HONEYPOT_FIELD = 'companyWebsite';
+
 /**
- * Controlled form state for every enquiry form on the site: validation on
- * submit (then live while correcting), async submission, and a success state.
+ * Move focus to the first control the visitor needs to fix, in DOM order
+ * rather than schema order, and bring it into view.
+ *
+ * @param {HTMLFormElement|null} form
+ * @param {Record<string, string>} errors
+ */
+function focusFirstInvalid(form, errors) {
+  if (!form) return;
+
+  const controls = form.querySelectorAll('input[name], select[name], textarea[name]');
+  for (const control of controls) {
+    if (!errors[control.name]) continue;
+    control.focus?.();
+    control.scrollIntoView?.({ block: 'center', behavior: 'smooth' });
+    return;
+  }
+}
+
+/**
+ * Controlled form state for every enquiry form on the site.
+ *
+ * Validates a field once it has been left (so mistakes surface before submit),
+ * re-validates everything live after the first submit attempt, moves focus to
+ * the first problem, drops submissions that trip the honeypot, and exposes the
+ * reference returned by the gateway.
  *
  * @param {Object} options
  * @param {Record<string, string>} options.initialValues
@@ -15,10 +41,11 @@ import { validate } from '@/lib/validation';
  * @param {string} options.source Identifies which form sent the lead.
  */
 export function useLeadForm({ initialValues, schema, source }) {
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState({ ...initialValues, [HONEYPOT_FIELD]: '' });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState(/** @type {LeadFormStatus} */ ('idle'));
   const [submitError, setSubmitError] = useState(null);
+  const [reference, setReference] = useState(null);
   const wasSubmitted = useRef(false);
   const abortRef = useRef(null);
 
@@ -40,11 +67,30 @@ export function useLeadForm({ initialValues, schema, source }) {
     [setValue],
   );
 
+  /** Validate a single field when the visitor leaves it. */
+  const handleBlur = useCallback(
+    (event) => {
+      const field = event.target.name;
+      if (!schema[field]) return;
+
+      const fieldError = validate(values, schema)[field];
+      setErrors((current) => {
+        if (fieldError === current[field]) return current;
+        const next = { ...current };
+        if (fieldError) next[field] = fieldError;
+        else delete next[field];
+        return next;
+      });
+    },
+    [values, schema],
+  );
+
   const reset = useCallback(() => {
     wasSubmitted.current = false;
-    setValues(initialValues);
+    setValues({ ...initialValues, [HONEYPOT_FIELD]: '' });
     setErrors({});
     setSubmitError(null);
+    setReference(null);
     setStatus('idle');
   }, [initialValues]);
 
@@ -53,9 +99,23 @@ export function useLeadForm({ initialValues, schema, source }) {
       event?.preventDefault();
       wasSubmitted.current = true;
 
+      // Read synchronously: `currentTarget` is cleared once the handler yields,
+      // and it saves every form having to plumb a ref through.
+      const formElement = event?.currentTarget ?? null;
+
       const nextErrors = validate(values, schema);
       setErrors(nextErrors);
-      if (Object.keys(nextErrors).length > 0) return { ok: false };
+
+      if (Object.keys(nextErrors).length > 0) {
+        focusFirstInvalid(formElement, nextErrors);
+        return { ok: false };
+      }
+
+      // Honeypot: report success and send nothing, so the bot does not retry.
+      if (values[HONEYPOT_FIELD]) {
+        setStatus('success');
+        return { ok: true };
+      }
 
       abortRef.current?.abort();
       const controller = new AbortController();
@@ -64,8 +124,11 @@ export function useLeadForm({ initialValues, schema, source }) {
       setStatus('submitting');
       setSubmitError(null);
 
+      const { [HONEYPOT_FIELD]: _honeypot, ...payload } = values;
+
       try {
-        await submitLead({ ...values, source }, { signal: controller.signal });
+        const result = await submitLead({ ...payload, source }, { signal: controller.signal });
+        setReference(result?.reference ?? null);
         setStatus('success');
         return { ok: true };
       } catch (error) {
@@ -81,12 +144,15 @@ export function useLeadForm({ initialValues, schema, source }) {
   return {
     values,
     errors,
+    errorCount: Object.keys(errors).length,
     status,
     submitError,
+    reference,
     isSubmitting: status === 'submitting',
     isSuccess: status === 'success',
     setValue,
     handleChange,
+    handleBlur,
     handleSubmit,
     reset,
   };

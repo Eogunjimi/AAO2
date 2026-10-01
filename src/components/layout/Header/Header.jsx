@@ -21,10 +21,10 @@ const PANEL_STYLES = { services: 'mega', areas: 'areas', about: 'simple' };
  * Sticky site header: announcement bar, primary navigation with dropdowns,
  * and the mobile drawer.
  *
- * A dropdown opens when its trigger is hovered or focused, and closes on
- * Escape (returning focus to the trigger), when a pointer or focus lands
- * outside the nav, and on navigation. Panels keep the `hidden` attribute while
- * closed so their links stay out of the tab order.
+ * A dropdown opens only when its trigger is clicked, and closes on a second
+ * click, on Escape (returning focus to the trigger), when a pointer or focus
+ * lands outside the nav, and on navigation. Panels keep the `hidden` attribute
+ * while closed so their links stay out of the tab order.
  */
 export function Header() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -92,33 +92,28 @@ export function Header() {
               const panelId = `nav-menu-${item.menu}`;
 
               return (
-                <li
-                  key={item.id}
-                  className={styles.hasMenu}
-                  onMouseEnter={() => setOpenMenu(item.menu)}
-                  onMouseLeave={() =>
-                    setOpenMenu((current) => (current === item.menu ? null : current))
-                  }
-                >
+                <li key={item.id} className={styles.hasMenu}>
                   {/*
-                   * A link, not a button: the label is a real destination
-                   * (the About section, the services catalogue). Pointer
-                   * users get the panel on hover, keyboard users on focus,
-                   * and either can dismiss it with Escape.
+                   * A button, not a link: it exists to disclose the panel, so
+                   * it must not navigate. Each panel carries a link to the
+                   * label's own destination (View all services, See our full
+                   * coverage, About AAO), so nothing becomes unreachable.
                    */}
-                  <Link
-                    to={item.to}
+                  <button
+                    type="button"
                     ref={(node) => {
                       triggerRefs.current[item.menu] = node;
                     }}
                     className={cn(styles.navLink, styles.trigger, isOpen && styles.triggerOpen)}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
-                    onFocus={() => setOpenMenu(item.menu)}
+                    onClick={() =>
+                      setOpenMenu((current) => (current === item.menu ? null : item.menu))
+                    }
                   >
                     {item.label}
                     <span className={styles.caret} aria-hidden="true" />
-                  </Link>
+                  </button>
 
                   <div
                     id={panelId}

@@ -15,7 +15,9 @@ const renderHeader = () =>
   );
 
 const nav = () => screen.getByRole('navigation', { name: 'Primary' });
-const trigger = (name) => within(nav()).getByRole('link', { name: new RegExp(`^${name}$`, 'i') });
+
+/** Menu triggers are buttons: they disclose a panel, they do not navigate. */
+const trigger = (name) => within(nav()).getByRole('button', { name: new RegExp(`^${name}$`, 'i') });
 
 describe('<Header />', () => {
   it('lists the primary navigation in order', () => {
@@ -38,11 +40,11 @@ describe('<Header />', () => {
     expect(within(nav()).queryByRole('link', { name: 'Team' })).toBeNull();
   });
 
-  it('opens the About menu on hover and closes it on unhover', async () => {
+  it('opens the About menu on click and closes it on a second click', async () => {
     const user = userEvent.setup();
     renderHeader();
 
-    await user.hover(trigger('About'));
+    await user.click(trigger('About'));
 
     expect(trigger('About')).toHaveAttribute('aria-expanded', 'true');
     aboutMenu.forEach((link) => {
@@ -52,26 +54,49 @@ describe('<Header />', () => {
       );
     });
 
-    await user.unhover(trigger('About'));
+    await user.click(trigger('About'));
 
     expect(trigger('About')).toHaveAttribute('aria-expanded', 'false');
     expect(within(nav()).queryByRole('link', { name: 'Team' })).toBeNull();
   });
 
-  it('opens a menu when its trigger takes keyboard focus', () => {
+  it('stays shut on hover — the panel is click-only', async () => {
+    const user = userEvent.setup();
     renderHeader();
 
+    await user.hover(trigger('About'));
+
+    expect(trigger('About')).toHaveAttribute('aria-expanded', 'false');
+    expect(within(nav()).queryByRole('link', { name: 'Team' })).toBeNull();
+  });
+
+  it('stays shut when its trigger merely takes focus', () => {
+    renderHeader();
+
+    // Tabbing across the nav must not fire menus open.
     fireEvent.focus(trigger('About'));
 
-    expect(trigger('About')).toHaveAttribute('aria-expanded', 'true');
-    expect(within(nav()).getByRole('link', { name: 'Academy' })).toBeInTheDocument();
+    expect(trigger('About')).toHaveAttribute('aria-expanded', 'false');
+    expect(within(nav()).queryByRole('link', { name: 'Academy' })).toBeNull();
+  });
+
+  it('never navigates from a menu trigger', () => {
+    renderHeader();
+
+    primaryNav
+      .filter((item) => item.menu)
+      .forEach((item) => {
+        const control = trigger(item.label);
+        expect(control.tagName).toBe('BUTTON');
+        expect(control).not.toHaveAttribute('href');
+      });
   });
 
   it('opens the services mega menu with every group', async () => {
     const user = userEvent.setup();
     renderHeader();
 
-    await user.hover(trigger('Services'));
+    await user.click(trigger('Services'));
 
     const groups = getServiceMenuGroups();
     expect(groups).toHaveLength(3);
@@ -96,7 +121,7 @@ describe('<Header />', () => {
     const user = userEvent.setup();
     renderHeader();
 
-    await user.hover(trigger('Services'));
+    await user.click(trigger('Services'));
     await user.keyboard('{Escape}');
 
     expect(trigger('Services')).toHaveAttribute('aria-expanded', 'false');
@@ -107,8 +132,8 @@ describe('<Header />', () => {
     const user = userEvent.setup();
     renderHeader();
 
-    await user.hover(trigger('About'));
-    await user.hover(trigger('Services'));
+    await user.click(trigger('About'));
+    await user.click(trigger('Services'));
 
     expect(trigger('About')).toHaveAttribute('aria-expanded', 'false');
     expect(trigger('Services')).toHaveAttribute('aria-expanded', 'true');
@@ -118,7 +143,7 @@ describe('<Header />', () => {
     const user = userEvent.setup();
     renderHeader();
 
-    await user.hover(trigger('About'));
+    await user.click(trigger('About'));
     await user.click(screen.getByRole('banner'));
 
     expect(trigger('About')).toHaveAttribute('aria-expanded', 'false');

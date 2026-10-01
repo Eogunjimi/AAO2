@@ -20,7 +20,8 @@ export function buildLocalBusinessSchema() {
     description: company.description,
     url: SITE_URL,
     email: company.email,
-    telephone: company.phone.display,
+    // Schema.org wants a dialable international number, not the local display form.
+    telephone: company.phone.e164,
     founder: { '@type': 'Person', name: company.founder },
     address: {
       '@type': 'PostalAddress',
@@ -57,6 +58,27 @@ export function buildServiceSchema(service) {
     url: absoluteUrl(`/services/${service.slug}`),
     provider: { '@type': 'Organization', name: company.name, url: SITE_URL },
     areaServed: { '@type': 'City', name: company.address.locality },
+  };
+}
+
+/**
+ * Article schema for a blog post.
+ *
+ * @param {import('@/data/posts').Post} post
+ */
+export function buildArticleSchema(post) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    url: absoluteUrl(`/blog/${post.slug}`),
+    image: absoluteUrl(post.image),
+    datePublished: post.publishedAt,
+    articleSection: post.category,
+    author: { '@type': 'Organization', name: company.name, url: SITE_URL },
+    publisher: { '@type': 'Organization', name: company.name, url: SITE_URL },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl(`/blog/${post.slug}`) },
   };
 }
 

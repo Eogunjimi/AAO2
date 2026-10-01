@@ -10,6 +10,7 @@ export { Icon } from './Icon';
 export { IconButton } from './IconButton';
 export { ImageSlider } from './ImageSlider';
 export { Marquee } from './Marquee';
+export { PostCard } from './PostCard';
 export { RadialBackdrop } from './RadialBackdrop';
 export { Reveal } from './Reveal';
 export { ReviewCard } from './ReviewCard';

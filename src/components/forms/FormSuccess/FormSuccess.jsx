@@ -8,6 +8,7 @@ import styles from './FormSuccess.module.css';
 export function FormSuccess({
   title = 'Thank you! ✓',
   message = 'An AAO expert will contact you within 24 hours.',
+  reference,
   onReset,
   className,
 }) {
@@ -15,6 +16,11 @@ export function FormSuccess({
     <div className={cn(styles.success, className)} role="status" aria-live="polite">
       <p className={styles.title}>{title}</p>
       <p className={styles.message}>{message}</p>
+      {reference ? (
+        <p className={styles.reference}>
+          Your reference: <b>{reference}</b>
+        </p>
+      ) : null}
       {onReset ? (
         <button type="button" className={styles.reset} onClick={onReset}>
           Send another request

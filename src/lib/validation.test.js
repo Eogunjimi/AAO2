@@ -25,7 +25,7 @@ describe('validate', () => {
   it('reports only the first failing rule per field', () => {
     const errors = validate({ name: 'A', phone: 'abc', email: 'nope' }, schema);
     expect(errors.name).toMatch(/at least 2/);
-    expect(errors.phone).toMatch(/valid phone/i);
+    expect(errors.phone).toMatch(/valid Nigerian number/i);
     expect(errors.email).toMatch(/valid email/i);
   });
 

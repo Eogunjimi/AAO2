@@ -11,6 +11,8 @@ import { paths } from './paths';
 // else is code-split so first paint stays light.
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'));
 const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'));
+const BlogPage = lazy(() => import('@/pages/BlogPage'));
+const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'));
 const ServiceAreaPage = lazy(() => import('@/pages/ServiceAreaPage'));
 const ServiceDetailPage = lazy(() => import('@/pages/ServiceDetailPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
@@ -26,6 +28,8 @@ export function AppRoutes() {
           <Route path={paths.services} element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
           <Route path={paths.projects} element={<ProjectsPage />} />
+          <Route path={paths.blog} element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/service-areas/:slug" element={<ServiceAreaPage />} />
 
           {/* Announced in the About menu; placeholders until the real pages land. */}

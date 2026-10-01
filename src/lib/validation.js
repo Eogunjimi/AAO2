@@ -1,3 +1,5 @@
+import { isNigerianPhone } from '@/lib/phone';
+
 /**
  * Framework-agnostic validation helpers for the enquiry forms.
  *
@@ -6,7 +8,6 @@
  */
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const PHONE_PATTERN = /^[+()\d\s-]{7,20}$/;
 
 export const validators = {
   required:
@@ -26,13 +27,17 @@ export const validators = {
       return EMAIL_PATTERN.test(value.trim()) ? undefined : 'Enter a valid email address.';
     },
 
+  /**
+   * A reachable Nigerian number, however the visitor chose to type it.
+   * Accepting a number we cannot call back is worse than rejecting it here.
+   */
   phone:
     () =>
     (value = '') => {
       if (!value.trim()) return undefined;
-      return PHONE_PATTERN.test(value.trim())
+      return isNigerianPhone(value)
         ? undefined
-        : 'Enter a valid phone or WhatsApp number.';
+        : 'Enter a valid Nigerian number, e.g. 0810 574 3694.';
     },
 };
 

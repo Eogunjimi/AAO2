@@ -44,10 +44,14 @@
   position: relative;
 }
 
+/* A <button>, so it needs the chrome a link never had. */
 .trigger {
   display: inline-flex;
   align-items: center;
   gap: 0.38rem;
+  padding: 0;
+  border: 0;
+  background: none;
   cursor: pointer;
 }
 

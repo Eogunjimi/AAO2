@@ -1,4 +1,5 @@
 .form {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -12,16 +13,78 @@
   text-align: left;
 }
 
-.submit {
+/* Sits above the fields so the count is read before the first error. */
+.summary {
   grid-column: 1 / -1;
+  padding: 0.7rem 0.9rem;
+  border-left: 3px solid var(--color-danger);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(214, 69, 69, 0.07);
+  font-size: 0.82rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-danger);
+}
+
+.actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.submit {
+  width: 100%;
   justify-content: center;
+}
+
+.whatsapp {
+  font-size: 0.82rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast);
+}
+
+.whatsapp:hover {
+  color: var(--color-ember);
 }
 
 .submitError {
   grid-column: 1 / -1;
-  font-size: 0.8rem;
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--color-danger);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(214, 69, 69, 0.07);
+  font-size: 0.82rem;
   font-weight: var(--font-weight-semibold);
   color: var(--color-danger);
+}
+
+.errorAction {
+  justify-self: start;
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.errorAction:hover {
+  color: var(--color-ember);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (max-width: 720px) {

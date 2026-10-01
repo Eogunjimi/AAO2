@@ -4,7 +4,7 @@ import { useCarousel } from '@/hooks/useCarousel';
 import { useInView } from '@/hooks/useInView';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { cn } from '@/lib/cn';
-import { anchors, paths } from '@/routes/paths';
+import { anchors } from '@/routes/paths';
 
 import styles from './ProcessSection.module.css';
 
@@ -28,7 +28,7 @@ export function ProcessSection({
   steps = defaultSteps,
   title = (
     <>
-      Our <em>Process</em>
+      How We Work, <em>Start to Finish</em>
     </>
   ),
   subtitle = 'From site visit to switch-on — with no surprises',
@@ -95,13 +95,10 @@ export function ProcessSection({
         {showFooter ? (
           <>
             <p className={styles.median}>
-              Median: same-week site visit · 3-day installation · 200+ homes powered
+              Median: same-week site visit · 3-day installation · 200+ homes and business powered
             </p>
 
             <div className={styles.links}>
-              <Button to={paths.services} variant="ghost">
-                See the full process →
-              </Button>
               <Button to={anchors.contact}>Book Your Free Site Visit</Button>
             </div>
           </>

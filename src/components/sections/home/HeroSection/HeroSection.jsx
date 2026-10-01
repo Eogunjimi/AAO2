@@ -7,8 +7,6 @@ import { anchors } from '@/routes/paths';
 
 import styles from './HeroSection.module.css';
 
-const heroHighlights = ['Lower energy bills', 'Better protection', 'Lasting peace of mind'];
-
 const heroStats = [
   { id: 'installations', value: '200+', label: 'Installations completed' },
   { id: 'response', value: '24h', label: 'Expert response window' },
@@ -127,17 +125,6 @@ export function HeroSection() {
               See How We Work <span aria-hidden="true">→</span>
             </Button>
           </div>
-
-          <ul className={styles.highlights} aria-label="Key benefits">
-            {heroHighlights.map((highlight) => (
-              <li key={highlight}>
-                <span className={styles.check} aria-hidden="true">
-                  ✓
-                </span>
-                {highlight}
-              </li>
-            ))}
-          </ul>
         </Reveal>
       </Container>
 

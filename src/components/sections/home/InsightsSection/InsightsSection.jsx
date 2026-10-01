@@ -1,5 +1,4 @@
-import { Container, IconButton, Reveal, Section, SectionHeading } from '@/components/ui';
-import { company } from '@/data/company';
+import { Container, IconButton, PostCard, Reveal, Section, SectionHeading } from '@/components/ui';
 import { posts } from '@/data/posts';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 
@@ -26,20 +25,8 @@ export function InsightsSection() {
         <Reveal>
           <ul className={styles.row} ref={ref}>
             {posts.map((post) => (
-              <li key={post.id} className={styles.card}>
-                <article>
-                  <div className={styles.thumb}>
-                    <img src={post.image} alt={post.alt} loading="lazy" decoding="async" />
-                  </div>
-                  <div className={styles.body}>
-                    <p className={styles.byline}>
-                      By: {company.shortName} Engineering · {post.category}
-                    </p>
-                    <h3 className={styles.cardTitle}>{post.title}</h3>
-                    <p className={styles.excerpt}>{post.excerpt}</p>
-                    <span className={styles.link}>Read now…</span>
-                  </div>
-                </article>
+              <li key={post.id} className={styles.slide}>
+                <PostCard post={post} />
               </li>
             ))}
           </ul>
