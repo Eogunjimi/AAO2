@@ -1,5 +1,5 @@
 import { HeroQuoteBar } from '@/components/sections/home/HeroQuoteBar';
-import { Button, Container, Eyebrow, Reveal } from '@/components/ui';
+import { Button, Container, Eyebrow, Icon, Reveal } from '@/components/ui';
 import { company } from '@/data/company';
 import { heroSlides } from '@/data/projects';
 import { useCarousel } from '@/hooks/useCarousel';
@@ -114,7 +114,11 @@ export function HeroSection() {
 
           <div className={styles.actions}>
             <Button to={anchors.process} variant="ghost-light">
-              See How We Work <span aria-hidden="true">→</span>
+              See How We Work
+              <span className={styles.gears} aria-hidden="true">
+                <Icon name="gear" size={18} className={styles.gearBack} />
+                <Icon name="gear" size={14} className={styles.gearFront} />
+              </span>
             </Button>
           </div>
         </Reveal>
