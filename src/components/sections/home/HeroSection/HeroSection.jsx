@@ -113,9 +113,6 @@ export function HeroSection() {
           </div>
 
           <div className={styles.actions}>
-            <Button to={anchors.contact} variant="volt">
-              Get Your Free Site Inspection <span aria-hidden="true">→</span>
-            </Button>
             <Button to={anchors.process} variant="ghost-light">
               See How We Work <span aria-hidden="true">→</span>
             </Button>
