@@ -1,7 +1,7 @@
 /** Home-page conversion copy kept with the rest of the site content. */
 export const heroQuote = {
   titleLead: 'Get your',
-  titleAccent: 'free solar quote',
+  titleAccent: 'free site inspection',
   fields: {
     name: { label: 'Name', placeholder: 'Name' },
     phone: { label: 'Phone', placeholder: 'Phone' },
