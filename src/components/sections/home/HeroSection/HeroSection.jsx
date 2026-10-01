@@ -1,4 +1,5 @@
-import { Button, Container, Eyebrow, Reveal } from '@/components/ui';
+import { HeroQuoteBar } from '@/components/sections/home/HeroQuoteBar';
+import { Button, Container, Eyebrow, Icon, Reveal } from '@/components/ui';
 import { company } from '@/data/company';
 import { heroSlides } from '@/data/projects';
 import { useCarousel } from '@/hooks/useCarousel';
@@ -6,12 +7,6 @@ import { useInView } from '@/hooks/useInView';
 import { anchors } from '@/routes/paths';
 
 import styles from './HeroSection.module.css';
-
-const heroStats = [
-  { id: 'installations', value: '200+', label: 'Installations completed' },
-  { id: 'response', value: '24h', label: 'Expert response window' },
-  { id: 'coverage', value: 'Lagos', label: 'Homes & businesses served' },
-];
 
 const reviewAvatars = [
   { id: 'homeowner', src: '/images/hero-avatar-1.png', alt: 'Nigerian homeowner' },
@@ -118,26 +113,17 @@ export function HeroSection() {
           </div>
 
           <div className={styles.actions}>
-            <Button to={anchors.contact} variant="volt">
-              Get Your Free Site Inspection <span aria-hidden="true">→</span>
-            </Button>
             <Button to={anchors.process} variant="ghost-light">
-              See How We Work <span aria-hidden="true">→</span>
+              See How We Work
+              <span className={styles.gears} aria-hidden="true">
+                <Icon name="gear" size={20} className={styles.gear} />
+              </span>
             </Button>
           </div>
         </Reveal>
       </Container>
 
-      <Container className={styles.statsWrap}>
-        <Reveal as="ul" className={styles.stats} delay={140} aria-label="AAO project proof points">
-          {heroStats.map((stat) => (
-            <li key={stat.id} className={styles.stat}>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </li>
-          ))}
-        </Reveal>
-      </Container>
+      <HeroQuoteBar />
     </section>
   );
 }

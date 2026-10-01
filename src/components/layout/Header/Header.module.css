@@ -208,11 +208,6 @@
   gap: 1rem;
 }
 
-/* Icon-only below 560px, so the pill needs even padding again. */
-.whatsappLabel {
-  display: inline;
-}
-
 .menuButton {
   display: none;
   position: relative;
@@ -276,15 +271,5 @@
 @media (max-width: 900px) {
   .cta {
     display: none;
-  }
-}
-
-@media (max-width: 560px) {
-  .whatsappLabel {
-    display: none;
-  }
-
-  .whatsapp {
-    padding-inline: 0.7rem;
   }
 }

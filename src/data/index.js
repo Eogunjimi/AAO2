@@ -7,6 +7,7 @@ export {
   certifications,
   serviceAreas,
   primaryCtaLabel,
+  navbarCtaLabel,
 } from './company';
 export { services, serviceCategories, featuredServices, DEFAULT_SERVICE_SLUG } from './services';
 export { reviews } from './reviews';
@@ -16,3 +17,4 @@ export { posts } from './posts';
 export { processSteps, solutionProcess } from './process';
 export { differentiators } from './differentiators';
 export { seasonalOffer } from './offer';
+export { heroQuote } from './home';

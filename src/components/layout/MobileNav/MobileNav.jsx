@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Button, Icon } from '@/components/ui';
-import { company, primaryCtaLabel } from '@/data/company';
+import { Button } from '@/components/ui';
+import { company, navbarCtaLabel } from '@/data/company';
 import { cn } from '@/lib/cn';
 import { anchors, paths } from '@/routes/paths';
 
@@ -139,12 +139,8 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
       </nav>
 
       <div className={styles.footer}>
-        <Button href={company.phone.whatsapp} variant="whatsapp" block>
-          <Icon name="whatsapp" size={17} />
-          Chat on WhatsApp
-        </Button>
-        <Button to={anchors.contact} block onClick={onNavigate}>
-          {primaryCtaLabel}
+        <Button to={anchors.contact} variant="volt" block onClick={onNavigate}>
+          {navbarCtaLabel}
         </Button>
         <a className={styles.phone} href={company.phone.href}>
           Call {company.phone.display}

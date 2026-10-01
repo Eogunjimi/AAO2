@@ -29,6 +29,27 @@
   border: 0;
 }
 
+.controlWrap {
+  position: relative;
+  min-width: 0;
+}
+
+.controlIcon {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0.78rem;
+  display: grid;
+  place-items: center;
+  color: var(--color-soft);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.controlWrap .control {
+  padding-left: 2.35rem;
+}
+
 .control {
   width: 100%;
   border: 1px solid var(--color-line);

@@ -19,6 +19,7 @@ import styles from './FormField.module.css';
  * @param {boolean} [props.hideLabel]
  * @param {boolean} [props.full]         Span the full width of a two-column grid.
  * @param {Array<{value: string, label: string}>} [props.options] For `select`.
+ * @param {React.ReactNode} [props.leadingIcon] Optional decorative icon inside the control.
  */
 export function FormField({
   name,
@@ -31,6 +32,7 @@ export function FormField({
   options = [],
   placeholder,
   className,
+  leadingIcon,
   ...rest
 }) {
   const id = useId();
@@ -48,6 +50,22 @@ export function FormField({
     ...rest,
   };
 
+  const control =
+    as === 'select' ? (
+      <select {...controlProps}>
+        <option value="">{placeholder ?? `Select ${label.toLowerCase()}`}</option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    ) : as === 'textarea' ? (
+      <textarea {...controlProps} />
+    ) : (
+      <input {...controlProps} />
+    );
+
   return (
     <div className={cn(styles.field, full && styles.full, className)}>
       <label htmlFor={fieldId} className={cn(styles.label, hideLabel && styles.srOnly)}>
@@ -55,19 +73,13 @@ export function FormField({
         {required ? <span aria-hidden="true"> *</span> : null}
       </label>
 
-      {as === 'select' ? (
-        <select {...controlProps}>
-          <option value="">{placeholder ?? `Select ${label.toLowerCase()}`}</option>
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      ) : as === 'textarea' ? (
-        <textarea {...controlProps} />
+      {leadingIcon ? (
+        <div className={styles.controlWrap}>
+          <span className={styles.controlIcon}>{leadingIcon}</span>
+          {control}
+        </div>
       ) : (
-        <input {...controlProps} />
+        control
       )}
 
       {error ? (
