@@ -1,0 +1,11 @@
+/*
+ * Off-screen rather than `display: none` or `hidden`: simple bots skip inputs
+ * that are obviously hidden, and fill this one instead.
+ */
+.trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

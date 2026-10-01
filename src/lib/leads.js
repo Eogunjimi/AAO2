@@ -1,3 +1,6 @@
+import { company } from '@/data/company';
+import { toE164 } from '@/lib/phone';
+
 /**
  * Lead submission gateway.
  *
@@ -32,6 +35,10 @@ export class LeadSubmissionError extends Error {
 export async function submitLead(payload, { signal } = {}) {
   const body = {
     ...payload,
+    // Send one canonical, dialable number whatever the visitor typed, while
+    // leaving their original text in `phoneInput` for reference.
+    phone: toE164(payload.phone) ?? payload.phone,
+    phoneInput: payload.phone,
     submittedAt: new Date().toISOString(),
     pageUrl: typeof window !== 'undefined' ? window.location.href : undefined,
   };
@@ -68,6 +75,32 @@ export async function submitLead(payload, { signal } = {}) {
 
   const data = await response.json().catch(() => ({}));
   return { ok: true, reference: data.reference ?? createReference() };
+}
+
+/**
+ * A WhatsApp deep link carrying the enquiry, so the visitor can deliver it
+ * themselves. This is the recovery path when the endpoint is unreachable, and
+ * the reason the form is still useful before a backend exists.
+ *
+ * @param {Record<string, string>} values
+ * @param {{serviceLabel?: string}} [options]
+ */
+export function buildWhatsappHandoff(values, { serviceLabel } = {}) {
+  const lines = [`Hello ${company.name}, I would like to request a free site inspection.`, ''];
+
+  const add = (label, value) => {
+    if (value) lines.push(`${label}: ${value}`);
+  };
+
+  add('Name', values.name);
+  add('Phone', values.phone);
+  add('Email', values.email);
+  add('Service', serviceLabel ?? values.service);
+  add('Location', values.location);
+
+  if (values.message) lines.push('', values.message);
+
+  return `${company.phone.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
 }
 
 function createReference() {

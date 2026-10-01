@@ -1,7 +1,8 @@
 import { FormField } from '@/components/forms/FormField';
 import { FormSuccess } from '@/components/forms/FormSuccess';
+import { Honeypot } from '@/components/forms/Honeypot';
 import { Button } from '@/components/ui';
-import { useLeadForm } from '@/hooks/useLeadForm';
+import { HONEYPOT_FIELD, useLeadForm } from '@/hooks/useLeadForm';
 import { getServiceOptions } from '@/lib/services';
 import { validators } from '@/lib/validation';
 
@@ -33,7 +34,7 @@ export function QuoteForm({ defaultService = '' }) {
       <h2 className={styles.title}>Get Your Free Quote</h2>
 
       {form.isSuccess ? (
-        <FormSuccess onReset={form.reset} />
+        <FormSuccess reference={form.reference} onReset={form.reset} />
       ) : (
         <>
           <div className={styles.row}>
@@ -46,6 +47,7 @@ export function QuoteForm({ defaultService = '' }) {
               autoComplete="name"
               value={form.values.name}
               onChange={form.handleChange}
+              onBlur={form.handleBlur}
               error={form.errors.name}
             />
             <FormField
@@ -58,6 +60,7 @@ export function QuoteForm({ defaultService = '' }) {
               autoComplete="tel"
               value={form.values.phone}
               onChange={form.handleChange}
+              onBlur={form.handleBlur}
               error={form.errors.phone}
             />
           </div>
@@ -72,8 +75,11 @@ export function QuoteForm({ defaultService = '' }) {
             options={getServiceOptions()}
             value={form.values.service}
             onChange={form.handleChange}
+            onBlur={form.handleBlur}
             error={form.errors.service}
           />
+
+          <Honeypot value={form.values[HONEYPOT_FIELD]} onChange={form.handleChange} />
 
           {form.submitError ? (
             <p className={styles.submitError} role="alert">
