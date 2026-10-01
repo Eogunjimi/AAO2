@@ -170,14 +170,14 @@
 }
 
 .googleBadge {
-  width: 2.98rem;
-  height: 2.98rem;
+  width: 2.52rem;
+  height: 2.52rem;
   display: inline-grid;
   place-items: center;
   flex: 0 0 auto;
   border-radius: 50%;
   background: #ffffff;
-  padding: 0.42rem;
+  padding: 0.36rem;
   box-shadow: 0 0 0 2px rgba(5, 7, 10, 0.86);
 }
 
@@ -368,9 +368,9 @@
   }
 
   .googleBadge {
-    width: 2.18rem;
-    height: 2.18rem;
-    padding: 0.3rem;
+    width: 1.92rem;
+    height: 1.92rem;
+    padding: 0.26rem;
   }
 
   .ratingLine {
