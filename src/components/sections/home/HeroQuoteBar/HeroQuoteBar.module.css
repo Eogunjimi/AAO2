@@ -239,6 +239,23 @@
   }
 }
 
+@media (max-width: 620px) {
+  .form {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .field :global(input),
+  .field :global(select),
+  .form > :global(button) {
+    min-height: 48px;
+  }
+
+  .form > :global(button) {
+    grid-column: auto;
+  }
+}
+
 @media (max-width: 480px) {
   .bar {
     padding: 0.9rem;
@@ -256,14 +273,6 @@
   .title {
     font-size: 0.93rem;
     white-space: normal;
-  }
-
-  .form {
-    grid-template-columns: 1fr;
-  }
-
-  .form > :global(button) {
-    grid-column: auto;
   }
 
   .success {
