@@ -105,8 +105,28 @@
 }
 
 .field :global(select) {
-  padding-right: 1.9rem;
+  appearance: none;
+  padding-right: 2.4rem;
   cursor: pointer;
+  background-color: var(--color-card-dark);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-volt) 50%),
+    linear-gradient(135deg, var(--color-volt) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 9px) 50%;
+  background-repeat: no-repeat;
+  background-size: 5px 5px;
+}
+
+.field :global(select option) {
+  background: var(--color-card-dark);
+  color: var(--color-on-dark);
+}
+
+.field :global(select option:checked) {
+  background: var(--color-volt);
+  color: var(--color-ink);
 }
 
 .field :global(input):hover,
@@ -117,7 +137,7 @@
 .field :global(input):focus,
 .field :global(select):focus {
   border-color: var(--color-volt);
-  background: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 0 3px rgba(255, 210, 63, 0.16);
 }
 
