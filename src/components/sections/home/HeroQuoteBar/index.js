@@ -1,0 +1,1 @@
+export { HeroQuoteBar } from './HeroQuoteBar';

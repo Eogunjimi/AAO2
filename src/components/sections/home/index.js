@@ -1,6 +1,7 @@
 export { AboutSection } from './AboutSection';
 export { ContactSection } from './ContactSection';
 export { FaqSection } from './FaqSection';
+export { HeroQuoteBar } from './HeroQuoteBar';
 export { HeroSection } from './HeroSection';
 export { InsightsSection } from './InsightsSection';
 export { OfferSection } from './OfferSection';
