@@ -52,11 +52,11 @@
     radial-gradient(circle at 50% 34%, rgba(255, 210, 63, 0.16), transparent 28%),
     linear-gradient(
       180deg,
-      rgba(5, 7, 10, 0.58) 0%,
-      rgba(5, 7, 10, 0.42) 40%,
-      rgba(5, 7, 10, 0.9) 100%
+      rgba(6, 30, 28, 0.6) 0%,
+      rgba(6, 30, 28, 0.42) 40%,
+      rgba(5, 26, 24, 0.92) 100%
     ),
-    linear-gradient(90deg, rgba(5, 7, 10, 0.72), rgba(5, 7, 10, 0.1) 48%, rgba(5, 7, 10, 0.72));
+    linear-gradient(90deg, rgba(6, 30, 28, 0.74), rgba(6, 30, 28, 0.1) 48%, rgba(6, 30, 28, 0.74));
 }
 
 .inner {
@@ -152,7 +152,7 @@
   width: 2.35rem;
   height: 2.35rem;
   overflow: hidden;
-  border: 2px solid rgba(5, 7, 10, 0.94);
+  border: 2px solid rgba(6, 30, 28, 0.94);
   border-radius: 50%;
   background: transparent;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
@@ -178,7 +178,7 @@
   border-radius: 50%;
   background: #ffffff;
   padding: 0.36rem;
-  box-shadow: 0 0 0 2px rgba(5, 7, 10, 0.86);
+  box-shadow: 0 0 0 2px rgba(6, 30, 28, 0.86);
 }
 
 .googleBadge svg {
@@ -296,9 +296,9 @@
       radial-gradient(circle at 50% 26%, rgba(255, 210, 63, 0.14), transparent 34%),
       linear-gradient(
         180deg,
-        rgba(5, 7, 10, 0.72) 0%,
-        rgba(5, 7, 10, 0.55) 42%,
-        rgba(5, 7, 10, 0.93) 100%
+        rgba(6, 30, 28, 0.72) 0%,
+        rgba(6, 30, 28, 0.55) 42%,
+        rgba(5, 26, 24, 0.93) 100%
       );
   }
 

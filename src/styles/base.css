@@ -72,14 +72,15 @@ p {
 }
 
 ::selection {
-  background: var(--color-ink);
+  background: var(--color-teal);
   color: var(--color-on-dark);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-ink);
+  outline: 2px solid var(--color-teal-dark);
   outline-offset: 3px;
   border-radius: 4px;
+  box-shadow: var(--shadow-focus);
 }
 
 #root {

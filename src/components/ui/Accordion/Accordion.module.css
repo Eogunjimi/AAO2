@@ -21,11 +21,13 @@
   border-color: var(--color-soft);
 }
 
-/* The open panel inverts onto the dark surface, like the other dark bands. */
+/* The open panel inverts onto the dark surface, like the other dark bands.
+   The gold left accent communicates the active state (Flip7 card language). */
 .open {
   background: var(--color-ink);
   border-color: var(--color-ink);
-  box-shadow: var(--shadow-md);
+  border-left: 6px solid var(--color-volt);
+  box-shadow: var(--shadow-teal-glow);
 }
 
 .headingWrapper {

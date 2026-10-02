@@ -3,9 +3,26 @@
   margin-bottom: 3.2rem;
 }
 
+/* Flip7 cue: a short dashed rule anchors every section title. */
+.heading::after {
+  content: '';
+  display: block;
+  width: 76px;
+  margin-top: 1.15rem;
+  border-bottom: 3px dashed color-mix(in srgb, var(--color-teal) 45%, transparent);
+}
+
+.inverse.heading::after {
+  border-bottom-color: color-mix(in srgb, var(--color-volt) 55%, transparent);
+}
+
 .center {
   margin-inline: auto;
   text-align: center;
+}
+
+.center::after {
+  margin-inline: auto;
 }
 
 .title {
