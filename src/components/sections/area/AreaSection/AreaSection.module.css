@@ -11,7 +11,7 @@
 
 .title em {
   font-style: italic;
-  color: var(--color-ember);
+  color: var(--color-section-title-accent);
 }
 
 .body {

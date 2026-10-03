@@ -33,10 +33,10 @@
   margin-top: 0.9rem;
 }
 
-/* The accent word: ember on light surfaces, volt where the section is dark. */
+/* Gold accent on light-surface section titles; volt stays legible on dark sections. */
 .title em {
   font-style: italic;
-  color: var(--color-ember);
+  color: var(--color-section-title-accent);
 }
 
 .inverse .title em {
