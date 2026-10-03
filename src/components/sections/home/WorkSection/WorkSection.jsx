@@ -20,7 +20,7 @@ export function WorkSection() {
               Our work <em>speaks for itself</em>
             </>
           }
-          description="200+ Installations • Neat Workmanship • Reliable Results"
+          description="200+ Successful Installations • Neat, Professional Workmanship • Reliable Solutions Built to Last"
         />
 
         <Reveal>

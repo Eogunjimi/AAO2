@@ -102,8 +102,8 @@ export function ServicesShowcase() {
               Our <em>Services</em>
             </>
           }
-          subtitle="Power & Security Solutions Built for Homes & Businesses"
-          description="We help homes and businesses stay powered, protected, and connected. Hover, tap, or use the arrows to explore each solution."
+          subtitle="Power, Security & Smart Technology Done Right"
+          description="Whether you run a hospital, a shop, an office, or a home, we build the system around your actual needs not a generic package."
         />
 
         <Reveal>

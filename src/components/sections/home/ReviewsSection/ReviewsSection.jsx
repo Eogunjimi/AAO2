@@ -1,6 +1,5 @@
 import { ReviewsCarousel } from '@/components/sections/shared/ReviewsCarousel';
 import { Container, Section, SectionHeading } from '@/components/ui';
-import { company } from '@/data/company';
 import { reviews } from '@/data/reviews';
 
 import styles from './ReviewsSection.module.css';
@@ -17,9 +16,10 @@ export function ReviewsSection() {
           eyebrow="Reviews"
           title={
             <>
-              See Why Clients <em>Choose</em> {company.shortName} Engineering
+              Rated <em>5 Stars</em> by Lagos Homes &amp; Businesses
             </>
           }
+          description="Don’t just take our word for it. See why clients across Lagos trust AAO with their power and security—then add your own story to the list."
         />
 
         <ReviewsCarousel reviews={reviews} />

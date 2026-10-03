@@ -32,6 +32,19 @@ describe('useCarousel', () => {
     expect(result.current.index).toBe(0);
   });
 
+  it('restarts the viewing interval after manual navigation', () => {
+    const { result } = renderHook(() => useCarousel({ length: 3, autoPlayMs: 1000 }));
+
+    act(() => vi.advanceTimersByTime(900));
+    act(() => result.current.goTo(2));
+
+    act(() => vi.advanceTimersByTime(999));
+    expect(result.current.index).toBe(2);
+
+    act(() => vi.advanceTimersByTime(1));
+    expect(result.current.index).toBe(0);
+  });
+
   it('stops autoplay when paused or inactive', () => {
     const { result, rerender } = renderHook(
       ({ active }) => useCarousel({ length: 3, autoPlayMs: 1000, active }),

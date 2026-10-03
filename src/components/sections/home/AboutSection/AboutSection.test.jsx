@@ -9,7 +9,7 @@ describe('<AboutSection />', () => {
   it('credits the founder under the portrait', () => {
     render(<AboutSection />);
 
-    expect(screen.getByText(company.founder)).toBeInTheDocument();
+    expect(screen.getByText(company.founder, { selector: 'figcaption span' })).toBeInTheDocument();
     // The company name sits in its own <b>, so match the two parts separately.
     expect(screen.getByText(`${company.founderRole} of`)).toBeInTheDocument();
     expect(screen.getByText(company.name, { selector: 'b' })).toBeInTheDocument();

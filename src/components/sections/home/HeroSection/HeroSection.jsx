@@ -57,12 +57,12 @@ export function HeroSection() {
           </Eyebrow>
 
           <h1 id="hero-title" className={styles.title}>
-            Reliable <em>Power &amp; Security</em> for Lagos Homes and Businesses
+            Stop Overpaying for the Wrong <em>Solar &amp; CCTV Systems</em> in Lagos
           </h1>
 
           <p className={styles.subtitle}>
-            Professionally designed solar, electrical, CCTV, and security systems built to give you
-            dependable power, better protection, and lasting peace of mind.
+            AAO Engineering Services delivers expert solar, inverter, and CCTV installation in Lagos
+            — backed by a free load audit and warranty on every job.
           </p>
 
           <div

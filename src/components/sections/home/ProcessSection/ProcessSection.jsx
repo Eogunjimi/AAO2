@@ -8,7 +8,8 @@ import { anchors } from '@/routes/paths';
 
 import styles from './ProcessSection.module.css';
 
-const AUTOPLAY_MS = 4000;
+// Keep each step visible long enough for visitors to read the supporting copy.
+const AUTOPLAY_MS = 7000;
 
 /**
  * Auto-advancing delivery timeline.
@@ -31,19 +32,25 @@ export function ProcessSection({
       How We Work, <em>Start to Finish</em>
     </>
   ),
-  subtitle = 'From site visit to switch-on — with no surprises',
+  subtitle = 'From first call to final switch-on—no surprises, no shortcuts.',
   id = 'process',
   showFooter = true,
 }) {
   const isDesktop = useMediaQuery('(min-width: 901px)');
   const [timelineRef, inView] = useInView({ threshold: 0.3 });
-  const { index, goTo } = useCarousel({
+  const { index, goTo, pause, resume } = useCarousel({
     length: steps.length,
     autoPlayMs: AUTOPLAY_MS,
     active: inView,
   });
 
   const activeStep = steps[index];
+
+  const previewStep = (stepIndex) => {
+    if (!isDesktop) return;
+    pause();
+    goTo(stepIndex);
+  };
 
   return (
     <Section id={id} aria-labelledby={`${id}-title`}>
@@ -57,7 +64,11 @@ export function ProcessSection({
         />
 
         <Reveal>
-          <ol className={styles.row} ref={timelineRef}>
+          <ol
+            className={styles.row}
+            ref={timelineRef}
+            onMouseLeave={() => isDesktop && resume()}
+          >
             {steps.map((step, stepIndex) => {
               const isActive = stepIndex === index;
               return (
@@ -65,9 +76,15 @@ export function ProcessSection({
                   <button
                     type="button"
                     className={styles.stepButton}
-                    aria-current={isActive}
+                    aria-current={isActive ? 'step' : undefined}
+                    aria-controls={`${id}-step-description`}
                     onClick={() => goTo(stepIndex)}
-                    onMouseEnter={() => isDesktop && goTo(stepIndex)}
+                    onMouseEnter={() => previewStep(stepIndex)}
+                    onFocus={() => {
+                      pause();
+                      goTo(stepIndex);
+                    }}
+                    onBlur={resume}
                   >
                     <span className={styles.top}>
                       <span className={styles.number}>{step.number}</span>
@@ -88,7 +105,13 @@ export function ProcessSection({
           </ol>
         </Reveal>
 
-        <p key={activeStep.id} className={styles.description} aria-live="polite">
+        <p
+          id={`${id}-step-description`}
+          key={activeStep.id}
+          className={styles.description}
+          role="status"
+          aria-live="polite"
+        >
           <b>{activeStep.number}</b> · {activeStep.description}
         </p>
 
