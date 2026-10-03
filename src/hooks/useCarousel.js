@@ -24,6 +24,7 @@ import { usePrefersReducedMotion } from './useMediaQuery';
 export function useCarousel({ length, autoPlayMs = 0, active = true, swipeThreshold = 50 }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [autoplayReset, setAutoplayReset] = useState(0);
   const pointerStartX = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -35,6 +36,8 @@ export function useCarousel({ length, autoPlayMs = 0, active = true, swipeThresh
     (nextIndex) => {
       if (length <= 0) return;
       setIndex(((nextIndex % length) + length) % length);
+      // Give a manually selected slide a full viewing interval before autoplay resumes.
+      setAutoplayReset((current) => current + 1);
     },
     [length],
   );
@@ -51,7 +54,7 @@ export function useCarousel({ length, autoPlayMs = 0, active = true, swipeThresh
       setIndex((current) => (current + 1) % length);
     }, autoPlayMs);
     return () => clearInterval(timer);
-  }, [autoPlayMs, paused, active, prefersReducedMotion, length]);
+  }, [autoPlayMs, paused, active, prefersReducedMotion, length, autoplayReset]);
 
   const onPointerDown = useCallback((event) => {
     pointerStartX.current = event.clientX;
