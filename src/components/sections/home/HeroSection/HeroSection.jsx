@@ -61,9 +61,8 @@ export function HeroSection() {
           </h1>
 
           <p className={styles.subtitle}>
-            Tired of oversized inverters, fake CCTV, and technicians who vanish after payment? AAO
-            starts with a free professional load audit, installs only original warranty-backed
-            products, and backs every job with 24/7 support.
+            AAO Engineering Services delivers expert solar, inverter, and CCTV installation in Lagos
+            — backed by a free load audit and warranty on every job.
           </p>
 
           <div
