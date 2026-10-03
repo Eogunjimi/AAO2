@@ -67,8 +67,8 @@ export const officeAddress = {
 };
 
 /**
- * Site-wide primary call to action. Shared so the service-areas band and the
- * footer render the exact same button instead of drifting apart.
+ * Site-wide primary call to action, shared by the service-areas band and the
+ * coming-soon page. The header, mobile nav and footer use `navbarCtaLabel`.
  */
 export const primaryCtaLabel = 'Get Your Free Site Inspection →';
 export const navbarCtaLabel = 'GET A FREE QUOTE';

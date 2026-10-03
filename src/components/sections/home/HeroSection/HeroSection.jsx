@@ -4,7 +4,7 @@ import { company } from '@/data/company';
 import { heroSlides } from '@/data/projects';
 import { useCarousel } from '@/hooks/useCarousel';
 import { useInView } from '@/hooks/useInView';
-import { anchors } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './HeroSection.module.css';
 
@@ -113,8 +113,8 @@ export function HeroSection() {
           </div>
 
           <div className={styles.actions}>
-            <Button to={anchors.process} variant="ghost-light">
-              See How We Work
+            <Button to={paths.services} variant="ghost-light">
+              Explore Our Services
               <span className={styles.gears} aria-hidden="true">
                 <Icon name="gear" size={20} className={styles.gear} />
               </span>
