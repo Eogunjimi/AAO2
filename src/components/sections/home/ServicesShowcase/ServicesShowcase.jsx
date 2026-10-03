@@ -103,7 +103,7 @@ export function ServicesShowcase() {
             </>
           }
           subtitle="Power & Security Solutions Built for Homes & Businesses"
-          description="We help homes and businesses stay powered, protected, and connected. Hover, tap, or use the arrows to explore each solution."
+          description="We help homes and businesses stay powered, protected, and connected with reliable solutions built around their needs. Explore our services below to find the right solution for you."
         />
 
         <Reveal>
