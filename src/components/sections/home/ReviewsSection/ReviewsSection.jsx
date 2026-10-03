@@ -16,7 +16,7 @@ export function ReviewsSection() {
           eyebrow="Reviews"
           title={
             <>
-              What Contractors
+              What Clients
               <br />
               <em>Are Saying?</em>
             </>
