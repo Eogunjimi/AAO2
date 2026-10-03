@@ -45,12 +45,28 @@
   display: grid;
   gap: 0.7rem;
   margin: -0.15rem 0 1.2rem;
-  padding-left: 1.25rem;
+  padding: 0;
+  list-style: none;
   color: var(--color-on-dark-muted);
   font-size: 0.98rem;
 }
 
-.principles li::marker {
+.principles li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0.65rem;
+  align-items: start;
+}
+
+.principleIcon {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  margin-top: 0.1rem;
+  border: 1px solid color-mix(in srgb, var(--color-volt) 46%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-volt) 12%, transparent);
   color: var(--color-volt);
 }
 

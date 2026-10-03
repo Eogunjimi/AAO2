@@ -1,4 +1,4 @@
-import { Container, GuaranteeSeal, Reveal, Section } from '@/components/ui';
+import { Container, GuaranteeSeal, Icon, Reveal, Section } from '@/components/ui';
 import { company } from '@/data/company';
 
 import styles from './AboutSection.module.css';
@@ -33,16 +33,31 @@ export function AboutSection() {
             </p>
             <ul className={styles.principles}>
               <li>
-                <strong>A – Accountability:</strong> We take responsibility for every job, from
-                first call to final switch-on.
+                <span className={styles.principleIcon}>
+                  <Icon name="clipboard" size={17} />
+                </span>
+                <span>
+                  <strong>A – Accountability:</strong> We take responsibility for every job, from
+                  first call to final switch-on.
+                </span>
               </li>
               <li>
-                <strong>A – Authenticity:</strong> Original products only. Warranty always. No
-                exceptions.
+                <span className={styles.principleIcon}>
+                  <Icon name="shield" size={17} />
+                </span>
+                <span>
+                  <strong>A – Authenticity:</strong> Original products only. Warranty always. No
+                  exceptions.
+                </span>
               </li>
               <li>
-                <strong>O – Outstanding Service:</strong> Neat work, honest advice, and support that
-                doesn’t disappear after payment.
+                <span className={styles.principleIcon}>
+                  <Icon name="support" size={17} />
+                </span>
+                <span>
+                  <strong>O – Outstanding Service:</strong> Neat work, honest advice, and support
+                  that doesn’t disappear after payment.
+                </span>
               </li>
             </ul>
             <p>
