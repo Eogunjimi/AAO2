@@ -1,11 +1,14 @@
+/* Pill-shaped, tactile "game piece" buttons with coloured glows. */
 .button {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
   border: none;
-  border-radius: var(--radius-md);
-  background: var(--color-ink);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, var(--color-teal) 0%, var(--color-teal-dark) 100%);
   color: var(--color-on-dark);
   font-family: var(--font-sans);
   font-weight: var(--font-weight-bold);
@@ -16,20 +19,36 @@
   cursor: pointer;
   text-align: center;
   transition:
-    transform var(--duration-fast) var(--ease),
+    transform var(--duration-fast) var(--ease-bounce),
     box-shadow var(--duration-fast) var(--ease),
     background var(--duration-fast),
     border-color var(--duration-fast),
     color var(--duration-fast);
 }
 
+/* Gloss overlay: the top half catches the light, like a printed game chip. */
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 52%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.ghost::before,
+.ghost-light::before,
+.whatsapp::before {
+  content: none;
+}
+
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-button);
+  box-shadow: var(--shadow-teal-glow);
 }
 
 .button:active {
-  transform: translateY(0) scale(0.97);
+  transform: translateY(0) scale(0.95);
   box-shadow: var(--shadow-button-pressed);
 }
 
@@ -41,14 +60,15 @@
   box-shadow: none;
 }
 
-/* The brand yellow CTA: the system's primary action on dark surfaces. */
+/* The gold CTA: gradient fill, gloss overlay, accent glow. */
 .volt {
-  background: var(--color-volt);
+  background: linear-gradient(180deg, var(--color-volt-light) 0%, var(--color-volt) 58%, #f2c226 100%);
   color: var(--color-ink);
+  box-shadow: var(--shadow-accent-glow);
 }
 
 .volt:hover {
-  background: var(--color-star);
+  background: linear-gradient(180deg, var(--color-volt) 0%, var(--color-star) 100%);
   box-shadow: var(--shadow-volt);
 }
 
@@ -75,8 +95,8 @@
 }
 
 .whatsapp:hover {
-  border-color: var(--color-ink);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--color-teal);
+  box-shadow: var(--shadow-teal-glow);
 }
 
 .ghost {
@@ -86,8 +106,9 @@
 }
 
 .ghost:hover {
-  border-color: var(--color-ink);
-  box-shadow: none;
+  border-color: var(--color-teal);
+  color: var(--color-teal-dark);
+  box-shadow: var(--shadow-focus);
 }
 
 .ghost-light {
@@ -106,7 +127,7 @@
   min-height: 44px;
   padding: 0.55rem 1.25rem;
   font-size: 0.8rem;
-  border-radius: 12px;
+  border-radius: var(--radius-pill);
 }
 
 .block {

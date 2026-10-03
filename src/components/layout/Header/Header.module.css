@@ -36,7 +36,7 @@
 }
 
 .navLink:hover {
-  color: var(--color-gray);
+  color: var(--color-teal-dark);
 }
 
 /* ----- dropdowns ----- */

@@ -38,16 +38,17 @@
 }
 
 .highlight {
-  background: #fff3c9;
-  border-color: #f0d488;
-  color: #7c5600;
+  background: var(--color-cream);
+  border-color: var(--color-volt);
+  color: #8a6400;
   box-shadow: none;
 }
 
 .interactive:hover {
-  background: var(--color-ink);
+  background: var(--color-teal);
   color: var(--color-on-dark);
-  border-color: var(--color-ink);
+  border-color: var(--color-teal);
+  box-shadow: var(--shadow-teal-glow);
 }
 
 .chip :global(.star) {

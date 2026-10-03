@@ -49,7 +49,7 @@
 .line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, rgba(224, 122, 36, 0.45), rgba(224, 122, 36, 0.12));
+  background: linear-gradient(90deg, rgba(239, 108, 74, 0.5), rgba(239, 108, 74, 0.12));
 }
 
 .stepTitle {
@@ -78,7 +78,7 @@
   height: 3px;
   width: 46px;
   border-radius: 2px;
-  background: #c05a33;
+  background: var(--color-coral);
   margin-top: 1.05rem;
   transform: scaleX(0);
   transform-origin: left;
