@@ -1,39 +1,42 @@
-/** "Why homes & businesses choose AAO" — icons resolve via `<Icon name="…" />`. */
+/** "Why Lagos Chooses AAO" — icons resolve via `<Icon name="…" />`. */
 
 export const differentiators = [
   {
-    id: 'assess',
+    id: 'load-audit',
     icon: 'clipboard',
-    title: 'We Assess Before We Recommend.',
+    title: '1. Free Site Inspection & Professional Load Audit',
     description:
-      "No guesswork. We inspect your property and understand your actual needs before recommending a system—so you're not paying for too much or settling for too little.",
+      'We measure your actual demand before quoting, so you never overpay or underpower again.',
   },
   {
-    id: 'quality',
+    id: 'original-products',
     icon: 'shield',
-    title: "We Don't Cut Corners on Quality.",
-    description:
-      'We prioritize original, reliable products backed by warranty because your investment should be built to perform and last.',
+    title: '2. Original Products Only—With Warranty',
+    description: 'Every panel, battery, camera, and lock is genuine, sealed, and warranty-backed.',
   },
   {
-    id: 'craft',
-    icon: 'home',
-    title: "We Install Like It's Our Own Property.",
-    description:
-      'Our trained technicians work with care—from safe installation and clean wiring to the smallest finishing details.',
-  },
-  {
-    id: 'proven',
+    id: 'certified-technicians',
     icon: 'medal',
-    title: 'Proven Across 200+ Installations.',
+    title: '3. Trained & Certified Technicians',
     description:
-      'We bring real-world experience from more than 200 solar and inverter installations for homes and businesses.',
+      'No guesswork. Just clean, code-compliant installations by people who know the work.',
   },
   {
-    id: 'support',
+    id: 'professional-installation',
+    icon: 'gear',
+    title: '4. Neat & Professional Installation',
+    description: 'Cables hidden, systems labeled, and your property treated with respect.',
+  },
+  {
+    id: 'flexible-payment',
+    icon: 'bolt',
+    title: '5. Affordable Prices & Flexible Payment',
+    description: 'Premium solutions engineered to fit your budget, not break it.',
+  },
+  {
+    id: 'after-sales-support',
     icon: 'support',
-    title: 'We Stand Behind Our Work.',
-    description:
-      'Installation isn’t where our service ends. You get responsive after-sales support from a team committed to keeping your system performing.',
+    title: '6. 24/7 After-Sales Support',
+    description: 'We answer when you call—long after the installation is done.',
   },
 ];

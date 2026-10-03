@@ -4,7 +4,7 @@ import { anchors } from '@/routes/paths';
 
 import styles from './WhyChooseSection.module.css';
 
-/** Five reasons customers pick AAO. */
+/** Six reasons Lagos customers choose AAO. */
 export function WhyChooseSection() {
   return (
     <Section tone="wash" aria-labelledby="why-title">
@@ -14,10 +14,10 @@ export function WhyChooseSection() {
           align="center"
           title={
             <>
-              Why homes &amp; businesses <em>trust</em> AAO
+              Why <em>Lagos Chooses</em> AAO
             </>
           }
-          description="We take the time to understand your needs, recommend the right solutions, and deliver quality work you can count on. That’s what sets us apart."
+          description="Most companies sell you equipment. We deliver engineered peace of mind."
         />
 
         <ul className={styles.grid}>
