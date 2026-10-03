@@ -4,51 +4,50 @@ export const processSteps = [
   {
     id: 'book',
     number: '01',
-    title: 'Book Your Free Site Visit',
+    title: 'Reach Out',
     duration: 'Same week',
     tag: { label: '100% Free', highlight: true },
-    description:
-      "Call or message us and we'll schedule a convenient time — usually within the same week.",
-    short: 'Call or message us to schedule a convenient time.',
+    description: 'Call, text, or fill out our form. We listen first.',
+    short: 'Call, text, or fill out our form. We listen first.',
   },
   {
     id: 'assess',
     number: '02',
-    title: 'We Assess Your Needs',
+    title: 'Free Site Inspection & Load Audit',
     duration: '30–60 min visit',
     tag: { label: 'AAO engineers' },
     description:
-      'We inspect your site, map your load, and determine exactly what you need. No guesswork.',
-    short: 'We inspect your site and determine exactly what you need.',
+      'We visit, measure your power demand or security gaps, and assess the property.',
+    short: 'We visit, measure your demand or security gaps, and assess the property.',
   },
   {
     id: 'solution',
     number: '03',
-    title: 'Get the Right Solution',
+    title: 'Transparent Recommendation & Quote',
     duration: '24–48 hrs',
     tag: { label: 'Clear pricing', highlight: true },
-    description: 'You get a best-fit recommendation with a clear, upfront quote — no hidden costs.',
-    short: 'Best-fit recommendation with clear, upfront pricing.',
+    description:
+      'You get a right-sized system, honest pricing, and product warranties in writing.',
+    short: 'A right-sized system, honest pricing, and product warranties in writing.',
   },
   {
     id: 'install',
     number: '04',
-    title: 'We Handle the Installation',
+    title: 'Professional Installation',
     duration: '2–5 days avg',
     tag: { label: 'Certified crew' },
     description:
-      'Our technicians install, test, and make sure everything works properly — neatly and on schedule.',
-    short: 'Installed, tested, and confirmed working properly.',
+      'Certified technicians install neatly, test everything, and hand over a clean, working system.',
+    short: 'Certified technicians install, test, and hand over a clean, working system.',
   },
   {
     id: 'support',
     number: '05',
-    title: 'Enjoy With Confidence',
+    title: 'Ongoing Support',
     duration: 'Lifetime',
     tag: { label: 'After-sales support', highlight: true },
-    description:
-      'Your installation is backed by warranty and responsive after-sales support that actually answers.',
-    short: 'Backed by dependable after-sales support.',
+    description: '24/7 after-sales access, maintenance, and guidance for the life of your system.',
+    short: '24/7 after-sales access, maintenance, and guidance for the life of your system.',
   },
 ];
 

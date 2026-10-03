@@ -31,7 +31,7 @@ export function ProcessSection({
       How We Work, <em>Start to Finish</em>
     </>
   ),
-  subtitle = 'From site visit to switch-on — with no surprises',
+  subtitle = 'From first call to final switch-on—no surprises, no shortcuts.',
   id = 'process',
   showFooter = true,
 }) {
