@@ -57,7 +57,7 @@ export function HeroSection() {
           </Eyebrow>
 
           <h1 id="hero-title" className={styles.title}>
-            Lagos, Stop Overpaying for the Wrong Power &amp; Security Systems.
+            Lagos, Stop Overpaying for the Wrong <em>Power &amp; Security Systems.</em>
           </h1>
 
           <p className={styles.subtitle}>
