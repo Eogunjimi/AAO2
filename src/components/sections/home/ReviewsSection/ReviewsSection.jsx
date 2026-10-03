@@ -1,6 +1,5 @@
 import { ReviewsCarousel } from '@/components/sections/shared/ReviewsCarousel';
 import { Container, Section, SectionHeading } from '@/components/ui';
-import { company } from '@/data/company';
 import { reviews } from '@/data/reviews';
 
 import styles from './ReviewsSection.module.css';
@@ -17,7 +16,9 @@ export function ReviewsSection() {
           eyebrow="Reviews"
           title={
             <>
-              See Why Clients <em>Choose</em> {company.shortName} Engineering
+              What Contractors
+              <br />
+              <em>Are Saying?</em>
             </>
           }
         />
