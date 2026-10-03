@@ -13,11 +13,13 @@ export function ServiceAreasSection() {
       <Reveal>
         <Eyebrow tone="ember">Service Areas</Eyebrow>
         <h2 id="areas-title">
-          Ready to take control of your power in <em>Lagos</em>?
+          Proudly Rooted in <em>Lagos</em>. Ready When You Are
         </h2>
         <p className={styles.subtitle}>
-          Proudly serving homes and businesses across Lagos &amp; surrounding areas — with free site
-          inspections, original products, and fast, neat installations.
+          Based at <strong>Magnet Plaza, Meiran</strong> (beside Majok Filling Station, Ladipo Bus
+          Stop), AAO proudly serves homes, offices, shops, schools, hospitals, and industries across
+          Lagos and surrounding areas. Free site inspections, original products, and fast, neat
+          installations—wherever you are.
         </p>
       </Reveal>
 

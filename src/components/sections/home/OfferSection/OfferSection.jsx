@@ -17,7 +17,11 @@ export function OfferSection() {
           <h2 id="offer-title" className={styles.title}>
             {seasonalOffer.title}
           </h2>
-          <p className={styles.description}>{seasonalOffer.description}</p>
+          <p className={styles.description}>
+            {seasonalOffer.description.map((segment, index) =>
+              typeof segment === 'string' ? segment : <em key={index}>{segment.em}</em>,
+            )}
+          </p>
 
           <ul className={styles.perks}>
             {seasonalOffer.perks.map((perk) => (
@@ -26,8 +30,11 @@ export function OfferSection() {
           </ul>
 
           <Button to={anchors.contact} variant="volt">
-            Claim Your Solar Offer
+            {seasonalOffer.ctaLabel}
           </Button>
+          <p className={styles.urgencyNote}>
+            <em>{seasonalOffer.urgencyNote}</em>
+          </p>
 
           <ul className={styles.packages}>
             {seasonalOffer.packages.map((item) => (
