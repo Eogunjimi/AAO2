@@ -14,7 +14,11 @@ export function ReviewsSection() {
           align="center"
           className={styles.heading}
           eyebrow="Reviews"
-          title="Rated 5 Stars by Lagos Homes & Businesses"
+          title={
+            <>
+              Rated <em>5 Stars</em> by Lagos Homes &amp; Businesses
+            </>
+          }
           description="Don’t just take our word for it. See why clients across Lagos trust AAO with their power and security—then add your own story to the list."
         />
 

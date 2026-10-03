@@ -17,7 +17,7 @@ export function AboutSection() {
         <div className={styles.grid}>
           <Reveal className={styles.copy} delay={80}>
             <h2 id="about-title" className={styles.title}>
-              We Built AAO to End the Guesswork in Power &amp; Security
+              We Built AAO to End the <em>Guesswork</em> in Power &amp; Security
             </h2>
 
             <p>
