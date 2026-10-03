@@ -14,7 +14,7 @@ export function WhyChooseSection() {
           align="center"
           title={
             <>
-              Why homes &amp; businesses <em>choose</em> AAO
+              Why homes &amp; businesses <em>trust</em> AAO
             </>
           }
           description="Our customers choose us because we take the time to understand their needs, recommend what actually works, and stand behind the quality of our work. Here’s what sets AAO apart:"
