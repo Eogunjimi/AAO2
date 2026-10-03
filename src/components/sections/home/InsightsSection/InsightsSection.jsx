@@ -15,11 +15,7 @@ export function InsightsSection() {
           id="insights-title"
           align="center"
           tone="inverse"
-          title={
-            <>
-              Insights that help <em>homeowners</em> win power
-            </>
-          }
+          title="Insights to power and protect."
         />
 
         <Reveal>
