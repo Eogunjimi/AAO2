@@ -17,27 +17,37 @@ export function AboutSection() {
         <div className={styles.grid}>
           <Reveal className={styles.copy} delay={80}>
             <h2 id="about-title" className={styles.title}>
-              Built on <em>trust</em>. Engineered to last.
+              We Built AAO to End the Guesswork in Power &amp; Security
             </h2>
 
             <p>
-              {company.name} was built to solve two problems homes and businesses face every day:
-              unreliable power and security systems they can’t depend on.
+              Too many Nigerian homes and businesses waste money on oversized inverters, undersized
+              solar systems, and fake security cameras that offer zero protection. {company.name}{' '}
+              was founded by <strong>{company.founder}</strong> to change that story.
             </p>
             <p>
-              Led by {company.founder}, our team takes a different approach. We don’t simply sell
-              you an inverter, install a few cameras, and move on. We assess your property,
-              understand your actual needs, and recommend a solution that makes sense for your home,
-              business, and budget.
+              We began with a simple promise:{' '}
+              <strong>measure first, install right, and use only original products.</strong> Today,
+              we’ve completed <strong>200+ installations</strong> across Lagos and beyond—built on
+              three non-negotiables:
             </p>
+            <ul className={styles.principles}>
+              <li>
+                <strong>A – Accountability:</strong> We take responsibility for every job, from
+                first call to final switch-on.
+              </li>
+              <li>
+                <strong>A – Authenticity:</strong> Original products only. Warranty always. No
+                exceptions.
+              </li>
+              <li>
+                <strong>O – Outstanding Service:</strong> Neat work, honest advice, and support that
+                doesn’t disappear after payment.
+              </li>
+            </ul>
             <p>
-              That approach has helped us complete 200+ solar and inverter installations while
-              building our reputation around original products, neat workmanship, warranty-backed
-              solutions, and dependable after-sales support.
-            </p>
-            <p>
-              Because when it comes to powering your property or protecting what matters, getting it
-              almost right isn’t good enough.
+              From load audits to solar, CCTV to smart gates, we’re not just installers. We’re your
+              energy and security partner.
             </p>
           </Reveal>
 

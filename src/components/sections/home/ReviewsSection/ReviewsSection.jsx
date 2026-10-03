@@ -14,13 +14,8 @@ export function ReviewsSection() {
           align="center"
           className={styles.heading}
           eyebrow="Reviews"
-          title={
-            <>
-              What Clients
-              <br />
-              <em>Are Saying?</em>
-            </>
-          }
+          title="Rated 5 Stars by Lagos Homes & Businesses"
+          description="Don’t just take our word for it. See why clients across Lagos trust AAO with their power and security—then add your own story to the list."
         />
 
         <ReviewsCarousel reviews={reviews} />

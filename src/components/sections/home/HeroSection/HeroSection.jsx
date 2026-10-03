@@ -57,12 +57,13 @@ export function HeroSection() {
           </Eyebrow>
 
           <h1 id="hero-title" className={styles.title}>
-            Reliable <em>Power &amp; Security</em> for Lagos Homes and Businesses
+            Lagos, Stop Overpaying for the Wrong Power &amp; Security Systems.
           </h1>
 
           <p className={styles.subtitle}>
-            Professionally designed solar, electrical, CCTV, and security systems built to give you
-            dependable power, better protection, and lasting peace of mind.
+            Tired of oversized inverters, fake CCTV, and technicians who vanish after payment? AAO
+            starts with a free professional load audit, installs only original warranty-backed
+            products, and backs every job with 24/7 support.
           </p>
 
           <div
