@@ -12,7 +12,11 @@ export function FaqSection() {
         <SectionHeading
           id="faq-title"
           align="center"
-          title="FAQ"
+          title={
+            <>
+              Frequently <em>Asked</em> Questions
+            </>
+          }
           subtitle="Got Questions? We’ve Got Answers."
         />
 
