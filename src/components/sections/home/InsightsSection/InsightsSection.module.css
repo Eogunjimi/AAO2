@@ -5,11 +5,10 @@
 .row {
   display: flex;
   gap: 1.4rem;
-  margin: 3.4rem calc(50% - 50vw) 0;
-  padding: 0 calc(50vw - 50%);
+  margin-top: 3.4rem;
   overflow-x: auto;
   scrollbar-width: none;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   list-style: none;
 }
 
@@ -18,8 +17,9 @@
 }
 
 /*
- * Layout only — the card's appearance lives in <PostCard />. Three fill the
- * container exactly; the rail bleeds past both edges.
+ * Layout only — the card's appearance lives in <PostCard />. The rail is
+ * contained within the container: exactly three cards per view on desktop,
+ * and each swipe pages one card at a time.
  */
 .slide {
   flex: 0 0 calc((100% - 2 * 1.4rem) / 3);
@@ -39,11 +39,7 @@
 }
 
 @media (max-width: 620px) {
-  /* …and exactly one per view on phones, with a firm snap. */
-  .row {
-    scroll-snap-type: x mandatory;
-  }
-
+  /* …and exactly one per view on phones. */
   .slide {
     flex-basis: 100%;
     scroll-snap-align: center;
