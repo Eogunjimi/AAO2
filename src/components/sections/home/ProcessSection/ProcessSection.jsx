@@ -64,11 +64,7 @@ export function ProcessSection({
         />
 
         <Reveal>
-          <ol
-            className={styles.row}
-            ref={timelineRef}
-            onMouseLeave={() => isDesktop && resume()}
-          >
+          <ol className={styles.row} ref={timelineRef} onMouseLeave={() => isDesktop && resume()}>
             {steps.map((step, stepIndex) => {
               const isActive = stepIndex === index;
               return (

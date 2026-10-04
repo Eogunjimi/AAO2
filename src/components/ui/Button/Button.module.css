@@ -62,7 +62,12 @@
 
 /* The gold CTA: gradient fill, gloss overlay, accent glow. */
 .volt {
-  background: linear-gradient(180deg, var(--color-volt-light) 0%, var(--color-volt) 58%, #f2c226 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-volt-light) 0%,
+    var(--color-volt) 58%,
+    #f2c226 100%
+  );
   color: var(--color-ink);
   box-shadow: var(--shadow-accent-glow);
 }
