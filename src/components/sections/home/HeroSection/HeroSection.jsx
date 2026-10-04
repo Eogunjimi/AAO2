@@ -9,10 +9,10 @@ import { paths } from '@/routes/paths';
 import styles from './HeroSection.module.css';
 
 const reviewAvatars = [
-  { id: 'homeowner', src: '/images/hero-avatar-1.png', alt: 'Nigerian homeowner' },
-  { id: 'contractor', src: '/images/hero-avatar-2.png', alt: 'Nigerian contractor' },
-  { id: 'business-owner', src: '/images/hero-avatar-3.png', alt: 'Nigerian business owner' },
-  { id: 'facility-manager', src: '/images/hero-avatar-4.png', alt: 'Nigerian facility manager' },
+  { id: 'homeowner', src: '/images/hero-avatar-1.webp', alt: 'Nigerian homeowner' },
+  { id: 'contractor', src: '/images/hero-avatar-2.webp', alt: 'Nigerian contractor' },
+  { id: 'business-owner', src: '/images/hero-avatar-3.webp', alt: 'Nigerian business owner' },
+  { id: 'facility-manager', src: '/images/hero-avatar-4.webp', alt: 'Nigerian facility manager' },
 ];
 
 /** Above-the-fold value proposition, imagery and quick conversion path. */
