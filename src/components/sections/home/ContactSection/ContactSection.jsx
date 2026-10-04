@@ -12,12 +12,12 @@ export function ContactSection({ defaultService = '' }) {
       <Reveal>
         <Eyebrow tone="ember">Contact Us</Eyebrow>
         <h2 id="contact-title">
-          Talk to an <em>AAO expert</em> today
+          Let’s Fix Your <em>Power &amp; Security</em>, Starting with a Conversation*
         </h2>
         <p className={styles.subtitle}>
-          Your better power &amp; security solution starts here. Have questions about solar,
-          inverters, CCTV, electrical work, or automation? Send a few details and our team will
-          guide you toward the right solution.
+          Have questions about solar sizing, inverter backup, CCTV coverage, or smart access? Tell
+          us what you’re dealing with, and an AAO expert will guide you toward the right
+          solution—with no pressure, no fake products, and no guesswork.
         </p>
       </Reveal>
 

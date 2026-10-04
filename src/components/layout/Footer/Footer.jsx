@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Logo } from '@/components/layout/Logo';
 import { Button, Chip, Container, Icon, Marquee } from '@/components/ui';
 import { serviceAreaPages } from '@/data/areas';
-import { company, officeAddress, primaryCtaLabel } from '@/data/company';
+import { company, navbarCtaLabel, officeAddress } from '@/data/company';
 import { footerMenus } from '@/data/navigation';
 import { featuredServices } from '@/data/services';
 import { anchors, paths } from '@/routes/paths';
@@ -86,7 +86,7 @@ export function Footer() {
               Free site inspections · Clear upfront pricing · {company.responseTime}.
             </p>
             <Button to={anchors.contact} variant="volt">
-              {primaryCtaLabel}
+              {navbarCtaLabel}
             </Button>
           </div>
         </div>

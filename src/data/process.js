@@ -16,8 +16,7 @@ export const processSteps = [
     title: 'Free Site Inspection & Load Audit',
     duration: '30–60 min visit',
     tag: { label: 'AAO engineers' },
-    description:
-      'We visit, measure your power demand or security gaps, and assess the property.',
+    description: 'We visit, measure your power demand or security gaps, and assess the property.',
     short: 'We visit, measure your demand or security gaps, and assess the property.',
   },
   {
@@ -26,8 +25,7 @@ export const processSteps = [
     title: 'Transparent Recommendation & Quote',
     duration: '24–48 hrs',
     tag: { label: 'Clear pricing', highlight: true },
-    description:
-      'You get a right-sized system, honest pricing, and product warranties in writing.',
+    description: 'You get a right-sized system, honest pricing, and product warranties in writing.',
     short: 'A right-sized system, honest pricing, and product warranties in writing.',
   },
   {

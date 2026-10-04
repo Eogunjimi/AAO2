@@ -15,7 +15,7 @@ export function InsightsSection() {
           id="insights-title"
           align="center"
           tone="inverse"
-          title="Insights to power and protect."
+          title="Power &amp; Protection, Simplified"
         />
 
         <Reveal>

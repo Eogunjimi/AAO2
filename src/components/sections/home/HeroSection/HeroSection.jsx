@@ -4,15 +4,15 @@ import { company } from '@/data/company';
 import { heroSlides } from '@/data/projects';
 import { useCarousel } from '@/hooks/useCarousel';
 import { useInView } from '@/hooks/useInView';
-import { anchors } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './HeroSection.module.css';
 
 const reviewAvatars = [
-  { id: 'homeowner', src: '/images/hero-avatar-1.png', alt: 'Nigerian homeowner' },
-  { id: 'contractor', src: '/images/hero-avatar-2.png', alt: 'Nigerian contractor' },
-  { id: 'business-owner', src: '/images/hero-avatar-3.png', alt: 'Nigerian business owner' },
-  { id: 'facility-manager', src: '/images/hero-avatar-4.png', alt: 'Nigerian facility manager' },
+  { id: 'homeowner', src: '/images/hero-avatar-1.webp', alt: 'Nigerian homeowner' },
+  { id: 'contractor', src: '/images/hero-avatar-2.webp', alt: 'Nigerian contractor' },
+  { id: 'business-owner', src: '/images/hero-avatar-3.webp', alt: 'Nigerian business owner' },
+  { id: 'facility-manager', src: '/images/hero-avatar-4.webp', alt: 'Nigerian facility manager' },
 ];
 
 /** Above-the-fold value proposition, imagery and quick conversion path. */
@@ -113,8 +113,8 @@ export function HeroSection() {
           </div>
 
           <div className={styles.actions}>
-            <Button to={anchors.process} variant="ghost-light">
-              See How We Work
+            <Button to={paths.services} variant="ghost-light">
+              Explore Our Services
               <span className={styles.gears} aria-hidden="true">
                 <Icon name="gear" size={20} className={styles.gear} />
               </span>
