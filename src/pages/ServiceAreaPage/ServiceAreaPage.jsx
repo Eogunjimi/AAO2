@@ -8,7 +8,7 @@ import { PageHero } from '@/components/sections/shared/PageHero';
 import { propertyTypes, systemTypes, whatYouGet } from '@/data/areas';
 import { company } from '@/data/company';
 import { getAreaBySlug, getAreaFaqs } from '@/lib/areas';
-import { buildFaqSchema } from '@/lib/structuredData';
+import { buildBreadcrumbSchema, buildFaqSchema } from '@/lib/structuredData';
 import { anchors, paths } from '@/routes/paths';
 
 /** Landing page for one Lagos neighbourhood we serve. */
@@ -21,13 +21,20 @@ export default function ServiceAreaPage() {
 
   const faqs = getAreaFaqs(area);
 
+  // One trail, rendered by the hero and emitted as BreadcrumbList below.
+  const breadcrumb = [
+    { label: 'Home', to: paths.home },
+    { label: 'Service Areas', to: anchors.areas },
+    { label: area.name },
+  ];
+
   return (
     <>
       <Seo
         title={`Solar & Inverter Installation in ${area.name} | ${company.shortName} Engineering`}
         description={area.intro[0]}
         image={area.heroImage}
-        jsonLd={[buildFaqSchema(faqs)]}
+        jsonLd={[buildFaqSchema(faqs), buildBreadcrumbSchema(breadcrumb)]}
       />
 
       <PageHero
@@ -37,11 +44,7 @@ export default function ServiceAreaPage() {
         keyword={area.heroKeyword}
         subtitle={area.heroSubtitle}
         image={area.heroImage}
-        breadcrumb={[
-          { label: 'Home', to: paths.home },
-          { label: 'Service Areas', to: anchors.areas },
-          { label: area.name },
-        ]}
+        breadcrumb={breadcrumb}
       />
 
       <TrustBadges />

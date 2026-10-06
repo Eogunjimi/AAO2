@@ -106,13 +106,19 @@ export const promises = [
   },
 ];
 
-/** Accreditations and manufacturer partners shown in the badge marquee. */
 /**
  * Accreditations and product partners shown in the trust strip.
  *
- * Each entry renders as a typographic mark. Drop a file in
- * `public/images/partners/` and set `logo` to swap in the real artwork —
- * nothing else needs to change.
+ * Each entry renders as a typographic wordmark until `logo` points at real
+ * artwork — drop a file in `public/images/partners/` and set the path here,
+ * e.g. `logo: '/images/partners/coren.svg'`. Nothing else needs to change,
+ * and a path that does not resolve falls back to the wordmark rather than
+ * breaking the strip.
+ *
+ * Sourcing for each mark, and the permission it needs, is documented in
+ * `docs/partner-logos.md`. The first five are regulators and professional
+ * bodies: showing their logo is a claim of accreditation, so only add one the
+ * business actually holds.
  */
 export const certifications = [
   { id: 'cac', name: 'CAC', descriptor: 'Accredited', logo: null },

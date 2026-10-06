@@ -3,6 +3,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 
 import { propertyTypes, serviceAreaPages, systemTypes, whatYouGet } from '@/data/areas';
+import { quoteForm } from '@/data/forms';
 import { getAreaBySlug, getAreaFaqs } from '@/lib/areas';
 
 import ServiceAreaPage from './ServiceAreaPage';
@@ -45,7 +46,7 @@ describe('<ServiceAreaPage />', () => {
       expect(screen.getByText(paragraph)).toBeInTheDocument();
     });
 
-    const form = screen.getByRole('form', { name: /free quote/i });
+    const form = screen.getByRole('form', { name: new RegExp(quoteForm.titleAccent, 'i') });
     expect(within(form).getByLabelText(/service/i)).toHaveValue('solar-inverter');
     expect(screen.getByAltText(new RegExp(area.name))).toHaveAttribute('src', area.introImage);
   });
@@ -73,6 +74,23 @@ describe('<ServiceAreaPage />', () => {
     faqs.forEach((faq) => {
       expect(screen.getByRole('button', { name: faq.question })).toBeInTheDocument();
     });
+  });
+
+  it('emits the breadcrumb it renders as BreadcrumbList structured data', () => {
+    const area = getAreaBySlug('ikoyi');
+    renderAt('/service-areas/ikoyi');
+
+    const schema = [...document.head.querySelectorAll('script[type="application/ld+json"]')]
+      .map((node) => JSON.parse(node.textContent))
+      .find((entry) => entry['@type'] === 'BreadcrumbList');
+
+    expect(schema).toBeDefined();
+    expect(schema.itemListElement.map((item) => item.name)).toEqual([
+      'Home',
+      'Service Areas',
+      area.name,
+    ]);
+    expect(schema.itemListElement.at(-1)).not.toHaveProperty('item');
   });
 
   it('redirects unknown areas to the not-found route', () => {

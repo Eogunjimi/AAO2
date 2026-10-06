@@ -60,7 +60,8 @@
 
 /*
  * Stretched link: the anchor is the title, but its ::after covers the whole
- * card, so a click anywhere — including on "Read now…" — follows it.
+ * card, so a click on any dead space follows it. The "Read now" button opts
+ * back out of that overlay — see `.cta`.
  */
 .titleLink::after {
   content: '';
@@ -90,10 +91,42 @@
   flex: 1;
 }
 
-.link {
-  font-style: italic;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-ember);
-  font-size: 0.84rem;
-  letter-spacing: var(--tracking-wide);
+/*
+ * Position only — every visual (pill, sizing, hover lift, pressed state,
+ * focus ring) comes from the Button primitive, so the card follows the design
+ * system instead of restating it.
+ *
+ * The title link's ::after is painted over the whole card, so the button has
+ * to be raised above it to receive its own clicks and focus. `.button` is
+ * already position: relative; the z-index is what does the work.
+ *
+ * Shrink-wrapped rather than stretched, because `.body` is a flex column.
+ */
+.cta {
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  margin-top: 0.2rem;
+}
+
+/*
+ * Hovering anywhere on the card previews the button's own hover, using the
+ * same tokens Button does — so the card reads as one affordance rather than
+ * a surface with a separate control sitting on it.
+ *
+ * Scoped to `ghost` on the card's light surface: a filled button already has
+ * its own hover, and `ghost-light` resolves to volt on dark. Tinting either
+ * here would fight the design system.
+ */
+.card:hover .ctaGhost,
+.card:focus-within .ctaGhost {
+  border-color: var(--color-teal);
+  color: var(--color-teal-dark);
+}
+
+/* Single-column layouts get a full-width tap target. */
+@media (max-width: 620px) {
+  .cta {
+    align-self: stretch;
+  }
 }

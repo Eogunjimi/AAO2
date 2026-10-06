@@ -1,0 +1,97 @@
+.heading {
+  margin-bottom: 2.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  list-style: none;
+}
+
+/*
+  Visually identical to the catalogue card on /services — a related service
+  should read as the same object wherever a visitor meets it.
+*/
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-surface);
+  transition:
+    transform var(--duration-base) var(--ease),
+    box-shadow var(--duration-base);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.thumb {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-wash);
+}
+
+.thumb img {
+  transition: transform 1.2s var(--ease);
+}
+
+.card:hover .thumb img {
+  transform: scale(1.06);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.4rem 1.4rem 1.6rem;
+  flex: 1;
+}
+
+.category {
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-teal);
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+}
+
+.summary {
+  color: var(--color-gray);
+  font-size: 0.88rem;
+  flex: 1;
+}
+
+.link {
+  font-weight: var(--font-weight-bold);
+  font-size: 0.82rem;
+  color: var(--color-ember);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.2rem;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -6,12 +6,17 @@
   padding-block: var(--section-padding);
 }
 
+/*
+ * Fluid like --section-padding and in the same proportion to it, so the three
+ * spacings keep their relationship at every width. Each reaches its cap at
+ * 960px, leaving desktop untouched.
+ */
 .spacing-compact {
-  padding-block: 3.4rem;
+  padding-block: clamp(2.25rem, 5.7vw, 3.4rem);
 }
 
 .spacing-spacious {
-  padding-block: 7.5rem;
+  padding-block: clamp(4rem, 12.5vw, 7.5rem);
 }
 
 .spacing-none {
@@ -37,14 +42,4 @@
   background: var(--color-ink);
   color: var(--color-on-dark);
   overflow: hidden;
-}
-
-@media (max-width: 700px) {
-  .spacing-default {
-    padding-block: 4rem;
-  }
-
-  .spacing-spacious {
-    padding-block: 5rem;
-  }
 }

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { certifications } from '@/data/company';
@@ -27,5 +27,24 @@ describe('<PartnerStrip />', () => {
     expect(logos).toHaveLength(2);
     expect(logos[0]).toHaveAttribute('alt', 'Growatt logo');
     expect(container).toHaveTextContent('Deye');
+  });
+
+  it('falls back to the wordmark when logo artwork fails to load', () => {
+    const partners = [
+      { id: 'broken', name: 'Hikvision', descriptor: 'Partner brand', logo: '/missing.svg' },
+    ];
+
+    const { container } = render(<PartnerStrip partners={partners} />);
+
+    const logos = container.querySelectorAll('img[src="/missing.svg"]');
+    expect(logos).toHaveLength(2);
+
+    // A wrong or not-yet-uploaded path must not leave a broken-image icon
+    // sitting in the middle of the trust strip.
+    logos.forEach((logo) => fireEvent.error(logo));
+
+    expect(container.querySelectorAll('img')).toHaveLength(0);
+    expect(container).toHaveTextContent('Hikvision');
+    expect(container).toHaveTextContent('Partner brand');
   });
 });

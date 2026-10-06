@@ -4,15 +4,20 @@ import { FaqBand } from '@/components/sections/shared/FaqBand';
 import { PageHero } from '@/components/sections/shared/PageHero';
 import { PastWorks } from '@/components/sections/shared/PastWorks';
 import { projectFaqs } from '@/data/faqs';
+import { buildBreadcrumbSchema, buildFaqSchema } from '@/lib/structuredData';
 import { paths } from '@/routes/paths';
 
 /** Gallery of completed installations across Lagos. */
 export default function ProjectsPage() {
+  // One trail, rendered by the hero and emitted as BreadcrumbList below.
+  const breadcrumb = [{ label: 'Home', to: paths.home }, { label: 'Projects' }];
+
   return (
     <>
       <Seo
         title="Projects — completed solar, security and electrical installations in Lagos"
         description="See completed AAO Engineering Services installations across Lagos: solar and inverter systems, CCTV and access control, electrical rewires, automatic gates and commercial hybrid power."
+        jsonLd={[buildFaqSchema(projectFaqs), buildBreadcrumbSchema(breadcrumb)]}
       />
 
       <PageHero
@@ -22,7 +27,7 @@ export default function ProjectsPage() {
         keyword="Solar, Security and Electrical Projects"
         subtitle="200+ installations, one property at a time — and every one still running."
         image="/images/project-commercial.jpg"
-        breadcrumb={[{ label: 'Home', to: paths.home }, { label: 'Projects' }]}
+        breadcrumb={breadcrumb}
       />
 
       <TrustBadges />

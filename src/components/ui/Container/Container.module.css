@@ -1,6 +1,15 @@
+/*
+ * The gutter is fluid (see --container-gutter), so this needs no breakpoints.
+ *
+ * `max(gutter, safe-area-inset)` keeps content clear of the rounded corners
+ * and camera cut-out when a notched phone is held in landscape, where the
+ * inset can exceed the gutter. On every other device the insets resolve to
+ * 0px and the gutter wins, so the expression is a no-op.
+ */
 .container {
   width: 100%;
   max-width: var(--container-max);
   margin-inline: auto;
-  padding-inline: var(--container-gutter);
+  padding-left: max(var(--container-gutter), env(safe-area-inset-left));
+  padding-right: max(var(--container-gutter), env(safe-area-inset-right));
 }

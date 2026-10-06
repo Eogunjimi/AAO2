@@ -1,45 +1,159 @@
+/*
+ * The hero quote bar's treatment, adapted to a 360px sidebar column: the same
+ * dark card under a volt rule, the same pinstripe, the same field and CTA
+ * styling. Stacked instead of the hero's single row.
+ *
+ * The card lives here rather than on the wrapper in ServiceBrief / AreaIntro,
+ * so the form carries its own appearance wherever it is dropped.
+ */
 .form {
-  margin-top: 1.2rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: 20px;
-  padding: 1.6rem;
-  box-shadow: 0 20px 50px rgba(11, 11, 12, 0.1);
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.6rem;
+  overflow: hidden;
+  padding: 1.35rem 1.25rem 1.45rem;
+  border: 1px solid var(--color-border-on-dark);
+  border-top: 2px solid var(--color-volt);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-card-dark), var(--color-dark));
+  box-shadow: var(--shadow-xl);
+}
+
+.form::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: '';
+  opacity: 0.35;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-border-on-dark) 0 1px,
+    transparent 1px 76px
+  );
+  pointer-events: none;
+}
+
+.prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  margin-bottom: 0.35rem;
+}
+
+.sunMark {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--color-volt);
+  filter: drop-shadow(0 0 11px rgba(255, 210, 63, 0.24));
 }
 
 .title {
-  font-size: 1.15rem;
-  font-weight: var(--font-weight-extrabold);
-  margin-bottom: 0.2rem;
+  color: var(--color-on-dark);
+  font-size: 1.08rem;
+  line-height: 1.12;
+  text-transform: uppercase;
 }
 
-.row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.7rem;
+.title span {
+  color: var(--color-volt);
+}
+
+.field {
+  min-width: 0;
+}
+
+.field :global(svg) {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.field :global(input),
+.field :global(select) {
+  min-height: 46px;
+  padding: 0.7rem 0.75rem;
+  border-color: var(--color-border-on-dark);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--color-on-dark);
+  font-size: 0.84rem;
+  line-height: 1.2;
+  color-scheme: dark;
+  transition:
+    border-color var(--duration-fast),
+    background var(--duration-fast),
+    box-shadow var(--duration-fast);
+}
+
+/* The leading icon needs the control padded clear of it. */
+.field :global(input) {
+  padding-left: 2.35rem;
+}
+
+.field :global(input)::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 1;
+}
+
+.field :global(select) {
+  appearance: none;
+  padding-right: 2.4rem;
+  cursor: pointer;
+  background-color: var(--color-card-dark);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-volt) 50%),
+    linear-gradient(135deg, var(--color-volt) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 9px) 50%;
+  background-repeat: no-repeat;
+  background-size: 5px 5px;
+}
+
+.field :global(select option) {
+  background: var(--color-card-dark);
+  color: var(--color-on-dark);
+}
+
+.field :global(select option:checked) {
+  background: var(--color-volt);
+  color: var(--color-ink);
+}
+
+.field :global(input):hover,
+.field :global(select):hover {
+  border-color: var(--color-volt);
+}
+
+.field :global(input):focus,
+.field :global(select):focus {
+  border-color: var(--color-volt);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px rgba(255, 210, 63, 0.16);
 }
 
 .submit {
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
 }
 
 .note {
   font-size: 0.7rem;
-  color: var(--color-soft);
+  color: var(--color-on-dark-faint);
   text-align: center;
 }
 
 .submitError {
   font-size: 0.78rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-danger);
+  color: var(--color-coral);
 }
 
-@media (max-width: 520px) {
-  .row {
-    grid-template-columns: 1fr;
+@media (max-width: 700px) {
+  .form {
+    padding: 1.2rem 1.05rem 1.3rem;
   }
 }

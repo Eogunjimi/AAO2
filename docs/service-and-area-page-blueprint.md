@@ -17,15 +17,25 @@ unique prose per area page.
 
 ## Where the prompt corrects the source
 
-The prompt is not a pure description — four of its requirements are fixes for gaps in this
-repository. Treat them as part of the spec, not optional extras:
+The prompt is not a pure description — four of its requirements started life as fixes for gaps
+in this repository. Treat them as part of the spec, not optional extras. Three have since been
+closed; one remains:
 
-| Requirement in the prompt                    | Status here                                                                                                                     |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Pre-rendered HTML for metadata and JSON-LD   | **Missing.** This is a client-rendered SPA; every meta tag and schema is injected after hydration. The single biggest weakness. |
-| `sitemap.xml` generated from the data arrays | **Missing.** `robots.txt` advertises `/sitemap.xml`, but the file does not exist.                                               |
-| `BreadcrumbList` schema                      | **Missing.** Breadcrumbs render visually on both page types but are never emitted as structured data.                           |
-| 3 related-service links per service page     | **Missing.** `getRelatedServices()` is implemented and unit-tested, but no template calls it — service pages are link-leaves.   |
+| Requirement in the prompt                    | Status here                                                                                                                    |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Pre-rendered HTML for metadata and JSON-LD   | **Still missing.** This is a client-rendered SPA; every meta tag and schema is injected after hydration. The biggest weakness. |
+| `sitemap.xml` generated from the data arrays | **Done.** `sitemapPlugin()` in `vite.config.js` emits it at build time from `services`, `posts` and `serviceAreaPages`.        |
+| `BreadcrumbList` schema                      | **Done.** `buildBreadcrumbSchema()` takes the same array `<PageHero breadcrumb>` renders, so the two cannot drift.             |
+| 3 related-service links per service page     | **Done.** `<RelatedServices />` calls `getRelatedServices()` and closes the link graph, plus a route back to the index.        |
 
 Everything else in the prompt is a faithful extraction of patterns that are working in this
 codebase today.
+
+### Closing the last gap
+
+Pre-rendering is the one item left, and it is the one the prompt says "outranks everything else".
+The shape of the fix in this codebase: add a build step that walks the same route list the
+sitemap plugin already derives, renders each with `react-dom/server`, and writes one HTML file
+per route so the title, description, canonical, headings and JSON-LD are in the initial
+response. The data layer and `<Seo />` already make every page a pure function of its slug, so
+nothing in `src/` has to change to support it.

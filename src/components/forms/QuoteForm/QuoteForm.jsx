@@ -1,7 +1,8 @@
 import { FormField } from '@/components/forms/FormField';
 import { FormSuccess } from '@/components/forms/FormSuccess';
 import { Honeypot } from '@/components/forms/Honeypot';
-import { Button } from '@/components/ui';
+import { Button, Icon } from '@/components/ui';
+import { quoteForm } from '@/data/forms';
 import { HONEYPOT_FIELD, useLeadForm } from '@/hooks/useLeadForm';
 import { getServiceOptions } from '@/lib/services';
 import { validators } from '@/lib/validation';
@@ -11,12 +12,27 @@ import styles from './QuoteForm.module.css';
 const INITIAL_VALUES = { name: '', phone: '', service: '' };
 
 const SCHEMA = {
-  name: [validators.required('Name'), validators.minLength('Name', 2)],
-  phone: [validators.required('Phone number'), validators.phone()],
-  service: [validators.required('Service')],
+  name: [
+    validators.required(quoteForm.fields.name.label),
+    validators.minLength(quoteForm.fields.name.label, 2),
+  ],
+  phone: [validators.required(quoteForm.fields.phone.label), validators.phone()],
+  service: [validators.required(quoteForm.fields.service.label)],
 };
 
-/** Compact three-field quote request used in the hero. */
+/**
+ * Three-field quote request for the sticky sidebar on service and
+ * service-area pages.
+ *
+ * Wears the same "frictionless" treatment as the hero quote bar — dark card
+ * under a volt rule, sun mark, two-tone heading, iconned fields, volt CTA —
+ * so the conversion path a visitor met on the home page is recognisably the
+ * same one here. The layout is stacked rather than the hero's single row,
+ * because this sits in a 360px column.
+ *
+ * @param {Object} props
+ * @param {string} [props.defaultService] Slug pre-selected in the dropdown.
+ */
 export function QuoteForm({ defaultService = '' }) {
   const form = useLeadForm({
     initialValues: { ...INITIAL_VALUES, service: defaultService },
@@ -24,59 +40,65 @@ export function QuoteForm({ defaultService = '' }) {
     source: 'hero-quote-form',
   });
 
+  const field = (name) => ({
+    name,
+    value: form.values[name],
+    onChange: form.handleChange,
+    onBlur: form.handleBlur,
+    error: form.errors[name],
+    className: styles.field,
+  });
+
   return (
     <form
       className={styles.form}
       onSubmit={form.handleSubmit}
       noValidate
-      aria-label="Get a free quote"
+      aria-labelledby="quote-form-title"
     >
-      <h2 className={styles.title}>Get Your Free Quote</h2>
+      <div className={styles.prompt}>
+        <span className={styles.sunMark} aria-hidden="true">
+          <Icon name="sun" size={34} />
+        </span>
+        <h2 id="quote-form-title" className={styles.title}>
+          {quoteForm.titleLead} <span>{quoteForm.titleAccent}</span>
+        </h2>
+      </div>
 
       {form.isSuccess ? (
-        <FormSuccess reference={form.reference} onReset={form.reset} />
+        <FormSuccess tone="dark" reference={form.reference} onReset={form.reset} />
       ) : (
         <>
-          <div className={styles.row}>
-            <FormField
-              name="name"
-              label="Your name"
-              placeholder="Your name"
-              hideLabel
-              required
-              autoComplete="name"
-              value={form.values.name}
-              onChange={form.handleChange}
-              onBlur={form.handleBlur}
-              error={form.errors.name}
-            />
-            <FormField
-              name="phone"
-              label="Phone or WhatsApp number"
-              placeholder="Phone / WhatsApp"
-              hideLabel
-              required
-              type="tel"
-              autoComplete="tel"
-              value={form.values.phone}
-              onChange={form.handleChange}
-              onBlur={form.handleBlur}
-              error={form.errors.phone}
-            />
-          </div>
+          <FormField
+            {...field('name')}
+            label={quoteForm.fields.name.label}
+            placeholder={quoteForm.fields.name.placeholder}
+            hideLabel
+            required
+            autoComplete="name"
+            leadingIcon={<Icon name="user" size={16} />}
+          />
 
           <FormField
+            {...field('phone')}
+            label={quoteForm.fields.phone.label}
+            placeholder={quoteForm.fields.phone.placeholder}
+            hideLabel
+            required
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            leadingIcon={<Icon name="phone" size={15} />}
+          />
+
+          <FormField
+            {...field('service')}
             as="select"
-            name="service"
-            label="Service you're interested in"
-            placeholder="Service you're interested in"
+            label={quoteForm.fields.service.label}
+            placeholder={quoteForm.fields.service.placeholder}
             hideLabel
             required
             options={getServiceOptions()}
-            value={form.values.service}
-            onChange={form.handleChange}
-            onBlur={form.handleBlur}
-            error={form.errors.service}
           />
 
           <Honeypot value={form.values[HONEYPOT_FIELD]} onChange={form.handleChange} />
@@ -87,11 +109,18 @@ export function QuoteForm({ defaultService = '' }) {
             </p>
           ) : null}
 
-          <Button type="submit" block disabled={form.isSubmitting} className={styles.submit}>
-            {form.isSubmitting ? 'Sending…' : 'Get My Free Quote →'}
+          <Button
+            type="submit"
+            variant="volt"
+            block
+            disabled={form.isSubmitting}
+            className={styles.submit}
+          >
+            {form.isSubmitting ? quoteForm.submitting : quoteForm.submit}
+            <span aria-hidden="true">→</span>
           </Button>
 
-          <p className={styles.note}>No spam. An AAO expert responds within 24 hours.</p>
+          <p className={styles.note}>{quoteForm.note}</p>
         </>
       )}
     </form>

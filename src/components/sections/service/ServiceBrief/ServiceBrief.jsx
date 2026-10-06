@@ -20,9 +20,7 @@ export function ServiceBrief({ service, page }) {
     <Section aria-labelledby="service-intro-title">
       <Container className={styles.layout}>
         <div className={styles.aside}>
-          <div className={styles.formCard}>
-            <QuoteForm defaultService={service.slug} />
-          </div>
+          <QuoteForm defaultService={service.slug} />
         </div>
 
         <div className={styles.content}>

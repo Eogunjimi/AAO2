@@ -6,7 +6,7 @@ import { PageHero } from '@/components/sections/shared/PageHero';
 import { Container, PostCard, Reveal, Section, SectionHeading } from '@/components/ui';
 import { company } from '@/data/company';
 import { formatPostDate, getPostBySlug, getRelatedPosts } from '@/lib/posts';
-import { buildArticleSchema } from '@/lib/structuredData';
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/lib/structuredData';
 import { paths } from '@/routes/paths';
 
 import styles from './BlogPostPage.module.css';
@@ -21,13 +21,20 @@ export default function BlogPostPage() {
 
   const related = getRelatedPosts(post.slug);
 
+  // One trail, rendered by the hero and emitted as BreadcrumbList below.
+  const breadcrumb = [
+    { label: 'Home', to: paths.home },
+    { label: 'Blog', to: paths.blog },
+    { label: post.title },
+  ];
+
   return (
     <>
       <Seo
         title={post.title}
         description={post.excerpt}
         image={post.image}
-        jsonLd={[buildArticleSchema(post)]}
+        jsonLd={[buildArticleSchema(post), buildBreadcrumbSchema(breadcrumb)]}
       />
 
       <PageHero
@@ -36,11 +43,7 @@ export default function BlogPostPage() {
         title={post.title}
         subtitle={post.excerpt}
         image={post.image}
-        breadcrumb={[
-          { label: 'Home', to: paths.home },
-          { label: 'Blog', to: paths.blog },
-          { label: post.title },
-        ]}
+        breadcrumb={breadcrumb}
       />
 
       <Section aria-labelledby="post-title">
