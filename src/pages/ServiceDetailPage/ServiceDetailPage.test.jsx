@@ -2,6 +2,7 @@ import { render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 
+import { quoteForm } from '@/data/forms';
 import { getRelatedServices, getServiceBySlug, getServicePage } from '@/lib/services';
 
 import ServiceDetailPage from './ServiceDetailPage';
@@ -54,7 +55,7 @@ describe('<ServiceDetailPage />', () => {
   it('offers the quote form with the service already chosen', () => {
     renderAt('/services/solar-inverter');
 
-    const form = screen.getByRole('form', { name: /free quote/i });
+    const form = screen.getByRole('form', { name: new RegExp(quoteForm.titleAccent, 'i') });
     expect(within(form).getByLabelText(/service/i)).toHaveValue('solar-inverter');
   });
 

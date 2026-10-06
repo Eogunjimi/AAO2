@@ -19,9 +19,7 @@ export function AreaIntro({ area }) {
     <Section aria-labelledby="area-intro-title">
       <Container className={styles.layout}>
         <div className={styles.aside}>
-          <div className={styles.formCard}>
-            <QuoteForm defaultService="solar-inverter" />
-          </div>
+          <QuoteForm defaultService="solar-inverter" />
         </div>
 
         <div className={styles.content}>

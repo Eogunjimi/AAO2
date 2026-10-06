@@ -35,6 +35,23 @@
   cursor: pointer;
 }
 
+/* On a dark card the default ink and ember read as mud — lift the whole set. */
+.dark .title {
+  color: var(--color-on-dark);
+}
+
+.dark .message {
+  color: var(--color-on-dark-muted);
+}
+
+.dark .reference {
+  color: var(--color-on-dark-faint);
+}
+
+.dark .reset {
+  color: var(--color-volt);
+}
+
 /*
  * Keyframes live in the module that uses them: Lightning CSS scopes
  * animation names inside CSS Modules, so a shared definition in a global

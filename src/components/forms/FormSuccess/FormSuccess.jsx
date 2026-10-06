@@ -4,16 +4,24 @@ import styles from './FormSuccess.module.css';
 
 /**
  * Confirmation panel shown in place of a form after a successful submission.
+ *
+ * @param {Object} props
+ * @param {'light'|'dark'} [props.tone] Match the surface the form sits on.
  */
 export function FormSuccess({
   title = 'Thank you! ✓',
   message = 'An AAO expert will contact you within 24 hours.',
   reference,
   onReset,
+  tone = 'light',
   className,
 }) {
   return (
-    <div className={cn(styles.success, className)} role="status" aria-live="polite">
+    <div
+      className={cn(styles.success, styles[tone], className)}
+      role="status"
+      aria-live="polite"
+    >
       <p className={styles.title}>{title}</p>
       <p className={styles.message}>{message}</p>
       {reference ? (

@@ -3,6 +3,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 
 import { propertyTypes, serviceAreaPages, systemTypes, whatYouGet } from '@/data/areas';
+import { quoteForm } from '@/data/forms';
 import { getAreaBySlug, getAreaFaqs } from '@/lib/areas';
 
 import ServiceAreaPage from './ServiceAreaPage';
@@ -45,7 +46,7 @@ describe('<ServiceAreaPage />', () => {
       expect(screen.getByText(paragraph)).toBeInTheDocument();
     });
 
-    const form = screen.getByRole('form', { name: /free quote/i });
+    const form = screen.getByRole('form', { name: new RegExp(quoteForm.titleAccent, 'i') });
     expect(within(form).getByLabelText(/service/i)).toHaveValue('solar-inverter');
     expect(screen.getByAltText(new RegExp(area.name))).toHaveAttribute('src', area.introImage);
   });

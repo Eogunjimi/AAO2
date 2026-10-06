@@ -18,3 +18,4 @@ export { processSteps, solutionProcess } from './process';
 export { differentiators } from './differentiators';
 export { seasonalOffer } from './offer';
 export { heroQuote } from './home';
+export { quoteForm } from './forms';
