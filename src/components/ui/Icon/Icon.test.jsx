@@ -25,8 +25,14 @@ describe('<Icon />', () => {
     expect(fillsOf(container)).toEqual([null, null, null, null]);
   });
 
-  it('ignores `brand` on icons that define no brand colours', () => {
+  it('paints the single-path Facebook mark in brand blue', () => {
     const { container } = render(<Icon name="facebook" brand />);
+
+    expect(fillsOf(container)).toEqual(['#1877f2']);
+  });
+
+  it('ignores `brand` on icons that define no brand colours', () => {
+    const { container } = render(<Icon name="bolt" brand />);
 
     expect(fillsOf(container)).toEqual([null]);
   });
