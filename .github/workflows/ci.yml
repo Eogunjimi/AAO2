@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          # Vitest 5 requires ^22.12 || ^24; Vite 8 needs 20.19+.
+          # Vitest 5 requires ^22.12 || ^24; Next 16 needs 20.9+.
           node-version: 22
           cache: npm
 
@@ -36,4 +36,5 @@ jobs:
         run: npm run test
 
       - name: Build
+        # Fonts are self-hosted, so the Next build needs no network access.
         run: npm run build

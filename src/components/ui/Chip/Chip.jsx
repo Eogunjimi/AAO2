@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { cn } from '@/lib/cn';
 
@@ -15,7 +15,7 @@ export function Chip({ to, tone = 'default', className, children, ...rest }) {
 
   if (to) {
     return (
-      <Link to={to} className={classes} {...rest}>
+      <Link href={to} className={classes} {...rest}>
         {children}
       </Link>
     );

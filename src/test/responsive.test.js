@@ -69,14 +69,16 @@ describe('responsive foundations', () => {
     expect(clip).toBeGreaterThan(hidden);
   });
 
-  it('lets the viewport scale, so pinch-zoom still works', () => {
-    const html = read('index.html');
-    const viewport = html.match(/<meta\s+name="viewport"\s+content="([^"]+)"/)?.[1];
+  it('lets the viewport scale, so pinch-zoom still works', async () => {
+    // Next builds the viewport meta tag from the root layout's export, so the
+    // guard reads that rather than a static index.html.
+    const { viewport } = await import('@/app/layout');
 
-    expect(viewport).toContain('width=device-width');
+    expect(viewport.width).toBe('device-width');
+    expect(viewport.initialScale).toBe(1);
     // Blocking zoom is a WCAG failure and breaks low-vision users outright.
-    expect(viewport).not.toMatch(/user-scalable\s*=\s*no/);
-    expect(viewport).not.toMatch(/maximum-scale/);
+    expect(viewport.userScalable).not.toBe(false);
+    expect(viewport.maximumScale).toBeUndefined();
   });
 
   it('declares no fixed width wider than the narrowest screen', () => {

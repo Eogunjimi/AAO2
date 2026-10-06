@@ -1,3 +1,5 @@
+'use client';
+
 import { Container, IconButton, PostCard, Reveal, Section, SectionHeading } from '@/components/ui';
 import { posts } from '@/data/posts';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';

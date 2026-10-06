@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { Button, Container, Eyebrow, Reveal, Section } from '@/components/ui';
 import { seasonalOffer } from '@/data/offer';
@@ -39,7 +39,7 @@ export function OfferSection() {
           <ul className={styles.packages}>
             {seasonalOffer.packages.map((item) => (
               <li key={item.title}>
-                <Link to={paths.service(item.slug)} className={styles.package}>
+                <Link href={paths.service(item.slug)} className={styles.package}>
                   {item.title}
                   <small>{item.description}</small>
                 </Link>

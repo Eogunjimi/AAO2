@@ -20,7 +20,7 @@ export function Icon({ name, size = 24, brand = false, title, className, ...rest
   const icon = icons[name];
 
   if (!icon) {
-    if (import.meta.env.DEV) {
+    if (process.env.NODE_ENV !== 'production') {
       console.warn(`[Icon] Unknown icon "${name}"`);
     }
     return null;

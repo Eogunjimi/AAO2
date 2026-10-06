@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { Button } from '@/components/ui/Button';
 import { company } from '@/data/company';
@@ -48,7 +48,7 @@ export function PostCard({ post, ctaVariant = 'ghost', className }) {
         </p>
 
         <h3 className={styles.cardTitle}>
-          <Link className={styles.titleLink} to={paths.blogPost(post.slug)}>
+          <Link className={styles.titleLink} href={paths.blogPost(post.slug)}>
             {post.title}
           </Link>
         </h3>

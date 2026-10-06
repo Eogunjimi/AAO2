@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { company } from '@/data/company';
 import { cn } from '@/lib/cn';
@@ -15,7 +15,7 @@ import styles from './Logo.module.css';
 export function Logo({ tone = 'default', className }) {
   return (
     <Link
-      to={paths.home}
+      href={paths.home}
       className={cn(styles.logo, styles[tone], className)}
       aria-label={`${company.name} — home`}
     >

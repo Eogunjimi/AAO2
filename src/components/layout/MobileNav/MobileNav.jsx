@@ -1,5 +1,7 @@
+'use client';
+
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { Button } from '@/components/ui';
 import { company, navbarCtaLabel } from '@/data/company';
@@ -62,7 +64,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
       <nav aria-label="Mobile">
         <ul className={styles.list}>
           <li>
-            <Link to={paths.home} className={styles.link} onClick={onNavigate}>
+            <Link href={paths.home} className={styles.link} onClick={onNavigate}>
               Home
             </Link>
           </li>
@@ -73,7 +75,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
             <ul className={styles.sublist}>
               {aboutLinks.map((link) => (
                 <li key={link.id}>
-                  <Link to={link.to} className={styles.subLink} onClick={onNavigate}>
+                  <Link href={link.to} className={styles.subLink} onClick={onNavigate}>
                     {link.label}
                   </Link>
                 </li>
@@ -87,7 +89,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
             <>
               <ul className={styles.sublist}>
                 <li>
-                  <Link to={paths.services} className={styles.subLink} onClick={onNavigate}>
+                  <Link href={paths.services} className={styles.subLink} onClick={onNavigate}>
                     All Services
                   </Link>
                 </li>
@@ -99,7 +101,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
                   <ul className={styles.sublist}>
                     {group.links.map((link) => (
                       <li key={link.id}>
-                        <Link to={link.to} className={styles.subLink} onClick={onNavigate}>
+                        <Link href={link.to} className={styles.subLink} onClick={onNavigate}>
                           {link.label}
                         </Link>
                       </li>
@@ -111,7 +113,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
           )}
 
           <li>
-            <Link to={paths.projects} className={styles.link} onClick={onNavigate}>
+            <Link href={paths.projects} className={styles.link} onClick={onNavigate}>
               Projects
             </Link>
           </li>
@@ -122,7 +124,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
             <ul className={styles.sublist}>
               {areaLinks.map((link) => (
                 <li key={link.id}>
-                  <Link to={link.to} className={styles.subLink} onClick={onNavigate}>
+                  <Link href={link.to} className={styles.subLink} onClick={onNavigate}>
                     {link.label}
                   </Link>
                 </li>
@@ -131,7 +133,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
           )}
 
           <li>
-            <Link to={anchors.contact} className={styles.link} onClick={onNavigate}>
+            <Link href={anchors.contact} className={styles.link} onClick={onNavigate}>
               Contact Us
             </Link>
           </li>

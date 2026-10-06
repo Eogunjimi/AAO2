@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { Button, Container, Reveal, Section, SectionHeading } from '@/components/ui';
 import { getRelatedServices } from '@/lib/services';
@@ -41,7 +41,7 @@ export function RelatedServices({ slug, limit = 3 }) {
         <ul className={styles.grid}>
           {related.map((service, index) => (
             <Reveal as="li" key={service.slug} delay={index * 60}>
-              <Link to={paths.service(service.slug)} className={styles.card}>
+              <Link href={paths.service(service.slug)} className={styles.card}>
                 <span className={styles.thumb}>
                   <img src={service.image} alt={service.title} loading="lazy" decoding="async" />
                 </span>

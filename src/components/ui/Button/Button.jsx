@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { cn } from '@/lib/cn';
 
@@ -7,11 +7,19 @@ import styles from './Button.module.css';
 /**
  * The single call-to-action primitive.
  *
- * Renders a router `<Link>` when `to` is given, an `<a>` when `href` is given
+ * Renders a Next `<Link>` when `to` is given, an `<a>` when `href` is given
  * (external links, `tel:` and `mailto:`), and a `<button>` otherwise — so
  * markup semantics always match the action.
  *
+ * The `to` / `href` split is deliberate and predates the Next migration: `to`
+ * means "a route on this site" and gets client-side navigation plus
+ * prefetching, `href` means "a raw URL" and is emitted verbatim. Keeping both
+ * is what lets the component decide between `<Link>` and `<a>` without
+ * guessing from the string.
+ *
  * @param {Object} props
+ * @param {string} [props.to]   Internal route — rendered with next/link.
+ * @param {string} [props.href] External URL, `tel:` or `mailto:`.
  * @param {'solid'|'volt'|'whatsapp'|'ghost'|'ghost-light'} [props.variant]
  * @param {'sm'|'md'} [props.size]
  * @param {boolean} [props.block] Stretch to the container width.
@@ -37,7 +45,7 @@ export function Button({
 
   if (to) {
     return (
-      <Link to={to} className={classes} {...rest}>
+      <Link href={to} className={classes} {...rest}>
         {children}
       </Link>
     );

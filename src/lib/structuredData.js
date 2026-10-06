@@ -1,12 +1,11 @@
 import { company, serviceAreas } from '@/data/company';
 import { services } from '@/data/services';
 
-/** Builders for schema.org JSON-LD payloads injected by the `<Seo />` component. */
+/** Builders for schema.org JSON-LD payloads rendered by the `<JsonLd />` component. */
 
-export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? 'https://www.aaoengineering.com').replace(
-  /\/$/,
-  '',
-);
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.aaoengineering.com'
+).replace(/\/$/, '');
 
 export function absoluteUrl(path = '/') {
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;

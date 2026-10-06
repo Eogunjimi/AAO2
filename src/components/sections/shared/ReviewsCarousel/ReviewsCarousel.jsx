@@ -1,3 +1,5 @@
+'use client';
+
 import { IconButton, Reveal, ReviewCard } from '@/components/ui';
 import { useCarousel } from '@/hooks/useCarousel';
 import { useInView } from '@/hooks/useInView';

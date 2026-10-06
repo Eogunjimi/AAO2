@@ -1,6 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 
 import { quoteForm } from '@/data/forms';
@@ -11,11 +10,7 @@ import { QuoteForm } from './QuoteForm';
 const submitButton = { name: new RegExp(quoteForm.submit, 'i') };
 
 function renderForm() {
-  return render(
-    <MemoryRouter>
-      <QuoteForm />
-    </MemoryRouter>,
-  );
+  return render(<QuoteForm />);
 }
 
 describe('<QuoteForm />', () => {

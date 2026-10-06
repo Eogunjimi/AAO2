@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { Container, Eyebrow, Icon, Reveal, Stars } from '@/components/ui';
 import { trustChips } from '@/data/company';
@@ -54,7 +54,7 @@ export function PageHero({ id, title, keyword, subtitle, image, eyebrow, breadcr
               <ol>
                 {breadcrumb.map((crumb) => (
                   <li key={crumb.label} aria-current={crumb.to ? undefined : 'page'}>
-                    {crumb.to ? <Link to={crumb.to}>{crumb.label}</Link> : crumb.label}
+                    {crumb.to ? <Link href={crumb.to}>{crumb.label}</Link> : crumb.label}
                   </li>
                 ))}
               </ol>

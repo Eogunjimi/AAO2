@@ -1,3 +1,5 @@
+'use client';
+
 import { useInView } from '@/hooks/useInView';
 import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
 import { cn } from '@/lib/cn';

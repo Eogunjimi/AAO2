@@ -1,3 +1,5 @@
+'use client';
+
 import { FormField } from '@/components/forms/FormField';
 import { Honeypot } from '@/components/forms/Honeypot';
 import { Button, Container, Icon, Reveal } from '@/components/ui';

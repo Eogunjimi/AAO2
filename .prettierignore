@@ -1,4 +1,5 @@
-dist
+.next
+out
 coverage
 legacy
 node_modules

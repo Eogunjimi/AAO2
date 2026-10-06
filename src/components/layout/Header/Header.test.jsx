@@ -1,18 +1,12 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 
 import { aboutMenu, getServiceMenuGroups, primaryNav } from '@/data/navigation';
 
 import { Header } from './Header';
 
-const renderHeader = () =>
-  render(
-    <MemoryRouter>
-      <Header />
-    </MemoryRouter>,
-  );
+const renderHeader = () => render(<Header />);
 
 const nav = () => screen.getByRole('navigation', { name: 'Primary' });
 

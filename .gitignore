@@ -4,8 +4,9 @@ node_modules/
 .pnp.js
 
 # build output
+.next/
+out/
 dist/
-dist-ssr/
 build/
 
 # test output
@@ -34,3 +35,4 @@ Thumbs.db
 .eslintcache
 .vite/
 *.tsbuildinfo
+next-env.d.ts

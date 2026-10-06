@@ -1,5 +1,8 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 
 import { Logo } from '@/components/layout/Logo';
 import { MobileNav } from '@/components/layout/MobileNav';
@@ -31,22 +34,25 @@ export function Header() {
   const [openMenu, setOpenMenu] = useState(null);
   const navRef = useRef(null);
   const triggerRefs = useRef({});
-  const location = useLocation();
+  const pathname = usePathname();
   const serviceGroups = getServiceMenuGroups();
 
   useScrollLock(isDrawerOpen);
 
-  // Close everything when the route (or hash) changes. Adjusting state during
-  // render — rather than in an effect — avoids a flash of the open menu on the
-  // new page.
-  const locationKey = `${location.pathname}${location.hash}`;
-  const [lastLocationKey, setLastLocationKey] = useState(locationKey);
+  // Close everything when the route changes. Adjusting state during render —
+  // rather than in an effect — avoids a flash of the open menu on the new page.
+  const [lastPathname, setLastPathname] = useState(pathname);
 
-  if (lastLocationKey !== locationKey) {
-    setLastLocationKey(locationKey);
+  if (lastPathname !== pathname) {
+    setLastPathname(pathname);
     setDrawerOpen(false);
     setOpenMenu(null);
   }
+
+  // `usePathname()` ignores the fragment, so a same-page jump like `/#contact`
+  // would otherwise leave the panel hanging open. Every link inside a panel
+  // closes it on click, which covers both cases.
+  const closeMenu = () => setOpenMenu(null);
 
   useEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
@@ -81,7 +87,7 @@ export function Header() {
               if (!item.menu) {
                 return (
                   <li key={item.id}>
-                    <Link to={item.to} className={styles.navLink}>
+                    <Link href={item.to} className={styles.navLink}>
                       {item.label}
                     </Link>
                   </li>
@@ -133,7 +139,11 @@ export function Header() {
                               <ul>
                                 {group.links.map((link) => (
                                   <li key={link.id}>
-                                    <Link to={link.to} className={styles.megaLink}>
+                                    <Link
+                                      href={link.to}
+                                      className={styles.megaLink}
+                                      onClick={closeMenu}
+                                    >
                                       {link.label}
                                     </Link>
                                   </li>
@@ -143,7 +153,11 @@ export function Header() {
                           ))}
                         </div>
 
-                        <Link to={paths.services} className={styles.megaFooter}>
+                        <Link
+                          href={paths.services}
+                          className={styles.megaFooter}
+                          onClick={closeMenu}
+                        >
                           View all services →
                         </Link>
                       </div>
@@ -153,14 +167,22 @@ export function Header() {
                         <ul className={styles.areaGrid}>
                           {areaMenu.map((link) => (
                             <li key={link.id}>
-                              <Link to={link.to} className={styles.simpleLink}>
+                              <Link
+                                href={link.to}
+                                className={styles.simpleLink}
+                                onClick={closeMenu}
+                              >
                                 {link.label}
                               </Link>
                             </li>
                           ))}
                         </ul>
 
-                        <Link to={anchors.areas} className={styles.megaFooter}>
+                        <Link
+                          href={anchors.areas}
+                          className={styles.megaFooter}
+                          onClick={closeMenu}
+                        >
                           See our full coverage →
                         </Link>
                       </div>
@@ -169,7 +191,11 @@ export function Header() {
                         <ul>
                           {aboutMenu.map((link) => (
                             <li key={link.id}>
-                              <Link to={link.to} className={styles.simpleLink}>
+                              <Link
+                                href={link.to}
+                                className={styles.simpleLink}
+                                onClick={closeMenu}
+                              >
                                 {link.label}
                               </Link>
                             </li>

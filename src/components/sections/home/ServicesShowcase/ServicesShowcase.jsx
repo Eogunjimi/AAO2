@@ -1,5 +1,7 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import {
   Button,
@@ -145,7 +147,7 @@ export function ServicesShowcase() {
                         Get started →
                       </Button>
                     ) : (
-                      <Link to={paths.service(service.slug)} className={styles.miniLink}>
+                      <Link href={paths.service(service.slug)} className={styles.miniLink}>
                         Get started →
                       </Link>
                     )}

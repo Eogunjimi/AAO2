@@ -1,5 +1,4 @@
 export { useCarousel } from './useCarousel';
-export { useDocumentMeta } from './useDocumentMeta';
 export { useEventListener } from './useEventListener';
 export { useHorizontalScroll } from './useHorizontalScroll';
 export { useInView } from './useInView';

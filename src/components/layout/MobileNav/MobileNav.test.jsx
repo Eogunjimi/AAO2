@@ -1,6 +1,5 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 
 import { aboutMenu, areaMenu, getServiceMenuGroups } from '@/data/navigation';
@@ -9,17 +8,15 @@ import { MobileNav } from './MobileNav';
 
 function renderDrawer(props = {}) {
   return render(
-    <MemoryRouter>
-      <MobileNav
-        id="mobile-navigation"
-        open
-        serviceGroups={getServiceMenuGroups()}
-        aboutLinks={aboutMenu}
-        areaLinks={areaMenu}
-        onNavigate={() => {}}
-        {...props}
-      />
-    </MemoryRouter>,
+    <MobileNav
+      id="mobile-navigation"
+      open
+      serviceGroups={getServiceMenuGroups()}
+      aboutLinks={aboutMenu}
+      areaLinks={areaMenu}
+      onNavigate={() => {}}
+      {...props}
+    />,
   );
 }
 

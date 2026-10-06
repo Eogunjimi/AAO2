@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 
 import { posts } from '@/data/posts';
@@ -9,12 +8,7 @@ import { PostCard } from './PostCard';
 
 const post = posts[0];
 
-const renderCard = () =>
-  render(
-    <MemoryRouter>
-      <PostCard post={post} />
-    </MemoryRouter>,
-  );
+const renderCard = () => render(<PostCard post={post} />);
 
 describe('<PostCard />', () => {
   it('links the title to the full article', () => {
@@ -63,11 +57,7 @@ describe('<PostCard />', () => {
   });
 
   it('lets a host restyle the call to action without forking the card', () => {
-    render(
-      <MemoryRouter>
-        <PostCard post={post} ctaVariant="ghost-light" />
-      </MemoryRouter>,
-    );
+    render(<PostCard post={post} ctaVariant="ghost-light" />);
 
     const cta = screen.getByRole('link', { name: /read now/i });
     expect(cta.className).toMatch(/ghost-light/i);

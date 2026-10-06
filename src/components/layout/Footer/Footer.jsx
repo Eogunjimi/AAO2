@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { Logo } from '@/components/layout/Logo';
 import { Button, Chip, Container, Icon, Marquee } from '@/components/ui';
@@ -71,7 +71,7 @@ export function Footer() {
               <ul>
                 {menu.links.map((link) => (
                   <li key={link.id}>
-                    <Link to={link.to} className={styles.columnLink}>
+                    <Link href={link.to} className={styles.columnLink}>
                       {link.label}
                     </Link>
                   </li>
