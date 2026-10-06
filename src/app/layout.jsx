@@ -78,7 +78,18 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
+    /*
+     * `data-scroll-behavior="smooth"` acknowledges the `scroll-behavior: smooth`
+     * that base.css sets on <html>. Without it Next logs a warning on every
+     * navigation, because it has to decide whether a route change should
+     * animate the scroll back to the top; declaring it keeps the smooth
+     * in-page anchor scrolling the design relies on and silences the notice.
+     */
+    <html
+      lang="en"
+      className={`${manrope.variable} ${inter.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body>
         <SiteLayout>{children}</SiteLayout>
         <noscript>

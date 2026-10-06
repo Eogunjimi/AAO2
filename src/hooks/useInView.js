@@ -1,26 +1,50 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 
-const SUPPORTS_OBSERVER = typeof IntersectionObserver !== 'undefined';
+/**
+ * Whether the environment supports `IntersectionObserver`.
+ *
+ * Read through `useSyncExternalStore` rather than during render. The answer
+ * differs between the server (no such global) and the browser (has one), and
+ * branching on it while rendering is precisely what breaks hydration. The
+ * store's server snapshot deliberately claims support so the first client
+ * render is byte-identical to the prerendered HTML; the real answer is applied
+ * immediately afterwards, which React handles without a mismatch.
+ *
+ * Support cannot change during a session, so the store never notifies.
+ */
+const subscribeNever = () => () => {};
+const getObserverSupport = () => typeof IntersectionObserver !== 'undefined';
+const assumeObserverSupport = () => true;
 
 /**
  * Observe an element's intersection with the viewport.
  *
- * When `IntersectionObserver` is unavailable the element is reported as visible
- * so content is never hidden behind a missing browser API.
+ * The first render returns `initial` and nothing else — no feature detection,
+ * no `typeof window`. Everything environment-dependent happens after mount, so
+ * the server HTML and the browser's first render always agree.
  *
  * @param {Object} [options]
  * @param {number} [options.threshold]
  * @param {string} [options.rootMargin]
  * @param {boolean} [options.once] Stop observing after the first intersection.
+ * @param {boolean} [options.initial] Value for the first render, server and
+ *   client alike. Pass `true` for anything that controls visibility, so the
+ *   content is painted before JavaScript arrives.
  * @returns {[React.RefObject<HTMLElement>, boolean]}
  */
-export function useInView({ threshold = 0.2, rootMargin = '0px', once = false } = {}) {
+export function useInView({
+  threshold = 0.2,
+  rootMargin = '0px',
+  once = false,
+  initial = false,
+} = {}) {
   const ref = useRef(null);
-  const [inView, setInView] = useState(!SUPPORTS_OBSERVER);
+  const [inView, setInView] = useState(initial);
+  const supported = useSyncExternalStore(subscribeNever, getObserverSupport, assumeObserverSupport);
 
   useEffect(() => {
     const element = ref.current;
-    if (!element || !SUPPORTS_OBSERVER) return undefined;
+    if (!element || !supported) return undefined;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -32,7 +56,10 @@ export function useInView({ threshold = 0.2, rootMargin = '0px', once = false } 
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [threshold, rootMargin, once]);
+  }, [supported, threshold, rootMargin, once]);
 
-  return [ref, inView];
+  // Without an observer nothing would ever report back, so report permanently
+  // in view: content stays visible and marquees keep moving instead of being
+  // stranded behind a missing API.
+  return [ref, supported ? inView : true];
 }
