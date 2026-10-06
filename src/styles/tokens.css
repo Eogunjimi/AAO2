@@ -73,7 +73,12 @@
     color-mix(in srgb, var(--color-teal) 5%, transparent) 0 1px,
     transparent 1px 88px
   );
-  --container-gutter: 24px;
+  /*
+   * Fluid gutter: 24px is comfortable on a laptop but eats 15% of a 320px
+   * phone. Scaling with the viewport hands that width back to the content
+   * without a breakpoint — 16px at 320px, 24px from ~600px up.
+   */
+  --container-gutter: clamp(16px, 4vw, 24px);
   --header-height: 74px;
 
   /* ----- radii (Flip7 scale: softer, friendlier geometry) ----- */
@@ -90,7 +95,16 @@
   --space-md: 1.6rem;
   --space-lg: 2.6rem;
   --space-xl: 4rem;
-  --section-padding: 6rem;
+  /*
+   * Fluid band rhythm. 6rem of air above and below every section is right on
+   * a desktop and absurd on a phone, where it pushes the next section most of
+   * a screen away.
+   *
+   * 10vw reaches the 6rem cap at 960px, so every desktop width is unchanged;
+   * only phones and tablets tighten. It also removes the 32px jump the old
+   * single breakpoint produced either side of 700px.
+   */
+  --section-padding: clamp(3.25rem, 10vw, 6rem);
 
   /* ----- elevation: coloured-glow system ----- */
   /* Ambient shadows are tinted with the teal ink — never plain black. */
