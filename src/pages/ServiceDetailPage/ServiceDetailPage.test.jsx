@@ -2,9 +2,16 @@ import { render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 
-import { getServiceBySlug, getServicePage } from '@/lib/services';
+import { getRelatedServices, getServiceBySlug, getServicePage } from '@/lib/services';
 
 import ServiceDetailPage from './ServiceDetailPage';
+
+/** The JSON-LD payloads `<Seo />` has injected into the document head. */
+function readJsonLd() {
+  return [...document.head.querySelectorAll('script[type="application/ld+json"]')].map((node) =>
+    JSON.parse(node.textContent),
+  );
+}
 
 function renderAt(path) {
   return render(
@@ -114,5 +121,57 @@ describe('<ServiceDetailPage />', () => {
   it('redirects unknown slugs to the not-found route', () => {
     renderAt('/services/does-not-exist');
     expect(screen.getByText('Not found page')).toBeInTheDocument();
+  });
+
+  it('links on to three related services and back to the catalogue', () => {
+    renderAt('/services/cctv');
+
+    const related = screen.getByRole('region', { name: /often needed alongside this/i });
+    const links = within(related).getAllByRole('link');
+
+    // Three service cards plus the route back to the index.
+    const cards = links.filter((link) => link.getAttribute('href') !== '/services');
+    expect(cards).toHaveLength(3);
+    expect(within(related).getByRole('link', { name: /view all services/i })).toHaveAttribute(
+      'href',
+      '/services',
+    );
+
+    // A page must never recommend itself.
+    cards.forEach((link) => {
+      expect(link.getAttribute('href')).toMatch(/^\/services\/.+/);
+      expect(link).not.toHaveAttribute('href', '/services/cctv');
+    });
+  });
+
+  it('prefers related services from the same category', () => {
+    const service = getServiceBySlug('cctv');
+    renderAt('/services/cctv');
+
+    const related = screen.getByRole('region', { name: /often needed alongside this/i });
+    const slugs = getRelatedServices('cctv', 3).map((item) => item.slug);
+
+    // The selector leads with siblings, so the first card shares the category.
+    expect(getServiceBySlug(slugs[0]).category).toBe(service.category);
+    slugs.forEach((slug) => {
+      expect(within(related).getByRole('link', { name: new RegExp(getServiceBySlug(slug).title) }));
+    });
+  });
+
+  it('emits the breadcrumb it renders as BreadcrumbList structured data', () => {
+    const service = getServiceBySlug('solar-inverter');
+    renderAt('/services/solar-inverter');
+
+    const schema = readJsonLd().find((entry) => entry['@type'] === 'BreadcrumbList');
+    expect(schema).toBeDefined();
+
+    // One-for-one with the crumbs in the hero.
+    expect(schema.itemListElement.map((item) => item.name)).toEqual([
+      'Home',
+      'Services',
+      service.title,
+    ]);
+    expect(schema.itemListElement.map((item) => item.position)).toEqual([1, 2, 3]);
+    expect(schema.itemListElement.at(-1)).not.toHaveProperty('item');
   });
 });

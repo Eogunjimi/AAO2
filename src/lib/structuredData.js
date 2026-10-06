@@ -82,6 +82,29 @@ export function buildArticleSchema(post) {
   };
 }
 
+/**
+ * `BreadcrumbList` for a trail that is already on the page.
+ *
+ * Takes the exact array `<PageHero breadcrumb>` renders, so the schema is
+ * generated from the visible crumbs and cannot drift from them. The final
+ * crumb has no `to` (it is the current page) and therefore no `item` — which
+ * is what Google expects for the trailing entry.
+ *
+ * @param {Array<{label: string, to?: string}>} crumbs
+ */
+export function buildBreadcrumbSchema(crumbs) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.label,
+      ...(crumb.to ? { item: absoluteUrl(crumb.to) } : {}),
+    })),
+  };
+}
+
 export function buildFaqSchema(faqs) {
   return {
     '@context': 'https://schema.org',

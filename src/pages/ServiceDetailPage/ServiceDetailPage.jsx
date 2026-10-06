@@ -3,11 +3,16 @@ import { Navigate, useParams } from 'react-router-dom';
 
 import { Seo } from '@/components/common/Seo';
 import { ContactSection, ProcessSection, TrustBadges } from '@/components/sections/home';
-import { ServiceBrief, ServiceHero, ServiceReviews } from '@/components/sections/service';
+import {
+  RelatedServices,
+  ServiceBrief,
+  ServiceHero,
+  ServiceReviews,
+} from '@/components/sections/service';
 import { FaqBand } from '@/components/sections/shared/FaqBand';
 import { ProjectMarquee } from '@/components/sections/shared/ProjectMarquee';
 import { getServiceBySlug, getServicePage } from '@/lib/services';
-import { buildFaqSchema, buildServiceSchema } from '@/lib/structuredData';
+import { buildBreadcrumbSchema, buildFaqSchema, buildServiceSchema } from '@/lib/structuredData';
 import { paths } from '@/routes/paths';
 
 /** Detail page for a single service, addressed by slug. */
@@ -17,10 +22,27 @@ export default function ServiceDetailPage() {
 
   const page = useMemo(() => (service ? getServicePage(service) : null), [service]);
 
+  // One trail, rendered by the hero and emitted as BreadcrumbList below.
+  const breadcrumb = useMemo(
+    () =>
+      service
+        ? [
+            { label: 'Home', to: paths.home },
+            { label: 'Services', to: paths.services },
+            { label: service.title },
+          ]
+        : [],
+    [service],
+  );
+
   const jsonLd = useMemo(() => {
     if (!service) return [];
-    return [buildServiceSchema(service), buildFaqSchema(page.faqs)];
-  }, [service, page]);
+    return [
+      buildServiceSchema(service),
+      buildFaqSchema(page.faqs),
+      buildBreadcrumbSchema(breadcrumb),
+    ];
+  }, [service, page, breadcrumb]);
 
   // Unknown slugs fall through to the 404 route rather than rendering an empty shell.
   if (!service) return <Navigate to={paths.notFound} replace />;
@@ -34,7 +56,7 @@ export default function ServiceDetailPage() {
         jsonLd={jsonLd}
       />
 
-      <ServiceHero service={service} page={page} />
+      <ServiceHero service={service} page={page} breadcrumb={breadcrumb} />
       <TrustBadges />
       <ServiceBrief service={service} page={page} />
 
@@ -59,6 +81,7 @@ export default function ServiceDetailPage() {
       />
 
       <ServiceReviews />
+      <RelatedServices slug={service.slug} />
       <ContactSection defaultService={service.slug} />
       <FaqBand
         id="service-faq-title"

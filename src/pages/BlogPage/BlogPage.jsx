@@ -3,18 +3,23 @@ import { ContactSection, TrustBadges } from '@/components/sections/home';
 import { PageHero } from '@/components/sections/shared/PageHero';
 import { Container, PostCard, Reveal, Section, SectionHeading } from '@/components/ui';
 import { posts } from '@/data/posts';
+import { buildBreadcrumbSchema } from '@/lib/structuredData';
 import { paths } from '@/routes/paths';
 
 import styles from './BlogPage.module.css';
 
 /** Index of every guide and comparison, using the home page's card. */
 export default function BlogPage() {
+  // One trail, rendered by the hero and emitted as BreadcrumbList below.
+  const breadcrumb = [{ label: 'Home', to: paths.home }, { label: 'Blog' }];
+
   return (
     <>
       <Seo
         title="Blog — solar, security and electrical guides for Lagos homes"
         description="Practical guides from AAO Engineering Services: sizing an inverter and battery bank, planning CCTV coverage, solar versus generator costs, load audits, automatic gates and structured cabling."
         image="/images/warm-detail.jpg"
+        jsonLd={[buildBreadcrumbSchema(breadcrumb)]}
       />
 
       <PageHero
@@ -24,7 +29,7 @@ export default function BlogPage() {
         keyword="Guides"
         subtitle="What we have learned across 200+ installations, written down."
         image="/images/warm-detail.jpg"
-        breadcrumb={[{ label: 'Home', to: paths.home }, { label: 'Blog' }]}
+        breadcrumb={breadcrumb}
       />
 
       <TrustBadges />

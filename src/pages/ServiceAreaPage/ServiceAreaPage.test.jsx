@@ -75,6 +75,23 @@ describe('<ServiceAreaPage />', () => {
     });
   });
 
+  it('emits the breadcrumb it renders as BreadcrumbList structured data', () => {
+    const area = getAreaBySlug('ikoyi');
+    renderAt('/service-areas/ikoyi');
+
+    const schema = [...document.head.querySelectorAll('script[type="application/ld+json"]')]
+      .map((node) => JSON.parse(node.textContent))
+      .find((entry) => entry['@type'] === 'BreadcrumbList');
+
+    expect(schema).toBeDefined();
+    expect(schema.itemListElement.map((item) => item.name)).toEqual([
+      'Home',
+      'Service Areas',
+      area.name,
+    ]);
+    expect(schema.itemListElement.at(-1)).not.toHaveProperty('item');
+  });
+
   it('redirects unknown areas to the not-found route', () => {
     renderAt('/service-areas/somewhere-else');
     expect(screen.getByText('Not found page')).toBeInTheDocument();
