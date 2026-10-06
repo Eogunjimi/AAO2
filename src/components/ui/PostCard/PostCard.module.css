@@ -60,8 +60,7 @@
 
 /*
  * Stretched link: the anchor is the title, but its ::after covers the whole
- * card, so a click on any dead space follows it. The "Read now" button opts
- * back out of that overlay — see `.cta`.
+ * card, so a click anywhere — including on "Read now…" — follows it.
  */
 .titleLink::after {
   content: '';
@@ -91,16 +90,10 @@
   flex: 1;
 }
 
-/*
- * The title link's ::after is painted over the whole card, so the button has
- * to be raised above it to receive its own clicks and focus. `.button` is
- * already position: relative; the z-index is what does the work.
- *
- * Shrink-wrapped rather than stretched, because `.body` is a flex column.
- */
-.cta {
-  position: relative;
-  z-index: 1;
-  align-self: flex-start;
-  margin-top: 0.2rem;
+.link {
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-ember);
+  font-size: 0.84rem;
+  letter-spacing: var(--tracking-wide);
 }
