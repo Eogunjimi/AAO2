@@ -17,11 +17,7 @@ export function FormSuccess({
   className,
 }) {
   return (
-    <div
-      className={cn(styles.success, styles[tone], className)}
-      role="status"
-      aria-live="polite"
-    >
+    <div className={cn(styles.success, styles[tone], className)} role="status" aria-live="polite">
       <p className={styles.title}>{title}</p>
       <p className={styles.message}>{message}</p>
       {reference ? (

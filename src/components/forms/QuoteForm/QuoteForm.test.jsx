@@ -35,7 +35,10 @@ describe('<QuoteForm />', () => {
     renderForm();
 
     await user.type(screen.getByPlaceholderText(quoteForm.fields.name.placeholder), 'Ada Obi');
-    await user.type(screen.getByPlaceholderText(quoteForm.fields.phone.placeholder), 'not-a-number');
+    await user.type(
+      screen.getByPlaceholderText(quoteForm.fields.phone.placeholder),
+      'not-a-number',
+    );
     await user.selectOptions(screen.getByRole('combobox'), 'cctv');
     await user.click(screen.getByRole('button', submitButton));
 
@@ -50,7 +53,10 @@ describe('<QuoteForm />', () => {
     renderForm();
 
     await user.type(screen.getByPlaceholderText(quoteForm.fields.name.placeholder), 'Ada Obi');
-    await user.type(screen.getByPlaceholderText(quoteForm.fields.phone.placeholder), '+234 810 574 3694');
+    await user.type(
+      screen.getByPlaceholderText(quoteForm.fields.phone.placeholder),
+      '+234 810 574 3694',
+    );
     await user.selectOptions(screen.getByRole('combobox'), 'cctv');
     await user.click(screen.getByRole('button', submitButton));
 
