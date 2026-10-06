@@ -33,9 +33,15 @@
   transform: translateY(-2px);
 }
 
+/*
+ * Real logo artwork arrives in wildly different aspect ratios — square agency
+ * crests next to long manufacturer wordmarks. Fixing the height and capping
+ * the width keeps every mark optically similar without per-logo CSS.
+ */
 .logo {
   width: auto;
   height: 56px;
+  max-width: 190px;
   object-fit: contain;
 }
 
@@ -77,6 +83,7 @@
 
   .logo {
     height: 42px;
+    max-width: 140px;
   }
 
   .wordmark {
