@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import { Button } from '@/components/ui/Button';
 import { company } from '@/data/company';
 import { cn } from '@/lib/cn';
 import { paths } from '@/routes/paths';
@@ -9,10 +10,18 @@ import styles from './PostCard.module.css';
 /**
  * Editorial card for a single post, linking to the full article.
  *
- * The whole card is clickable, but only the title is a real link: it is
- * stretched over the card with a pseudo-element. That keeps one entry in the
- * accessibility tree — named with the post title rather than "Read now" — and
- * leaves the card's text selectable.
+ * The whole card is clickable: the title is a real link stretched over the
+ * card with a pseudo-element, which keeps the card's text selectable.
+ *
+ * "Read now" is a second, genuine control rather than decoration, so it is
+ * reachable by keyboard and announced by screen readers. Two things follow
+ * from that:
+ *
+ * - it is lifted above the stretched pseudo-element (see `.cta`) so it
+ *   receives its own clicks instead of the overlay swallowing them;
+ * - its accessible name carries the post title, because a list of cards each
+ *   offering an identical "Read now" tells a screen-reader user nothing about
+ *   where any of them go.
  *
  * The insights rail on the home page and the blog index render this exact
  * component, so the two cannot drift apart. Sizing belongs to the parent.
@@ -41,10 +50,15 @@ export function PostCard({ post, className }) {
 
         <p className={styles.excerpt}>{post.excerpt}</p>
 
-        {/* Decorative: the stretched title link already covers this area. */}
-        <span className={styles.link} aria-hidden="true">
-          Read now…
-        </span>
+        <Button
+          to={paths.blogPost(post.slug)}
+          variant="ghost"
+          size="sm"
+          className={styles.cta}
+          aria-label={`Read now: ${post.title}`}
+        >
+          Read now
+        </Button>
       </div>
     </article>
   );

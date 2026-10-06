@@ -24,24 +24,31 @@ describe('<PostCard />', () => {
     expect(link).toHaveAttribute('href', paths.blogPost(post.slug));
   });
 
-  it('exposes exactly one link, named by the post rather than "Read now"', () => {
+  it('offers "Read now" as a real control, not decoration', () => {
     renderCard();
 
-    // The whole card is clickable via a stretched pseudo-element, so the
-    // accessibility tree must still contain a single, meaningfully named link.
-    expect(screen.getAllByRole('link')).toHaveLength(1);
-    expect(screen.queryByRole('link', { name: /read now/i })).not.toBeInTheDocument();
+    const cta = screen.getByRole('link', { name: /read now/i });
+    expect(cta).toHaveAttribute('href', paths.blogPost(post.slug));
+    expect(cta).not.toHaveAttribute('aria-hidden');
+    expect(cta).toHaveTextContent('Read now');
   });
 
-  it('keeps the "Read now…" affordance visible but out of the a11y tree', () => {
-    const { container } = renderCard();
+  it('names the "Read now" control after the post it opens', () => {
+    renderCard();
 
-    const readNow = screen.getByText(/read now/i);
-    expect(readNow).toBeInTheDocument();
-    expect(readNow).toHaveAttribute('aria-hidden', 'true');
+    // A grid of cards each offering a bare "Read now" tells a screen-reader
+    // user nothing, so the accessible name carries the title too.
+    expect(screen.getByRole('link', { name: `Read now: ${post.title}` })).toBeInTheDocument();
+  });
 
-    // The stretched link is what makes that text clickable.
-    expect(container.querySelector('a').className).toBeTruthy();
+  it('routes both the title and the button to the same post', () => {
+    renderCard();
+
+    const links = screen.getAllByRole('link');
+    expect(links).toHaveLength(2);
+    links.forEach((link) => {
+      expect(link).toHaveAttribute('href', paths.blogPost(post.slug));
+    });
   });
 
   it('renders the post image, category and excerpt', () => {
