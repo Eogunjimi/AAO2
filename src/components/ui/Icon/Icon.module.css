@@ -15,3 +15,19 @@
   fill: currentColor;
   stroke: none;
 }
+
+/*
+  Brand marks paint themselves: each path carries its own `fill` attribute, so
+  this variant must not declare `fill` at all — a CSS declaration would beat
+  the presentation attribute and flatten the logo back to one colour.
+*/
+.brand {
+  stroke: none;
+}
+
+/* High-contrast mode replaces the palette with the user's chosen colours. */
+@media (forced-colors: active) {
+  .brand path {
+    fill: currentColor;
+  }
+}

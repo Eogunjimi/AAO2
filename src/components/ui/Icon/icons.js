@@ -4,6 +4,11 @@
  * Icons are plain data so they can be tree-shaken, tested and reused without
  * pulling in an icon library. `filled: true` switches the SVG from stroke to
  * fill rendering.
+ *
+ * A path is normally just its `d` string. Brand marks whose identity depends
+ * on colour may instead use `{ d, fill }`; the fill is honoured only when the
+ * icon is rendered with `<Icon brand />`, so the same definition serves both
+ * the full-colour logo and a monochrome currentColor version.
  */
 
 export const icons = {
@@ -83,13 +88,29 @@ export const icons = {
       'M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.4a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z',
     ],
   },
+  // The four quadrants of the Google "G" carry the official brand palette.
+  // They only paint themselves when the icon is rendered with `brand`;
+  // otherwise the mark falls back to currentColor like every other icon.
   google: {
     filled: true,
+    viewBox: '0 0 48 48',
     paths: [
-      'M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4z',
-      'M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z',
-      'M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9z',
-      'M12 6c1.5 0 2.8.5 3.8 1.5L18.7 4.6A10 10 0 0 0 3.1 7.5L6.4 10c.8-2.3 3-4 5.6-4z',
+      {
+        d: 'M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.4 6.6-16.1z',
+        fill: '#4285f4',
+      },
+      {
+        d: 'M24 46c5.9 0 10.9-2 14.6-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.5 2.1-5.7 0-10.6-3.9-12.3-9.1H4.3v5.7C8 41.1 15.4 46 24 46z',
+        fill: '#34a853',
+      },
+      {
+        d: 'M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2v-5.7H4.3C2.9 17.1 2 20.5 2 24s.9 6.9 2.3 9.9l7.4-5.7z',
+        fill: '#fbbc05',
+      },
+      {
+        d: 'M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.3 14.1l7.4 5.7c1.7-5.2 6.6-9 12.3-9z',
+        fill: '#ea4335',
+      },
     ],
   },
   copyright: {

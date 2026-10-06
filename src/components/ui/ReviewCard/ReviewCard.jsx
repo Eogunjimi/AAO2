@@ -35,7 +35,7 @@ export function ReviewCard({ review, showSource = true, className }) {
         <Icon name="quote" size={30} className={styles.mark} />
 
         <span className={styles.rating}>
-          {showSource && sourceIcon ? <Icon name={sourceIcon} size={17} /> : null}
+          {showSource && sourceIcon ? <Icon name={sourceIcon} size={17} brand /> : null}
           <b>{review.rating.toFixed(1)}</b>
           <Stars rating={review.rating} />
         </span>
