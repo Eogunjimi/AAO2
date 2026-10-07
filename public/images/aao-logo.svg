@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!--
+    AAO Engineering logo mark.
+    Traced to match the client's reference pixel-for-pixel where possible:
+    an 8-tooth gear (three visible rectangular cogs + two long diagonal
+    spikes and three shorter pointed cogs), split diagonally bright
+    green / forest green, with a white ring and yellow sun core.
+  -->
+  <defs>
+    <clipPath id="darkHalf">
+      <!-- Bottom-right triangle split from roughly the NE-spike tip
+           down through the SW-spike tip. -->
+      <polygon points="512,122 512,512 0,415" />
+    </clipPath>
+  </defs>
+
+  <!-- Bright green cog (entire silhouette) -->
+  <path fill="#1CBE1C" d="
+    M203 2
+    H316
+    L319 49
+    C 343 54 365 64 383 77
+    L442 36
+    L510 122
+    L445 162
+    C 458 182 467 204 472 228
+    L511 226
+    L511 316
+    L465 318
+    L458 343
+    L490 391
+    L442 440
+    L388 386
+    C 368 400 346 411 321 418
+    L313 419
+    L310 510
+    L201 510
+    L198 460
+    C 173 453 151 441 132 426
+    L77 464
+    L2 413
+    L76 351
+    L71 337
+    L66 317
+    L1 316
+    L3 218
+    L58 217
+    C 63 193 74 171 89 152
+    L38 89
+    L87 38
+    L148 87
+    C 167 74 188 64 202 60
+    Z
+  "/>
+
+  <!-- Dark green overlay (bottom-right half) -->
+  <g clip-path="url(#darkHalf)">
+    <path fill="#17870F" d="
+      M203 2
+      H316
+      L319 49
+      C 343 54 365 64 383 77
+      L442 36
+      L510 122
+      L445 162
+      C 458 182 467 204 472 228
+      L511 226
+      L511 316
+      L465 318
+      L458 343
+      L490 391
+      L442 440
+      L388 386
+      C 368 400 346 411 321 418
+      L313 419
+      L310 510
+      L201 510
+      L198 460
+      C 173 453 151 441 132 426
+      L77 464
+      L2 413
+      L76 351
+      L71 337
+      L66 317
+      L1 316
+      L3 218
+      L58 217
+      C 63 193 74 171 89 152
+      L38 89
+      L87 38
+      L148 87
+      C 167 74 188 64 202 60
+      Z
+    "/>
+  </g>
+
+  <!-- White ring + yellow sun core, slightly offset up-left to feel
+       centred inside the asymmetrical gear. -->
+  <circle cx="258" cy="256" r="138" fill="#ffffff"/>
+  <circle cx="258" cy="256" r="110" fill="#FFD900"/>
+</svg>

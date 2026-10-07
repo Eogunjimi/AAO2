@@ -1,3 +1,5 @@
+'use client';
+
 import { IconButton } from '@/components/ui/IconButton';
 import { useCarousel } from '@/hooks/useCarousel';
 import { useInView } from '@/hooks/useInView';

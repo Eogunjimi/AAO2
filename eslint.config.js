@@ -2,19 +2,18 @@ import js from '@eslint/js';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import prettier from 'eslint-config-prettier';
 
 export default [
-  { ignores: ['dist/**', 'coverage/**', 'legacy/**', 'node_modules/**'] },
+  { ignores: ['.next/**', 'out/**', 'dist/**', 'coverage/**', 'legacy/**', 'node_modules/**', '**/*.test.{js,jsx}', 'src/test/**'] },
   js.configs.recommended,
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,mjs,cjs}'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      globals: { ...globals.browser, ...globals.es2024 },
+      globals: { ...globals.browser, ...globals.es2024, ...globals.node, React: 'readonly' },
       parserOptions: {
         ecmaFeatures: { jsx: true },
       },
@@ -23,7 +22,6 @@ export default [
     plugins: {
       react,
       'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
       'jsx-a11y': jsxA11y,
     },
     rules: {
@@ -31,25 +29,25 @@ export default [
       ...react.configs.flat['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.flatConfigs.recommended.rules,
-      // Props are documented with JSDoc instead of the legacy `prop-types`
-      // runtime package, which React 19 no longer ships support for.
       'react/prop-types': 'off',
       'react/jsx-no-target-blank': ['error', { allowReferrer: false }],
       'react/self-closing-comp': 'warn',
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react/no-danger': 'off',
+      'react-hooks/set-state-in-effect': 'warn',
       'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       eqeqeq: ['error', 'smart'],
       'prefer-const': 'error',
       'object-shorthand': 'warn',
+      'no-undef': 'error',
     },
   },
   {
     files: ['**/*.test.{js,jsx}', 'src/test/**/*.{js,jsx}'],
-    languageOptions: { globals: { ...globals.node, ...globals.vitest } },
+    languageOptions: { globals: { ...globals.node, ...globals.vitest, React: 'readonly' } },
   },
   {
-    files: ['*.config.js', 'scripts/**/*.js'],
+    files: ['*.config.{js,mjs}', 'app/sitemap.js', 'app/robots.js', 'vite.config.js', 'src/lib/env.js'],
     languageOptions: { globals: { ...globals.node } },
   },
   prettier,

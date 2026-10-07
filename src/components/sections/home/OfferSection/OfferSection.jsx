@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router';
 
 import { Button, Container, Eyebrow, Reveal, Section } from '@/components/ui';
 import { seasonalOffer } from '@/data/offer';

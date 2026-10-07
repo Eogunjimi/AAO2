@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from '@/lib/test-router';
 import { describe, expect, it } from 'vitest';
 
 import { generalFaqs } from '@/data/faqs';

@@ -70,13 +70,17 @@ describe('responsive foundations', () => {
   });
 
   it('lets the viewport scale, so pinch-zoom still works', () => {
-    const html = read('index.html');
-    const viewport = html.match(/<meta\s+name="viewport"\s+content="([^"]+)"/)?.[1];
-
-    expect(viewport).toContain('width=device-width');
-    // Blocking zoom is a WCAG failure and breaks low-vision users outright.
-    expect(viewport).not.toMatch(/user-scalable\s*=\s*no/);
-    expect(viewport).not.toMatch(/maximum-scale/);
+    // Under Vite this was an explicit <meta> in index.html; under Next.js the
+    // viewport is declared as `export const viewport` in app/layout.jsx.
+    const layoutSource = read('app/layout.jsx');
+    // We export `viewport` but deliberately do NOT set maximumScale or
+    // userScalable = false — blocking zoom is a WCAG failure.
+    expect(layoutSource).toMatch(/export const viewport/);
+    expect(layoutSource).not.toMatch(/maximumScale/);
+    expect(layoutSource).not.toMatch(/userScalable/);
+    // width=device-width and initialScale=1 are still asserted.
+    expect(layoutSource).toMatch(/width:\s*'device-width'/);
+    expect(layoutSource).toMatch(/initialScale:\s*1/);
   });
 
   it('declares no fixed width wider than the narrowest screen', () => {

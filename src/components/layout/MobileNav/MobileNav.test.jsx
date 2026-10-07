@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from '@/lib/test-router';
 import { describe, expect, it, vi } from 'vitest';
 
 import { aboutMenu, areaMenu, getServiceMenuGroups } from '@/data/navigation';

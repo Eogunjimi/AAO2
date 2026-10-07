@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router';
 
 import { Button, Container, Reveal, Section, SectionHeading } from '@/components/ui';
 import { getRelatedServices } from '@/lib/services';

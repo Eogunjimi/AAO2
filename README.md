@@ -3,8 +3,9 @@
 Marketing site for AAO Engineering Services (Lagos): solar & inverter systems, electrical
 installations, CCTV & security, access control, automation and ICT networking.
 
-Originally a set of hand-written HTML files, the site is now a **React + Vite** single-page
-application with a component library, centralised content data and a test suite.
+The site is a **Next.js 15 (App Router)** React application with a component library,
+centralised content data, full static generation (SSG) and a Vitest unit/component test
+suite.
 
 ```
 Accountability · Authenticity · Outstanding Service
@@ -16,137 +17,82 @@ Accountability · Authenticity · Outstanding Service
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
+npm run dev        # http://localhost:3000
+npm run build      # Production build into .next/ (static + SSG routes)
+npm start          # Serve the production build
+npm test           # Vitest unit/component tests
 ```
 
-| Script               | What it does                                |
-| -------------------- | ------------------------------------------- |
-| `npm run dev`        | Vite dev server with HMR                    |
-| `npm run build`      | Production build into `dist/`               |
-| `npm run preview`    | Serve the production build locally          |
-| `npm run lint`       | ESLint (React, hooks, a11y, import hygiene) |
-| `npm run format`     | Prettier write                              |
-| `npm run test`       | Vitest unit/component tests                 |
-| `npm run test:watch` | Vitest in watch mode                        |
+Requires Node 22+.
 
-Requires Node 20+.
+| Script               | What it does                                          |
+| -------------------- | ----------------------------------------------------- |
+| `npm run dev`        | Next.js dev server with HMR on port 3000              |
+| `npm run build`      | Production build, generates static pages into `.next/`|
+| `npm start`          | Serve the production build locally                    |
+| `npm run format`     | Prettier write                                        |
+| `npm run format:check` | Prettier check                                      |
+| `npm test`           | Vitest unit/component tests                           |
+| `npm run test:watch` | Vitest in watch mode                                  |
 
 ---
 
 ## Architecture
 
 ```
+app/                       # Next.js App Router (server components)
+├── layout.jsx             # Root layout (html shell, shared chrome, metadata)
+├── page.jsx               # Home /
+├── services/
+│   ├── page.jsx           # /services
+│   └── [slug]/page.jsx    # /services/:slug (SSG via generateStaticParams)
+├── projects/page.jsx      # /projects
+├── blog/
+│   ├── page.jsx           # /blog
+│   └── [slug]/page.jsx    # /blog/:slug
+├── service-areas/
+│   └── [slug]/page.jsx    # /service-areas/:slug
+├── team | career | academy | shop/page.jsx  # coming-soon placeholders
+├── not-found.jsx          # 404 page
+├── sitemap.js             # /sitemap.xml (generated from content data)
+└── robots.js              # /robots.txt
 src/
-├── main.jsx                 # entry: mounts <App /> into #root
-├── App.jsx                  # ErrorBoundary → BrowserRouter → AppRoutes
-├── routes/
-│   ├── paths.js             # single source of truth for URLs and #anchors
-│   └── AppRoutes.jsx        # route table, lazy-loads everything but Home
-├── pages/                   # one folder per route, composes sections only
+├── views/                 # Page-level React components (consumed by app/*)
 ├── components/
-│   ├── ui/                  # design-system primitives (Button, Section, Reveal…)
-│   ├── layout/              # Header, MobileNav, Footer, SiteLayout, ScrollManager
-│   ├── forms/               # QuoteForm, ContactForm, FormField, FormSuccess
-│   ├── common/              # Seo, ErrorBoundary, PageLoader
-│   └── sections/            # page sections: home/, service/, shared/
-├── data/                    # all copy & content as plain JS modules
-├── hooks/                   # useCarousel, useInView, useMediaQuery, useLeadForm…
-├── lib/                     # pure helpers: services, validation, leads, schema.org
-└── styles/                  # tokens.css, base.css, animations.css
+│   ├── ui/                # Design-system primitives (Button, Section, Reveal…)
+│   ├── layout/            # Header, MobileNav, Footer, SiteLayout, ScrollManager
+│   ├── forms/             # QuoteForm, ContactForm, FormField, FormSuccess
+│   ├── common/            # Seo, ErrorBoundary
+│   └── sections/          # page sections: home/, service/, shared/, area/
+├── data/                  # All copy & content as plain JS modules
+├── hooks/                 # useCarousel, useInView, useMediaQuery, useLeadForm…
+├── lib/                   # Pure helpers + Next/react-router compat shims
+├── routes/                # Centralised paths and anchor constants
+├── styles/                # tokens.css, base.css
+└── test/                  # Vitest setup + responsive guard tests
+public/                    # Static assets served at root (favicon, images, …)
 ```
 
 **Rules of the codebase**
 
 1. **No content in components.** Every string a visitor reads lives in `src/data/*.js`.
-   Adding a service is a data change, not a code change — see below.
-2. **Styling is CSS Modules + design tokens.** No inline style blocks, no utility soup.
-   Colours, spacing, radii, shadows and typography come from `src/styles/tokens.css`.
-3. **Primitives before markup.** If two sections need the same visual, it becomes a
-   component in `src/components/ui/` (or `sections/shared/`) rather than a copy-paste.
-4. **Behaviour lives in hooks.** Carousels, autoplay, scroll locking, intersection reveals
-   and form state are hooks, so sections stay declarative.
-5. **Props are documented with JSDoc**, not `prop-types` (removed in React 19).
+2. **Server components first.** Pages in `app/` are server components; interactive bits
+   (carousels, forms, dropdowns, scroll-reveal, lead submission) opt into client
+   rendering with `'use client'`.
+3. **Single source of truth for URLs.** Never hard-code a path — use `paths` / `anchors`
+   from `src/routes/paths.js`.
+4. **Content drives SEO.** `generateStaticParams`, the `sitemap.js` route and the
+   JSON-LD schema builders all derive from the same content data in `src/data/`, so
+   new services/posts/areas are picked up automatically.
 
-### Routing
+## Environment variables
 
-| Route             | Page                | Notes                                        |
-| ----------------- | ------------------- | -------------------------------------------- |
-| `/`               | `HomePage`          | In the main bundle — it is the landing route |
-| `/services`       | `ServicesPage`      | Catalogue grouped by category, lazy-loaded   |
-| `/services/:slug` | `ServiceDetailPage` | Data-driven; unknown slugs redirect to 404   |
-| `*`               | `NotFoundPage`      | 404 with onward links                        |
+Copy `.env.example` to `.env.local`:
 
-`ScrollManager` restores scroll on navigation and smooth-scrolls to `#hash` targets.
-`public/_redirects` rewrites every path to `index.html` so deep links work on static hosts.
+| Variable                    | Purpose                                                                 |
+| --------------------------- | ----------------------------------------------------------------------- |
+| `NEXT_PUBLIC_LEAD_ENDPOINT` | POST endpoint that receives contact/quote submissions. Leave blank to run in demo mode. |
+| `NEXT_PUBLIC_SITE_URL`      | Absolute site URL, used for canonical tags and structured data.         |
 
-### Content model
-
-`src/data/services.js` drives navigation, the catalogue, the mega-menu, every service page
-and the enquiry form's dropdown. One entry looks like this:
-
-```js
-{
-  slug: 'cctv',
-  title: 'CCTV Systems',
-  category: 'Security & Surveillance',
-  summary: '…',        // cards and meta description
-  headline: '…',       // <h1> on the detail page
-  intro: '…',
-  image: '/images/cctv.jpg',
-  signs: ['…'],        // "signs you need this" list
-  approach: ['…'],     // how AAO delivers it
-  benefits: [{ title: '…', description: '…' }],
-  faq: { question: '…', answer: '…' },
-}
-```
-
-Add an object there, list its slug in `src/data/navigation.js` if it should appear in the
-menu, drop an image in `public/images/` — the new page, route, nav entry, related-service
-suggestions and form option all appear automatically.
-
-### SEO
-
-`<Seo />` sets the title, description, canonical, Open Graph/Twitter tags and injects
-JSON-LD. `src/lib/structuredData.js` builds `LocalBusiness`, `Service` and `FAQPage` schemas
-from the same data the pages render, so structured data can never drift from the copy.
-
-### Accessibility
-
-Skip link, single `<h1>` per page, labelled landmarks, `aria-expanded`/`aria-controls` on the
-accordion and mega-menu, focus-visible rings, `aria-live` on the process stepper and form
-status, `prefers-reduced-motion` honoured by `Reveal` and the marquee, and carousels that are
-fully operable from the keyboard. `eslint-plugin-jsx-a11y` runs in CI.
-
-### Lead capture
-
-Forms validate with `src/lib/validation.js` and submit through `src/lib/leads.js`, which posts
-to `VITE_LEAD_ENDPOINT` when configured and otherwise resolves locally so the UI can be
-demoed without a backend. Copy `.env.example` to `.env.local` to point it at a real endpoint.
-
----
-
-## Testing
-
-Vitest + Testing Library, jsdom environment, setup in `src/test/setup.js`:
-
-```bash
-npm run test
-```
-
-Covers the service selectors and data integrity, form validation, the carousel hook, the
-accordion's ARIA contract, the quote form's submit path, service-detail rendering and routing
-(including the 404 redirect).
-
-## Deployment
-
-```bash
-npm run build     # → dist/
-```
-
-Any static host works (Netlify, Vercel, Cloudflare Pages, S3 + CloudFront). The SPA fallback
-is already declared in `public/_redirects`; on other hosts rewrite all routes to `/index.html`.
-
-## `legacy/`
-
-`legacy/prototype/` keeps the original HTML files for reference. They are excluded from the
-build, ESLint and Prettier, and can be deleted once the React site is signed off.
+The legacy `VITE_LEAD_ENDPOINT` / `VITE_SITE_URL` names are also honoured by the
+`src/lib/env.js` compatibility helper, so existing deployments keep working.

@@ -3,13 +3,13 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "checkJs": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "vite.config.js", "eslint.config.js"],
-  "exclude": ["node_modules", "dist", "legacy"]
+  "include": ["src/**/*", "next.config.mjs", "eslint.config.js", "vitest.config.js"],
+  "exclude": ["node_modules", ".next", "out", "dist", "legacy"]
 }

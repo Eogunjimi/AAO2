@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect } from 'react';
 
 /** Freeze body scrolling while an overlay (mobile nav, modal) is open. */

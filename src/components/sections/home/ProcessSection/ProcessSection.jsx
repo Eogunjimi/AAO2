@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Chip, Container, Reveal, Section, SectionHeading } from '@/components/ui';
 import { processSteps as defaultSteps } from '@/data/process';
 import { useCarousel } from '@/hooks/useCarousel';
