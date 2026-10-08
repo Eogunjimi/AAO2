@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="1200" height="260" role="img" aria-label="LUMINOUS">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 270" width="1200" height="270" role="img" aria-label="LUMINOUS">
   <!--
-    LUMINOUS partner wordmark. Brand blue, bold condensed oblique capitals.
-    Rendered as text with a tight font stack (Oswald/Anton/Impact/
-    Helvetica/Arial Black) so it stays crisp and legible at any size, and
-    skewed slightly to match the forward slant of the supplied mark.
+    LUMINOUS wordmark — brand blue (#0E4B92). Renders as heavy, wide,
+    upright sans-serif capitals using a system-font stack; falls back
+    gracefully to any available black/extended face so the lockup
+    always appears bold and solid like the supplied reference.
   -->
-  <g transform="skewX(-6)">
-    <text x="0" y="200"
-          font-family="'Oswald','Anton','Arial Narrow','Helvetica Condensed','Impact','Arial Black',sans-serif"
-          font-weight="900"
-          font-size="250"
-          letter-spacing="-2"
-          fill="#0D4792">LUMINOUS</text>
-  </g>
+  <style>
+    .luminous-word {
+      font-family: "Arial Black", "Helvetica Neue Black", "Helvetica Black",
+                   "Oswald", "Anton", "Impact", "Arial Bold", sans-serif;
+      font-weight: 900;
+      font-size: 240px;
+      letter-spacing: -1px;
+      fill: #0E4B92;
+    }
+  </style>
+  <text x="0" y="215" class="luminous-word">LUMINOUS</text>
 </svg>
