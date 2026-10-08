@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600;700&display=swap"
         />
         <noscript>
-          {`${company.name} — solar, electrical, CCTV and security installations in Lagos. Please enable JavaScript, or call (810) 574-3694 to reach our team.`}
+          {`${company.name} — solar, electrical, CCTV and security installations in Lagos. Please enable JavaScript, or call ${company.phone.display} to reach our team.`}
         </noscript>
       </head>
       <body>

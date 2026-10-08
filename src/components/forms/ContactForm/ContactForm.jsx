@@ -86,7 +86,7 @@ export function ContactForm({ defaultService = '' }) {
       <FormField
         {...field('phone')}
         label="Phone / WhatsApp"
-        placeholder="0810 574 3694"
+        placeholder="+234 810 574 3694"
         required
         type="tel"
         inputMode="tel"
