@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="1200" height="260" role="img" aria-label="LUMINOUS">
+  <!--
+    LUMINOUS partner wordmark. Brand blue, bold condensed oblique capitals.
+    Rendered as text with a tight font stack (Oswald/Anton/Impact/
+    Helvetica/Arial Black) so it stays crisp and legible at any size, and
+    skewed slightly to match the forward slant of the supplied mark.
+  -->
+  <g transform="skewX(-6)">
+    <text x="0" y="200"
+          font-family="'Oswald','Anton','Arial Narrow','Helvetica Condensed','Impact','Arial Black',sans-serif"
+          font-weight="900"
+          font-size="250"
+          letter-spacing="-2"
+          fill="#0D4792">LUMINOUS</text>
+  </g>
+</svg>

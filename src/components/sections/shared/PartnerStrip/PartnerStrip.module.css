@@ -45,6 +45,14 @@
   object-fit: contain;
 }
 
+/* Per-logo tweaks. Add overrides here when a specific partner's artwork
+ * needs a slight nudge (height, width cap, opacity) to sit nicely next to
+ * the other marks in the strip. */
+.logo-luminous {
+  height: 44px;
+  max-width: 220px;
+}
+
 .wordmark {
   font-family: var(--font-display);
   font-weight: var(--font-weight-extrabold);
