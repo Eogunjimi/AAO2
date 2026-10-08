@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 270" width="1200" height="270" role="img" aria-label="LUMINOUS">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 580" width="2400" height="580" role="img" aria-label="LUMINOUS">
   <!--
-    LUMINOUS wordmark — brand blue (#0E4B92). Renders as heavy, wide,
-    upright sans-serif capitals using a system-font stack; falls back
-    gracefully to any available black/extended face so the lockup
-    always appears bold and solid like the supplied reference.
+    LUMINOUS wordmark — hand-traced vector matching the supplied reference
+    (royal blue #0E4B92 on transparent; bold, upright, wide geometric
+    sans-serif capitals).
   -->
-  <style>
-    .luminous-word {
-      font-family: "Arial Black", "Helvetica Neue Black", "Helvetica Black",
-                   "Oswald", "Anton", "Impact", "Arial Bold", sans-serif;
-      font-weight: 900;
-      font-size: 240px;
-      letter-spacing: -1px;
-      fill: #0E4B92;
-    }
-  </style>
-  <text x="0" y="215" class="luminous-word">LUMINOUS</text>
+  <g fill="#0E4B92">
+    <!-- L -->
+    <path d="M30 60 h160 v370 h120 v90 H30 Z"/>
+    <!-- U -->
+    <path d="M370 60 h155 v330 c0 55 40 100 110 100 c66 0 110-40 110-100 V60 h150 v340 c0 118-100 185-260 185 c-165 0-265-68-265-185 Z"/>
+    <!-- M -->
+    <path d="M955 60 h150 l85 290 h4 l90-290 h150 l30 460 h-160 l-12-300 -95 300 h-68 l-92-300 -12 300 H928 Z"/>
+    <!-- I -->
+    <path d="M1510 60 h150 v460 h-150 Z"/>
+    <!-- N -->
+    <path d="M1700 60 h145 l10 280 h4 l140-280 h140 v460 h-138 l-12-288 -150 288 h-139 Z"/>
+    <!-- O -->
+    <path d="M2170 290 c0-130 108-230 245-230 c140 0 245 100 245 230 c0 140-105 230-245 230 c-137 0-245-90-245-230 Z
+             M2310 290 c0 70 40 120 105 120 c68 0 105-50 105-120 c0-65-38-120-105-120 c-65 0-105 55-105 120 Z"/>
+    <!-- U -->
+    <path d="M2710 60 h148 v330 c0 55 42 100 112 100 c70 0 108-40 108-100 V60 h148 v340 c0 118-92 185-256 185 c-168 0-260-68-260-185 Z"/>
+    <!-- S -->
+    <path d="M3540 248 c-8-64 55-110 148-110 c95 0 160 48 160 128 c0 60-42 92-120 120 l-68 22 c-32 10-55 22-55 52 c0 32 28 58 80 58 c55 0 90-24 98-68 h132 c-8 108-90 180-230 180 c-130 0-215-68-215-174 c0-60 38-100 118-124 l72-22 c38-12 55-26 55-52 c0-30-26-58-78-58 c-48 0-82 24-88 60 Z" transform="translate(-420 0)"/>
+  </g>
 </svg>
