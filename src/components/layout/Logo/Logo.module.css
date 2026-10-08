@@ -53,3 +53,19 @@
 .inverse .sub {
   color: rgba(255, 255, 255, 0.5);
 }
+
+/* Preserve the supplied artwork's aspect ratio and original brand colors. */
+.artwork {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 700px) {
+  .artwork {
+    width: 40px;
+    height: 40px;
+  }
+}

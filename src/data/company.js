@@ -127,7 +127,12 @@ export const certifications = [
   { id: 'nse', name: 'NSE', descriptor: 'Accredited', logo: null },
   { id: 'rean', name: 'REAN', descriptor: 'Accredited', logo: null },
   { id: 'felicity-solar', name: 'Felicity Solar', descriptor: 'Partner brand', logo: null },
-  { id: 'luminous', name: 'Luminous', descriptor: 'Partner brand', logo: null },
+  {
+    id: 'luminous',
+    name: 'Luminous',
+    descriptor: 'Partner brand',
+    logo: 'https://i.postimg.cc/BbDgYDsZ/luminous-transparent.png',
+  },
   { id: 'growatt', name: 'Growatt', descriptor: 'Partner brand', logo: null },
   { id: 'deye', name: 'Deye', descriptor: 'Partner brand', logo: null },
   { id: 'hikvision', name: 'Hikvision', descriptor: 'Partner brand', logo: null },

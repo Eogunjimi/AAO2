@@ -26,6 +26,12 @@
     transform var(--duration-base) var(--ease);
 }
 
+/* Keep the supplied Luminous artwork in its original brand color. */
+.fullColor {
+  opacity: 1;
+  filter: none;
+}
+
 /* The marquee pauses on hover, so a mark can be picked out individually. */
 .mark:hover {
   opacity: 1;
