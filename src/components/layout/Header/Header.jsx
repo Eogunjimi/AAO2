@@ -7,6 +7,7 @@ import { TopBar } from '@/components/layout/TopBar';
 import { Button, Container } from '@/components/ui';
 import { navbarCtaLabel } from '@/data/company';
 import { aboutMenu, areaMenu, getServiceMenuGroups, primaryNav } from '@/data/navigation';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useEventListener } from '@/hooks/useEventListener';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { cn } from '@/lib/cn';
@@ -33,6 +34,14 @@ export function Header() {
   const triggerRefs = useRef({});
   const location = useLocation();
   const serviceGroups = getServiceMenuGroups();
+
+  const isDesktop = useMediaQuery('(min-width: 1181px)');
+  const [wasDesktop, setWasDesktop] = useState(isDesktop);
+  if (wasDesktop !== isDesktop) {
+    setWasDesktop(isDesktop);
+    setDrawerOpen(false);
+    setOpenMenu(null);
+  }
 
   useScrollLock(isDrawerOpen);
 

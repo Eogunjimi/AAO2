@@ -1,9 +1,8 @@
 .wrap {
-  position: absolute;
+  /* In normal flow: validation errors and larger text cannot overlap the hero. */
+  position: relative;
   z-index: 2;
-  right: 0;
-  bottom: clamp(0.75rem, 1.5vw, 1.25rem);
-  left: 0;
+  padding-bottom: var(--container-gutter);
 }
 
 .bar {
@@ -59,7 +58,7 @@
   font-size: clamp(0.98rem, 1.5vw, 1.25rem);
   line-height: 1.1;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .title span {
@@ -213,13 +212,13 @@
 
 @media (max-width: 1040px) {
   .form {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .form > :global(button) {
     grid-column: auto;
     grid-row: auto;
-    width: auto;
+    width: 100%;
   }
 }
 
@@ -249,7 +248,7 @@
   }
 
   .form > :global(button) {
-    grid-column: 1 / -1;
+    grid-column: auto;
     grid-row: auto;
     width: 100%;
   }
@@ -303,5 +302,14 @@
 
   .reset {
     margin-left: 2.75rem;
+  }
+}
+
+/* Avoid iOS focus zoom and keep touch input text readable. */
+@media (max-width: 900px), (any-pointer: coarse) {
+  .field :global(input),
+  .field :global(select) {
+    font-size: 1rem;
+    min-height: 48px;
   }
 }

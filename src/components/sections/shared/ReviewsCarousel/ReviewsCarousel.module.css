@@ -82,3 +82,8 @@
     transition: none;
   }
 }
+
+.controls,
+.dots {
+  flex-wrap: wrap;
+}

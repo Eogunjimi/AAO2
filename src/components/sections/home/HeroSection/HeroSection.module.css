@@ -2,6 +2,8 @@
   --hero-min-height: clamp(640px, calc(100svh - var(--header-height)), 820px);
 
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: var(--hero-min-height);
   overflow: hidden;
   isolation: isolate;
@@ -61,10 +63,13 @@
 
 .inner {
   position: relative;
-  min-height: var(--hero-min-height);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
   display: grid;
   place-items: center;
-  padding-block: clamp(5.5rem, 10vw, 7.5rem) clamp(10rem, 15vw, 12rem);
+  padding-block: clamp(3rem, 7vw, 5rem) 2rem;
   text-align: center;
   z-index: 1;
 }
@@ -134,6 +139,7 @@
 }
 
 .reviewBadgeTop {
+  flex-wrap: wrap;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -313,6 +319,7 @@
   }
 
   .reviewBadgeTop {
+    flex-wrap: wrap;
     gap: 0.42rem;
   }
 

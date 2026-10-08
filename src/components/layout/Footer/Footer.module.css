@@ -14,7 +14,7 @@
     ),
     var(--color-dark);
   color: var(--color-on-dark);
-  padding-bottom: 2.6rem;
+  padding-bottom: max(2.6rem, env(safe-area-inset-bottom));
   overflow: hidden;
 }
 
@@ -54,7 +54,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1.5fr 0.8fr 0.9fr 1.1fr;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr) minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 3rem;
 }
 
@@ -222,7 +222,7 @@ a.line:hover {
 
 @media (max-width: 960px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .year {
@@ -233,5 +233,26 @@ a.line:hover {
 @media (max-width: 560px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+.grid > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px) {
+  .main {
+    padding-top: 3rem;
+  }
+
+  .footer {
+    /* Leave the final links clear of the floating contact button. */
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+
+  .copy {
+    align-items: flex-start;
+    gap: 0.8rem;
   }
 }

@@ -47,10 +47,14 @@
 }
 
 .controlWrap .control {
+  min-width: 0;
+  max-width: 100%;
   padding-left: 2.35rem;
 }
 
 .control {
+  min-width: 0;
+  max-width: 100%;
   width: 100%;
   border: 1.5px solid color-mix(in srgb, var(--color-star) 26%, var(--color-cream));
   border-radius: var(--radius-md);
@@ -88,6 +92,18 @@
 }
 
 textarea.control {
+  min-width: 0;
+  max-width: 100%;
   resize: vertical;
   min-height: 120px;
+}
+
+/* Avoid iOS focus zoom and keep touch input text readable. */
+@media (max-width: 900px), (any-pointer: coarse) {
+  .control {
+    min-width: 0;
+    max-width: 100%;
+    font-size: 1rem;
+    min-height: 48px;
+  }
 }
