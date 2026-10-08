@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router';
 
 import { Container, Eyebrow, Icon, Reveal, Stars } from '@/components/ui';
 import { trustChips } from '@/data/company';

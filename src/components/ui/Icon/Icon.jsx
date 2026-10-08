@@ -1,3 +1,4 @@
+import { isDev } from '@/lib/env';
 import { cn } from '@/lib/cn';
 
 import styles from './Icon.module.css';
@@ -15,7 +16,7 @@ export function Icon({ name, size = 24, title, className, ...rest }) {
   const icon = icons[name];
 
   if (!icon) {
-    if (import.meta.env.DEV) {
+    if (isDev) {
       console.warn(`[Icon] Unknown icon "${name}"`);
     }
     return null;

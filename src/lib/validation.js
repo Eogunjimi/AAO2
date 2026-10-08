@@ -37,7 +37,7 @@ export const validators = {
       if (!value.trim()) return undefined;
       return isNigerianPhone(value)
         ? undefined
-        : 'Enter a valid Nigerian number, e.g. 0810 574 3694.';
+        : 'Enter a valid Nigerian number, e.g. +234 810 574 3694.';
     },
 };
 

@@ -1,28 +1,26 @@
 {
   "name": "aao-engineering-website",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "type": "module",
   "description": "Marketing website for AAO Engineering Services — solar, electrical, security, automation and ICT solutions in Lagos, Nigeria.",
   "engines": {
     "node": ">=22.12"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "dev": "next dev -p ${PORT:-3000} -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000} -H 0.0.0.0",
+    "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,css,json,md}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,css,json,md}\"",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify": "npm run lint && npm run test && npm run build"
+    "verify": "npm run build && npm run test"
   },
   "dependencies": {
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "react-router-dom": "^7.18.4"
+    "next": "^15",
+    "react": "^19",
+    "react-dom": "^19"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
@@ -31,11 +29,11 @@
     "@testing-library/user-event": "^14.6.7",
     "@vitejs/plugin-react": "^6.1.1",
     "eslint": "^9.39.5",
+    "eslint-config-next": "^15",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.7",
     "globals": "^17.12.0",
     "jsdom": "^30.1.1",
     "prettier": "^3.9.9",

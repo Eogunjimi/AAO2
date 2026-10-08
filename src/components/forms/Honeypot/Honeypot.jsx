@@ -1,3 +1,5 @@
+'use client';
+
 import { HONEYPOT_FIELD } from '@/hooks/useLeadForm';
 
 import styles from './Honeypot.module.css';

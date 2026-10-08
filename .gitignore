@@ -3,7 +3,11 @@ node_modules/
 .pnp/
 .pnp.js
 
-# build output
+# Next.js build output
+.next/
+out/
+
+# Vite build output (historical)
 dist/
 dist-ssr/
 build/

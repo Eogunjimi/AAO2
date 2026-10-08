@@ -1,3 +1,5 @@
+'use client';
+
 import { FormField } from '@/components/forms/FormField';
 import { FormSuccess } from '@/components/forms/FormSuccess';
 import { Honeypot } from '@/components/forms/Honeypot';

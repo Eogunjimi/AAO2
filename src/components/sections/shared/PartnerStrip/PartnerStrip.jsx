@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 import { Marquee } from '@/components/ui';
@@ -27,7 +29,7 @@ function PartnerMark({ partner }) {
     <span className={styles.mark}>
       {showLogo ? (
         <img
-          className={styles.logo}
+          className={cn(styles.logo, partner.id && styles[`logo-${partner.id}`])}
           src={partner.logo}
           alt={`${partner.name} logo`}
           loading="lazy"

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 import { Chip, Container, Reveal, Section, SectionHeading } from '@/components/ui';

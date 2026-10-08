@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useRef } from 'react';
 
 /** Width of one item in the rail: the first child plus the row's column gap. */

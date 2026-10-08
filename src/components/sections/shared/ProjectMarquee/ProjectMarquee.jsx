@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Container, Marquee, Section, SectionHeading } from '@/components/ui';
 import { projects } from '@/data/projects';
 import { useInView } from '@/hooks/useInView';

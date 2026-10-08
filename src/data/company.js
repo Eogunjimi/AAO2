@@ -16,8 +16,8 @@ export const company = {
   guarantee: 'Work Guaranteed',
   foundedYear: 2019,
   phone: {
-    /** Nigerian national format — how a Lagos customer reads it back to you. */
-    display: '0810 574 3694',
+    /** Display format used everywhere a visitor sees the number. */
+    display: '+234 810 574 3694',
     /** E.164, for `tel:` links and schema.org `telephone`. */
     e164: '+2348105743694',
     href: 'tel:+2348105743694',
@@ -127,7 +127,7 @@ export const certifications = [
   { id: 'nse', name: 'NSE', descriptor: 'Accredited', logo: null },
   { id: 'rean', name: 'REAN', descriptor: 'Accredited', logo: null },
   { id: 'felicity-solar', name: 'Felicity Solar', descriptor: 'Partner brand', logo: null },
-  { id: 'luminous', name: 'Luminous', descriptor: 'Partner brand', logo: null },
+  { id: 'luminous', name: 'Luminous', descriptor: 'Partner brand', logo: '/images/partners/luminous.svg' },
   { id: 'growatt', name: 'Growatt', descriptor: 'Partner brand', logo: null },
   { id: 'deye', name: 'Deye', descriptor: 'Partner brand', logo: null },
   { id: 'hikvision', name: 'Hikvision', descriptor: 'Partner brand', logo: null },

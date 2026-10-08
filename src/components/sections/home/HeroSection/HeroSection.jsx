@@ -1,3 +1,5 @@
+'use client';
+
 import { HeroQuoteBar } from '@/components/sections/home/HeroQuoteBar';
 import { Button, Container, Eyebrow, Icon, Reveal } from '@/components/ui';
 import { company } from '@/data/company';

@@ -1,4 +1,7 @@
+'use client';
+
 import { company } from '@/data/company';
+import { isDev, LEAD_ENDPOINT } from '@/lib/env';
 import { getServiceBySlug } from '@/lib/services';
 import { toE164 } from '@/lib/phone';
 
@@ -6,11 +9,12 @@ import { toE164 } from '@/lib/phone';
  * Lead submission gateway.
  *
  * The UI never talks to `fetch` directly: it calls `submitLead`, which posts to
- * `VITE_LEAD_ENDPOINT` when configured and otherwise resolves locally so the
- * site remains fully demoable without a backend.
+ * `LEAD_ENDPOINT` (or `NEXT_PUBLIC_LEAD_ENDPOINT`) when configured and
+ * otherwise resolves locally so the site remains fully demoable without a
+ * backend.
  */
 
-const ENDPOINT = import.meta.env.VITE_LEAD_ENDPOINT ?? '';
+const ENDPOINT = LEAD_ENDPOINT;
 const DEMO_LATENCY_MS = 700;
 
 export class LeadSubmissionError extends Error {
@@ -46,9 +50,9 @@ export async function submitLead(payload, { signal } = {}) {
 
   if (!ENDPOINT) {
     await delay(DEMO_LATENCY_MS, signal);
-    if (import.meta.env.DEV) {
+    if (isDev) {
       // eslint-disable-next-line no-console
-      console.info('[leads] demo mode — no VITE_LEAD_ENDPOINT configured', body);
+      console.info('[leads] demo mode — no LEAD_ENDPOINT configured', body);
     }
     return { ok: true, reference: createReference() };
   }

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router';
 
 import { Logo } from '@/components/layout/Logo';
 import { Button, Chip, Container, Icon, Marquee } from '@/components/ui';

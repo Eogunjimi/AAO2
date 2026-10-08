@@ -1,12 +1,10 @@
 import { company, serviceAreas } from '@/data/company';
 import { services } from '@/data/services';
+import { SITE_URL as ENV_SITE_URL } from '@/lib/env';
 
 /** Builders for schema.org JSON-LD payloads injected by the `<Seo />` component. */
 
-export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? 'https://www.aaoengineering.com').replace(
-  /\/$/,
-  '',
-);
+export const SITE_URL = ENV_SITE_URL;
 
 export function absoluteUrl(path = '/') {
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
