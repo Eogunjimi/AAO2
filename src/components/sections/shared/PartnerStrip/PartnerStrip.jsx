@@ -24,7 +24,7 @@ function PartnerMark({ partner }) {
   const showLogo = Boolean(partner.logo) && !logoFailed;
 
   return (
-    <span className={styles.mark}>
+    <span className={cn(styles.mark, partner.id === 'luminous' && styles.fullColor)}>
       {showLogo ? (
         <img
           className={styles.logo}

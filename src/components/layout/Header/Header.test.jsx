@@ -1,7 +1,7 @@
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { aboutMenu, getServiceMenuGroups, primaryNav } from '@/data/navigation';
 
@@ -20,6 +20,38 @@ const nav = () => screen.getByRole('navigation', { name: 'Primary' });
 const trigger = (name) => within(nav()).getByRole('button', { name: new RegExp(`^${name}$`, 'i') });
 
 describe('<Header />', () => {
+  it('closes the mobile drawer and unlocks scrolling when switching to desktop', async () => {
+    let desktop = false;
+    const listeners = new Set();
+    const originalMatchMedia = window.matchMedia;
+    window.matchMedia = vi.fn((query) => {
+      if (query !== '(min-width: 1181px)') return originalMatchMedia(query);
+      return {
+        matches: desktop,
+        media: query,
+        addEventListener: (_, listener) => listeners.add(listener),
+        removeEventListener: (_, listener) => listeners.delete(listener),
+      };
+    });
+
+    try {
+      renderHeader();
+      fireEvent.click(screen.getByLabelText('Open menu'));
+      expect(document.body.style.overflow).toBe('hidden');
+
+      act(() => {
+        desktop = true;
+        listeners.forEach((listener) => listener());
+      });
+
+      expect(screen.getByLabelText('Open menu')).toHaveAttribute('aria-expanded', 'false');
+      expect(document.body.style.overflow).not.toBe('hidden');
+      expect(screen.queryByRole('navigation', { name: 'Mobile' })).not.toBeInTheDocument();
+    } finally {
+      window.matchMedia = originalMatchMedia;
+    }
+  });
+
   it('lists the primary navigation in order', () => {
     const labels = () =>
       within(nav())

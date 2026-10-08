@@ -157,3 +157,12 @@
     padding: 1.2rem 1.05rem 1.3rem;
   }
 }
+
+/* Avoid iOS focus zoom and keep touch input text readable. */
+@media (max-width: 900px), (any-pointer: coarse) {
+  .field :global(input),
+  .field :global(select) {
+    font-size: 1rem;
+    min-height: 48px;
+  }
+}

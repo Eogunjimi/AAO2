@@ -14,6 +14,16 @@ describe('<PartnerStrip />', () => {
     expect(items[0]).toHaveTextContent(certifications[0].name);
   });
 
+  it('uses the supplied Luminous artwork in the default trust strip', () => {
+    const { container } = render(<PartnerStrip />);
+
+    const logos = container.querySelectorAll('img[alt="Luminous logo"]');
+    expect(logos).toHaveLength(2);
+    logos.forEach((logo) =>
+      expect(logo).toHaveAttribute('src', 'https://i.postimg.cc/BbDgYDsZ/luminous-transparent.png'),
+    );
+  });
+
   it('renders the real logo when the data supplies one', () => {
     const partners = [
       { id: 'with-logo', name: 'Growatt', descriptor: 'Partner brand', logo: '/x.svg' },
