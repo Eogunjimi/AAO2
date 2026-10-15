@@ -1,4 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="24" fill="#2ba8a2" />
-  <path d="M50 22L74 72H26z" fill="#ffd23f" />
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>AAO Engineering Services</title>
+  <path
+    fill="#23BA15"
+    d="M205 61h98v32l36 15 22-21 64 65 65-2-138 57a109 109 0 0 0-206 86l-62 24v-16l-32 2v-94l35-1 10-33-20-20 68-71 19 23 36-15z"
+  />
+  <path
+    fill="#1B8B0B"
+    d="m20 371 134-56a109 109 0 0 0 204-88l64-30v13h29v94h-25l-18 37 23 22-69 70-24-26-36 15v29h-97v-29l-37-15-22 25-56-63-70 2z"
+  />
+  <circle cx="256" cy="256" r="90" fill="#FFD800" />
 </svg>
