@@ -12,7 +12,7 @@ export function ContactSection({ defaultService = '' }) {
       <Reveal>
         <Eyebrow tone="ember">Contact Us</Eyebrow>
         <h2 id="contact-title">
-          Let’s Fix Your <em>Power &amp; Security</em>, Starting with a Conversation*
+          Let’s Fix Your <em>Power &amp; Security</em>, Starting with a Conversation
         </h2>
         <p className={styles.subtitle}>
           Have questions about solar sizing, inverter backup, CCTV coverage, or smart access? Tell
