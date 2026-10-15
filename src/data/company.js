@@ -37,10 +37,29 @@ export const company = {
   },
   hours: 'Mon – Sat, 8:00 – 18:00',
   responseTime: 'We reply within 24 hours',
+  /**
+   * Official profiles. Drives the footer's social icon links and the
+   * schema.org `sameAs` list, so changing a URL here updates both.
+   */
   socials: [
-    { id: 'facebook', label: 'Facebook', href: 'https://facebook.com', icon: 'facebook' },
-    { id: 'instagram', label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
-    { id: 'google', label: 'Google Business Profile', href: 'https://google.com', icon: 'google' },
+    {
+      id: 'facebook',
+      label: 'Facebook',
+      href: 'https://www.facebook.com/AAOENGINEERING/',
+      icon: 'facebook',
+    },
+    {
+      id: 'instagram',
+      label: 'Instagram',
+      href: 'https://www.instagram.com/aao_engineering_services/',
+      icon: 'instagram',
+    },
+    {
+      id: 'google',
+      label: 'Google Business Profile',
+      href: 'https://share.google/XmZ2oV4DRnutBFOQ3',
+      icon: 'google',
+    },
   ],
   credit: {
     label: 'PowerGrowthz',

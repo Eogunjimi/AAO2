@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { SITE_URL, buildBreadcrumbSchema } from './structuredData';
+import { SITE_URL, buildBreadcrumbSchema, buildLocalBusinessSchema } from './structuredData';
 
 const trail = [
   { label: 'Home', to: '/' },
@@ -44,5 +44,15 @@ describe('buildBreadcrumbSchema()', () => {
     ]);
 
     expect(schema.itemListElement[1].item).toBe(`${SITE_URL}/#areas`);
+  });
+});
+
+describe('buildLocalBusinessSchema()', () => {
+  it('lists the official social profiles in sameAs', () => {
+    expect(buildLocalBusinessSchema().sameAs).toEqual([
+      'https://www.facebook.com/AAOENGINEERING/',
+      'https://www.instagram.com/aao_engineering_services/',
+      'https://share.google/XmZ2oV4DRnutBFOQ3',
+    ]);
   });
 });
