@@ -8,6 +8,7 @@ export const paths = {
   blogPost: (slug) => `/blog/${slug}`,
   serviceArea: (slug) => `/service-areas/${slug}`,
   service: (slug) => `/services/${slug}`,
+  contact: '/contact',
   team: '/team',
   career: '/career',
   academy: '/academy',
@@ -26,5 +27,4 @@ export const anchors = {
   insights: '/#insights',
   faq: '/#faq',
   areas: '/#areas',
-  contact: '/#contact',
 };

@@ -1,5 +1,5 @@
 import { Accordion, Button, Container, Reveal, Section, SectionHeading } from '@/components/ui';
-import { anchors } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './FaqBand.module.css';
 
@@ -23,7 +23,7 @@ export function FaqBand({ id, title, faqs }) {
         </Reveal>
 
         <div className={styles.footer}>
-          <Button to={anchors.contact}>Talk to an AAO Expert</Button>
+          <Button to={paths.contact}>Talk to an AAO Expert</Button>
         </div>
       </Container>
     </Section>

@@ -71,6 +71,40 @@ export const serviceFaqs = ['original-products', 'inspection', 'payment-plans', 
   },
 );
 
+/** Asked about reaching AAO, on the contact page. */
+export const contactFaqs = [
+  {
+    id: 'response-time',
+    question: 'How quickly will AAO get back to me?',
+    answer:
+      'We reply within 24 hours — and usually much sooner. Calls and WhatsApp messages are answered directly during office hours (Mon – Sat, 8:00 – 18:00); form enquiries are picked up first thing each morning.',
+  },
+  {
+    id: 'inspection-cost',
+    question: 'Is the site inspection really free?',
+    answer:
+      'Yes. The inspection, the assessment and the quote are all free, with no obligation to proceed. We measure, check what you already have, and only recommend what the numbers justify.',
+  },
+  {
+    id: 'what-to-include',
+    question: 'What should I include in my message?',
+    answer:
+      'The property type, your location, and what you need — a solar system, backup power, CCTV, a smart gate or a rewire. Photos of the space or the problem help us size the job accurately before we visit.',
+  },
+  {
+    id: 'urgent-fault',
+    question: 'I have a blackout or a security fault right now — what do I do?',
+    answer:
+      'Call 0810 574 3694 rather than writing. Phone and WhatsApp are answered during office hours, and urgent faults are prioritised over form enquiries.',
+  },
+  {
+    id: 'outside-lagos',
+    question: 'Do you work outside Lagos?',
+    answer:
+      'Our crews are based in Lagos and cover every neighbourhood in the city. For larger commercial projects elsewhere in Nigeria, tell us the location in your message and we will plan the visit.',
+  },
+];
+
 /** Asked about the work itself, on the projects page. */
 export const projectFaqs = [
   {

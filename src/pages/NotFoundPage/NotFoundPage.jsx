@@ -4,7 +4,7 @@ import { Seo } from '@/components/common/Seo';
 import { Button, Container, Eyebrow } from '@/components/ui';
 import { company } from '@/data/company';
 import { services } from '@/data/services';
-import { anchors, paths } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './NotFoundPage.module.css';
 
@@ -25,7 +25,7 @@ export default function NotFoundPage() {
 
         <div className={styles.actions}>
           <Button to={paths.home}>Back to home</Button>
-          <Button to={anchors.contact} variant="ghost">
+          <Button to={paths.contact} variant="ghost">
             Book a free site inspection
           </Button>
         </div>

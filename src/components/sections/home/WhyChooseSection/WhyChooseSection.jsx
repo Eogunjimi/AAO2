@@ -1,6 +1,6 @@
 import { Button, Container, Icon, Reveal, Section, SectionHeading } from '@/components/ui';
 import { differentiators } from '@/data/differentiators';
-import { anchors } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './WhyChooseSection.module.css';
 
@@ -33,7 +33,7 @@ export function WhyChooseSection() {
         </ul>
 
         <div className={styles.footer}>
-          <Button to={anchors.contact}>Book Your Free Site Inspection</Button>
+          <Button to={paths.contact}>Book Your Free Site Inspection</Button>
         </div>
       </Container>
     </Section>

@@ -28,13 +28,19 @@ const SCHEMA = {
 
 const MESSAGE_LIMIT = 1000;
 
-/** Full enquiry form used in the contact band. */
-export function ContactForm({ defaultService = '' }) {
+/**
+ * Full enquiry form used in the contact band and on the contact page.
+ *
+ * @param {Object} props
+ * @param {string} [props.defaultService] Pre-selected service slug.
+ * @param {string} [props.source] Identifies which surface sent the lead.
+ */
+export function ContactForm({ defaultService = '', source = 'contact-form' }) {
   const serviceOptions = getServiceOptions();
   const form = useLeadForm({
     initialValues: { ...INITIAL_VALUES, service: defaultService },
     schema: SCHEMA,
-    source: 'contact-form',
+    source,
   });
 
   if (form.isSuccess) {

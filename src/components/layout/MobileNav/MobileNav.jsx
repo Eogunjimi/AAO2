@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui';
 import { company, navbarCtaLabel } from '@/data/company';
 import { cn } from '@/lib/cn';
-import { anchors, paths } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './MobileNav.module.css';
 
@@ -131,7 +131,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
           )}
 
           <li>
-            <Link to={anchors.contact} className={styles.link} onClick={onNavigate}>
+            <Link to={paths.contact} className={styles.link} onClick={onNavigate}>
               Contact Us
             </Link>
           </li>
@@ -139,7 +139,7 @@ export function MobileNav({ id, open, serviceGroups, aboutLinks, areaLinks, onNa
       </nav>
 
       <div className={styles.footer}>
-        <Button to={anchors.contact} variant="volt" block onClick={onNavigate}>
+        <Button to={paths.contact} variant="volt" block onClick={onNavigate}>
           {navbarCtaLabel}
         </Button>
         <a className={styles.phone} href={company.phone.href}>

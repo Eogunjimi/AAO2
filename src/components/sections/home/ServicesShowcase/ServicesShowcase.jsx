@@ -15,7 +15,7 @@ import { useCarousel } from '@/hooks/useCarousel';
 import { useInView } from '@/hooks/useInView';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { cn } from '@/lib/cn';
-import { anchors, paths } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './ServicesShowcase.module.css';
 
@@ -191,7 +191,7 @@ export function ServicesShowcase() {
         </Reveal>
 
         <div className={styles.footer}>
-          <Button to={anchors.contact}>Get Your Quote Now</Button>
+          <Button to={paths.contact}>Get Your Quote Now</Button>
         </div>
       </Container>
     </Section>

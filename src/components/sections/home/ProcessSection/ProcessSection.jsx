@@ -4,7 +4,7 @@ import { useCarousel } from '@/hooks/useCarousel';
 import { useInView } from '@/hooks/useInView';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { cn } from '@/lib/cn';
-import { anchors } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './ProcessSection.module.css';
 
@@ -118,7 +118,7 @@ export function ProcessSection({
             </p>
 
             <div className={styles.links}>
-              <Button to={anchors.contact}>Book Your Free Site Visit</Button>
+              <Button to={paths.contact}>Book Your Free Site Visit</Button>
             </div>
           </>
         ) : null}
