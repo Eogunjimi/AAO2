@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.aaoengineering.com/sitemap.xml
+Sitemap: https://www.aaoengineering.com.ng/sitemap.xml

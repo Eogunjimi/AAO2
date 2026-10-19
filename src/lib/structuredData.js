@@ -3,7 +3,7 @@ import { services } from '@/data/services';
 
 /** Builders for schema.org JSON-LD payloads injected by the `<Seo />` component. */
 
-export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? 'https://www.aaoengineering.com').replace(
+export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? 'https://www.aaoengineering.com.ng').replace(
   /\/$/,
   '',
 );

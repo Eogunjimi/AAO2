@@ -70,7 +70,7 @@ export default defineConfig(({ mode }) => {
   // Mirrors the default in src/lib/structuredData.js — one source of truth
   // would be nicer, but the config runs in Node before the app bundle exists.
   const env = loadEnv(mode, process.cwd(), '');
-  const siteUrl = (env.VITE_SITE_URL || 'https://www.aaoengineering.com').replace(/\/$/, '');
+  const siteUrl = (env.VITE_SITE_URL || 'https://www.aaoengineering.com.ng').replace(/\/$/, '');
 
   return {
     plugins: [react(), sitemapPlugin(siteUrl)],
