@@ -1,6 +1,7 @@
 import { company } from '@/data/company';
 import { getServiceBySlug } from '@/lib/services';
 import { toE164 } from '@/lib/phone';
+import { trackEvent } from '@/lib/analytics';
 
 /**
  * Lead submission gateway.
@@ -50,7 +51,7 @@ export async function submitLead(payload, { signal } = {}) {
       // eslint-disable-next-line no-console
       console.info('[leads] demo mode — no VITE_LEAD_ENDPOINT configured', body);
     }
-    return { ok: true, reference: createReference() };
+    return recordLead(payload, createReference());
   }
 
   let response;
@@ -75,7 +76,16 @@ export async function submitLead(payload, { signal } = {}) {
   }
 
   const data = await response.json().catch(() => ({}));
-  return { ok: true, reference: data.reference ?? createReference() };
+  return recordLead(payload, data.reference ?? createReference());
+}
+
+/** Fires the GA4 `generate_lead` conversion (no-op unless GA is configured). */
+function recordLead(payload, reference) {
+  trackEvent('generate_lead', {
+    form_source: payload.source ?? 'unknown',
+    service: payload.service ?? undefined,
+  });
+  return { ok: true, reference };
 }
 
 /**
