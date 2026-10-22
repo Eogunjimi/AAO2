@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 
 import { company } from '@/data/company';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
+import { recordServerHead } from '@/lib/serverHead';
 import { absoluteUrl } from '@/lib/structuredData';
 
 /**
@@ -17,14 +18,18 @@ import { absoluteUrl } from '@/lib/structuredData';
 export function Seo({ title, description, image, noIndex = false, jsonLd }) {
   const { pathname } = useLocation();
 
-  useDocumentMeta({
+  const meta = {
     title: title.includes(company.name) ? title : `${title} — ${company.name}`,
     description: description ?? company.description,
     canonical: absoluteUrl(pathname),
     image: image ? absoluteUrl(image) : undefined,
     noIndex,
     jsonLd,
-  });
+  };
+
+  // No-op in the browser; lets the build pre-render this page's <head>.
+  recordServerHead(meta);
+  useDocumentMeta(meta);
 
   return null;
 }
