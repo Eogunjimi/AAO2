@@ -1,15 +1,24 @@
 /**
  * Google Analytics 4 (gtag.js) integration.
  *
- * Enabled only when VITE_GA_MEASUREMENT_ID (e.g. "G-XXXXXXXXXX") is set at
- * build time. With no ID every function here is a silent no-op, so local dev
- * and forks never send data.
+ * Enabled by default with the production property. Setting
+ * VITE_GA_MEASUREMENT_ID to an empty value disables every function here (they
+ * become silent no-ops), which is useful for local development.
  *
  * Automatic page views are disabled because this is a single-page app: the
  * router-aware <AnalyticsTracker /> sends a page_view on every navigation.
  */
 
-export const GA_MEASUREMENT_ID = (import.meta.env.VITE_GA_MEASUREMENT_ID ?? '').trim();
+/** Production property. Measurement IDs are public (they appear in every page's source). */
+const DEFAULT_GA_MEASUREMENT_ID = 'G-VX0E8TB5TK';
+
+/**
+ * Unset → the default property. Set to an empty string (e.g. in a local .env)
+ * to turn tracking off.
+ */
+export const GA_MEASUREMENT_ID = (
+  import.meta.env.VITE_GA_MEASUREMENT_ID ?? DEFAULT_GA_MEASUREMENT_ID
+).trim();
 
 let initialised = false;
 

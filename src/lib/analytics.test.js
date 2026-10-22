@@ -8,10 +8,10 @@ function resetWindow() {
     .forEach((script) => script.remove());
 }
 
-describe('analytics (no measurement ID configured)', () => {
+describe('analytics (disabled with an empty measurement ID)', () => {
   beforeEach(() => {
     vi.resetModules();
-    vi.unstubAllEnvs();
+    vi.stubEnv('VITE_GA_MEASUREMENT_ID', '');
     resetWindow();
   });
 
@@ -71,5 +71,22 @@ describe('analytics (measurement ID configured)', () => {
 
     const lead = window.dataLayer.find((args) => args[1] === 'generate_lead');
     expect(lead[2]).toEqual({ form_source: 'contact-page' });
+  });
+});
+
+describe('analytics (default production property)', () => {
+  beforeEach(() => {
+    vi.resetModules();
+    vi.unstubAllEnvs();
+    resetWindow();
+  });
+
+  it('is enabled with the production G- ID when no override is set', async () => {
+    const analytics = await import('./analytics');
+    analytics.initAnalytics();
+
+    expect(analytics.GA_MEASUREMENT_ID).toBe('G-VX0E8TB5TK');
+    expect(analytics.isAnalyticsEnabled()).toBe(true);
+    expect(document.querySelector('script[src*="id=G-VX0E8TB5TK"]')).not.toBeNull();
   });
 });
