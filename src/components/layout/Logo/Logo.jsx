@@ -31,11 +31,7 @@ export function Logo({ tone = 'default', className }) {
       ) : (
         <Img
           className={styles.artwork}
-          src="https://i.postimg.cc/FHPBJyKm/AAO-engineering-logo.png"
-          // Matches the fixed 48px box in Logo.module.css (object-fit: contain), so the
-          // browser reserves the same space it already uses. Rendering is unchanged.
-          width={48}
-          height={48}
+          src="/images/aao-engineering-logo.png"
           alt=""
           decoding="async"
           onError={() => setImageFailed(true)}

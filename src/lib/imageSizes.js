@@ -2,6 +2,7 @@
 export const imageSizes = {
   '/images/aao-cctv.jpg': { width: 1672, height: 941 },
   '/images/aao-electrical.jpg': { width: 1672, height: 941 },
+  '/images/aao-engineering-logo.png': { width: 681, height: 567 },
   '/images/aao-gate.jpg': { width: 1408, height: 768 },
   '/images/aao-network.jpg': { width: 1672, height: 941 },
   '/images/about-engineer.jpg': { width: 922, height: 1152 },
