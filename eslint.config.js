@@ -7,7 +7,10 @@ import globals from 'globals';
 import prettier from 'eslint-config-prettier';
 
 export default [
-  { ignores: ['dist/**', 'coverage/**', 'legacy/**', 'node_modules/**'] },
+  {
+    // .claude/ is the vendored SEO & AEO toolkit (third-party tooling); kept verbatim.
+    ignores: ['dist/**', 'coverage/**', 'legacy/**', 'node_modules/**', '.claude/**'],
+  },
   js.configs.recommended,
   {
     files: ['**/*.{js,jsx}'],

@@ -35,3 +35,13 @@ Thumbs.db
 .eslintcache
 .vite/
 *.tsbuildinfo
+
+# SEO & AEO toolkit (.claude/)
+!.vscode/settings.json
+*.swp
+.google-indexing-key.json
+.claude/settings.local.json
+SEO-AEO-PROGRESS.md
+MIGRATION-URL-INVENTORY.md
+MIGRATION-RANKINGS-SNAPSHOT.md
+MIGRATION-REDIRECT-MAP.md

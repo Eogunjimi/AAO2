@@ -3,3 +3,6 @@ coverage
 legacy
 node_modules
 package-lock.json
+# Vendored SEO & AEO toolkit — kept verbatim so upstream updates merge cleanly.
+.claude
+docs/seo-aeo-toolkit
