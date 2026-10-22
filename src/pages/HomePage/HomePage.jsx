@@ -27,7 +27,7 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        title={`${company.name} — Power & Security Solutions in Lagos`}
+        title={`${company.name} — Power & Security in Lagos`}
         description={company.description}
         image="/images/ion-hero.jpg"
         jsonLd={jsonLd}

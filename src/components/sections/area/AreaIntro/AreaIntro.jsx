@@ -4,6 +4,8 @@ import { company } from '@/data/company';
 
 import styles from './AreaIntro.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /**
  * Opening block of a service-area page: the quote form, the local
  * introduction and a photograph of a property in the area running on solar.
@@ -29,7 +31,7 @@ export function AreaIntro({ area }) {
             </h2>
 
             <figure className={styles.figure}>
-              <img
+              <Img
                 src={area.introImage}
                 alt={`A property in ${area.name} running on a solar and inverter system installed by ${company.name}`}
                 loading="lazy"

@@ -22,6 +22,8 @@ import { paths } from '@/routes/paths';
 
 import styles from './ContactPage.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 const breadcrumb = [{ label: 'Home', to: paths.home }, { label: 'Contact Us' }];
 
 const INSTALLS = trustChips.find((chip) => chip.id === 'installs');
@@ -112,7 +114,7 @@ export default function ContactPage() {
           two things a contact visitor wants immediately: a headline that
           promises a conversation, and the fastest channels up top. */}
       <section className={styles.hero} aria-labelledby="contact-title">
-        <img className={styles.backdrop} src="/images/hero-solar.jpg" alt="" aria-hidden="true" />
+        <Img className={styles.backdrop} src="/images/hero-solar.jpg" alt="" aria-hidden="true" />
         <span className={styles.scrim} aria-hidden="true" />
 
         <Container className={styles.heroInner}>

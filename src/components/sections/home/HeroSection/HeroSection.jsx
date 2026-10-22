@@ -8,6 +8,8 @@ import { paths } from '@/routes/paths';
 
 import styles from './HeroSection.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 const reviewAvatars = [
   { id: 'homeowner', src: '/images/hero-avatar-1.webp', alt: 'Nigerian homeowner' },
   { id: 'contractor', src: '/images/hero-avatar-2.webp', alt: 'Nigerian contractor' },
@@ -38,7 +40,7 @@ export function HeroSection() {
         <div className={styles.slideTrack} style={{ transform: `translateX(-${index * 100}%)` }}>
           {heroSlides.map((slide, slideIndex) => (
             <div key={slide.id} className={styles.backgroundSlide}>
-              <img
+              <Img
                 src={slide.image}
                 alt=""
                 loading={slideIndex === 0 ? 'eager' : 'lazy'}
@@ -73,7 +75,7 @@ export function HeroSection() {
               <ul className={styles.reviewAvatars} aria-label="Customers">
                 {reviewAvatars.map((avatar) => (
                   <li key={avatar.id} className={styles.reviewAvatar}>
-                    <img src={avatar.src} alt={avatar.alt} loading="eager" decoding="async" />
+                    <Img src={avatar.src} alt={avatar.alt} loading="eager" decoding="async" />
                   </li>
                 ))}
               </ul>

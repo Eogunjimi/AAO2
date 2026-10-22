@@ -6,6 +6,8 @@ import { paths } from '@/routes/paths';
 
 import styles from './RelatedServices.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /**
  * Cross-links out of a service page: siblings from the same category first,
  * then the rest of the catalogue, plus a route back to the index.
@@ -43,7 +45,7 @@ export function RelatedServices({ slug, limit = 3 }) {
             <Reveal as="li" key={service.slug} delay={index * 60}>
               <Link to={paths.service(service.slug)} className={styles.card}>
                 <span className={styles.thumb}>
-                  <img src={service.image} alt={service.title} loading="lazy" decoding="async" />
+                  <Img src={service.image} alt={service.title} loading="lazy" decoding="async" />
                 </span>
                 <span className={styles.body}>
                   <span className={styles.category}>{service.category}</span>

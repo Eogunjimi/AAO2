@@ -5,6 +5,8 @@ import { trustChips } from '@/data/company';
 
 import styles from './PageHero.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 const INSTALLS = trustChips.find((chip) => chip.id === 'installs');
 
 const REVIEW_BADGES = [
@@ -44,7 +46,7 @@ function Headline({ title, keyword }) {
 export function PageHero({ id, title, keyword, subtitle, image, eyebrow, breadcrumb }) {
   return (
     <section className={styles.hero} aria-labelledby={id}>
-      <img className={styles.backdrop} src={image} alt="" aria-hidden="true" />
+      <Img className={styles.backdrop} src={image} alt="" aria-hidden="true" />
       <span className={styles.scrim} aria-hidden="true" />
 
       <Container className={styles.inner}>

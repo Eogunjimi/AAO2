@@ -15,8 +15,8 @@ export default function ProjectsPage() {
   return (
     <>
       <Seo
-        title="Projects — completed solar, security and electrical installations in Lagos"
-        description="See completed AAO Engineering Services installations across Lagos: solar and inverter systems, CCTV and access control, electrical rewires, automatic gates and commercial hybrid power."
+        title="Projects — solar, security & electrical work in Lagos"
+        description="Completed AAO Engineering Services installations across Lagos: solar and inverter systems, CCTV, access control, rewires, automatic gates and hybrid power."
         jsonLd={[buildFaqSchema(projectFaqs), buildBreadcrumbSchema(breadcrumb)]}
       />
 

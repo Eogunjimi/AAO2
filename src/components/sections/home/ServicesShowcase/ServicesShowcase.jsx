@@ -19,6 +19,8 @@ import { paths } from '@/routes/paths';
 
 import styles from './ServicesShowcase.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 const AUTOPLAY_MS = 5200;
 const MOBILE_QUERY = '(max-width: 900px)';
 const SCROLL_SYNC_DELAY = 140;
@@ -129,7 +131,7 @@ export function ServicesShowcase() {
                     }
                   }}
                 >
-                  <img src={service.image} alt={service.alt} loading="lazy" decoding="async" />
+                  <Img src={service.image} alt={service.alt} loading="lazy" decoding="async" />
                   <div className={styles.body}>
                     <h3 className={styles.cardTitle}>{service.label}</h3>
                     <p className={cn(styles.description, isActive && styles.descriptionVisible)}>

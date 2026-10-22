@@ -7,6 +7,8 @@ import { cn } from '@/lib/cn';
 
 import styles from './PastWorks.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 const ALL = 'All';
 
 /** Filters offered above the grid: every catalogue category that has work. */
@@ -61,7 +63,7 @@ export function PastWorks({ title, description }) {
             <Reveal as="li" key={project.id} className={styles.card} delay={index * 60}>
               <article>
                 <div className={styles.media}>
-                  <img
+                  <Img
                     src={project.image}
                     alt={project.alt}
                     loading={index < 3 ? 'eager' : 'lazy'}

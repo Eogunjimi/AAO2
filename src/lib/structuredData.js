@@ -104,6 +104,25 @@ export function buildBreadcrumbSchema(crumbs) {
   };
 }
 
+/**
+ * ItemList schema for a catalogue page (e.g. the services index).
+ *
+ * @param {Array<{title: string, slug: string}>} items
+ */
+export function buildItemListSchema(items) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.title,
+      url: absoluteUrl(`/services/${item.slug}`),
+    })),
+  };
+}
+
 export function buildFaqSchema(faqs) {
   return {
     '@context': 'https://schema.org',

@@ -5,6 +5,8 @@ import { paths } from '@/routes/paths';
 
 import styles from './ProjectMarquee.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /**
  * Self-scrolling strip of completed work.
  *
@@ -36,7 +38,7 @@ export function ProjectMarquee({ title, description }) {
         <Marquee speed={52} paused={!inView} className={styles.rail}>
           {projects.map((project) => (
             <figure key={project.id} className={styles.tile}>
-              <img src={project.image} alt="" loading="lazy" decoding="async" />
+              <Img src={project.image} alt="" loading="lazy" decoding="async" />
               <figcaption className={styles.caption}>
                 <b>{project.title}</b>
                 <span>{project.location}</span>

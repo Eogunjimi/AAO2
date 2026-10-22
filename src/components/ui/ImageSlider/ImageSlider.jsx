@@ -5,6 +5,8 @@ import { cn } from '@/lib/cn';
 
 import styles from './ImageSlider.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /**
  * Image carousel with captions, arrows, optional dots, swipe and autoplay.
  *
@@ -55,7 +57,7 @@ export function ImageSlider({
             aria-roledescription="slide"
             aria-label={`${slideIndex + 1} of ${slides.length}`}
           >
-            <img
+            <Img
               src={slide.image}
               alt={slide.alt}
               loading={slideIndex === 0 ? loading : 'lazy'}

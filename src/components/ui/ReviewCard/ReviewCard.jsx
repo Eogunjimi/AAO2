@@ -5,6 +5,8 @@ import { initials } from '@/lib/text';
 
 import styles from './ReviewCard.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /** Review platforms we syndicate from, mapped to the icon registry. */
 const SOURCE_ICONS = {
   Google: 'google',
@@ -50,7 +52,7 @@ export function ReviewCard({ review, showSource = true, className }) {
         */}
         <span className={styles.avatar} aria-hidden="true">
           {review.avatar ? (
-            <img
+            <Img
               className={styles.avatarImage}
               src={review.avatar}
               alt=""

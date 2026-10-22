@@ -3,6 +3,8 @@ import { company } from '@/data/company';
 
 import styles from './AboutSection.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /**
  * Company story beside a portrait of the founder at work.
  *
@@ -68,7 +70,7 @@ export function AboutSection() {
 
           <Reveal className={styles.media}>
             <figure className={styles.figure}>
-              <img
+              <Img
                 src="/images/about-engineer.jpg"
                 alt={`${company.founder}, ${company.founderRole} of ${company.name}, testing a household inverter and distribution board with a multimeter`}
                 loading="lazy"

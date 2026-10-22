@@ -4,6 +4,8 @@ import { company } from '@/data/company';
 
 import styles from './ServiceBrief.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /**
  * The body of a service page: the quote form, the long-form introduction and
  * what the customer gets.
@@ -30,7 +32,7 @@ export function ServiceBrief({ service, page }) {
             </h2>
 
             <figure className={styles.figure}>
-              <img
+              <Img
                 src={page.introImage}
                 alt={`${service.title} by ${company.name}`}
                 loading="lazy"

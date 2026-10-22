@@ -31,8 +31,8 @@ export default function ServiceAreaPage() {
   return (
     <>
       <Seo
-        title={`Solar & Inverter Installation in ${area.name} | ${company.shortName} Engineering`}
-        description={area.intro[0]}
+        title={`Solar & Inverter in ${area.name}`}
+        description={`Solar and inverter installation in ${area.name}. Free site inspection, original products and warranty on every job.`}
         image={area.heroImage}
         jsonLd={[buildFaqSchema(faqs), buildBreadcrumbSchema(breadcrumb)]}
       />

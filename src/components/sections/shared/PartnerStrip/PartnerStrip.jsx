@@ -7,6 +7,8 @@ import { cn } from '@/lib/cn';
 
 import styles from './PartnerStrip.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /**
  * One mark in the strip.
  *
@@ -26,7 +28,7 @@ function PartnerMark({ partner }) {
   return (
     <span className={cn(styles.mark, partner.id === 'luminous' && styles.fullColor)}>
       {showLogo ? (
-        <img
+        <Img
           className={styles.logo}
           src={partner.logo}
           alt={`${partner.name} logo`}

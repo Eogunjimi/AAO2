@@ -7,6 +7,8 @@ import { paths } from '@/routes/paths';
 
 import styles from './PostCard.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /**
  * Editorial card for a single post, linking to the full article.
  *
@@ -39,7 +41,7 @@ export function PostCard({ post, ctaVariant = 'ghost', className }) {
   return (
     <article className={cn(styles.card, className)}>
       <div className={styles.thumb}>
-        <img src={post.image} alt={post.alt} loading="lazy" decoding="async" />
+        <Img src={post.image} alt={post.alt} loading="lazy" decoding="async" />
       </div>
 
       <div className={styles.body}>

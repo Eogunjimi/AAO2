@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
-import { SITE_URL, buildBreadcrumbSchema, buildLocalBusinessSchema } from './structuredData';
+import {
+  SITE_URL,
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildLocalBusinessSchema,
+} from './structuredData';
 
 const trail = [
   { label: 'Home', to: '/' },
@@ -53,6 +58,32 @@ describe('buildLocalBusinessSchema()', () => {
       'https://www.facebook.com/AAOENGINEERING/',
       'https://www.instagram.com/aao_engineering_services/',
       'https://share.google/XmZ2oV4DRnutBFOQ3',
+    ]);
+  });
+});
+
+describe('buildItemListSchema()', () => {
+  it('lists each item in order with an absolute URL', () => {
+    const schema = buildItemListSchema([
+      { title: 'CCTV Systems', slug: 'cctv' },
+      { title: 'Intercom Systems', slug: 'intercom' },
+    ]);
+
+    expect(schema['@type']).toBe('ItemList');
+    expect(schema.numberOfItems).toBe(2);
+    expect(schema.itemListElement).toEqual([
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'CCTV Systems',
+        url: `${SITE_URL}/services/cctv`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Intercom Systems',
+        url: `${SITE_URL}/services/intercom`,
+      },
     ]);
   });
 });

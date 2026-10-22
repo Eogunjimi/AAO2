@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom';
 import { Seo } from '@/components/common/Seo';
 import { ContactSection, ProcessSection } from '@/components/sections/home';
 import { Button, Container, Eyebrow, Reveal, Section, SectionHeading } from '@/components/ui';
+import { Img } from '@/components/ui/Img';
 import { company } from '@/data/company';
+import { services } from '@/data/services';
 import { getServicesByCategory } from '@/lib/services';
+import { buildBreadcrumbSchema, buildItemListSchema } from '@/lib/structuredData';
 import { paths } from '@/routes/paths';
 
 import styles from './ServicesPage.module.css';
+
+// Static catalogue data, so these arrays keep a stable identity across renders.
+const servicesJsonLd = [
+  buildBreadcrumbSchema([{ label: 'Home', to: '/' }, { label: 'Services' }]),
+  buildItemListSchema(services),
+];
 
 /** Catalogue of every service, grouped by category. */
 export default function ServicesPage() {
@@ -19,6 +28,7 @@ export default function ServicesPage() {
         title="Services — Solar, Electrical, Security & ICT"
         description="Solar, electrical, CCTV, access control, automation and ICT services by AAO Engineering Services — assessed properly, installed neatly, supported for life."
         image="/images/hero-solar.jpg"
+        jsonLd={servicesJsonLd}
       />
 
       <section className={styles.hero} aria-labelledby="services-hero-title">
@@ -64,7 +74,7 @@ export default function ServicesPage() {
                 <Reveal as="li" key={service.slug} delay={index * 60}>
                   <Link to={paths.service(service.slug)} className={styles.card}>
                     <span className={styles.thumb}>
-                      <img
+                      <Img
                         src={service.image}
                         alt={service.title}
                         loading="lazy"

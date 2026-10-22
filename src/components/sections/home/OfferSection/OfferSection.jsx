@@ -6,6 +6,8 @@ import { paths } from '@/routes/paths';
 
 import styles from './OfferSection.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /** Seasonal solar promotion band. */
 export function OfferSection() {
   return (
@@ -49,7 +51,7 @@ export function OfferSection() {
         </Reveal>
 
         <Reveal className={styles.image} delay={120}>
-          <img
+          <Img
             src={seasonalOffer.image.src}
             alt={seasonalOffer.image.alt}
             loading="lazy"

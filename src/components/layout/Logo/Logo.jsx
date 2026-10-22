@@ -7,6 +7,8 @@ import { paths } from '@/routes/paths';
 
 import styles from './Logo.module.css';
 
+import { Img } from '@/components/ui/Img';
+
 /**
  * Brand artwork, linking home, with a text fallback if the image is unavailable.
  *
@@ -27,9 +29,13 @@ export function Logo({ tone = 'default', className }) {
           {company.shortName}
         </span>
       ) : (
-        <img
+        <Img
           className={styles.artwork}
           src="https://i.postimg.cc/FHPBJyKm/AAO-engineering-logo.png"
+          // Matches the fixed 48px box in Logo.module.css (object-fit: contain), so the
+          // browser reserves the same space it already uses. Rendering is unchanged.
+          width={48}
+          height={48}
           alt=""
           decoding="async"
           onError={() => setImageFailed(true)}
