@@ -3,9 +3,7 @@ import { fileURLToPath, URL } from 'node:url';
 import react from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
 
-import { serviceAreaPages } from './src/data/areas.js';
-import { posts } from './src/data/posts.js';
-import { services } from './src/data/services.js';
+import { getIndexableRoutes } from './src/lib/indexableRoutes.js';
 
 /**
  * Vite configuration.
@@ -31,18 +29,10 @@ function escapeXml(value) {
 function sitemapPlugin(siteUrl) {
   const lastmod = (date) => `<lastmod>${date}</lastmod>`;
 
-  const entries = [
-    { path: '/' },
-    { path: '/services' },
-    ...services.map((service) => ({ path: `/services/${service.slug}` })),
-    { path: '/projects' },
-    { path: '/blog' },
-    ...posts.map((post) => ({
-      path: `/blog/${post.slug}`,
-      lastmod: lastmod(post.publishedAt),
-    })),
-    ...serviceAreaPages.map((area) => ({ path: `/service-areas/${area.slug}` })),
-  ];
+  const entries = getIndexableRoutes().map(({ path, lastmod: date }) => ({
+    path,
+    lastmod: date ? lastmod(date) : undefined,
+  }));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -95,6 +85,8 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'dist',
       sourcemap: true,
+      // Maps each page to its CSS so the pre-renderer can link it (scripts/prerender.mjs).
+      manifest: true,
       rollupOptions: {
         output: {
           // Keep third-party code in its own long-lived cache entry.

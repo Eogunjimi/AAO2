@@ -49,7 +49,7 @@ export default [
     languageOptions: { globals: { ...globals.node, ...globals.vitest } },
   },
   {
-    files: ['*.config.js', 'scripts/**/*.js'],
+    files: ['*.config.js', 'scripts/**/*.{js,mjs}'],
     languageOptions: { globals: { ...globals.node } },
   },
   prettier,
