@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { Button, Container, Eyebrow, Reveal, Section } from '@/components/ui';
 import { seasonalOffer } from '@/data/offer';
-import { anchors, paths } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './OfferSection.module.css';
 
@@ -29,7 +29,7 @@ export function OfferSection() {
             ))}
           </ul>
 
-          <Button to={anchors.contact} variant="volt">
+          <Button to={paths.contact} variant="volt">
             {seasonalOffer.ctaLabel}
           </Button>
           <p className={styles.urgencyNote}>

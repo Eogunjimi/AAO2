@@ -5,7 +5,7 @@ import { ContactSection, ProcessSection } from '@/components/sections/home';
 import { Button, Container, Eyebrow, Reveal, Section, SectionHeading } from '@/components/ui';
 import { company } from '@/data/company';
 import { getServicesByCategory } from '@/lib/services';
-import { anchors, paths } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './ServicesPage.module.css';
 
@@ -33,7 +33,7 @@ export default function ServicesPage() {
               the service you need, or talk to our team and we will recommend the right fit.
             </p>
             <div className={styles.actions}>
-              <Button to={anchors.contact} variant="volt">
+              <Button to={paths.contact} variant="volt">
                 Book a Free Site Inspection
               </Button>
               <Button href={company.phone.href} variant="ghost">

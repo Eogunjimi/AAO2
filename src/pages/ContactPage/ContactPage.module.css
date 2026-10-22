@@ -1,0 +1,450 @@
+/* ------------------------------------------------------------------ */
+/*  Hero — the interior-page photo hero, plus the quick channels a     */
+/*  contact visitor wants above the fold.                              */
+/* ------------------------------------------------------------------ */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(420px, 58vh, 600px);
+  padding: 5rem 0 3.4rem;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  overflow: hidden;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* Dark from the bottom so the type always has something to sit on. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(8, 8, 10, 0.92) 0%,
+    rgba(8, 8, 10, 0.72) 42%,
+    rgba(8, 8, 10, 0.42) 100%
+  );
+}
+
+.heroInner {
+  position: relative;
+}
+
+.breadcrumb {
+  margin-bottom: 1.4rem;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-on-dark-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-volt);
+}
+
+.breadcrumb li + li::before {
+  content: '/';
+  margin-right: 0.4rem;
+  opacity: 0.5;
+}
+
+.title {
+  max-width: 22ch;
+  margin: 0.9rem 0 1rem;
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  line-height: 1.06;
+  text-transform: uppercase;
+  color: var(--color-on-dark);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--color-volt);
+}
+
+.subtitle {
+  max-width: 56ch;
+  margin: 0;
+  font-size: clamp(0.98rem, 1.6vw, 1.15rem);
+  color: var(--color-on-dark-muted);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.8rem;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-on-dark);
+  background: color-mix(in srgb, var(--color-ink) 55%, transparent);
+  backdrop-filter: blur(6px);
+  font-size: 0.8rem;
+  color: var(--color-on-dark);
+}
+
+.badge b {
+  font-weight: var(--font-weight-extrabold);
+}
+
+.count {
+  color: var(--color-volt);
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.badgeLabel {
+  color: var(--color-on-dark-muted);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Contact band — channels beside the form. The band centres its      */
+/*  content, so the columns switch back to left alignment.             */
+/* ------------------------------------------------------------------ */
+
+.contactBand {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+/* Out-ranks the band's own centred `h2` treatment. */
+.contactBand .channelTitle {
+  max-width: none;
+  margin: 0.7rem 0 0.9rem;
+  text-align: left;
+}
+
+.contactGrid {
+  display: grid;
+  gap: 3.4rem;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: start;
+  text-align: left;
+}
+
+@media (max-width: 959px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 2.6rem;
+  }
+
+  /* On phones the form leads — it is the reason they are here. */
+  .formColumn {
+    order: -1;
+  }
+}
+
+.channelTitle {
+  max-width: 18ch;
+}
+
+.channelSub {
+  margin: 0;
+  color: var(--color-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.channelList {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.channel {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.15rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition:
+    transform var(--duration-fast) var(--ease),
+    box-shadow var(--duration-fast) var(--ease),
+    border-color var(--duration-fast);
+}
+
+.channel:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-teal);
+  box-shadow: var(--shadow-teal-glow);
+}
+
+.channelIcon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-teal-bg);
+  color: var(--color-teal-dark);
+}
+
+.channelBody {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.channelLabel {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-soft);
+}
+
+.channelValue {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.02rem;
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+
+.channel:hover .channelValue {
+  color: var(--color-ember);
+}
+
+.channelNote {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-gray);
+}
+
+.urgent {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-top: 1.1rem;
+  padding: 1.05rem 1.15rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-card-dark);
+  color: var(--color-on-dark);
+  text-align: left;
+}
+
+.urgent p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-on-dark-muted);
+}
+
+.urgent strong {
+  color: var(--color-on-dark);
+}
+
+.urgentIcon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  color: var(--color-ink);
+}
+
+.urgentLink {
+  color: var(--color-volt);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Mirrors the contact section's reassurance row. */
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.4rem;
+}
+
+.note {
+  margin-top: 1.8rem;
+  font-size: 0.78rem;
+  color: var(--color-gray);
+}
+
+.note a {
+  text-decoration: underline;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-ink);
+}
+
+.note a:hover {
+  color: var(--color-ember);
+}
+
+.legal {
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-soft);
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------------ */
+/*  What happens next — three steps, no fine print.                    */
+/* ------------------------------------------------------------------ */
+
+.next {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.steps {
+  display: grid;
+  gap: 1.4rem;
+  margin: 2.4rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 759px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.step {
+  position: relative;
+  padding: 1.5rem 1.35rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.step h3 {
+  margin: 0.7rem 0 0.45rem;
+  font-size: 1.08rem;
+}
+
+.step p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-gray);
+}
+
+.stepIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-teal-bg);
+  color: var(--color-teal-dark);
+}
+
+.stepNumber {
+  position: absolute;
+  top: 1.35rem;
+  right: 1.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-soft);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Closing band — the human channel, one tap away.                    */
+/* ------------------------------------------------------------------ */
+
+.closingInner {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 1.1rem;
+}
+
+.closingTitle {
+  margin: 0.4rem 0 0;
+  font-size: var(--section-title-size);
+  line-height: var(--section-title-leading);
+  text-transform: uppercase;
+}
+
+.closingTitle em {
+  font-style: italic;
+  color: var(--color-volt);
+}
+
+.closingSub {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--color-on-dark-muted);
+}
+
+.closingActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Small screens                                                      */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 0;
+    padding: 3.2rem 0 2.6rem;
+  }
+
+  .badge {
+    font-size: 0.74rem;
+    padding: 0.42rem 0.8rem;
+  }
+
+  .badgeLabel {
+    display: none;
+  }
+
+  .badges li:last-child .badgeLabel {
+    display: inline;
+  }
+}

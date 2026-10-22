@@ -15,6 +15,7 @@ const BlogPage = lazy(() => import('@/pages/BlogPage'));
 const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'));
 const ServiceAreaPage = lazy(() => import('@/pages/ServiceAreaPage'));
 const ServiceDetailPage = lazy(() => import('@/pages/ServiceDetailPage'));
+const ContactPage = lazy(() => import('@/pages/ContactPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 const ComingSoonPage = lazy(() => import('@/pages/ComingSoonPage'));
 
@@ -31,6 +32,7 @@ export function AppRoutes() {
           <Route path={paths.blog} element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/service-areas/:slug" element={<ServiceAreaPage />} />
+          <Route path={paths.contact} element={<ContactPage />} />
 
           {/* Announced in the About menu; placeholders until the real pages land. */}
           <Route path={paths.team} element={<ComingSoonPage pageKey="team" />} />

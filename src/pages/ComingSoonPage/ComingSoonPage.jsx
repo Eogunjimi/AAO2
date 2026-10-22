@@ -2,7 +2,7 @@ import { Seo } from '@/components/common/Seo';
 import { Button, Container, Eyebrow, Icon } from '@/components/ui';
 import { company, primaryCtaLabel } from '@/data/company';
 import { upcomingPages } from '@/data/pages';
-import { anchors } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './ComingSoonPage.module.css';
 
@@ -32,7 +32,7 @@ export default function ComingSoonPage({ pageKey }) {
         </ul>
 
         <div className={styles.actions}>
-          <Button to={anchors.contact}>{primaryCtaLabel}</Button>
+          <Button to={paths.contact}>{primaryCtaLabel}</Button>
           <Button href={company.phone.whatsapp} variant="whatsapp">
             <Icon name="whatsapp" size={17} />
             Chat on WhatsApp

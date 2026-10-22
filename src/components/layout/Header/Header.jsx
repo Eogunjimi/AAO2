@@ -194,7 +194,7 @@ export function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Button to={anchors.contact} variant="volt" size="sm" className={styles.cta}>
+          <Button to={paths.contact} variant="volt" size="sm" className={styles.cta}>
             {navbarCtaLabel}
           </Button>
 

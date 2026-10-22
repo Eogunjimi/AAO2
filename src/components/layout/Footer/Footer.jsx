@@ -6,7 +6,7 @@ import { serviceAreaPages } from '@/data/areas';
 import { company, navbarCtaLabel, officeAddress } from '@/data/company';
 import { footerMenus } from '@/data/navigation';
 import { featuredServices } from '@/data/services';
-import { anchors, paths } from '@/routes/paths';
+import { paths } from '@/routes/paths';
 
 import styles from './Footer.module.css';
 
@@ -85,7 +85,7 @@ export function Footer() {
             <p className={styles.note}>
               Free site inspections · Clear upfront pricing · {company.responseTime}.
             </p>
-            <Button to={anchors.contact} variant="volt">
+            <Button to={paths.contact} variant="volt">
               {navbarCtaLabel}
             </Button>
           </div>
